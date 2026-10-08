@@ -1,0 +1,7 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+import ProjectCTA from "./ProjectCTA.astro";
+const copy = draftCopy("CommunicationLine");
+
+---
+<main><section class="page-hero pad"><div><p class="eyebrow">{copy["t001"]}</p><h1>{copy["t002"]}<br />{copy["t003"]}</h1></div><div class="page-intro"><p>{copy["t004"]}</p></div></section><section class="service-secondary section pad info-split" id="servicios-comunicacion"><div><p class="eyebrow">{copy["t005"]}</p><h2>{copy["t006"]}<br />{copy["t007"]}</h2></div><div><h3>{copy["t008"]}</h3><p>{copy["t009"]}</p><div class="service-questions"><p>{copy["t010"]}</p><p>{copy["t011"]}</p></div><a class="text-link" href="/contacto/">{copy["t012"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section><section class="service-secondary section pad info-split" id="servicios-marketing"><div><p class="eyebrow">{copy["t013"]}</p><h2>{copy["t014"]}<br />{copy["t015"]}</h2></div><div><h3>{copy["t016"]}</h3><p>{copy["t017"]}</p><div class="service-questions"><p>{copy["t018"]}</p><p>{copy["t019"]}</p></div><a class="text-link" href="/contacto/">{copy["t020"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section><ProjectCTA /></main>

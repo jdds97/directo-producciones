@@ -1,0 +1,41 @@
+---
+import Header from '../components/m4/Header.astro';
+import Footer from '../components/m4/Footer.astro';
+import Menu from '../components/m4/Menu.astro';
+import { APP_ENV } from '../config/flags';
+import '../styles/m4-base.css';
+import '../styles/m4-suite.css';
+import '../styles/m4-refinements.css';
+import '../styles/site.css';
+interface Props { title: string; description?: string }
+const { title, description = 'Reproducción local del diseño Directo Producciones. Copy en borrador para revisión editorial.' } = Astro.props;
+if (APP_ENV !== 'local') throw new Error('M4 se revisa exclusivamente en local.');
+const dark = Astro.url.searchParams.get('theme') === 'dark';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Directo Producciones · Borrador</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="color-scheme" content={dark ? 'dark' : 'light'} />
+    <link rel="icon" type="image/jpeg" href="/assets/m4/logo-original.jpg" />
+    <link rel="preload" href="/assets/m4/manrope.ttf" as="font" type="font/ttf" crossorigin />
+  </head>
+  <body class:list={{'theme-dark': dark}}>
+    <div class="review-note">BORRADOR LOCAL · Copy en revisión editorial. Envíos y analítica desactivados.</div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class:list={['artboard', {'theme-dark': dark}]}>
+      <div id="design-root">
+        <Header />
+        <noscript><nav class="no-js-nav" aria-label="Navegación sin JavaScript"><a href="/">Inicio</a><a href="/servicios/">Servicios</a><a href="/clientes/">Clientes</a><a href="/quienes-somos/">Quiénes somos</a><a href="/blog/">Blog</a><a href="/contacto/">Contacto</a></nav></noscript>
+        <div id="contenido" tabindex="-1"><slot /></div>
+        <Footer />
+      </div>
+    </div>
+    <Menu />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+
+const copy = draftCopy("Articulo");
+
+---
+<main><nav aria-label={copy["t001"]} class="breadcrumb pad"><a href="/blog/">{copy["t002"]}</a><span>{copy["t003"]}</span><span>{copy["t004"]}</span></nav><section class="article-hero pad"><p class="eyebrow">{copy["t005"]}</p><h1>{copy["t006"]}<br />{copy["t007"]}</h1><p class="blog-meta">{copy["t008"]}</p></section><div class="pad"><div aria-label={copy["t009"]} class="editorial-art"><span>{copy["t010"]}</span><strong>{copy["t011"]}</strong><span>{copy["t012"]}</span></div></div><div class="article-layout pad"><nav aria-label={copy["t013"]} class="article-toc"><strong>{copy["t014"]}</strong><a href="#articulo-intro">{copy["t015"]}</a><a href="#articulo-seccion">{copy["t016"]}</a><a href="#articulo-cierre">{copy["t017"]}</a></nav><article class="article-body"><p id="articulo-intro">{copy["t018"]}</p><p>{copy["t019"]}</p><h2 id="articulo-seccion">{copy["t020"]}</h2><p>{copy["t021"]}</p><blockquote>{copy["t022"]}</blockquote><p>{copy["t023"]}</p><h2 id="articulo-cierre">{copy["t024"]}</h2><p>{copy["t025"]}</p><a class="text-link" href="/blog/">{copy["t026"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></article></div></main>

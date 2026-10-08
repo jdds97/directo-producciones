@@ -1,0 +1,8 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+import ProjectCTA from "./ProjectCTA.astro";
+
+const copy = draftCopy("Blog");
+
+---
+<main><section class="page-hero pad"><div><p class="eyebrow">{copy["t001"]}</p><h1>{copy["t002"]}<br />{copy["t003"]}</h1></div><div class="page-intro"><p>{copy["t004"]}</p></div></section><section class="pad blog-feature"><div><div aria-label={copy["t005"]} class="editorial-art"><span>{copy["t006"]}</span><strong>{copy["t007"]}</strong><span>{copy["t008"]}</span></div></div><div><p class="blog-meta">{copy["t009"]}</p><h2>{copy["t010"]}</h2><p>{copy["t011"]}</p><a class="text-link" href="/interno/articulo/">{copy["t012"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section><section class="section pad" style="padding-top:32px"><p class="eyebrow">{copy["t013"]}</p><div class="blog-list"><article class="blog-row"><p class="blog-meta">{copy["t014"]}<br />{copy["t015"]}</p><h3><a href="/interno/articulo/">{copy["t016"]}</a></h3><a aria-label={copy["t017"]} class="circle-link" href="/interno/articulo/"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></article><article class="blog-row"><p class="blog-meta">{copy["t018"]}<br />{copy["t019"]}</p><h3><a href="/interno/articulo/">{copy["t020"]}</a></h3><a aria-label={copy["t021"]} class="circle-link" href="/interno/articulo/"><svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></article></div><div class="blog-empty">{copy["t022"]}</div></section><ProjectCTA /></main>

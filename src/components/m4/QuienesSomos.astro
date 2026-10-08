@@ -1,0 +1,8 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+import ProjectCTA from "./ProjectCTA.astro";
+
+const copy = draftCopy("QuienesSomos");
+
+---
+<main><section class="page-hero pad"><div><p class="eyebrow">{copy["t001"]}</p><h1>{copy["t002"]}<br />{copy["t003"]}</h1></div><div class="page-intro"><p>{copy["t004"]}</p></div></section><section class="about-editorial section pad"><div class="about-company-heading"><div><p class="eyebrow">{copy["t005"]}</p><h2>{copy["t006"]}<br />{copy["t007"]}<br />{copy["t008"]}</h2></div><div class="about-company-copy"><p class="about-lead">{copy["t009"]}</p><p>{copy["t010"]}</p><p>{copy["t011"]}</p></div></div><div class="about-practices"><div class="about-practices-intro"><h3>{copy["t012"]}<br />{copy["t013"]}</h3><p>{copy["t014"]}</p><a class="text-link" href="/servicios/">{copy["t015"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div><div class="practice-lines"><div class="practice-line"><span>{copy["t016"]}</span><div><h3>{copy["t017"]}</h3><p>{copy["t018"]}</p></div></div><div class="practice-line"><span>{copy["t019"]}</span><div><h3>{copy["t020"]}</h3><p>{copy["t021"]}</p></div></div><div class="practice-line"><span>{copy["t022"]}</span><div><h3>{copy["t023"]}</h3><p>{copy["t024"]}</p></div></div></div></div><p class="team-pending">{copy["t025"]}</p></section><ProjectCTA variant="about" /></main>

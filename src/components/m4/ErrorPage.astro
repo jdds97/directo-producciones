@@ -1,0 +1,7 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+
+const copy = draftCopy("404");
+
+---
+<main><section class="error-page pad"><div><p class="eyebrow">{copy["t001"]}</p><p class="error-number">{copy["t002"]}</p></div><div><h1>{copy["t003"]}<br />{copy["t004"]}</h1><p>{copy["t005"]}</p><a class="button primary" href="/">{copy["t006"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a><br /><a class="text-link" href="/contacto/">{copy["t007"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section></main>

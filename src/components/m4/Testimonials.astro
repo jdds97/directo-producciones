@@ -1,0 +1,7 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+
+const copy = draftCopy("Testimonials");
+
+---
+<section class="testimonials section pad" id="testimonios"><p class="eyebrow">{copy["t001"]}</p><h2>{copy["t002"]}<br />{copy["t003"]}</h2><div class="testimonials-grid"><figure class="testimonial"><blockquote>{copy["t004"]}</blockquote><figcaption><span class="testimonial-avatar avatar-rafael"><img src="/assets/m4/portraits/rafael_gonzalez.jpg" alt={copy["t005"]} /></span><div><p class="person-name">{copy["t006"]}</p><p class="person-role">{copy["t007"]}</p></div></figcaption></figure><figure class="testimonial"><blockquote>{copy["t008"]}</blockquote><figcaption><span class="testimonial-avatar avatar-jose"><img src="/assets/m4/portraits/jose_luis_contreras.jpg" alt={copy["t009"]} /></span><div><p class="person-name">{copy["t010"]}</p><p class="person-role">{copy["t011"]}</p></div></figcaption></figure></div></section>

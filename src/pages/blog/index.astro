@@ -1,0 +1,26 @@
+---
+export const prerender = false;
+import { getEmDashCollection } from 'emdash';
+import Base from '../../layouts/Base.astro';
+import ProjectCTA from '../../components/m4/ProjectCTA.astro';
+import type { BlogPost } from '../../lib/blog';
+import { draftCopy } from '../../lib/m4-draft';
+const copy = draftCopy('Blog');
+const { entries } = await getEmDashCollection<'posts', BlogPost>('posts', { status: 'published', orderBy: { published_at: 'desc' }, limit: 50 });
+const featured = entries[0];
+const rest = entries.slice(1);
+const href = (slug: string) => `/blog/${encodeURIComponent(slug)}/`;
+---
+<Base title="Blog">
+  <main>
+    <section class="page-hero pad"><div><p class="eyebrow">{copy.t001}</p><h1>{copy.t002}<br />{copy.t003}</h1></div><div class="page-intro"><p>{copy.t004}</p></div></section>
+    {featured ? <>
+      <section class="pad blog-feature">
+        <div class="editorial-art" aria-label="Gráfico editorial conceptual"><span>Blog</span><strong>DIRECTO</strong><span>Directo Producciones</span></div>
+        <div><p class="blog-meta">{featured.data.synthetic ? 'Comprobación sintética local' : featured.data.author}</p><h2>{featured.data.title}</h2><p>{featured.data.excerpt}</p><a class="text-link" href={href(featured.id)}>Leer artículo <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a></div>
+      </section>
+      {Boolean(rest.length) && <section class="section pad" style="padding-top:32px"><p class="eyebrow">Más artículos</p><div class="blog-list">{rest.map(post => <article class="blog-row"><p class="blog-meta">{post.data.synthetic ? 'Sintético local' : post.data.author}</p><h3><a href={href(post.id)}>{post.data.title}</a></h3><a class="circle-link" href={href(post.id)} aria-label={`Leer ${post.data.title}`}><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a></article>)}</div></section>}
+    </> : <section class="pad blog-feature"><div class="editorial-art" aria-label="Gráfico editorial conceptual"><span>Blog</span><strong>DIRECTO</strong><span>Directo Producciones</span></div><div><h2>Todavía no hay artículos publicados.</h2><p>El contenido se incorporará tras su revisión editorial.</p></div></section>}
+    <ProjectCTA />
+  </main>
+</Base>

@@ -1,0 +1,7 @@
+---
+import { draftCopy } from "../../lib/m4-draft";
+
+const copy = draftCopy("Footer");
+
+---
+<footer class="footer pad"><div class="footer-top"><a class="brand" href="/" aria-label={copy["t001"]}><img class="brand-logo brand-logo-blue" src="/assets/m4/logo-original.jpg" alt={copy["t002"]} width="112" height="112" /><img class="brand-logo brand-logo-white" src="/assets/m4/logo-white.svg" alt={copy["t003"]} width="112" height="112" /></a><p>{copy["t004"]}<br />{copy["t005"]}<br />{copy["t006"]}</p><div class="footer-links"><a href="/servicios/">{copy["t007"]}</a><a href="/clientes/">{copy["t008"]}</a><a href="/quienes-somos/">{copy["t009"]}</a><a href="/blog/">{copy["t010"]}</a><a href="/contacto/">{copy["t011"]}</a></div><a href="#contenido" class="back-top">{copy["t012"]}<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"></path></svg></a></div><div class="footer-bottom"><span>{copy["t013"]}</span><div><a href="/aviso-legal/">{copy["t014"]}</a><a href="/privacidad/">{copy["t015"]}</a><a href="/cookies/">{copy["t016"]}</a></div></div></footer>
