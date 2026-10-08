@@ -1,0 +1,14 @@
+---
+export const prerender = false;
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
+import Base from '../../layouts/Base.astro';
+import type { BlogPost } from '../../lib/blog';
+const { entry, isPreview, error } = await getEmDashEntry<'posts', BlogPost>('posts', Astro.params.slug ?? '');
+if (error) throw error;
+if (!entry || isPreview) {
+  Astro.response.status = 404;
+  return Astro.rewrite('/404');
+}
+---
+<Base title={entry.data.title}><article><h1>{entry.data.title}</h1>{entry.data.excerpt && <p>{entry.data.excerpt}</p>}<PortableText value={entry.data.content} /></article></Base>

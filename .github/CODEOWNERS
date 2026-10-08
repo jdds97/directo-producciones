@@ -1,0 +1,19 @@
+# Propiedad local propuesta; requiere CODEOWNERS activo y protección de rama remota para ser exigible.
+/AGENTS.md @jdds97
+/content/facts.yaml @jdds97
+/content/approvers.yaml @jdds97
+/docs/decisions.md @jdds97
+/.github/CODEOWNERS @jdds97
+/scripts/guard-* @jdds97
+/scripts/build-local-registry.mjs @jdds97
+/src/lib/content-policy.ts @jdds97
+/src/config/flags.ts @jdds97
+/src/cms/ @jdds97
+/config/ @jdds97
+/config/editorial-review.json @jdds97
+/src/lib/editorial.ts @jdds97
+/src/lib/facts.ts @jdds97
+/src/lib/schema.ts @jdds97
+/scripts/editorial-digest.ts @jdds97
+/src/middleware.ts @jdds97
+/.github/workflows/ci.yml @jdds97

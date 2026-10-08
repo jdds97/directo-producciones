@@ -1,0 +1,40 @@
+name: Baseline CI
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: Commit base para comparar aprobaciones
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: baseline-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  content:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: local
+      LEADS_ENABLED: 'false'
+      ANALYTICS_ENABLED: 'false'
+      GUARD_BASE_REF: ${{ github.event.pull_request.base.sha || inputs.base_ref }}
+      ASTRO_TELEMETRY_DISABLED: '1'
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm audit --audit-level=high
+      - run: npm run guard-content
+      - run: npm run check
+      - run: npm run build
