@@ -1,0 +1,152 @@
+{
+  "status": "local_verified_pending_figma_in_place",
+  "targets": [
+    {
+      "key": "inicio-claro-desktop",
+      "nodeId": "35:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=35-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "index.html",
+      "changes": "Hero, enlaces de formato, marca blanca donde corresponda, franja de clientes y avatares"
+    },
+    {
+      "key": "inicio-claro-mobile",
+      "nodeId": "37:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=37-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "index.html",
+      "changes": "Hero, enlaces de formato, marca blanca donde corresponda, franja de clientes y avatares"
+    },
+    {
+      "key": "inicio-oscuro",
+      "nodeId": "41:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=41-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/inicio.html",
+      "changes": "Hero, enlaces de formato, marca blanca donde corresponda, franja de clientes y avatares"
+    },
+    {
+      "key": "servicios",
+      "nodeId": "42:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=42-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/servicios.html",
+      "changes": "Explicaciones/destinos streaming y marca blanca"
+    },
+    {
+      "key": "clientes",
+      "nodeId": "43:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=43-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/clientes.html",
+      "changes": "Franja de logos y avatares; marca blanca"
+    },
+    {
+      "key": "quienes-somos",
+      "nodeId": "44:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=44-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/quienes-somos.html",
+      "changes": "Presentación editorial recuperada y composición nueva; marca blanca"
+    },
+    {
+      "key": "blog",
+      "nodeId": "45:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=45-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/blog.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "articulo",
+      "nodeId": "46:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=46-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/articulo.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "contacto",
+      "nodeId": "47:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=47-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/contacto.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "404",
+      "nodeId": "48:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=48-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/404.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "cookies",
+      "nodeId": "49:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=49-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/cookies.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "privacidad",
+      "nodeId": "50:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=50-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/privacidad.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "aviso-legal",
+      "nodeId": "51:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=51-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/aviso-legal.html",
+      "changes": "Marca Directo blanca transparente en header/footer oscuros"
+    },
+    {
+      "key": "guia",
+      "nodeId": "53:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=53-2",
+      "operation": "Actualizar nodos existentes; no crear nuevas capturas/frames contenedores.",
+      "localSource": "suite/guia.html",
+      "changes": "Guía de marca blanca, crop de avatares, patrón de franja y destinos"
+    }
+  ],
+  "unchanged": [
+    "Original 2:1841",
+    "Exploraciones 01 19:2 / 19:3–19:8",
+    "EmDash 52:2, sin logo de imagen y sin refinamiento visual solicitado"
+  ],
+  "intermediatesPendingCleanup": [
+    "28:2",
+    "30:2",
+    "31:2",
+    "34:2"
+  ],
+  "nativeInspectionRequired": [
+    "Obtener IDs hijos reales de cada contenedor al recuperar acceso",
+    "Cargar fuentes actuales antes de mutar texto/nodos",
+    "Editar en sitio y devolver IDs realmente afectados",
+    "Comprobar 16 logos, cifras 2400/169/7 y dos citas completas dentro del resultado Figma",
+    "Revisar capturas nativas desktop/mobile, claro/oscuro; reproducir o declarar estado de motion"
+  ],
+  "nativeMotion": "No configurado ni reproducido para esta iteración. Reacciones de enlaces a Servicios y anclas también pendientes de configuración nativa.",
+  "blockedOperation": "use_figma: actualización en sitio. El error Starter registrado en evidence/cleanup-api-result.json bloqueó la operación de escritura previa antes de ejecutar el código; no se vuelve a llamar solo para confirmar.",
+  "nativeVisualReview": "MCP screenshot/vídeo agotados; navegador invitado no dibuja el lienzo y Chrome limpio devuelve CloudFront 403, según evidencias previas. Sin nuevos intentos idénticos.",
+  "required": "Disponibilidad de use_figma y lectura/captura nativa, o sesión Figma con edición cuyo lienzo se renderice. No se requiere nueva autorización del usuario para estos cambios.",
+  "newCaptureIds": [],
+  "nativeWritesInThisRefinement": 0,
+  "latestInPlaceAttempt": {
+    "date": "2026-10-08",
+    "userRequest": "dale caña y actualízalo en Figma",
+    "operation": "Actualizar titular del hero en frame existente 35:2 por use_figma",
+    "result": "Figma MCP tool call limit on Starter plan",
+    "executed": false,
+    "mutatedNodeIds": [],
+    "newFrames": 0,
+    "evidence": "refinements-01/evidence/figma-inplace-attempt.json",
+    "fallbackChecked": "Ventana externa Brave con el archivo abierta. Orca computer solo expone un frame, sin controles internos; proveedor Linux declara screenshot=false y focus=false. No se actuó a ciegas."
+  }
+}

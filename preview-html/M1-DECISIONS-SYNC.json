@@ -1,0 +1,47 @@
+{
+  "source": "Registros vigentes del repo principal leídos por M4; actualización explícita del propietario",
+  "decisions": {
+    "D-38": "Logo y portada corporativos autorizados",
+    "D-40": "Fotos y vídeos de trabajos aplazados",
+    "D-41": "Métricas modulares; actualizado por D-42",
+    "D-42": "16 clientes/logos, 2 testimonios completos/retratos, métricas exactas aprobados para diseño; revisión final B5 antes de lanzamiento"
+  },
+  "facts": {
+    "social_proof.home_clients": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    },
+    "social_proof.home_metrics": {
+      "value": "2400 retransmisiones en streaming; 169 empresas han confiado en nuestros servicios; 7 marcas creadas",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (HTML consultado 2026-10-08: data-to-value 2400, 169 y 7)",
+      "evidence": "D-42: Jesús valida las cifras de la web antigua y pide reutilizarlas con revisión al final antes del lanzamiento. Valores exactos recuperados de los contadores de Inicio; periodo y método no comprobados independientemente.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    },
+    "social_proof.home_testimonials": {
+      "value": "Rafael González — Jefe de Comunicación del Ayto. de la Puebla del Río: «En La Puebla del Río hemos cambiado el concepto de comunicación gracias a las retransmisiones de Directo Producciones. La creación de nuestra televisión online es un paso hacia el futuro.» José Luis Contreras — Comunicación de la Hermandad de San Pablo (Sevilla): «Llevamos en la Hermandad de San Pablo confiando en ellos para retransmitir nuestra Estación de Penitencia y cada año mejor que el anterior.»",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08)",
+      "evidence": "D-42: Jesús valida la reutilización de ambos testimonios y retratos en esta conversación; declaración del propietario, no comprobación independiente de consentimiento. Revisión final antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  "integration": {
+    "clients_count": 16,
+    "testimonials_count": 2,
+    "metrics": [
+      2400,
+      169,
+      7
+    ],
+    "canal_sur_sha256": "69055b32fff6ab2a60229453635918328a9714abae8f2d5e8191fc4804046e10",
+    "SEAT": "Logo real de web oficial; seat.jpg descartado por contener fotografía de coche",
+    "Turismo de Sevilla": "Nombre aprobado conservado; activo visible Prodetur/Turismo de la Provincia/Diputación de Sevilla según inventario. Sin inventar nuevo cliente."
+  }
+}

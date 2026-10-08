@@ -1,0 +1,16 @@
+// Prototipo local de diseño. No pertenece a la implementación Astro.
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+window.designAnimations=[];
+if(!reduced.matches){for(const el of document.querySelectorAll('[data-enter]')){const a=el.animate([{opacity:.84,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:480,delay:Number(el.dataset.enter),easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});window.designAnimations.push(a);}}
+reduced.addEventListener('change',()=>{if(reduced.matches){window.designAnimations.forEach(a=>a.cancel());menuAnimation?.cancel();}});
+const toggle=document.querySelector('.menu-toggle'),menu=document.querySelector('#mobile-menu'),backdrop=document.querySelector('.menu-backdrop'),close=document.querySelector('.menu-close');let previousFocus,menuAnimation,closeVersion=0;
+async function closeMenu(){if(menu.hidden)return;const version=++closeVersion;menuAnimation?.cancel();if(!reduced.matches){menuAnimation=menu.animate([{opacity:1,transform:'translateX(0)'},{opacity:0,transform:'translateX(8px)'}],{duration:180,easing:'cubic-bezier(.4,0,1,1)'});try{await menuAnimation.finished;}catch{}}if(version!==closeVersion)return;menu.hidden=true;backdrop.hidden=true;toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';document.querySelector('.artboard').inert=false;previousFocus?.focus();}
+toggle.addEventListener('click',()=>{closeVersion++;previousFocus=document.activeElement;menuAnimation?.cancel();menu.hidden=false;backdrop.hidden=false;toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';document.querySelector('.artboard').inert=true;if(!reduced.matches)menuAnimation=menu.animate([{opacity:0,transform:'translateX(8px)'},{opacity:1,transform:'translateX(0)'}],{duration:220,easing:'cubic-bezier(.2,.8,.2,1)'});close.focus();});close.addEventListener('click',closeMenu);backdrop.addEventListener('click',closeMenu);
+menu.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeMenu();}if(e.key==='Tab'){const items=[...menu.querySelectorAll('a,button')],first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+const dialog=document.querySelector('#prototype-dialog');document.querySelectorAll('[data-destination]').forEach(el=>el.addEventListener('click',async()=>{if(!menu.hidden)await closeMenu();document.querySelector('#prototype-message').textContent='El enlace «'+el.dataset.destination+'» queda especificado para la página acordada. La página correspondiente está disponible en la suite de revisión.';dialog.showModal();}));document.querySelector('#dialog-close').addEventListener('click',()=>dialog.close());
+// Rutas de formatos de la maqueta: conservar la vista móvil al abrir Servicios.
+for(const anchor of document.querySelectorAll('a[href^="suite/"]')) {
+ const url=new URL(anchor.href);url.searchParams.set('theme','light');
+ url.searchParams.set('device',document.querySelector('.artboard').clientWidth<=767?'mobile':'desktop');
+ anchor.href=url.pathname+url.search+url.hash;
+}

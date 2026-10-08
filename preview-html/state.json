@@ -1,0 +1,281 @@
+{
+  "fileKey": "t9eDMrakGNb7B5LbRkozeR",
+  "scope": "Todas las páginas acordadas, claro/oscuro, desktop/mobile, guía de estilos y motion. Ampliación expresa del propietario 2026-10-08.",
+  "home": {
+    "lightDesktop": "35:2",
+    "lightMobile": "37:2",
+    "obsoleteCreatedByThisRun": [
+      "28:2",
+      "30:2",
+      "31:2",
+      "34:2"
+    ],
+    "cleanup": "pending: use_figma con cuota agotada; captura no ofrece eliminación",
+    "approvedFacts": [
+      "social_proof.home_clients",
+      "social_proof.home_metrics",
+      "social_proof.home_testimonials"
+    ]
+  },
+  "preserved": {
+    "original": "2:1841",
+    "iteration01Page": "19:2",
+    "iteration01Frames": [
+      "19:3",
+      "19:4",
+      "19:5",
+      "19:6",
+      "19:7",
+      "19:8"
+    ]
+  },
+  "captureResponses": {
+    "desktop": {
+      "content": [
+        {
+          "type": "text",
+          "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=35-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+        }
+      ],
+      "isError": false
+    },
+    "mobile": {
+      "content": [
+        {
+          "type": "text",
+          "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=37-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+        }
+      ],
+      "isError": false
+    },
+    "intermediate": [
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=28-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+          }
+        ],
+        "isError": false
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=30-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+          }
+        ],
+        "isError": false
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=31-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+          }
+        ],
+        "isError": false
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "The design has been added to your existing file: https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=34-2\n\nUse `open` to view the changes in Figma.\n\n**Important:** This capture URL was single-use and has been consumed. It cannot be submitted again. If you need to capture the page again, remind the user that the capture script provides a toolbar with a manual re-capture button that will automatically generate a new capture ID. Leave the capture script in the HTML unless the user explicitly asks you to remove it.\n\nThis capture uses raw frames instead of design system components. If you are also building the screen with use_figma and design system component instances (the recommended parallel workflow), use this capture as a pixel-perfect layout reference to refine the use_figma output, then delete this capture. If not, and the user has a codebase you can read, offer to build a new version from scratch using use_figma with design system components found via search_design_system. Building from the codebase produces a cleaner result than patching this capture (fewer nested frames, proper component instances). Use this capture as the layout reference. If there is no codebase context, offer to replace frames in this capture with design system components instead.\n\n**Note:** The maximum capture size, including serialized images, is 50MB.\n\nSet up local font access for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956894-Add-a-font-to-Figma.\nUpload custom fonts to your organization for Figma Agent & MCP: https://help.figma.com/hc/en-us/articles/360039956774-Upload-custom-fonts-to-an-organization."
+          }
+        ],
+        "isError": false
+      }
+    ]
+  },
+  "extended": {
+    "status": "in progress",
+    "pages": [],
+    "guide": null
+  },
+  "limitations": [
+    "Capturas no equivalen a componentes vinculados/variables de modo nativas",
+    "Motion local verificado, pistas nativas de iteración02 no configuradas"
+  ],
+  "suiteFrames": {
+    "inicio": {
+      "nodeId": "41:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=41-2",
+      "status": "added_unverified_native"
+    },
+    "servicios": {
+      "nodeId": "42:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=42-2",
+      "status": "added_unverified_native"
+    },
+    "clientes": {
+      "nodeId": "43:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=43-2",
+      "status": "added_unverified_native"
+    },
+    "quienes-somos": {
+      "nodeId": "44:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=44-2",
+      "status": "added_unverified_native"
+    },
+    "blog": {
+      "nodeId": "45:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=45-2",
+      "status": "added_unverified_native"
+    },
+    "articulo": {
+      "nodeId": "46:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=46-2",
+      "status": "added_unverified_native"
+    },
+    "contacto": {
+      "nodeId": "47:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=47-2",
+      "status": "added_unverified_native"
+    },
+    "404": {
+      "nodeId": "48:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=48-2",
+      "status": "added_unverified_native"
+    },
+    "cookies": {
+      "nodeId": "49:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=49-2",
+      "status": "added_unverified_native"
+    },
+    "privacidad": {
+      "nodeId": "50:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=50-2",
+      "status": "added_unverified_native"
+    },
+    "aviso-legal": {
+      "nodeId": "51:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=51-2",
+      "status": "added_unverified_native"
+    },
+    "emdash": {
+      "nodeId": "52:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=52-2",
+      "status": "added_unverified_native"
+    },
+    "guia": {
+      "nodeId": "53:2",
+      "url": "https://www.figma.com/design/t9eDMrakGNb7B5LbRkozeR?node-id=53-2",
+      "status": "added_unverified_native"
+    }
+  },
+  "localQA": {
+    "views": 75,
+    "horizontalOverflowFailures": 0,
+    "missingImages": 0,
+    "fonts": "Manrope en todas las vistas",
+    "contrastPairs": 36,
+    "minTextContrast": 5.39,
+    "interactionScenarios": 5,
+    "approvedHomeContent": "16 logos / 2400,169,7 / 2 testimonios exactos",
+    "evidence": [
+      "evidence/suite-verification.json",
+      "evidence/suite-contrast.json",
+      "evidence/suite-interactions.json",
+      "evidence/suite-cta-motion.json"
+    ],
+    "ctaScenarios": 4
+  },
+  "nativeReview": {
+    "status": "blocked",
+    "MCP": "Capturas/vídeo no repetidos. Operación distinta de eliminación por use_figma rechazada con cuota Starter; evidencia cleanup-api-result.json. No hay eliminación.",
+    "Orca": "Figma design cargado como invitado; Page.captureScreenshot devuelve timeout porque no se dibuja un frame. Cambio de zoom tampoco restaura render. Canvas exportado resulta negro, no se cuenta como revisión. Controles de inspección/edición muestran registro de cuenta.",
+    "cleanHeadlessBrowser": "Respuesta CloudFront HTTP 403 al abrir el archivo Figma. No se elude ni se reutilizan credenciales.",
+    "nativeContentAssertions": "16 logos / 2 citas / 2400-169-7 comprobados en entrada de captura, todavía sin lectura visual/estructural final del resultado Figma",
+    "requirement": "Acceso de lectura/captura MCP disponible o navegador Figma que dibuje el lienzo; sesión con edición o use_figma disponible para limpiar IDs y completar variables/componentes/motion.",
+    "lastAttempt": {
+      "target": "53:2",
+      "conditions": "Pestañas de captura consumidas cerradas; navegación nueva a guía",
+      "operation": "Orca Page.captureScreenshot",
+      "result": "Timeout: browser page did not draw a frame",
+      "evidence": "evidence/native-guide-review-result.json"
+    }
+  },
+  "completion": "Composiciones anteriores añadidas a Figma sin revisión nativa final. Refinamientos actuales corregidos y comprobados localmente, pendientes de aplicar EN SITIO a los IDs existentes. No se declara el encargo Figma completo.",
+  "cleanupAttempt": {
+    "operation": "Eliminar exclusivamente 28:2,30:2,31:2,34:2",
+    "result": "Tool call limit Starter; code not executed",
+    "responsePath": "evidence/cleanup-api-result.json",
+    "retried": false
+  },
+  "refinements01": {
+    "status": "local_verified_pending_figma_in_place",
+    "scope": "Cuatro correcciones + logos en oscuro, destinos de formatos y contenido antiguo para Quiénes somos.",
+    "targetFrameIds": [
+      "35:2",
+      "37:2",
+      "41:2",
+      "42:2",
+      "43:2",
+      "44:2",
+      "45:2",
+      "46:2",
+      "47:2",
+      "48:2",
+      "49:2",
+      "50:2",
+      "51:2",
+      "53:2"
+    ],
+    "localQA": {
+      "views": 78,
+      "failures": 0,
+      "navigationMotionScenarios": 12,
+      "contrastPairs": 27,
+      "minimumTextContrast": 5.86,
+      "avatarSize": 80,
+      "content": "16 logos / 2400,169,7 / dos citas completas exactas en Inicio y Clientes, todas sus vistas"
+    },
+    "nativeWrites": 0,
+    "nativeVerification": false,
+    "newFrames": 0,
+    "evidence": "refinements-01/evidence",
+    "patchPlan": "refinements-01/figma-patch-plan.json",
+    "legacyCopy": "refinements-01/legacy-about-source.json",
+    "sourceHashes": {
+      "index.html": "7b0577e09c7ea896fb9c1de2c25a8cde07fb0329db5fcc23767b2b4c4b11163a",
+      "desktop.html": "54bc4a3e774c9b1da2af59643ab78e180f9c382e90517d992c1c93f54ace9dff",
+      "mobile.html": "df28cdd47bc82dd37f9bd4ee185a974395e279320417d435335f3af447da102b",
+      "prototype.js": "f02ad80c6df9e19b5e95808e59142fef930c75926b42adcbbf06c42644557a7c",
+      "refinements-01/refinements.css": "8a90ee395a4dfc8cbf3964cb12c61984af0337e3e93fbaf11169c5296e68af62",
+      "suite/build-suite.py": "d3cd7e6aab99a587a09842872db6e27ba334291cae145e9a64eeb51249585e80",
+      "suite/build-guide.py": "a93dc2ab47a937a24b67175fc710a8ae3674307a5e11976d681313f574b9129a",
+      "suite/suite.js": "10379561b9cacb43b326ee3597ff51842537f7535dd4521d0e715929266bf154",
+      "assets/logo-white.svg": "f0fc6bb0fd1097b4357ad4bc8e2a859c5df81a089b4176ba497c04d85eb65290",
+      "assets/logo-white.png": "b5d4e49717257fddac5c77575e8ca9fca588584da1e876828bb2fdd2c19a7937"
+    }
+  },
+  "nativeInPlaceAttempt": {
+    "date": "2026-10-08",
+    "userRequest": "dale caña y actualízalo en Figma",
+    "operation": "Actualizar titular del hero en frame existente 35:2 por use_figma",
+    "result": "Figma MCP tool call limit on Starter plan",
+    "executed": false,
+    "mutatedNodeIds": [],
+    "newFrames": 0,
+    "evidence": "refinements-01/evidence/figma-inplace-attempt.json",
+    "fallbackChecked": "Ventana externa Brave con el archivo abierta. Orca computer solo expone un frame, sin controles internos; proveedor Linux declara screenshot=false y focus=false. No se actuó a ciegas."
+  },
+  "nativeExplicitRetry": {
+    "timestamp": "2026-10-08 21:24:06 UTC",
+    "requestedBy": "Jesús: puedes volver a intentarlo?",
+    "frameId": "35:2",
+    "result": "Límite MCP Starter; código no ejecutado",
+    "mutatedNodeIds": [],
+    "newFrames": 0,
+    "evidence": "refinements-01/evidence/figma-explicit-retry.json"
+  },
+  "nativeNewDayRetry": {
+    "timestamp": "2026-10-08 22:02:00 UTC",
+    "requestedBy": "Jesús: actualiza de nuevo que ya estamos en el nuevo día",
+    "frameId": "35:2",
+    "result": "Límite MCP Starter; código no ejecutado",
+    "mutatedNodeIds": [],
+    "newFrames": 0,
+    "evidence": "refinements-01/evidence/figma-new-day-retry.json"
+  }
+}

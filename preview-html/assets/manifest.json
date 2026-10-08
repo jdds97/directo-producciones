@@ -1,0 +1,523 @@
+[
+  {
+    "name": "Junta de Andalucía",
+    "file": "assets/logos/junta_andalucia.png",
+    "sha256": "4377051c21f1101b5b02dd6bb7ce3aad524ce84e93bd259bad97262f6b7e1780",
+    "source": {
+      "asset": "Logo Junta de Andalucía",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/01/original.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.juntadeandalucia.es/sites/default/files/2023-02/normal_0.png",
+      "titular_derechos": "Junta de Andalucía",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial aportada por Jesús descargada en content/staging-logos/junta_andalucia.png (185 KB, PNG, SHA256=4377051c21f1101b...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente/colaborador y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      120,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Ayuntamiento de la Puebla del Río",
+    "file": "assets/logos/puebla_del_rio.png",
+    "sha256": "2a8c4df2e472488c0ec94f2b9c35515cca152287d34fb922faf122cc2e5603f3",
+    "source": {
+      "asset": "Logo Ayuntamiento de La Puebla del Río",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/puebla-rio.gif",
+      "origen": "Home WordPress; fuente aportada por propietario: Brave search ayuntamiento.es escudo",
+      "titular_derechos": "Ayuntamiento de La Puebla del Río",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/puebla_del_rio.png (242 KB, PNG, SHA256=2a8c4df2e472488c...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      64,
+      72
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Turismo de Sevilla",
+    "file": "assets/logos/turismo_sevilla.jpg",
+    "sha256": "4894b84b1fe659f6c0ec19b5b185383c120ca58b65181e785f7699ed78b89fa2",
+    "source": {
+      "asset": "Logo Turismo de Sevilla",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/04/Sevilla-Turismo.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.prodetur.es/.../LogoTurismo_Basico_Basico.jpg",
+      "titular_derechos": "Prodetur / Diputación de Sevilla",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial Prodetur aportada por Jesús descargada en content/staging-logos/turismo_sevilla.jpg (1.05 MB, JPG, SHA256=4894b84b1fe659f6...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      152,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Hermandad Matriz del Rocío",
+    "file": "assets/logos/hermandad_matriz.png",
+    "sha256": "c819451f795265d26d3fd0e50c147d49dc28881714ecde5471fcd4d165eb4a4d",
+    "source": {
+      "asset": "Logo Hermandad Matriz del Rocío",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/Matriz-Rocio-Hermandad.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://hermandadmatrizrocio.org/.../EscudoMatrizVerde.png",
+      "titular_derechos": "Hermandad Matriz de Almonte",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial aportada por Jesús descargada en content/staging-logos/hermandad_matriz.png (31 KB, PNG, SHA256=c819451f795265d2...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      128,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Remax",
+    "file": "assets/logos/remax.png",
+    "sha256": "426433837a526d374a031a1fd4258417161ca724486a3e2f94899cb76bea70b4",
+    "source": {
+      "asset": "Logo Remax",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/remax-logo.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.pngall.com/wp-content/uploads/15/Remax-Logo-PNG-Free-Image.png",
+      "titular_derechos": "RE/MAX",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/remax.png (61 KB, PNG, SHA256=426433837a526d37...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      64,
+      80
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Ayuntamiento Dos Hermanas",
+    "file": "assets/logos/dos_hermanas.png",
+    "sha256": "888750f16850dbd1682842770fd15ea0746fbe8f062f8fdeade85cabbb6a952d",
+    "source": {
+      "asset": "Logo Ayuntamiento de Dos Hermanas",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/ayuntamiento-doshermanas.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://doshermanas.net/wp-content/uploads/2023/12/LOGO-HORIZONTAL-A-COLOR.png",
+      "titular_derechos": "Ayuntamiento de Dos Hermanas",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial Deportes DH aportada por Jesús descargada en content/staging-logos/dos_hermanas.png (31 KB, PNG, SHA256=888750f16850dbd1...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      120,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Hermandad de la Macarena",
+    "file": "assets/logos/hermandad_macarena.png",
+    "sha256": "c3a3054e5bd7a106715ea092358d7bb8482798c2ddbc073637621c90394965de",
+    "source": {
+      "asset": "Logo Hermandad de la Macarena",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/hermandad-macarena-sevilla.jpg",
+      "origen": "Home WordPress; fuente aportada por propietario: hermandaddelamacarena.es logo responsive",
+      "titular_derechos": "Hermandad de la Macarena",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial aportada por Jesús descargada en content/staging-logos/hermandad_macarena.png (71.5 KB, PNG, SHA256=c3a3054e5bd7a106...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      128,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "SEAT",
+    "file": "assets/logos/seat-official.jpg",
+    "sha256": "11ca4e7b802fe3afc267c765e4cc30d0d5cca9ff50066fe3a0f601de015e43f6",
+    "source": {
+      "asset": "Logo SEAT",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/seat-logo.jpg",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.gruplesseps.com/wp-content/uploads/2021/08/logo-seat.jpg",
+      "titular_derechos": "SEAT S.A.",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/seat.jpg (307 KB, JPG, SHA256=32e827e1b63873fb...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      72
+    ],
+    "superseded_asset": {
+      "file": "assets/logos/seat.jpg",
+      "reason": "Comprobación visual: fotografía de coche, no logotipo. No usado en versión final."
+    },
+    "source_corrected": {
+      "page": "https://www.seat.es/",
+      "asset": "https://www.seat.es/content/dam/countries/es/seat-website/homepage/open-graph-generico/logo-seat.jpg",
+      "evidence": "og:image y twitter:image oficiales; JPEG 1200x630 comprobado visualmente"
+    },
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Tixe",
+    "file": "assets/logos/tixe.png",
+    "sha256": "b0d36611846912e104d75f74ac0af11c128d9ee75a730a3ea1f51bc8884d20cf",
+    "source": {
+      "asset": "Logo Tixe",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/01/logo_tixe_ampliado.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.tixe.es/wp-content/uploads/2017/03/TIXE-Logo-Header.png",
+      "titular_derechos": "Tixe Asociación Empresarial",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial aportada por Jesús descargada en content/staging-logos/tixe.png (9.3 KB, PNG, SHA256=b0d36611846912e1...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente/asociado y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Cajasol Voley - Esquimo",
+    "file": "assets/logos/voley_esquimo.jpg",
+    "sha256": "93966fa67d58c5ebf8e7937d780866c23e76277bc3ef2eb4b054c3ece4724335",
+    "source": {
+      "asset": "Logo Cajasol Voley Esquimo",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/04/Cajasol-Voley.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://cavesquimo.es/.../LogoEsquimo_grande.jpg",
+      "titular_derechos": "Club Voleibol Esquimo",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial CAV Esquimo aportada por Jesús descargada en content/staging-logos/voley_esquimo.jpg (18 KB, JPG, SHA256=93966fa67d58c5eb...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Consejo de Hermandades de Sevilla",
+    "file": "assets/logos/consejo_hermandades.jpg",
+    "sha256": "be6d33e622a64eba6d097549f2ccb9bf3fc14467c7b45d6e7ca90ad8c30ca7dd",
+    "source": {
+      "asset": "Logo Consejo de Hermandades de Sevilla",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/logo-consejo-hermandades.png",
+      "origen": "Home WordPress; fuente aportada por propietario: vectorlogo.es Consejo General Cofradías Sevilla",
+      "titular_derechos": "Consejo General de Hermandades y Cofradías de Sevilla",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/consejo_hermandades.jpg (10.5 KB, JPG, SHA256=be6d33e622a64eba...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Federación Andaluza de Fútbol",
+    "file": "assets/logos/rfaf.png",
+    "sha256": "810689426cc1fd75365d567c01dae8cf34458c789b1a3289985cd298b93c9d73",
+    "source": {
+      "asset": "Logo Federación Andaluza de Fútbol",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/rfaf.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://files.rfaf.es/pnfg/img/web_responsive_2/ESP/logo(rfaf).png",
+      "titular_derechos": "Real Federación Andaluza de Fútbol",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial RFAF aportada por Jesús descargada en content/staging-logos/rfaf.png (22 KB, PNG, SHA256=810689426cc1fd75...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Ayuntamiento de la Rinconada",
+    "file": "assets/logos/rinconada.jpg",
+    "sha256": "94778d8a163376f0b7c5f3e6b5a448783e9c5b11227f5c631d88a049a574c149",
+    "source": {
+      "asset": "Logo Ayuntamiento de La Rinconada",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/04/Rinconada.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.vectorlogo.es/.../logo-vector-ayuntamiento-de-la-rinconada.jpg",
+      "titular_derechos": "Ayuntamiento de La Rinconada",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/rinconada.jpg (20 KB, JPG, SHA256=94778d8a163376f0...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      112,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Hotel TRH La Motilla",
+    "file": "assets/logos/hotel_motilla.svg",
+    "sha256": "3fd136412309b39bca222fa6536671cc180f7f69eaa6c1cf24282c8566f73a87",
+    "source": {
+      "asset": "Logo Hotel TRH La Motilla",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2017/04/Hotel-TRH-La-Motilla.png",
+      "origen": "Home WordPress; fuente aportada por propietario: https://www.trhhoteles.com/content/imgsxml/hoteles/motilla898.svg",
+      "titular_derechos": "TRH Hoteles",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente oficial TRH aportada por Jesús descargada en content/staging-logos/hotel_motilla.svg (4.5 KB, SVG, SHA256=3fd136412309b39b...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      128,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Canal Sur",
+    "file": "assets/logos/canal-sur.jpg",
+    "sha256": "69055b32fff6ab2a60229453635918328a9714abae8f2d5e8191fc4804046e10",
+    "source": {
+      "asset": "Logo Canal Sur",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2024/09/canalsur.jpg",
+      "origen": "Home WordPress",
+      "titular_derechos": "",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: Chromium decodifica JPEG 1024x576; no evidencia de derechos",
+      "estado": "recuperable técnicamente y permiso pendiente",
+      "decision": "Confirmar relación de cliente y autorización de logo antes de conservar; no incorporado al sitio nuevo",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      128,
+      72
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  },
+  {
+    "name": "Hospital San Agustín",
+    "file": "assets/logos/hospital_san_agustin.png",
+    "sha256": "2f05fdf9f5beb41747b6cf56bd4e72a8469fbb0c01d248876b6dce0b9ce8905e",
+    "source": {
+      "asset": "Logo Hospital San Agustín",
+      "url": "https://www.directoproducciones.com/wp-content/uploads/2019/07/logo-sanagustin-verde.png",
+      "origen": "Home WordPress; fuente aportada por propietario: hsanagustin.es LOGO_HSA_MONOCROMA",
+      "titular_derechos": "Hospital San Agustín",
+      "permiso": "pendiente",
+      "evidencia": "revisión técnica 2026-10-08: URL WP dio 404; fuente aportada por Jesús descargada en content/staging-logos/hospital_san_agustin.png (22 KB, PNG, SHA256=2f05fdf9f5beb417...)",
+      "estado": "recuperado en staging; pendiente confirmación de relación y permiso",
+      "decision": "Confirmar condición de cliente y autorización de uso de marca antes de publicar",
+      "prioridad_revision": "P1-validar"
+    },
+    "design_authorization": "D-42, aprobador Jesús De Dios Sánchez, 2026-10-08",
+    "publication": "Aprobación interna D-42; revisión final B5 antes del lanzamiento",
+    "fit": "contain, sin recorte ni recoloración",
+    "display_box": [
+      136,
+      64
+    ],
+    "fact_id": "social_proof.home_clients",
+    "approval": {
+      "value": "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín",
+      "status": "approved",
+      "source": "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv",
+      "evidence": "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento.",
+      "approved_by": "Jesús De Dios Sánchez",
+      "approved_at": "2026-10-08"
+    }
+  }
+]

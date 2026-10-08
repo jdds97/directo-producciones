@@ -1,0 +1,160 @@
+{
+  "pages": [
+    {
+      "key": "inicio",
+      "name": "Inicio",
+      "themes": [
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Inicio claro definitivo: Figma 35:2 / 37:2. Esta ficha solo sincroniza Inicio oscuro; no se vuelve a importar Inicio claro."
+    },
+    {
+      "key": "servicios",
+      "name": "Servicios",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Una sola página de Servicios. Streaming protagonista; comunicación y marketing presentes. Alcance de servicios sigue pendiente de confirmación de facts."
+    },
+    {
+      "key": "clientes",
+      "name": "Clientes",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "16 nombres según social_proof.home_clients; cifras y testimonios completos aprobados por D-42."
+    },
+    {
+      "key": "quienes-somos",
+      "name": "Quiénes somos",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Logo y portada completos autorizados en D-38. Presentación editorial recuperada de Empresa en la web actual por instrucción del propietario, en revisión. Equipo detallado y medios pendientes de aprobación."
+    },
+    {
+      "key": "blog",
+      "name": "Blog",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Plantilla de listado y estado sin publicaciones. Ninguna entrada real aprobada en el registro editorial."
+    },
+    {
+      "key": "contacto",
+      "name": "Contacto",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Cuatro métodos acordados por D-23. Contactos decided, aprobación para republicación pendiente. Formulario local de diseño, sin envío, leads, SLA ni integraciones."
+    },
+    {
+      "key": "articulo",
+      "name": "Artículo",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Plantilla de artículo: jerarquía, lectura, metadata y navegación. Sin atribuir artículos ni autores ficticios."
+    },
+    {
+      "key": "404",
+      "name": "404",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Recuperación hacia Inicio y Contacto; sin promesas técnicas."
+    },
+    {
+      "key": "cookies",
+      "name": "Cookies",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Estructura legal pendiente de contenido revisado. Preferencias visuales de ejemplo, sin cookies ni analítica activadas."
+    },
+    {
+      "key": "privacidad",
+      "name": "Privacidad",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Estructura y ancho de lectura; no se inventan bases, plazos, encargados ni responsables."
+    },
+    {
+      "key": "aviso-legal",
+      "name": "Aviso legal",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Campos jurídicos pendientes de aprobación; no se copia el aviso antiguo."
+    },
+    {
+      "key": "emdash",
+      "name": "EmDash interno",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "content_note": "Área interna para el blog. Propuesta visual; no se reemplaza ni modifica el CMS existente ni se presenta publicación/roles como implementados."
+    }
+  ],
+  "native_components": "Pending: cuota use_figma agotada. Guía visual editable no equivale a modos/variables y componentes vinculados."
+}

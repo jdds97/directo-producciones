@@ -1,0 +1,43 @@
+{
+  "sizePx": 80,
+  "rafael": {
+    "source": "assets/portraits/rafael_gonzalez.jpg",
+    "sourceSize": [
+      800,
+      800
+    ],
+    "crop": [
+      160,
+      0,
+      480,
+      480
+    ],
+    "faceReference": [
+      305,
+      25,
+      205,
+      315
+    ]
+  },
+  "jose": {
+    "source": "assets/portraits/jose_luis_contreras.jpg",
+    "sourceSize": [
+      1030,
+      455
+    ],
+    "crop": [
+      350,
+      0,
+      248,
+      248
+    ],
+    "faceReference": [
+      427,
+      22,
+      101,
+      165
+    ]
+  },
+  "sourceLogoSha256": "05a81cfb1c107d94c3e888888e49fcb65d27d4f13643c75b65680ebd161a38c7",
+  "logoMethod": "SVG deterministic luminance mask of embedded original JPG. No letter geometry recreated. White alpha derived from ink only."
+}
