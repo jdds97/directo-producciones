@@ -1,8 +1,7 @@
-# Propiedad local propuesta; requiere CODEOWNERS activo y protección de rama remota para ser exigible.
+# Jesús es propietario y revisor manual; main exige PR y CI, no una segunda aprobación CODEOWNERS.
 /AGENTS.md @jdds97
 /content/facts.yaml @jdds97
 /content/approvers.yaml @jdds97
-/docs/decisions.md @jdds97
 /.github/CODEOWNERS @jdds97
 /scripts/guard-* @jdds97
 /scripts/build-local-registry.mjs @jdds97

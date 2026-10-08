@@ -36,7 +36,7 @@ npm run local:worker
 
 El workflow usa runners efímeros de GitHub, acciones fijadas por SHA, permisos `contents: read` y checkout sin credenciales persistentes. No tiene pasos de despliegue, bindings remotos, secretos de proveedores ni subida de artefactos. El repositorio y los logs de Actions son públicos: no introducir información interna en código, commits, PRs o logs.
 
-CODEOWNERS identifica al revisor de rutas sensibles; por sí solo no impide merges. La protección remota de `main` y los checks obligatorios deben configurarse expresamente antes de considerar la revisión exigible.
+`main` exige PR y el check `content` de GitHub Actions con la rama actualizada; las restricciones incluyen administradores y bloquean force-push y borrado. Jesús (`@jdds97`) es el propietario y revisor manual. En este modo de propietario único no se exige una aprobación independiente ni una aprobación CODEOWNERS: el autor no puede aprobar su propia PR. CI correcta no autoriza por sí sola la fusión; Jesús debe revisar y autorizarla.
 
 ## Información excluida
 
