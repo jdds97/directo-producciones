@@ -4,6 +4,12 @@
 
 **Alcance:** sustituir el sitio completo, con peso equilibrado entre streaming y comunicación/marketing (decisión del propietario).
 
+## Entregable local de M3
+
+[Contenido inicial y estructura para revisión](docs/m3-contenido-estructura.md): borradores de Inicio y de las dos líneas, ocho preguntas con respuestas, metadatos y propuesta de navegación basada en M4. Pendiente de revisión y aprobación; no modifica facts ni completa tareas de Asana.
+
+El documento es interno y permanece excluido de Git bajo `/docs/` conforme a D-50. Los registros vigentes se consultan en el checkout principal, identificado en el propio entregable; este worktree no contiene copias actualizadas de ellos. No publicar el borrador ni sustituir esos registros por el README histórico.
+
 ## Plan vigente
 
 El único plan vigente es [`docs/PLAN.md`](docs/PLAN.md), versión 3.2. Las decisiones y aprobaciones se registran aparte en [`docs/decisions.md`](docs/decisions.md); el plan no las sustituye.
