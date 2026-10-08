@@ -1,0 +1,13 @@
+---
+// Estas rutas deben pasar por local-gate; un HTML estático omite el control por host.
+export const prerender = false;
+import Base from '../layouts/Base.astro';
+---
+<Base title="Directo Producciones">
+  <img class="presentation" src="/assets/portada-facebook.jpg" width="960" height="365" alt="Directo Producciones. Streaming, comunicación y redes sociales. Comunica y Cambia el Mundo." fetchpriority="high" />
+  <h1>Streaming y comunicación</h1>
+  <div class="lines"><a href="/streaming/">Streaming</a><a href="/comunicacion-marketing/">Comunicación y marketing</a></div>
+</Base>
+<style>
+  .presentation { display: block; width: 100%; max-width: 960px; height: auto; margin-inline: auto; }
+</style>

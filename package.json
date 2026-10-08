@@ -1,0 +1,50 @@
+{
+  "name": "directo-producciones-baseline",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.2 <23"
+  },
+  "emdash": {
+    "seed": "seed/seed.json"
+  },
+  "scripts": {
+    "dev": "astro dev --host localhost",
+    "local:worker": "wrangler dev --config dist/server/wrangler.json --local --test-scheduled --ip 127.0.0.1 --port 4321 --persist-to .wrangler/m2-local --env-file .env",
+    "guard-content": "tsx scripts/guard-content.ts",
+    "preguard-content": "npm run prepare:registry",
+    "build": "npm run guard-content && astro build",
+    "prepare:registry": "node scripts/build-local-registry.mjs",
+    "check": "astro check",
+    "preview": "astro preview --host localhost",
+    "prepare:local": "node scripts/local-env.mjs",
+    "predev": "npm run prepare:local && npm run prepare:registry",
+    "migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/m2-local",
+    "prelocal:worker": "npm run build && npm run migrate:local",
+    "precheck": "npm run prepare:local && npm run prepare:registry",
+    "prebuild": "npm run prepare:local",
+    "preeditorial:digest": "npm run prepare:registry",
+    "editorial:digest": "tsx scripts/editorial-digest.ts"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "14.3.4",
+    "@astrojs/react": "7.0.1",
+    "@emdash-cms/cloudflare": "1.1.0",
+    "astro": "7.3.8",
+    "emdash": "1.1.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "@cloudflare/workers-types": "5.20261006.1",
+    "@types/node": "22.19.15",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "wrangler": "4.149.0"
+  }
+}

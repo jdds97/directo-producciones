@@ -1,1 +1,24 @@
 /directoproducciones.WordPress.*.xml
+.env
+node_modules/
+dist/
+.astro/
+.wrangler/
+.emdash/
+.env.*
+!.env.local.example
+*.db
+*.db-shm
+*.db-wal
+uploads/
+emdash-env.d.ts
+!.env.example
+
+# Solo fuentes y documentación pública; originales internos conservados en local.
+/.private/
+/.omp/
+/CONTEXT.md
+/docs/
+/content/staging-logos/
+/logo.jpg
+/portada-facebook.jpg

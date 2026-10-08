@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import { getEmDashCollection } from 'emdash';
+import Base from '../../layouts/Base.astro';
+import type { BlogPost } from '../../lib/blog';
+const { entries } = await getEmDashCollection<'posts', BlogPost>('posts', { status: 'published', orderBy: { published_at: 'desc' }, limit: 50 });
+---
+<Base title="Blog"><h1>Blog</h1>{entries.length ? <ul>{entries.map(post => <li><a href={`/blog/${encodeURIComponent(post.data.slug)}/`}>{post.data.title}</a></li>)}</ul> : <p>No hay entradas publicadas.</p>}</Base>

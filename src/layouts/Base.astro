@@ -1,0 +1,45 @@
+---
+import { APP_ENV, CANONICAL_ORIGIN } from '../config/flags';
+import { organizationSchema, serializeSchema } from '../lib/schema';
+interface Props { title: string; errorPage?: boolean }
+const { title, errorPage = false } = Astro.props;
+const canonical = errorPage ? undefined : new URL(Astro.url.pathname, CANONICAL_ORIGIN).href;
+const schema = errorPage ? undefined : organizationSchema();
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title}</title>
+    {canonical && <link rel="canonical" href={canonical} />}
+    {schema && <script type="application/ld+json" is:inline set:html={serializeSchema(schema)} />}
+  </head>
+  <body>
+    <a href="#contenido" class="skip">Ir al contenido</a>
+    {APP_ENV !== 'production' && <aside aria-label="Estado editorial">BORRADOR · Entorno local de revisión</aside>}
+    <header>
+      <a href="/" class="brand"><img src="/assets/logo.jpg" width="200" height="200" alt="Directo Producciones — inicio" class="brand-logo" /></a>
+      <nav aria-label="Principal"><a href="/">Inicio</a><a href="/streaming/">Streaming</a><a href="/comunicacion-marketing/">Comunicación y marketing</a><a href="/blog/">Blog</a></nav>
+    </header>
+    <main id="contenido"><slot /></main>
+  </body>
+</html>
+<style is:global>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 1rem/1.6 system-ui, sans-serif; color: #17212b; background: #f7f8fa; }
+  main, header, aside { max-width: 70rem; margin-inline: auto; padding: 1.5rem; }
+  aside { background: #fff3cc; }
+  header { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .brand { flex-shrink: 0; }
+  .brand-logo { display: block; width: 10rem; height: auto; }
+  nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  a { color: #174b78; overflow-wrap: anywhere; }
+  a:focus-visible { outline: 3px solid #a34400; outline-offset: 4px; }
+  h1 { line-height: 1.2; }
+  .lines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1.5rem; }
+  .lines a { padding: 2rem; background: white; border: 1px solid #ccd5de; }
+  .skip { position: absolute; transform: translateY(-200%); }
+  .skip:focus { transform: none; background: white; padding: 1rem; }
+</style>

@@ -1,0 +1,7 @@
+---
+export const prerender = false;
+import Base from '../layouts/Base.astro';
+import { visibleFact } from '../lib/facts';
+const service = visibleFact('service.streaming_and_tv');
+---
+<Base title="Streaming"><h1>Streaming</h1>{service && <p data-fact-id={service.id}>{service.value}</p>}</Base>
