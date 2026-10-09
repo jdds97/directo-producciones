@@ -21,17 +21,8 @@ if (/<form[^>]*(?:action|method)=/i.test(contactSource) || !contactSource.includ
   errors.push('Contacto debe conservar el envío deshabilitado y sin destino.');
 }
 const editorial = JSON.parse(readFileSync('config/m4-editorial.json', 'utf8'));
-const approvedHeroFields: Record<string, string> = {
-  'Inicio/hero/rótulo': draft.blocks.Home.t001,
-  'Inicio/H1': [draft.blocks.Home.t002, draft.blocks.Home.t003, draft.blocks.Home.homeH1Line3].join(' '),
-  'Inicio/hero/párrafo': draft.blocks.Home.t004,
-  'Inicio/hero/CTA/streaming': draft.blocks.Home.t005,
-  'Inicio/hero/CTA/comunicación-marketing': draft.blocks.Home.t006,
-};
-if (editorial.approved.length !== Object.keys(approvedHeroFields).length ||
-    editorial.approved.some((item: { scope: string; text: string; factsApproval: boolean; publicationAuthorized: boolean }) =>
-      item.text !== approvedHeroFields[item.scope] || item.factsApproval !== false || item.publicationAuthorized !== false)) {
-  errors.push('La aprobación editorial se limita a los campos exactos del hero de Inicio.');
+if (editorial.status !== 'draft' || editorial.approved.length !== 0 || editorial.publicationAuthorized !== false) {
+  errors.push('Esta reproducción conserva TODO el copy M4 como borrador sin aprobar ni autorizar publicación.');
 }
 const routesRequiringLocalGate = new Set([
   'src/pages/index.astro',

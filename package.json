@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "astro dev --host localhost",
-    "local:worker": "wrangler dev --config dist/server/wrangler.json --local --test-scheduled --ip 127.0.0.1 --port 4394 --persist-to .wrangler/m4-local --env-file .env",
+    "local:worker": "wrangler dev --config dist/server/wrangler.json --local --test-scheduled --ip 127.0.0.1 --port 4394 --persist-to .wrangler/m4-astro-review --env-file .env",
     "guard-content": "tsx scripts/guard-content.ts",
     "preguard-content": "npm run prepare:registry",
     "build": "npm run guard-content && astro build",
@@ -20,12 +20,13 @@
     "preview": "astro preview --host localhost",
     "prepare:local": "node scripts/local-env.mjs",
     "predev": "npm run prepare:local && npm run prepare:registry",
-    "migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/m4-local",
+    "migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/m4-astro-review",
     "prelocal:worker": "npm run build && npm run migrate:local",
     "precheck": "npm run prepare:local && npm run prepare:registry",
     "prebuild": "npm run prepare:local",
     "preeditorial:digest": "npm run prepare:registry",
-    "editorial:digest": "tsx scripts/editorial-digest.ts"
+    "editorial:digest": "tsx scripts/editorial-digest.ts",
+    "export:presentation": "node scripts/export-presentation.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.3.4",

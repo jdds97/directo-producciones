@@ -69,6 +69,11 @@ function applyTheme() {
   document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', dark ? 'dark' : 'light');
   themeToggle.setAttribute('aria-pressed', String(dark));
   themeToggle.setAttribute('aria-label', dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+  document.querySelectorAll<HTMLElement>('[data-guide-color]').forEach(swatch => {
+    const value = (dark ? swatch.dataset.dark : swatch.dataset.light)!;
+    swatch.querySelector<HTMLElement>('.swatch-color')!.style.background = value;
+    swatch.querySelector<HTMLElement>('.swatch-value')!.textContent = value;
+  });
   document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(anchor => {
     const url = new URL(anchor.href);
     if (url.origin !== location.origin || url.pathname.startsWith('/_emdash/')) return;

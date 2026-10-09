@@ -1,50 +1,6 @@
 {
-  "approved": [
-    {
-      "scope": "Inicio/hero/rótulo",
-      "text": "Streaming · Comunicación · Marketing",
-      "approvedBy": "Jesús De Dios Sánchez",
-      "date": "2026-10-09",
-      "evidence": "Aprobación individual del propietario, registrada en revisión editorial de Inicio",
-      "factsApproval": false,
-      "publicationAuthorized": false
-    },
-    {
-      "scope": "Inicio/H1",
-      "text": "Que se vea. Que se escuche. Que importe.",
-      "approvedBy": "Jesús De Dios Sánchez",
-      "date": "2026-10-09",
-      "evidence": "Aprobación individual del propietario, registrada en revisión editorial de Inicio",
-      "factsApproval": false,
-      "publicationAuthorized": false
-    },
-    {
-      "scope": "Inicio/hero/párrafo",
-      "text": "Tu evento en directo. Tu marca en conversación. Streaming, comunicación y marketing para lo que quieres contar.",
-      "approvedBy": "Jesús De Dios Sánchez",
-      "date": "2026-10-09",
-      "evidence": "Aprobación individual del propietario, registrada en revisión editorial de Inicio",
-      "factsApproval": false,
-      "publicationAuthorized": false
-    },
-    {
-      "scope": "Inicio/hero/CTA/streaming",
-      "text": "Explorar streaming",
-      "approvedBy": "Jesús De Dios Sánchez",
-      "date": "2026-10-09",
-      "evidence": "Aprobación individual del propietario, registrada en revisión editorial de Inicio",
-      "factsApproval": false,
-      "publicationAuthorized": false
-    },
-    {
-      "scope": "Inicio/hero/CTA/comunicación-marketing",
-      "text": "Explorar comunicación y marketing",
-      "approvedBy": "Jesús De Dios Sánchez",
-      "date": "2026-10-09",
-      "evidence": "Aprobación individual del propietario, registrada en revisión editorial de Inicio",
-      "factsApproval": false,
-      "publicationAuthorized": false
-    }
-  ],
+  "status": "draft",
+  "approved": [],
+  "publicationAuthorized": false,
   "otherCopy": "draft"
 }

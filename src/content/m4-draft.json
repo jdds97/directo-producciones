@@ -68,12 +68,12 @@
       "t018": "Hospital San Agustín"
     },
     "Home": {
-      "t001": "Streaming · Comunicación · Marketing",
-      "t002": "Que se vea.",
-      "t003": "Que se escuche.",
-      "t004": "Tu evento en directo. Tu marca en conversación. Streaming, comunicación y marketing para lo que quieres contar.",
-      "t005": "Explorar streaming",
-      "t006": "Explorar comunicación y marketing",
+      "t001": " Producción de streaming",
+      "t002": "Tu evento.",
+      "t003": "En streaming.",
+      "t004": "Streaming de eventos y realización televisiva. Empecemos por lo que quieres contar.",
+      "t005": "Cuéntanos tu evento ",
+      "t006": "Explora el streaming ",
       "t007": "01 / Streaming",
       "t008": "El evento,",
       "t009": "en pantalla.",
@@ -112,8 +112,7 @@
       "t042": "Además del directo, exploremos la comunicación y el marketing digital de tu proyecto.",
       "t043": "Comunicación",
       "t044": "Marketing digital",
-      "t045": "Cuéntanos qué necesitas ",
-      "homeH1Line3": "Que importe."
+      "t045": "Cuéntanos qué necesitas "
     },
     "Servicios": {
       "t001": "Servicios",
@@ -663,6 +662,20 @@
       "t003": "sobre tu proyecto.",
       "t004": "Streaming, comunicación o marketing digital. Cuéntanos qué necesitas.",
       "t005": "Hablemos de tu proyecto "
+    },
+    "GuiaDark": {
+      "background": "#0B2028",
+      "surface": "#10303C",
+      "tint": "#123744",
+      "text": "#F4F8FA",
+      "muted": "#B7CBD3",
+      "action": "#B5DEEA",
+      "actionText": "#103B4B",
+      "line": "#526E79",
+      "controlLine": "#B7CBD3",
+      "focus": "#B5DEEA",
+      "error": "#FFB4B4",
+      "errorSurface": "#402A32"
     }
   }
 }
