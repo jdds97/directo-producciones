@@ -1,0 +1,110 @@
+/* Refinamiento autorizado · fuentes locales pendientes de sincronización Figma.
+   La marca blanca conserva la geometría raster original. Nunca filtrar clientes/fotos. */
+.brand .brand-logo-white { display:none!important; background:transparent!important; }
+.brand .brand-logo-blue { display:block!important; }
+.theme-dark .brand, .on-dark .brand { background:transparent!important; border-radius:0; }
+.theme-dark .brand .brand-logo-blue, .on-dark .brand .brand-logo-blue { display:none!important; }
+.theme-dark .brand .brand-logo-white, .on-dark .brand .brand-logo-white { display:block!important; }
+.on-light .brand .brand-logo-blue { display:block!important; }
+.on-light .brand .brand-logo-white { display:none!important; }
+
+/* Un solo avatar: tamaño exterior fijo, recorte óptico distinto por identidad. */
+.testimonial-avatar { display:block; position:relative; width:80px; height:80px; flex:0 0 80px; overflow:hidden; border-radius:50%; background:#E5F0F4; }
+.testimonial .testimonial-avatar img, .avatar-guide .testimonial-avatar img { position:absolute; display:block; max-width:none; height:auto; object-fit:initial; border-radius:0; top:0; }
+.testimonial .avatar-rafael img, .avatar-guide .avatar-rafael img { width:166.666667%; left:-33.333333%; }
+.testimonial .avatar-jose img, .avatar-guide .avatar-jose img { width:415.322581%; left:-141.129032%; }
+.avatar-guide { display:flex; gap:48px; margin:32px 0 24px; }
+.avatar-guide>div { display:flex; align-items:center; gap:16px; min-width:0; }
+.avatar-guide p { font-size:14px; }
+
+/* La señal explica el evento. Sin rótulo gigante ni duplicación del gráfico. */
+.signal-stage.signal-flow { position:relative; height:auto; margin:0 64px; padding:32px; background:#164E63; color:#FFFFFF; overflow:visible; }
+.signal-flow-heading { padding-bottom:32px; border-bottom:1px solid #FFFFFF66; }
+.signal-flow-heading h2 { margin:12px 0 0; font-size:32px; line-height:1.2; letter-spacing:-.035em; }
+.signal-flow .eyebrow { color:#FFFFFF; }
+.signal-flow-steps { margin:0; padding:32px 0 0; list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:64px; }
+.signal-flow-steps>li { display:grid; grid-template-columns:48px minmax(0,1fr); gap:16px; position:relative; align-items:start; }
+.flow-icon { width:48px; height:48px; display:flex; align-items:center; justify-content:center; border:1px solid #FFFFFF99; border-radius:50%; }
+.flow-number { font-size:14px; line-height:1.5; letter-spacing:.08em; }
+.signal-flow .flow-content h3 { font-size:24px; line-height:1.25; letter-spacing:-.025em; margin:8px 0; }
+.signal-flow .flow-content>p:last-child { font-size:16px; line-height:1.6; margin:0; }
+.flow-link { position:absolute; right:-44px; top:12px; display:flex; }
+.signal-stage.compact-flow { margin:0; width:100%; }
+.compact-flow .signal-flow-steps { grid-template-columns:1fr; gap:48px; }
+.compact-flow .flow-link { top:auto; bottom:-32px; left:12px; right:auto; transform:rotate(90deg); }
+.service-feature .signal-flow p { margin:0; }
+.service-feature .signal-flow h2 { font-size:32px; margin-top:12px; }
+
+/* Destinos de formato visibles; una sola página de Servicios. */
+.format-row { grid-template-columns:48px minmax(0,1fr) minmax(0,1fr) 144px; }
+.format-detail { display:inline-flex; justify-content:space-between; align-items:center; gap:12px; min-height:48px; padding:12px 0; color:var(--main); font-size:16px; font-weight:700; line-height:1.5; }
+.format-detail:hover { text-decoration:underline; text-underline-offset:6px; }
+.format-detail .icon { transition:transform 160ms var(--ease); }
+.format-detail:hover .icon { transform:translate(2px,-2px); }
+.tv-format { border-top:1px solid var(--line); }
+.tv-format .service-questions { margin-top:24px; }
+
+/* Tema oscuro: soporte óptico uniforme, activos de clientes sin recolorear. */
+.theme-dark .trust, .theme-dark .client-logo-band { background:#FFFFFF; color:#172B34; --text:#172B34; --secondary:#52636B; --line:#D0DDE2; --main:#164E63; }
+.theme-dark .trust .logo-cell, .theme-dark .client-logo-band .directory-logo { background:transparent; border-radius:0; }
+.theme-dark .trust .logo-dark, .theme-dark .client-logo-band .logo-dark { background:#164E63!important; border-radius:4px; }
+
+/* Quiénes somos: presentación de la productora, sin atribuir equipo ficticio. */
+.about-editorial { border-top:1px solid var(--line); }
+.about-company-heading { display:grid; grid-template-columns:1.6fr 1fr; gap:96px; align-items:start; }
+.about-company-heading h2 { margin-top:24px; font-size:64px; }
+.about-company-copy { padding-top:8px; }
+.about-company-copy p+p { margin-top:24px; }
+.about-company-copy .about-lead { font-size:24px; line-height:1.5; letter-spacing:-.025em; font-weight:600; }
+.about-practices { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:96px; padding-top:64px; margin-top:64px; border-top:1px solid var(--line); }
+.about-practices-intro h3 { font-size:28px; line-height:1.25; margin-bottom:24px; }
+.about-practices-intro p { font-size:16px; color:var(--secondary); }
+.practice-lines { display:grid; gap:0; }
+.practice-line { display:grid; grid-template-columns:48px minmax(0,1fr); gap:24px; padding:24px 0; border-bottom:1px solid var(--line); }
+.practice-line:first-child { padding-top:0; }
+.practice-line>span { font-size:14px; color:var(--secondary); padding-top:6px; }
+.practice-line h3 { font-size:28px; line-height:1.25; margin-bottom:12px; }
+.practice-line p { font-size:16px; color:var(--secondary); }
+.team-pending { margin-top:48px; padding:16px 24px; font-size:14px; line-height:1.5; background:var(--soft); color:var(--secondary); border-left:2px solid var(--main); }
+.about-editorial .text-link { margin-top:32px; }
+
+@container(max-width:1100px) {
+ .signal-stage.signal-flow { margin:0 32px; }
+ .signal-stage.compact-flow { margin:0; }
+ .signal-flow-steps { gap:48px; }
+ .flow-link { right:-36px; }
+ .about-company-heading, .about-practices { gap:48px; }
+ .about-company-heading h2 { font-size:56px; }
+}
+@container(max-width:767px) {
+ .signal-stage.signal-flow { margin:0 24px; padding:24px; }
+ .signal-stage.compact-flow { margin:0; }
+ .signal-flow-heading { padding-bottom:24px; }
+ .signal-flow-heading h2, .service-feature .signal-flow h2 { font-size:28px; margin-top:12px; }
+ .signal-flow-steps { grid-template-columns:1fr; gap:48px; padding-top:24px; }
+ .signal-flow .flow-content h3 { font-size:24px; }
+ .flow-link { top:auto; bottom:-32px; left:12px; right:auto; transform:rotate(90deg); }
+ .format-row { grid-template-columns:24px minmax(0,1fr); gap:16px; }
+ .format-row h3 { grid-column:2; grid-row:auto; }
+ .format-row p { grid-column:2; grid-row:auto; }
+ .format-row .format-detail { grid-column:2; grid-row:auto; width:max-content; max-width:100%; }
+ .avatar-guide { flex-direction:column; gap:24px; }
+ .about-company-heading, .about-practices { grid-template-columns:1fr; gap:32px; }
+ .about-company-heading h2 { font-size:44px; margin-top:16px; }
+ .about-company-copy { padding-top:0; }
+ .about-company-copy .about-lead { font-size:20px; }
+ .about-practices { padding-top:32px; margin-top:48px; }
+ .practice-line { grid-template-columns:24px minmax(0,1fr); gap:16px; }
+ .practice-line h3 { font-size:24px; }
+ .team-pending { margin-top:32px; padding:16px; }
+}
+@container(max-width:359px) {
+ .signal-flow-heading h2, .service-feature .signal-flow h2 { font-size:24px; }
+ .about-company-heading h2 { font-size:40px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .format-detail .icon { transition:none; }
+ .format-detail:hover .icon { transform:none; }
+}
+
+.footer-bottom a { display:inline-flex; align-items:center; min-height:44px; }

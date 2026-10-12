@@ -1,0 +1,9 @@
+# Aprobador interno designado para los ámbitos facts y decisions.
+# La designación no certifica cualificación jurídica ni aprueba automáticamente políticas, contratos, datos o claims.
+approvers:
+  - nombre: "Jesús De Dios Sánchez"
+    rol: "Propietario; aprobación de facts y contenido corporativo"
+    ambito: facts
+  - nombre: "Jesús De Dios Sánchez"
+    rol: "Propietario; aprobación interna de políticas, conservación, proveedores y decisiones del ámbito decisions"
+    ambito: decisions

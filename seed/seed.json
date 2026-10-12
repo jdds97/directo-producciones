@@ -1,0 +1,83 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "Directo M2 local",
+    "description": "Modelo editorial exclusivo del blog; sin entradas, usuarios ni datos reales."
+  },
+  "settings": {
+    "title": "Blog local",
+    "tagline": ""
+  },
+  "collections": [
+    {
+      "slug": "posts",
+      "label": "Entradas",
+      "labelSingular": "Entrada",
+      "urlPattern": "/blog/{slug}/",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Título",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "excerpt",
+          "label": "Extracto",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "author",
+          "label": "Autor editorial",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Contenido",
+          "type": "portableText",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Imagen con derechos aprobados",
+          "type": "image"
+        },
+        {
+          "slug": "image_alt",
+          "label": "Texto alternativo de la imagen",
+          "type": "string"
+        },
+        {
+          "slug": "synthetic",
+          "label": "Contenido sintético de comprobación local",
+          "type": "boolean"
+        }
+      ],
+      "commentsEnabled": false
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "category",
+      "label": "Categorías",
+      "labelSingular": "Categoría",
+      "hierarchical": true,
+      "collections": [
+        "posts"
+      ],
+      "terms": []
+    }
+  ]
+}

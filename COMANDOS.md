@@ -1,54 +1,26 @@
-# Comandos para reanudar y levantar el proyecto
+# Dos worktrees de trabajo
 
-> **Tranquilidad con `main`:** `main` está 100 % intacta y protegida. Los cambios están en ramas de trabajo independientes (`jdds97/M4-Astro-Integracion` y `jdds97/M3-Contenido-Inicial-y-Estructura-sitio`). Nada se mezcla en `main` sin un Pull Request y revisión previa.
+M3: contenido y estructura, `http://localhost:4393`. M4: diseño y medios, `http://localhost:4394`. Cada carpeta tiene `.env.worktree` privado con su `EMDASH_SITE_URL`; ambos usan la misma base Astro y estados locales independientes. No usar el ZIP de la antigua PR como fuente de desarrollo.
 
----
+# Levantar Astro y el CMS reales
 
-## Opción A. Levantar el proyecto Astro en local (Recomendada)
+Desde esta carpeta, con Node 22.22.2:
 
-Entra en la carpeta del worktree de Astro:
-
-```bash
-cd /home/jesus/orca/workspaces/directo_producciones_landing_page_1.0/M4-Astro-Integracion
-```
-
-### 1. Servidor de desarrollo estándar (Astro dev)
-Ideal para seguir editando o revisando en caliente:
-```bash
-npm run dev
-```
-Abre en tu navegador: **`http://localhost:4321`**
-
----
-
-### 2. Emulador local de Cloudflare Workers (Idéntico a producción)
-Levanta el runtime real de Cloudflare Workers con la base de datos D1 local:
-```bash
-npm run build
+```sh
+npm ci
 npm run local:worker
 ```
-Abre en tu navegador: **`http://localhost:4321`**
 
----
+Abre `/interno/m3/inicio/` en el origen de tu worktree para revisar las siete páginas. El panel nativo de EmDash está en `/_emdash/admin/` en ese mismo origen. El estado es local y no se incluye en GitHub. Para tu propia cuenta editorial, sigue las instrucciones de estado aislado del README.
 
-## Opción B. Generar un enlace temporal para verlo en el móvil
+Para desarrollo usa `npm run dev`, en el mismo puerto configurado. Detén un servidor antes de iniciar el otro dentro de ese worktree; M3 y M4 pueden ejecutarse a la vez en sus puertos separados.
 
-Si tienes el servidor corriendo (por ejemplo en el puerto `4321` o `4394`) y quieres abrirlo en el móvil al momento:
+# Actualizar los HTML
 
-```bash
-npx untun@latest tunnel http://localhost:4321
+Con el Worker activo y el build actualizado:
+
+```sh
+npm run export:presentation
 ```
 
-Te devolverá una URL pública temporal `https://<id>.trycloudflare.com` para abrir en cualquier dispositivo mientras tu equipo esté encendido.
-
----
-
-## Opción C. Ver el prototipo estático original de M4
-
-Si quieres contrastar con el prototipo de diseño inicial:
-
-```bash
-cd /home/jesus/orca/workspaces/directo_producciones_landing_page_1.0/M4-Diseño/design/iteration-02
-python3 -m http.server 4173
-```
-Abre en tu navegador: **`http://localhost:4173/desktop.html`**
+Los HTML de la nueva revisión se generan en `.private/review-html/`, excluidos de Git. El ZIP y los HTML ya publicados pertenecen a la entrega anterior y no se sobrescriben por esta revisión local. El paquete no exporta el backend del CMS ni despliega servicios externos. Las páginas legales y el copy M4 siguen pendientes de aprobación.

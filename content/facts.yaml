@@ -1,0 +1,114 @@
+# Los estados decided y published_by_company no autorizan publicación en producción.
+# Solo status: approved con aprobador, fecha y evidencia válidos es publicable.
+- id: entity.legal_name
+  value: "Nueva Información Local S.L."
+  status: published_by_company
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17)"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: entity.tax_id
+  value: "B90293168"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17)"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: entity.registered_address
+  value: "C/ Malva Nº 2 F, 41089 Dos Hermanas, Sevilla"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04); comprobar si es publicable como dirección comercial o solo domicilio social"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: contact.email
+  value: "info@directoproducciones.com"
+  status: decided
+  source: "Web actual y decisión del propietario, 2026-10-04"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: contact.public_phone
+  value: "679729727"
+  status: decided
+  source: "Aviso legal público y decisión del propietario, 2026-10-04"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: contact.whatsapp_phone
+  value: "622181100"
+  status: decided
+  source: "CTA público de WhatsApp y decisión del propietario, 2026-10-04"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: sla.budget_response
+  value: "24 horas naturales, incluidos fines de semana y festivos"
+  status: decided
+  source: "Decisión del propietario, 2026-10-04"
+  evidence: "Procedimiento interno documentado; prueba operativa y aprobación del texto público pendientes. No publicar el SLA como garantía antes de validarlas."
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: service.streaming_and_tv
+  value: "La web actual ofrece streaming de eventos con realización televisiva y TV online/Smart TV"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/ (consultado 2026-10-04)"
+  evidence: null
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: service.communication
+  value: "La web actual ofrece comunicación corporativa y gabinete de prensa"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/ (consultado 2026-10-04)"
+  evidence: "Alcance actual del servicio pendiente de confirmación"
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: service.digital_marketing
+  value: "La web actual ofrece marketing digital, redes sociales, SEO/SEM y diseño web"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/ (consultado 2026-10-04)"
+  evidence: "Alcance actual de cada servicio pendiente de confirmación"
+  approved_by: null
+  approved_at: null
+  required_for_launch: true
+- id: social_proof.home_testimonials
+  value: "Rafael González — Jefe de Comunicación del Ayto. de la Puebla del Río: «En La Puebla del Río hemos cambiado el concepto de comunicación gracias a las retransmisiones de Directo Producciones. La creación de nuestra televisión online es un paso hacia el futuro.» José Luis Contreras — Comunicación de la Hermandad de San Pablo (Sevilla): «Llevamos en la Hermandad de San Pablo confiando en ellos para retransmitir nuestra Estación de Penitencia y cada año mejor que el anterior.»"
+  status: approved
+  source: "https://www.directoproducciones.com/ (consultado 2026-10-08)"
+  evidence: "D-42: Jesús valida la reutilización de ambos testimonios y retratos en esta conversación; declaración del propietario, no comprobación independiente de consentimiento. Revisión final antes del lanzamiento."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-08"
+  required_for_launch: false
+- id: social_proof.wedding_metrics
+  value: "La página de bodas publica >50 bodas, 100 % satisfacción y 7 años de actividad"
+  status: published_by_company
+  source: "https://www.directoproducciones.com/tu-boda-en-streaming/ (consultado 2026-10-04; última modificación visible 2021-04-19)"
+  evidence: "D-42: propietario valida reutilizar las cifras antiguas como referencia y revisarlas al final. No trasladar estos indicadores de bodas a Inicio ni considerar el 100 % una métrica actual comprobada; revisión final B5."
+  approved_by: null
+  approved_at: null
+  required_for_launch: false
+- id: social_proof.home_metrics
+  value: "2400 retransmisiones en streaming; 169 empresas han confiado en nuestros servicios; 7 marcas creadas"
+  status: approved
+  source: "https://www.directoproducciones.com/ (HTML consultado 2026-10-08: data-to-value 2400, 169 y 7)"
+  evidence: "D-42: Jesús valida las cifras de la web antigua y pide reutilizarlas con revisión al final antes del lanzamiento. Valores exactos recuperados de los contadores de Inicio; periodo y método no comprobados independientemente."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-08"
+  required_for_launch: false
+- id: social_proof.home_clients
+  value: "Junta de Andalucía; Ayuntamiento de la Puebla del Río; Turismo de Sevilla; Hermandad Matriz del Rocío; Remax; Ayuntamiento Dos Hermanas; Hermandad de la Macarena; SEAT; Tixe; Cajasol Voley - Esquimo; Consejo de Hermandades de Sevilla; Federación Andaluza de Fútbol; Ayuntamiento de la Rinconada; Hotel TRH La Motilla; Canal Sur; Hospital San Agustín"
+  status: approved
+  source: "https://www.directoproducciones.com/ (consultado 2026-10-08); docs/assets-register.csv"
+  evidence: "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-08"
+  required_for_launch: false

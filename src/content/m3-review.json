@@ -1,0 +1,21 @@
+{
+  "status": "local-review",
+  "source": "Contrato editorial M3 §6, revisión de Jesús del 2026-10-09; no autoriza publicación ni facts",
+  "home": {
+    "eyebrow": "Streaming · Comunicación · Marketing",
+    "heading": "Que se vea. Que se escuche. Que importe.",
+    "paragraph": "Tu evento en directo. Tu marca en conversación. Streaming, comunicación y marketing para lo que quieres contar.",
+    "streamingCta": "Explorar streaming",
+    "communicationCta": "Explorar comunicación y marketing",
+    "streamingHeading": "Streaming de eventos y TV online",
+    "streamingParagraph": "Retransmisión de eventos con realización televisiva y proyectos de TV online. Cuéntanos qué quieres emitir, cuándo y a quién te diriges.",
+    "communicationHeading": "Comunicación corporativa y marketing digital",
+    "communicationParagraph": "Comunicación corporativa, gabinete de prensa y marketing digital para tu organización. Cuéntanos qué necesitas comunicar y qué canales quieres trabajar."
+  },
+  "events": {
+    "heading": "Streaming de eventos. Del evento a la pantalla.",
+    "paragraph1": "El streaming de eventos permite seguir lo que sucede a distancia. La realización televisiva da forma a lo que ve la audiencia durante la emisión.",
+    "paragraph2": "Cuéntanos qué va a suceder, cuándo y dónde se celebra, quién lo verá y dónde quieres emitirlo. Con esa información podemos hablar del formato de tu retransmisión.",
+    "cta": "Hablemos de tu retransmisión"
+  }
+}
