@@ -1,15 +1,20 @@
 import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { LOCAL_CMS_ORIGIN } from '../config/local-review.mjs';
 
 // Exporta únicamente páginas renderizadas y activos del diseño. No exporta el CMS.
-const origin = new URL(process.env.PRESENTATION_ORIGIN || 'http://localhost:4394');
+const origin = new URL(process.env.PRESENTATION_ORIGIN || LOCAL_CMS_ORIGIN);
 if (!['localhost', '127.0.0.1'].includes(origin.hostname)) throw new Error('Usar el Worker local.');
-const output = resolve('preview-html');
+const output = resolve('.private/review-html');
 const routes = {
-  '/': 'index.html', '/servicios/': 'servicios.html', '/clientes/': 'clientes.html',
-  '/quienes-somos/': 'quienes-somos.html', '/streaming/': 'streaming.html',
-  '/comunicacion-marketing/': 'comunicacion-marketing.html', '/blog/': 'blog.html',
-  '/blog/comprobacion-local/': 'articulo-real.html', '/contacto/': 'contacto.html',
+  '/interno/m3/inicio/': 'index.html', '/interno/m3/quienes-somos/': 'quienes-somos.html',
+  '/interno/m3/portfolio/': 'portfolio.html', '/interno/m3/comunicacion/': 'comunicacion.html',
+  '/interno/m3/produccion/': 'produccion.html', '/interno/m3/contacto/': 'contacto.html',
+  '/interno/m3/blog/': 'blog.html',
+  '/': 'm4-inicio.html', '/servicios/': 'servicios.html', '/clientes/': 'clientes.html',
+  '/quienes-somos/': 'm4-quienes-somos.html', '/streaming/': 'streaming.html',
+  '/comunicacion-marketing/': 'comunicacion-marketing.html', '/blog/': 'm4-blog.html',
+  '/blog/comprobacion-local/': 'articulo-real.html', '/contacto/': 'm4-contacto.html',
   '/cookies/': 'cookies.html', '/privacidad/': 'privacidad.html',
   '/aviso-legal/': 'aviso-legal.html', '/interno/guia/': 'guia.html',
   '/interno/articulo/': 'articulo.html', '/pagina-no-encontrada/': '404.html',
@@ -42,11 +47,10 @@ for (const [route, file] of Object.entries(routes)) {
     if (!target) throw new Error(`${route}: referencia sin exportar ${raw}`);
     return `${attribute}="${target}${url.search}${url.hash}"`;
   });
-  html = html.replace('BORRADOR LOCAL · Copy en revisión editorial. Envíos y analítica desactivados.', 'PRESENTACIÓN · Copy M4 en borrador. Envíos y analítica desactivados.');
   await writeFile(`${output}/${file}`, html);
 }
-const cms = `<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex,nofollow"><title>EmDash · Presentación</title><style>body{font:18px/1.6 system-ui;max-width:760px;margin:64px auto;padding:24px;background:#f4f8fa;color:#172b34}a{color:#164e63}</style><h1>Blog con EmDash</h1><p>El CMS real está implementado en Astro y funciona en el Worker local. Esta entrega HTML es una presentación estática: no incluye cuentas, credenciales, bases de datos ni un panel simulado.</p><p><a href="http://localhost:4394/_emdash/admin/">Abrir el CMS real en este ordenador</a></p><p>La edición corporativa/global sigue pendiente. El copy de la presentación es borrador.</p><a href="index.html">Volver a Inicio</a></html>`;
+const cms = `<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex,nofollow"><title>EmDash · Presentación</title><style>body{font:18px/1.6 system-ui;max-width:760px;margin:64px auto;padding:24px;background:#f4f8fa;color:#172b34}a{color:#164e63}</style><h1>Blog con EmDash</h1><p>El CMS real está implementado en Astro y funciona en el Worker local. Esta entrega HTML es una presentación estática: no incluye cuentas, credenciales, bases de datos ni un panel simulado.</p><p><a href="${origin.origin}/_emdash/admin/">Abrir el CMS real en este ordenador</a></p><p>La edición corporativa/global sigue pendiente. El copy de la presentación es borrador.</p><a href="index.html">Volver a Inicio</a></html>`;
 await writeFile(`${output}/emdash.html`, cms);
-await writeFile(`${output}/README.md`, '# Presentación M4 → Astro\n\nAbrir index.html en un navegador. Incluye todas las páginas de diseño, temas claro/oscuro, navegación, menú responsive, guía visual y plantillas. Los HTML se exportan del Worker Astro verificado; el blog es una instantánea sintética. Copy M4 en borrador, legales pendientes y formulario deshabilitado. No es un despliegue de producción. EmDash se demuestra mediante el Worker local, no mediante estos HTML.\n\nRegenerar con el Worker local activo: npm run export:presentation.\n');
+await writeFile(`${output}/README.md`, '# Revisión local M3/M4 → Astro\n\nAbrir index.html en un navegador. Incluye todas las páginas de diseño, temas claro/oscuro, navegación, menú responsive, guía visual y plantillas. Los HTML se exportan del Worker Astro verificado; el blog es una instantánea sintética. Hero/entradas de Inicio y Eventos en streaming con textos revisados de M3; resto del copy y legales pendientes y formulario deshabilitado. Rutas provisionales, sin publicación autorizada. Este paquete debe permanecer privado/local. EmDash se demuestra mediante el Worker local, no mediante estos HTML.\n\nRegenerar con el Worker local activo: npm run export:presentation.\n');
 const files = await readdir(output);
 console.log(`Presentación exportada: ${files.filter(file => file.endsWith('.html')).length} HTML, sin estado del CMS.`);

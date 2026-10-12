@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "astro dev --host localhost",
-    "local:worker": "wrangler dev --config dist/server/wrangler.json --local --test-scheduled --ip 127.0.0.1 --port 4394 --persist-to .wrangler/m4-astro-review --env-file .env",
+    "local:worker": "node scripts/local-worker.mjs",
     "guard-content": "tsx scripts/guard-content.ts",
     "preguard-content": "npm run prepare:registry",
     "build": "npm run guard-content && astro build",

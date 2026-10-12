@@ -24,7 +24,16 @@ const editorial = JSON.parse(readFileSync('config/m4-editorial.json', 'utf8'));
 if (editorial.status !== 'draft' || editorial.approved.length !== 0 || editorial.publicationAuthorized !== false) {
   errors.push('Esta reproducción conserva TODO el copy M4 como borrador sin aprobar ni autorizar publicación.');
 }
+const m3Review = JSON.parse(readFileSync('src/content/m3-review.json', 'utf8'));
+const m3Contract = JSON.parse(readFileSync('config/m3-reviewed-texts.json', 'utf8'));
+if (m3Review.status !== 'local-review' || m3Contract.publicationAuthorized !== false) errors.push('M3 solo autoriza revisión local sin publicación.');
+for (const [field, digest] of Object.entries(m3Contract.sha256)) {
+  const [block, key] = field.split('.');
+  const value = m3Review[block]?.[key];
+  if (typeof value !== 'string' || createHash('sha256').update(value).digest('hex') !== digest) errors.push(`Texto M3 distinto del contrato revisado: ${field}.`);
+}
 const routesRequiringLocalGate = new Set([
+  ...['inicio', 'quienes-somos', 'portfolio', 'comunicacion', 'produccion', 'contacto', 'blog'].map(page => `src/pages/interno/m3/${page}.astro`),
   'src/pages/index.astro',
   'src/pages/streaming.astro',
   'src/pages/comunicacion-marketing.astro',

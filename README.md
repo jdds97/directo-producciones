@@ -2,13 +2,21 @@
 
 Reproducción responsive del diseño M4 en Astro 7, con TypeScript y el blog real de EmDash 1.1.0. La versión de revisión está limitada a loopback; no despliega, no activa formularios ni analítica.
 
-## Presentación sin Node
+## Dos worktrees de trabajo
 
-Descargar `directo-preview.zip`, extraerlo y abrir `preview-html/index.html` en un navegador. Los 16 HTML actualizados se exportan del Worker Astro: incluyen navegación entre páginas, claro/oscuro, menú móvil, fuentes y activos locales. También están disponibles directamente en `preview-html/`.
+M3 conserva contenido y estructura editorial; M4 conserva componentes, estilos, movimiento y preparación de medios. Ambos parten de la misma base Astro. Los cambios se revisan por página y sección; no se fusionan en `main` ni se publican sin autorización.
 
-El copy M4 continúa en borrador. El blog es una instantánea sintética; la guía y las plantillas se incluyen como vistas de presentación. EmDash requiere el Worker local y conserva su autenticación real: el paquete HTML no incluye cuentas, bases de datos ni una simulación del admin. La subida a GitHub comparte fuentes y esta presentación; no activa una web de producción.
+El archivo local `.env.worktree`, excluido de Git, contiene únicamente `EMDASH_SITE_URL=http://localhost:4393` para M3 o `EMDASH_SITE_URL=http://localhost:4394` para M4. Configura el mismo origen en Astro, EmDash, gate, Worker y exportador. Sin ese archivo, el puerto predeterminado es 4394. Cada checkout conserva su propio `.env` y estado local; no compartir claves o sesiones entre agentes. Para sesiones editoriales simultáneas, usar perfiles de navegador separados: las cookies de localhost no se separan por puerto.
 
-Con el Worker activo, `npm run export:presentation` regenera los HTML. Las comprobaciones locales cubren 90 vistas del runtime, 66 comparaciones con M4 y el flujo editorial nativo; la presentación HTML se comprueba también mediante apertura directa de archivos.
+Las fuentes originales de diseño se conservan localmente en `design/`, excluido de Git. Los documentos editoriales y de coordinación permanecen en `docs/`, también privados. Los ZIP/HTML de presentación anteriores no son la fuente de trabajo.
+
+## Revisión de la nueva estructura
+
+Abrir `/interno/m3/inicio/` en el origen del worktree (M3: `http://localhost:4393`; M4: `http://localhost:4394`). Las siete entradas son Inicio, Quiénes somos, Portfolio, Comunicación, Producción, Contacto y Blog. Sus rutas bajo `/interno/m3/` son provisionales y exclusivamente locales; no fijan slugs ni redirecciones de producción. Las rutas preexistentes se conservan fuera de esta navegación.
+
+Se aplica literalmente el hero y las dos entradas de Inicio y el bloque Eventos en streaming revisados con M3. El resto del copy M4 permanece como borrador, incluida TV online; las fichas de Portfolio siguen pendientes de contenido validado. No se usan logos de clientes como proyectos. El blog conserva el CMS nativo y el formulario sigue deshabilitado.
+
+Con el Worker activo, `npm run export:presentation` genera HTML de revisión en `.private/review-html/`, excluidos de Git. Abrir su `index.html` sin Node ni servidor. Esta nueva revisión no está autorizada para publicación. El ZIP y `preview-html/` ya subidos a GitHub pertenecen a la entrega anterior; no representan la nueva estructura.
 
 ## Uso local
 
@@ -21,7 +29,7 @@ npm run build
 npm run local:worker
 ```
 
-El Worker escucha en `http://localhost:4394`. El script genera un entorno con clave de sesión nueva y aplica migraciones únicamente a D1 local. No requiere login ni credenciales de Cloudflare. D1, sesiones y R2 emulados quedan en `.wrangler/m4-astro-review`, excluido de Git. `npm run dev` sirve el desarrollo Astro en el mismo puerto; detener un servidor antes de iniciar el otro.
+El Worker usa el puerto de `.env.worktree` (4394 por defecto). El script genera un entorno con clave de sesión nueva y aplica migraciones únicamente a D1 local. No requiere login ni credenciales de Cloudflare. D1, sesiones y R2 emulados quedan en `.wrangler/m4-astro-review` dentro de cada checkout, excluidos de Git. `npm run dev` sirve el desarrollo Astro en el mismo puerto; detener un servidor antes de iniciar el otro en ese checkout.
 
 Rutas de revisión: `/`, `/servicios/`, `/clientes/`, `/quienes-somos/`, `/streaming/`, `/comunicacion-marketing/`, `/blog/`, `/contacto/`, `/cookies/`, `/privacidad/` y `/aviso-legal/`. Una URL ausente devuelve la composición M4 con HTTP 404. La guía se revisa en `/interno/guia/` y la plantilla editorial en `/interno/articulo/`; ambas son internas y locales. El panel auténtico del blog está en `/_emdash/admin/`.
 
@@ -38,7 +46,7 @@ npx wrangler d1 migrations apply DB --local --persist-to .wrangler/m4-editorial-
 npm run --ignore-scripts local:worker -- --persist-to .wrangler/m4-editorial-propia
 ```
 
-Después abre `http://localhost:4394/_emdash/admin/` y sigue el alta nativa con tu passkey. El primer arranque del CMS puede tardar mientras inicializa el entorno local.
+Después abre `/_emdash/admin/` en el origen de tu worktree y sigue el alta nativa con tu passkey. El primer arranque del CMS puede tardar mientras inicializa el entorno local.
 
 Contacto reproduce el formulario con envío deshabilitado. No serializa, persiste ni envía los campos; tampoco simula éxito. Las páginas legales son borradores pendientes de revisión y no son textos jurídicos vigentes. Los controles ilustrativos de preferencias no activan cookies ni categorías.
 
@@ -53,8 +61,12 @@ npm run migrate:local
 
 El guard conserva la validación de facts, aprobadores y revisiones del blog. Las excepciones de diseño son exclusivamente locales: los bytes de los activos M4 están enumerados por hash en `config/m4-assets.json`, todo el copy permanece sin aprobar y el formulario debe seguir deshabilitado. Cualquier entorno distinto de `local` bloquea la reproducción. No usar este worktree para producción sin una integración editorial posterior revisada.
 
-Las respuestas de página usan `noindex`/`no-store`, sin canonical ni datos estructurados de producción. El gate rechaza hosts ajenos a loopback, POST fuera del CMS, endpoints de bypass/reset y funciones fuera del alcance local. El login editorial usa exclusivamente `localhost:4394`.
+Las respuestas de página usan `noindex`/`no-store`, sin canonical ni datos estructurados de producción. El gate rechaza hosts ajenos a loopback, POST fuera del CMS, endpoints de bypass/reset y funciones fuera del alcance local. El login editorial usa exclusivamente el origen localhost configurado para cada worktree.
 
 No copiar secretos, WXR, uploads, datos reales, estado local o registros internos al conjunto publicable. `.gitignore` excluye `.env`, `.emdash`, `.wrangler`, `.private`, `docs`, bases y caches. La evidencia de revisión permanece en `.private/evidence`, sin publicación.
 
 Manrope se sirve localmente, con licencia OFL en `public/assets/m4/OFL-Manrope.txt`. Los logos y retratos se conservan sin modificar sus bytes; los recortes ópticos se aplican por CSS. Su inclusión en esta revisión local no acredita permisos adicionales ni cierra la revisión de lanzamiento.
+
+## CI de revisión
+
+El workflow `Baseline CI`, conservado desde `main`, comprueba las PR dirigidas a `main`: instalación desde lockfile, auditoría npm, guard editorial comparado con el commit base, check y build. Usa permisos de lectura y no despliega. CODEOWNERS no sustituye la protección remota de la rama ni la revisión del propietario.

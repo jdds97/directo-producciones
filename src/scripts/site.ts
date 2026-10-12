@@ -60,7 +60,7 @@ reduced.addEventListener('change', () => {
   if (reduced.matches) { animations.forEach(animation => animation.cancel()); menuAnimation?.cancel(); }
 });
 // Resize while open must release inert and scroll when desktop navigation appears.
-matchMedia('(min-width: 1101px)').addEventListener('change', event => { if (event.matches) void closeMenu(); });
+matchMedia('(min-width: 1280px)').addEventListener('change', event => { if (event.matches) void closeMenu(); });
 const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle')!;
 let dark = document.body.classList.contains('theme-dark');
 function applyTheme() {

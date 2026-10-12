@@ -4,13 +4,14 @@ import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
 import { d1, r2 } from '@emdash-cms/cloudflare';
 import blogCms from './config/blog-cms.mjs';
+import { LOCAL_CMS_ORIGIN, LOCAL_REVIEW_PORT } from './config/local-review.mjs';
 
 if (existsSync('.env')) process.loadEnvFile('.env');
 if (process.env.LEADS_ENABLED === 'true' || process.env.ANALYTICS_ENABLED === 'true') {
   throw new Error('M2 local no autoriza activar leads ni analítica.');
 }
 const cms = blogCms({
-  siteUrl: 'http://localhost:4394',
+  siteUrl: LOCAL_CMS_ORIGIN,
   database: d1({ binding: 'DB' }),
   storage: r2({ binding: 'MEDIA' }),
   migrations: { runtime: 'auto', dev: 'auto' },
@@ -27,8 +28,11 @@ export default defineConfig({
     ttl: 60 * 60 * 24 * 7,
     cookie: { sameSite: 'lax', secure: process.env.APP_ENV !== 'local' },
   },
-  server: { host: 'localhost', port: 4394 },
+  server: { host: 'localhost', port: LOCAL_REVIEW_PORT },
   devToolbar: { enabled: false },
-  vite: { build: { assetsInlineLimit: 0 } },
+  vite: {
+    build: { assetsInlineLimit: 0 },
+    define: { 'import.meta.env.EMDASH_SITE_URL': JSON.stringify(LOCAL_CMS_ORIGIN) },
+  },
   integrations: [react(), cms],
 });

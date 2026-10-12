@@ -2,6 +2,7 @@ import { defineMiddleware } from 'astro:middleware';
 import { isCmsPath } from './scope.ts';
 
 import { LOCAL_CMS_ORIGIN } from '../config/local-origin';
+const developmentConnections = `${LOCAL_CMS_ORIGIN.replace('http:', 'ws:')} ${LOCAL_CMS_ORIGIN.replace('http:', 'ws:').replace('localhost', '127.0.0.1')}`;
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { url, request } = context;
@@ -34,7 +35,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       request.headers.get('origin') !== LOCAL_CMS_ORIGIN && !internalTypegen) {
     return new Response('Origen no permitido.', { status: 403 });
   }
-  if (url.pathname.startsWith('/blog') && (url.searchParams.has('_preview') || url.searchParams.has('_edit'))) {
+  if ((url.pathname.startsWith('/blog') || url.pathname.startsWith('/interno/m3/blog')) && (url.searchParams.has('_preview') || url.searchParams.has('_edit'))) {
     return new Response('Usa el panel editorial para revisar borradores.', { status: 403 });
   }
   const response = await next();
@@ -42,6 +43,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   response.headers.set('Cache-Control', 'no-store');
   response.headers.set('Referrer-Policy', 'no-referrer');
   response.headers.set('X-Content-Type-Options', 'nosniff');
-  if (!cms) response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' ws://localhost:4394 ws://127.0.0.1:4394; frame-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'");
+  if (!cms) response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' ${developmentConnections}; frame-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'`);
   return response;
 });

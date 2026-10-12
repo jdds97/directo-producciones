@@ -20,5 +20,26 @@ button:disabled { cursor:not-allowed; opacity:.55; }
 .guide-table { overflow-wrap:anywhere; }
 .guide-table { table-layout:fixed; }
 .guide-table code { white-space:normal; }
-@container(max-width:1100px) { .header .desktop-nav,.header .contact-nav { display:none; } .header .menu-toggle { display:flex; } }
+@container(max-width:1279px) { .header .desktop-nav,.header .contact-nav { display:none; } .header .menu-toggle { display:flex; } }
 @container(max-width:767px) { .header { gap:12px; } }
+
+.review-hero-actions { display:grid; gap:16px; }
+.review-hero-actions .button { width:100%; }
+.review-lines { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:64px; border-top:1px solid var(--line); }
+.review-lines article { display:flex; flex-direction:column; align-items:flex-start; }
+.review-lines h2 { font-size:48px; margin-top:0; }
+.review-lines p { margin-top:24px; margin-bottom:24px; }
+.review-lines .text-link { margin-top:auto; }
+.portfolio-pending { border-top:1px solid var(--line); background:var(--soft); }
+.portfolio-pending h2 { font-size:48px; margin-top:0; }
+.portfolio-pending p { margin-top:24px; }
+@container(max-width:767px) {
+  .review-lines { grid-template-columns:1fr; gap:48px; }
+  .review-lines h2,.portfolio-pending h2 { font-size:36px; }
+}
+
+.review-home .hero h1 { font-size:96px; }
+.review-home .hero h1 > span { display:block; }
+@container(max-width:1279px) { .review-home .hero h1 { font-size:80px; } }
+@container(max-width:767px) { .review-home .hero h1 { font-size:44px; } }
+@container(max-width:359px) { .review-home .hero h1 { font-size:40px; } }
