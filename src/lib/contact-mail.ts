@@ -24,6 +24,7 @@ export function resultMessages(env: AppEnv): Record<string, string> {
     tope: 'Hoy ya no podemos recibir más consultas por la web; el formulario vuelve a estar disponible mañana. No se ha enviado nada: usa WhatsApp.',
     invalida: 'Revisa el nombre, el correo de respuesta y el mensaje. No se ha enviado nada.',
     origen: 'Esta petición no procede de la propia web. No se ha enviado nada.',
+    verificacion: 'No hemos podido completar la verificación antiabuso. No se ha enviado nada: recarga la página e inténtalo de nuevo, o usa WhatsApp.',
     grande: 'El mensaje es demasiado largo. No se ha enviado nada.',
     'sin-proveedor': 'El envío por correo todavía no está disponible. No se ha enviado nada; usa WhatsApp.',
     fallo: 'No se ha podido confirmar el envío de la consulta. Inténtalo más tarde o usa WhatsApp.',

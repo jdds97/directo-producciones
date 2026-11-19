@@ -5636,7 +5636,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 1250
+            "maxLength": 1460
           }
         },
         {

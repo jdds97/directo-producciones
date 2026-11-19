@@ -71,7 +71,19 @@ if (sendBindings.some((b) => b.name !== 'CONTACT_EMAIL' || !/^[^"@\s]+@avisos\.d
   errors.push('wrangler.jsonc: cada binding send_email debe llamarse CONTACT_EMAIL, enviar solo desde una dirección de avisos.directoproducciones.com y solo al destinatario aprobado (contact.form_recipient_email).');
 }
 if (!/"ratelimits"/.test(wrangler)) errors.push('wrangler.jsonc: falta el binding de límite de frecuencia del formulario (ratelimits).');
-if (/"(?:\w*(?:KEY|SECRET|TOKEN|PASSWORD)\w*)"\s*:\s*"/i.test(wrangler.replace(/"\$schema"[^\n]*/, ''))) errors.push('wrangler.jsonc: no declarar secretos en vars; se fijan como secretos del Worker.');
+// TURNSTILE_SITEKEY es pública (va en el HTML); TURNSTILE_SECRET nunca en vars.
+if (/"(?:\w*(?:KEY|SECRET|TOKEN|PASSWORD)\w*)"\s*:\s*"/i.test(wrangler.replace(/"\$schema"[^\n]*/, '').replace(/"TURNSTILE_SITEKEY"\s*:/g, ''))) errors.push('wrangler.jsonc: no declarar secretos en vars; se fijan como secretos del Worker.');
+// Turnstile del formulario: con sitekey hay que declarar los hostnames del propio despliegue; producción lo exige y solo con el dominio real.
+for (const [name, c] of Object.entries({ local: rawConfig, ...(rawConfig.env ?? {}) })) {
+  const vars = ((c as { vars?: Record<string, unknown> }).vars ?? {}) as Record<string, unknown>;
+  const sitekey = String(vars.TURNSTILE_SITEKEY ?? '').trim();
+  const hosts = String(vars.TURNSTILE_HOSTNAMES ?? '').split(',').map((h) => h.trim()).filter(Boolean);
+  if (sitekey && !/^0x[\w-]{10,}$/.test(sitekey)) errors.push(`wrangler.jsonc (${name}): TURNSTILE_SITEKEY no tiene forma de sitekey de Turnstile.`);
+  if (sitekey && !hosts.length) errors.push(`wrangler.jsonc (${name}): con TURNSTILE_SITEKEY hay que declarar TURNSTILE_HOSTNAMES.`);
+  if (name === 'production' && (!sitekey || hosts.join(',') !== 'directoproducciones.com')) {
+    errors.push('wrangler.jsonc (production): Turnstile obligatorio, con TURNSTILE_HOSTNAMES exactamente «directoproducciones.com» (sin localhost ni workers.dev).');
+  }
+}
 for (const file of [...listFiles('src/scripts'), ...listFiles('src/components'), ...listFiles('src/pages').filter(f => !f.endsWith('api/contacto.ts'))]) {
   if (/RESEND_API_KEY|api\.resend\.com|\bre_[A-Za-z0-9]{16,}/.test(readFileSync(file, 'utf8'))) errors.push(`${file}: el transporte y la clave de correo solo viven en código de servidor.`);
 }
