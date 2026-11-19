@@ -1,0 +1,898 @@
+{
+ "version": 1,
+ "fuente": "docs/url-inventory.csv",
+ "rows": [
+  {
+   "url": "https://www.directoproducciones.com/blog/",
+   "path": "/blog/",
+   "tipo": "entrada_index",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/07/17/directo-producciones-llevara-la-comunicacion-del-campeon-espanol-guillermo-flores-objetivotokio2020/",
+   "path": "/2019/07/17/directo-producciones-llevara-la-comunicacion-del-campeon-espanol-guillermo-flores-objetivotokio2020/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/directo-producciones-llevara-la-comunicacion-del-campeon-espanol-guillermo-flores-objetivotokio2020/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/07/24/macarena-television-online-streaming/",
+   "path": "/2019/07/24/macarena-television-online-streaming/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/macarena-television-online-streaming/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/04/gestion-de-marketing-en-redes-sociales-del-tenista-javier-barranco-cosano/",
+   "path": "/2019/09/04/gestion-de-marketing-en-redes-sociales-del-tenista-javier-barranco-cosano/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/gestion-de-marketing-en-redes-sociales-del-tenista-javier-barranco-cosano/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/06/claves-para-hacer-marketing-en-el-sector-de-la-energia/",
+   "path": "/2019/09/06/claves-para-hacer-marketing-en-el-sector-de-la-energia/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/claves-para-hacer-marketing-en-el-sector-de-la-energia/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/09/streaming-ventajas-y-desventajas/",
+   "path": "/2019/09/09/streaming-ventajas-y-desventajas/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/streaming-ventajas-y-desventajas/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/10/por-que-es-conveniente-tener-un-seguro-para-el-ordenador/",
+   "path": "/2019/09/10/por-que-es-conveniente-tener-un-seguro-para-el-ordenador/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/por-que-es-conveniente-tener-un-seguro-para-el-ordenador/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/17/por-que-las-comercializadoras-electricas-han-cambiado-de-nombre/",
+   "path": "/2019/09/17/por-que-las-comercializadoras-electricas-han-cambiado-de-nombre/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/por-que-las-comercializadoras-electricas-han-cambiado-de-nombre/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/18/por-que-el-sector-de-la-energia-tiene-poca-cabida-en-la-television/",
+   "path": "/2019/09/18/por-que-el-sector-de-la-energia-tiene-poca-cabida-en-la-television/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/por-que-el-sector-de-la-energia-tiene-poca-cabida-en-la-television/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/23/descubre-esta-guia-para-registrar-un-dominio-paso-a-paso/",
+   "path": "/2019/09/23/descubre-esta-guia-para-registrar-un-dominio-paso-a-paso/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/descubre-esta-guia-para-registrar-un-dominio-paso-a-paso/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/24/internet-uso-de-madrid-y-valencia/",
+   "path": "/2019/09/24/internet-uso-de-madrid-y-valencia/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/internet-uso-de-madrid-y-valencia/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/25/david-soria-marca-personal-gestion-redes-sociales/",
+   "path": "/2019/09/25/david-soria-marca-personal-gestion-redes-sociales/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/david-soria-marca-personal-gestion-redes-sociales/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/15/como-tramitar-un-alta-de-gas-natural-de-manera-online/",
+   "path": "/2019/09/15/como-tramitar-un-alta-de-gas-natural-de-manera-online/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/como-tramitar-un-alta-de-gas-natural-de-manera-online/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/09/30/nazareno-doshermanas-futbol-sala-en-directo-retransmision/",
+   "path": "/2019/09/30/nazareno-doshermanas-futbol-sala-en-directo-retransmision/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/nazareno-doshermanas-futbol-sala-en-directo-retransmision/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/10/04/instagram-threads-como-funciona/",
+   "path": "/2019/10/04/instagram-threads-como-funciona/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/instagram-threads-como-funciona/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/10/13/uso-de-internet-en-castilla-la-mancha-y-cataluna-porcentajes-y-diferencias/",
+   "path": "/2019/10/13/uso-de-internet-en-castilla-la-mancha-y-cataluna-porcentajes-y-diferencias/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/uso-de-internet-en-castilla-la-mancha-y-cataluna-porcentajes-y-diferencias/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/10/15/pena-lopez-gestion-marketing-comunicacion/",
+   "path": "/2019/10/15/pena-lopez-gestion-marketing-comunicacion/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/pena-lopez-gestion-marketing-comunicacion/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2019/11/25/gran-poder-sevilla-streaming-television-online/",
+   "path": "/2019/11/25/gran-poder-sevilla-streaming-television-online/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/gran-poder-sevilla-streaming-television-online/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/01/28/fitur-2020-retransmision-streaming/",
+   "path": "/2020/01/28/fitur-2020-retransmision-streaming/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/fitur-2020-retransmision-streaming/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/02/07/en-directo-concierto-de-las-cigarreras-en-la-basilica-del-cachorro/",
+   "path": "/2020/02/07/en-directo-concierto-de-las-cigarreras-en-la-basilica-del-cachorro/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/en-directo-concierto-de-las-cigarreras-en-la-basilica-del-cachorro/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/02/08/directo-producciones-emite-el-espectaculo-sonando-a-sevilla-desde-1980-organizado-por-virgen-de-los-reyes/",
+   "path": "/2020/02/08/directo-producciones-emite-el-espectaculo-sonando-a-sevilla-desde-1980-organizado-por-virgen-de-los-reyes/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/directo-producciones-emite-el-espectaculo-sonando-a-sevilla-desde-1980-organizado-por-virgen-de-los-reyes/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/02/22/scientiffic-nutrition-streaming-real-betis/",
+   "path": "/2020/02/22/scientiffic-nutrition-streaming-real-betis/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/scientiffic-nutrition-streaming-real-betis/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/02/28/sentencia-via-crucis-retransmision-directo-producciones/",
+   "path": "/2020/02/28/sentencia-via-crucis-retransmision-directo-producciones/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/sentencia-via-crucis-retransmision-directo-producciones/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2020/03/18/esperanza-macarena-television-streaming-sevilla/",
+   "path": "/2020/03/18/esperanza-macarena-television-streaming-sevilla/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/esperanza-macarena-television-streaming-sevilla/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2021/09/16/xerez-cd-modelo-streaming-television/",
+   "path": "/2021/09/16/xerez-cd-modelo-streaming-television/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/xerez-cd-modelo-streaming-television/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2022/10/24/club-atletico-central-television-exito-streaming/",
+   "path": "/2022/10/24/club-atletico-central-television-exito-streaming/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/club-atletico-central-television-exito-streaming/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/2022/11/24/directo-producciones-se-estrena-en-television-101tv-sevilla/",
+   "path": "/2022/11/24/directo-producciones-se-estrena-en-television-101tv-sevilla/",
+   "tipo": "entrada",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/directo-producciones-se-estrena-en-television-101tv-sevilla/",
+    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
+    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/",
+   "path": "/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/servicios/",
+   "path": "/servicios/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/proyectos/",
+   "path": "/proyectos/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "redirigir",
+   "estado": "propuesta",
+   "destino": "/portfolio/",
+   "codigo": 301,
+   "nota": "Misma función que la página nueva; propuesta sin aprobar."
+  },
+  {
+   "url": "https://www.directoproducciones.com/inicio/",
+   "path": "/inicio/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "Sin equivalente decidido en el sitio nuevo; contenido por adaptar (D-45). Destino pendiente de aprobación por URL.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/",
+    "razon": "Alias de Inicio: no es «todo a Inicio» sino una única URL equivalente (hay que permitir ese destino al aprobarla).",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/galeria/",
+   "path": "/galeria/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "Sin equivalente decidido en el sitio nuevo; contenido por adaptar (D-45). Destino pendiente de aprobación por URL.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/portfolio/",
+    "razon": "La galería de WordPress es el equivalente funcional del portfolio.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/quienes-somos/",
+   "path": "/quienes-somos/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/contacto/",
+   "path": "/contacto/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/guillermo-flores-juegos-olimpicos-tokio-2020/",
+   "path": "/guillermo-flores-juegos-olimpicos-tokio-2020/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "Sin equivalente decidido en el sitio nuevo; contenido por adaptar (D-45). Destino pendiente de aprobación por URL.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/comunicacion-marketing/",
+    "razon": "Landing de un caso de comunicación deportiva; sin página propia en el sitio nuevo. Revisar contenido antes de aprobar.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/tu-boda-en-streaming/",
+   "path": "/tu-boda-en-streaming/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "Sin equivalente decidido en el sitio nuevo; contenido por adaptar (D-45). Destino pendiente de aprobación por URL.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/streaming/",
+    "razon": "Landing del servicio de bodas en streaming; el servicio vive en Producción audiovisual. Revisar contenido antes de aprobar.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/politica-de-cookies/",
+   "path": "/politica-de-cookies/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "redirigir",
+   "estado": "propuesta",
+   "destino": "/cookies/",
+   "codigo": 301,
+   "nota": "Misma función que la página nueva; propuesta sin aprobar."
+  },
+  {
+   "url": "https://www.directoproducciones.com/carrito/",
+   "path": "/carrito/",
+   "tipo": "pagina",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/aviso-legal/",
+   "path": "/aviso-legal/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "conservar-ruta",
+   "estado": "vigente",
+   "nota": "La misma ruta existe en el sitio nuevo; el host www se normaliza al apex (D-07)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/politica-de-privacidad/",
+   "path": "/politica-de-privacidad/",
+   "tipo": "pagina",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "redirigir",
+   "estado": "propuesta",
+   "destino": "/privacidad/",
+   "codigo": 301,
+   "nota": "Misma función que la página nueva; propuesta sin aprobar."
+  },
+  {
+   "url": "https://www.directoproducciones.com/shop/",
+   "path": "/shop/",
+   "tipo": "producto_tienda",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/product/abono-general-cajasol-voley/",
+   "path": "/product/abono-general-cajasol-voley/",
+   "tipo": "producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/product/abono-simpatizante-cajasol-voley/",
+   "path": "/product/abono-simpatizante-cajasol-voley/",
+   "tipo": "producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/product/abono-cajasol-voley-junior/",
+   "path": "/product/abono-cajasol-voley-junior/",
+   "tipo": "producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/product/abono-cajasol-voley-colaborador-camiseta-entrenamiento/",
+   "path": "/product/abono-cajasol-voley-colaborador-camiseta-entrenamiento/",
+   "tipo": "producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/comunicacion/",
+   "path": "/category/comunicacion/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/programa-tv/",
+   "path": "/category/programa-tv/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/publicidad/",
+   "path": "/category/publicidad/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/redes-sociales/",
+   "path": "/category/redes-sociales/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/sin-categoria/",
+   "path": "/category/sin-categoria/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/streaming/",
+   "path": "/category/streaming/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/tag/barranco-cosano/",
+   "path": "/tag/barranco-cosano/",
+   "tipo": "etiqueta",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/tag/gran-poder/",
+   "path": "/tag/gran-poder/",
+   "tipo": "etiqueta",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/tag/instagram/",
+   "path": "/tag/instagram/",
+   "tipo": "etiqueta",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/tag/redes-sociales/",
+   "path": "/tag/redes-sociales/",
+   "tipo": "etiqueta",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/product-category/abonos-cajasol-voley/",
+   "path": "/product-category/abonos-cajasol-voley/",
+   "tipo": "categoria_producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  },
+  {
+   "url": "https://www.directoproducciones.com/author/directo-admin/",
+   "path": "/author/directo-admin/",
+   "tipo": "autor",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Archivo de autor sin equivalente; el blog es el destino estable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/category/videoclip/",
+   "path": "/category/videoclip/",
+   "tipo": "categoria",
+   "alcance": "conservar_adaptar_contenido",
+   "accion": "pendiente",
+   "estado": "pendiente",
+   "nota": "El destino depende de las taxonomías/autores que cree la migración; sin ellas no hay equivalente.",
+   "propuesta": {
+    "accion": "redirigir",
+    "codigo": 301,
+    "destino": "/blog/",
+    "razon": "Las categorías y etiquetas son filtros internos de /blog/ (archivos con noindex); el índice del blog es el destino indexable.",
+    "estado": "propuesta, sin aprobar"
+   }
+  },
+  {
+   "url": "https://www.directoproducciones.com/product-category/uncategorized/",
+   "path": "/product-category/uncategorized/",
+   "tipo": "categoria_producto",
+   "alcance": "excluir_migracion",
+   "accion": "retirar",
+   "estado": "propuesta",
+   "codigo": 410,
+   "nota": "D-45 excluye abonos, tienda, carrito y categorías de producto. Código 410 propuesto; falta aprobación por URL (M6.02)."
+  }
+ ],
+ "patrones": [
+  {
+   "path": "/feed/",
+   "tipo": "feed",
+   "accion": "redirigir",
+   "estado": "propuesta",
+   "destino": "/rss.xml",
+   "codigo": 301,
+   "nota": "El feed principal de WordPress existe (200); el sitio nuevo publica el RSS del blog en /rss.xml. Propuesta sin aprobar."
+  },
+  {
+   "path": "/sitemap_index.xml",
+   "tipo": "sitemap",
+   "accion": "redirigir",
+   "estado": "propuesta",
+   "destino": "/sitemap.xml",
+   "codigo": 301,
+   "nota": "Sitemap Yoast vigente en el WordPress actual (con 7 hijos: post-sitemap.xml, page-sitemap.xml, etc.). Se propone 301 al nuevo sitemap; los hijos quedan en 404 y se retiran en Search Console. Propuesta sin aprobar."
+  },
+  {
+   "path": "/wp-content/uploads/",
+   "tipo": "prefijo-medios",
+   "accion": "pendiente",
+   "estado": "propuesta",
+   "nota": "PROPUESTA: sin regla; todas las imágenes antiguas (/wp-content/uploads/AAAA/MM/…) responden 404 natural. Se pierde Google Imágenes histórico; si algún medio con tráfico se conserva, se decide por archivo. Una regla por prefijo exigiría ampliar redirects.ts (no existe hoy)."
+  }
+ ]
+}
