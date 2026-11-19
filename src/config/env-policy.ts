@@ -4,6 +4,7 @@
 //  - preview:    origen https exacto + Cloudflare Access verificado en el Worker (JWT firmado, iss y aud). Sin config = cerrado.
 //  - production: hosts del dominio + hito de lanzamiento de config/launch.json completo. Sin hito = cerrado (503). El panel (/_emdash/*)
 //                exige SIEMPRE el JWT de la app de Access de producción, antes y después del corte (salvo los medios públicos tras activar).
+//                D-62: con closedDeploy=true y activated=false se compila y despliega igualmente cerrado (closedDeployBlockers).
 // Referencia oficial: developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/
 export type Env = 'local' | 'preview' | 'production';
 
@@ -12,7 +13,7 @@ export const PRODUCTION_HOSTS = ['directoproducciones.com', 'www.directoproducci
 export const TEAM_DOMAIN_RE = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.cloudflareaccess\.com$/;
 export const AUD_RE = /^[0-9a-f]{64}$/;
 
-export interface LaunchState { activated: boolean; checklist: Record<string, boolean>; previewChecklist?: Record<string, boolean> }
+export interface LaunchState { activated: boolean; closedDeploy?: boolean; checklist: Record<string, boolean>; previewChecklist?: Record<string, boolean> }
 
 /** Bloqueos del corte público. Los usa el Worker (cierra en 503), el guard y launch:readiness. */
 export function launchBlockers(launch: LaunchState): string[] {
@@ -174,6 +175,37 @@ export function previewProtectionBlockers(cfg: { vars?: Record<string, unknown>;
   if (cfg.vars?.APP_ENV !== 'preview') out.push('wrangler env.preview: vars.APP_ENV debe ser «preview» (el Worker compara entorno compilado y de ejecución).');
   if (!accessConfig({ ACCESS_TEAM_DOMAIN: String(cfg.vars?.ACCESS_TEAM_DOMAIN ?? ''), ACCESS_AUD: String(cfg.vars?.ACCESS_AUD ?? '') })) out.push('wrangler env.preview: ACCESS_TEAM_DOMAIN (<equipo>.cloudflareaccess.com) y ACCESS_AUD (64 hex) válidos; los vacíos o placeholders no cuentan.');
   if (cfg.assets?.run_worker_first !== true) out.push('wrangler env.preview: assets.run_worker_first=true (sin él HTML estático, medios y /_astro saltan la compuerta).');
+  return out;
+}
+
+/** Access del panel de producción: app propia con equipo y AUD válidos, distinta de la de la preview (con su AUD, cualquiera de la política
+ *  de preview entraría en el panel de producción). La usan launch:readiness y el modo cerrado. Lista vacía = configurada. */
+export function productionAccessBlockers(prodVars?: Record<string, unknown>, previewVars?: Record<string, unknown>): string[] {
+  const out: string[] = [];
+  if (!accessConfig({ ACCESS_TEAM_DOMAIN: String(prodVars?.ACCESS_TEAM_DOMAIN ?? ''), ACCESS_AUD: String(prodVars?.ACCESS_AUD ?? '') })) out.push('wrangler.jsonc env.production: ACCESS_TEAM_DOMAIN/ACCESS_AUD de la app de Access del panel (/_emdash/*) sin rellenar o no válidos.');
+  const audOf = (vars?: Record<string, unknown>) => String(vars?.ACCESS_AUD ?? '').trim().toLowerCase();
+  if (audOf(prodVars) && audOf(prodVars) === audOf(previewVars)) out.push('wrangler.jsonc env.production: ACCESS_AUD es la de la app de la preview; usa la AUD de la app de Access del panel de producción.');
+  return out;
+}
+
+/** D-62 · modo cerrado: config/launch.json con closedDeploy=true (solo por PR del propietario) y el lanzamiento sin activar. */
+export const isClosedDeploy = (launch: LaunchState) => launch.closedDeploy === true && launch.activated !== true;
+
+export type WorkerConfig = { vars?: Record<string, unknown>; assets?: { run_worker_first?: unknown } | null };
+/** Requisitos para compilar y desplegar producción en modo cerrado (sin los bloqueos del corte). Lista vacía = la fase cerrada es segura:
+ *  panel tras su app de Access, todo por la compuerta, leads y analítica apagados y el público en 503 por decideRequest. */
+export async function closedDeployBlockers(launch: LaunchState, prod: WorkerConfig, preview: WorkerConfig, flags: { LEADS_ENABLED: boolean; ANALYTICS_ENABLED: boolean }): Promise<string[]> {
+  if (!isClosedDeploy(launch)) return ['config/launch.json: el modo cerrado exige closedDeploy=true y activated=false.'];
+  const out = productionAccessBlockers(prod.vars, preview.vars);
+  if (prod.vars?.APP_ENV !== 'production') out.push('wrangler.jsonc env.production: vars.APP_ENV debe ser «production».');
+  if (prod.assets?.run_worker_first !== true) out.push('wrangler.jsonc env.production: assets.run_worker_first=true en la fase cerrada (la compuerta debe ver HTML, medios y estáticos).');
+  if (flags.LEADS_ENABLED || flags.ANALYTICS_ENABLED) out.push('src/config/flags.ts: LEADS_ENABLED y ANALYTICS_ENABLED deben seguir apagados en la fase cerrada.');
+  const origin = `https://${PRODUCTION_HOSTS[0]}`;
+  const vars = { ACCESS_TEAM_DOMAIN: String(prod.vars?.ACCESS_TEAM_DOMAIN ?? ''), ACCESS_AUD: String(prod.vars?.ACCESS_AUD ?? '') };
+  for (const path of ['/', '/assets/m4/logo-original.jpg']) {
+    const d = await decideRequest({ env: 'production', runtimeEnv: 'production', url: new URL(path, origin), expectedOrigin: origin, prerendered: false, vars, launch });
+    if (d.ok || d.status !== 503) out.push(`src/config/env-policy.ts: en la fase cerrada ${path} sin Access debe responder 503 (responde ${d.ok ? 200 : d.status}).`);
+  }
   return out;
 }
 

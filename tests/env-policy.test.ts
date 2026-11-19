@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateKeyPairSync, createSign } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { accessConfig, canonicalPath, clearAccessCache, decideRequest, launchBlockers, previewBlockers, renderBlockers, verifyAccessJwt, type GateInput, type JwksFetcher } from '../src/config/env-policy.ts';
+import { accessConfig, canonicalPath, clearAccessCache, closedDeployBlockers, decideRequest, isClosedDeploy, launchBlockers, previewBlockers, renderBlockers, verifyAccessJwt, type GateInput, type JwksFetcher, type LaunchState, type WorkerConfig } from '../src/config/env-policy.ts';
 
 const TEAM = 'equipo-prueba.cloudflareaccess.com';
 const AUD = 'c'.repeat(64);
@@ -194,4 +194,41 @@ test('renderBlockers y previewBlockers', () => {
   assert.ok(renderBlockers('production', { accessVerified: true, launch: closed }).length > 0, 'Access no abre producción');
   assert.equal(previewBlockers({ ...closed }).length, 1, 'sin previewChecklist: almacenamiento sin resolver');
   assert.equal(previewBlockers({ ...closed, previewChecklist: { storageReady: true } }).length, 0);
+});
+
+test('D-62 modo cerrado: closedDeploy × activated, Access del panel, leads/analítica y público en 503', async () => {
+  const state = (closedDeploy: boolean, activated: boolean) => ({ activated, closedDeploy, checklist: { legalApproved: false } });
+  const prod = { vars: { APP_ENV: 'production', ACCESS_TEAM_DOMAIN: TEAM, ACCESS_AUD: AUD }, assets: { run_worker_first: true } };
+  const preview = { vars: { ACCESS_TEAM_DOMAIN: TEAM, ACCESS_AUD: 'e'.repeat(64) } };
+  const off = { LEADS_ENABLED: false, ANALYTICS_ENABLED: false };
+  const closed = (over: { launch?: LaunchState; prod?: WorkerConfig; preview?: WorkerConfig; flags?: typeof off } = {}) =>
+    closedDeployBlockers(over.launch ?? state(true, false), over.prod ?? prod, over.preview ?? preview, over.flags ?? off);
+  // Solo closedDeploy=true con activated=false es modo cerrado. Con activated=true no cambia nada: aplican todos los bloqueos del corte.
+  assert.equal(isClosedDeploy(state(false, false)), false);
+  assert.equal(isClosedDeploy(state(false, true)), false);
+  assert.equal(isClosedDeploy(state(true, false)), true);
+  assert.equal(isClosedDeploy(state(true, true)), false);
+  assert.equal(isClosedDeploy({ activated: false, checklist: {} }), false, 'sin la clave = desactivado');
+  for (const [c, a] of [[false, false], [false, true], [true, true]] as const) {
+    assert.deepEqual(await closed({ launch: state(c, a) }), ['config/launch.json: el modo cerrado exige closedDeploy=true y activated=false.'], `closedDeploy=${c} activated=${a}`);
+  }
+  assert.ok(launchBlockers(state(true, true)).length > 0, 'activado con la checklist incompleta: el corte sigue bloqueado');
+  assert.deepEqual(await closed(), [], 'fase cerrada segura');
+  // closedDeploy no abre nada en el Worker: el público (páginas y estáticos sin Access) sigue en 503 mientras activated=false.
+  for (const path of ['/', '/assets/m4/logo-original.jpg']) {
+    assert.equal(await status({ env: 'production', runtimeEnv: 'production', url: new URL(`https://directoproducciones.com${path}`), launch: state(true, false) }), 503, path);
+  }
+  assert.deepEqual(await closed({ launch: { activated: false, closedDeploy: true, checklist: { legalApproved: true } } }), [], 'checklist completa sin activar: sigue cerrada');
+  // Access del panel vacío, placeholder o con la AUD de la preview: no se despliega.
+  for (const vars of [{ ACCESS_TEAM_DOMAIN: '', ACCESS_AUD: '' }, { ACCESS_TEAM_DOMAIN: 'REEMPLAZAR.cloudflareaccess.com', ACCESS_AUD: 'REEMPLAZAR' }, {}]) {
+    assert.ok((await closed({ prod: { ...prod, vars: { APP_ENV: 'production', ...vars } } })).some((b) => b.includes('ACCESS_TEAM_DOMAIN/ACCESS_AUD')), JSON.stringify(vars));
+  }
+  assert.ok((await closed({ preview: { vars: { ACCESS_TEAM_DOMAIN: TEAM, ACCESS_AUD: AUD } } })).some((b) => b.includes('AUD es la de la app de la preview')));
+  // Leads y analítica apagados.
+  for (const flags of [{ LEADS_ENABLED: true, ANALYTICS_ENABLED: false }, { LEADS_ENABLED: false, ANALYTICS_ENABLED: true }]) {
+    assert.ok((await closed({ flags })).some((b) => b.includes('LEADS_ENABLED y ANALYTICS_ENABLED')), JSON.stringify(flags));
+  }
+  // La compuerta debe ver todo (estáticos incluidos) y el entorno de ejecución debe ser producción.
+  assert.ok((await closed({ prod: { ...prod, assets: { run_worker_first: ['/*', '!/_astro/*'] } } })).some((b) => b.includes('run_worker_first')));
+  assert.ok((await closed({ prod: { ...prod, vars: { ...prod.vars, APP_ENV: 'preview' } } })).some((b) => b.includes('vars.APP_ENV')));
 });

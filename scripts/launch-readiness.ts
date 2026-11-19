@@ -1,13 +1,20 @@
 // Guard de primer lanzamiento: falla con la lista concreta de lo que aún impide desplegar. No despliega ni contacta con nada.
 //   npm run launch:readiness [-- --env preview]     (por defecto producción; sale con 1 si hay bloqueos)
+//   npm run launch:readiness -- --closed            (D-62, producción en modo cerrado: exige lo de la fase cerrada; los bloqueos del corte
+//                                                    se listan como información y no fallan)
 import { readFileSync } from 'node:fs';
 import { unstable_readConfig } from 'wrangler';
 
 const env = process.argv.includes('--env') ? process.argv[process.argv.indexOf('--env') + 1] : 'production';
 if (!['preview', 'production'].includes(env)) { console.error('--env debe ser preview o production'); process.exit(2); }
+const closed = process.argv.includes('--closed');
+if (closed && env !== 'production') { console.error('--closed solo aplica a producción'); process.exit(2); }
 process.env.APP_ENV = env; // la política de hechos exige aprobar los «required_for_launch» según el entorno
 const blockers: string[] = [];
 const block = (text: string) => blockers.push(text);
+// Bloqueos propios del corte público (hechos, hito del propietario y mapa de URLs): con --closed solo informan.
+const launchInfo: string[] = [];
+const blockLaunch = (text: string) => (closed ? launchInfo : blockers).push(text);
 
 // 1 · Recursos del entorno en wrangler.jsonc (verificable sin red)
 const cfg = unstable_readConfig({ config: 'wrangler.jsonc', env }, { hideWarnings: true });
@@ -44,8 +51,8 @@ if (!(cfg.d1_databases ?? []).every((d: { migrations_dir?: string }) => d.migrat
 // 2 · Controles por entorno (sin condición «local» permanente): el copy de revisión sigue siendo solo local; el resto lo decide src/config/env-policy.ts
 if (!readFileSync('src/lib/m4-draft.ts', 'utf8').includes("APP_ENV !== 'local'")) block('src/lib/m4-draft.ts: el copy en revisión debe seguir siendo exclusivo de local (no es fallback de preview ni producción).');
 if (cfg.vars?.APP_ENV !== env) block(`wrangler.jsonc env.${env}: vars.APP_ENV debe ser «${env}».`);
-const { accessConfig, launchBlockers, previewBlockers, previewProtectionBlockers } = await import('../src/config/env-policy');
-const launch = JSON.parse(readFileSync('config/launch.json', 'utf8')) as { activated: boolean; checklist: Record<string, boolean>; previewChecklist?: Record<string, boolean> };
+const { closedDeployBlockers, launchBlockers, previewBlockers, previewProtectionBlockers, productionAccessBlockers } = await import('../src/config/env-policy');
+const launch = JSON.parse(readFileSync('config/launch.json', 'utf8')) as { activated: boolean; closedDeploy?: boolean; checklist: Record<string, boolean>; previewChecklist?: Record<string, boolean> };
 // Producción admite además, SOLO con el lanzamiento activado, la lista exacta que deja los estáticos del build a Static Assets (sin Worker).
 // Antes del corte, `true`: la compuerta ata /_astro y /assets al JWT de Access y public/assets lleva medios sin aprobar.
 const staticBypass = JSON.stringify(['/*', '!/_astro/*', '!/assets/*', '!/page-transition.js']);
@@ -58,29 +65,36 @@ if (env === 'preview') {
   for (const b of previewBlockers(launch)) block(b);
   if (cfg.vars?.CONTACT_TRANSPORT) block('wrangler.jsonc env.preview: CONTACT_TRANSPORT solo es para pruebas locales.');
 } else if (exposed.workers_dev || exposed.preview_urls) block('wrangler.jsonc env.production: workers_dev/preview_urls deben seguir apagados (el tráfico llega por el dominio tras el corte).');
-// Panel de producción: sin la app de Access (equipo + AUD) el Worker cierra /_emdash/* con 503 y nadie puede entrar al CMS.
-if (env === 'production' && !accessConfig({ ACCESS_TEAM_DOMAIN: String(cfg.vars?.ACCESS_TEAM_DOMAIN ?? ''), ACCESS_AUD: String(cfg.vars?.ACCESS_AUD ?? '') })) block('wrangler.jsonc env.production: ACCESS_TEAM_DOMAIN/ACCESS_AUD de la app de Access del panel (/_emdash/*) sin rellenar o no válidos.');
-// Mismo equipo que la preview: con su AUD, cualquiera de la política de preview entraría en el panel de producción.
-const audOf = (vars?: Record<string, unknown>) => String(vars?.ACCESS_AUD ?? '').trim().toLowerCase();
-if (env === 'production' && audOf(cfg.vars) && audOf(cfg.vars) === audOf(unstable_readConfig({ config: 'wrangler.jsonc', env: 'preview' }, { hideWarnings: true }).vars)) block('wrangler.jsonc env.production: ACCESS_AUD es la de la app de la preview; usa la AUD de la app de Access del panel de producción.');
+// Panel de producción: sin la app de Access (equipo + AUD) el Worker cierra /_emdash/* con 503 y nadie puede entrar al CMS; con la AUD de
+// la preview, cualquiera de su política entraría en el panel de producción.
+const previewVars = unstable_readConfig({ config: 'wrangler.jsonc', env: 'preview' }, { hideWarnings: true }).vars;
+if (env === 'production') for (const b of productionAccessBlockers(cfg.vars, previewVars)) block(b);
 if (env === 'preview' && (exposed.workers_dev || exposed.preview_urls) && previewProtectionBlockers(cfg as never).length) block('wrangler.jsonc env.preview: workers_dev/preview_urls activos sin protección Access válida.');
 
 // 3 · Hechos necesarios para el lanzamiento (política de facts, mismos criterios que el guard)
 const { validateFacts } = await import('../src/lib/facts');
-for (const e of validateFacts().filter((x) => x.startsWith('Necesario para lanzamiento'))) block(e);
+for (const e of validateFacts().filter((x) => x.startsWith('Necesario para lanzamiento'))) blockLaunch(e);
 
 // 4 · Hito del propietario: atestaciones que no se pueden comprobar offline (solo el corte de producción; preview privada no lo exige)
-if (env === 'production') for (const b of launchBlockers(launch)) block(b);
+if (env === 'production') for (const b of launchBlockers(launch)) blockLaunch(b);
 if (cfg.vars?.CONTACT_PERSISTENCE === 'on' && !launch.checklist.privacyContractApproved) block('CONTACT_PERSISTENCE=on exige privacyContractApproved (texto de privacidad y retención aprobados).');
 
 // 5 · Mapa de las 59 URLs antiguas: cada una necesita destino/código aprobado (o ser «conservar-ruta») antes del corte
 const urlMap = JSON.parse(readFileSync('config/url-map.json', 'utf8')) as { rows: { path: string; accion: string; aprobado_por?: string }[] };
 const unresolved = urlMap.rows.filter((r) => r.accion !== 'conservar-ruta' && !r.aprobado_por);
-if (env === 'production' && unresolved.length) block(`config/url-map.json: ${unresolved.length} de ${urlMap.rows.length} URLs antiguas sin destino/código aprobado (npm run urlmap:check -- --list).`);
+if (env === 'production' && unresolved.length) blockLaunch(`config/url-map.json: ${unresolved.length} de ${urlMap.rows.length} URLs antiguas sin destino/código aprobado (npm run urlmap:check -- --list).`);
 
+// 6 · D-62 · fase cerrada: Access del panel, todo por la compuerta, leads y analítica apagados y público en 503 (src/config/env-policy.ts)
+if (closed) {
+  const { LEADS_ENABLED, ANALYTICS_ENABLED } = await import('../src/config/flags');
+  for (const b of await closedDeployBlockers(launch, cfg as never, { vars: previewVars }, { LEADS_ENABLED, ANALYTICS_ENABLED })) if (!blockers.includes(b)) block(b);
+  console.log(`Bloqueos del lanzamiento (informativos; la fase cerrada no los exige: ${launchInfo.length}):`);
+  for (const b of launchInfo) console.log(` - ${b}`);
+}
+const what = closed ? 'Despliegue cerrado' : 'Lanzamiento';
 if (blockers.length) {
-  console.error(`Lanzamiento NO listo para «${env}» (${blockers.length} bloqueos):`);
+  console.error(`${what} NO listo para «${env}» (${blockers.length} bloqueos):`);
   for (const b of blockers) console.error(` - ${b}`);
   process.exit(1);
 }
-console.log(`Lanzamiento listo para «${env}».`);
+console.log(closed ? 'Despliegue cerrado listo para «production»: el público sigue en 503 y el panel tras Access hasta activar el lanzamiento.' : `Lanzamiento listo para «${env}».`);
