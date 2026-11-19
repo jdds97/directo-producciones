@@ -1,0 +1,76 @@
+---
+import { getTaxonomyTerms } from 'emdash';
+import { blogFilterHref, blogPostHref, blogPublishedAt } from '../../lib/blog';
+import { type BlogLandingData } from '../../lib/blog-feed';
+import { pageCopy, pageImages } from '../../lib/site-content';
+import { imgAttrs } from "../../lib/media";
+import BlogVisual from './BlogVisual.astro';
+import BlogMeta from './BlogMeta.astro';
+import BlogTerms from './BlogTerms.astro';
+import BlogFeed from './BlogFeed.astro';
+import BlogTagIndex from './BlogTagIndex.astro';
+import '../../styles/blog-editorial.css';
+const copy = await pageCopy('Blog');
+const photo = await pageImages('page_blog');
+interface Props { data: BlogLandingData }
+const { entries, lead } = Astro.props.data;
+// Filtros internos: solo categorías con alguna entrada. ?categoria= preselecciona (sin JS la página se recarga, pero sigue siendo /blog/).
+const withPosts = [...new Map(entries.flatMap(post => post.data.terms?.category ?? []).map(term => [term.slug, term])).values()];
+const requested = Astro.url.searchParams.get('categoria');
+// Una categoría existente pero sin entradas (enlace antiguo o recién vaciada) también se puede abrir y muestra el estado vacío.
+const emptyRequested = requested && !withPosts.some(term => term.slug === requested)
+  ? (await getTaxonomyTerms('category', { includeCounts: false })).find(term => term.slug === requested) : undefined;
+const categories = [...withPosts, ...(emptyRequested ? [{ slug: emptyRequested.slug, label: emptyRequested.label }] : [])]
+  .sort((a, b) => a.label.localeCompare(b.label, 'es'));
+const active = categories.find(term => term.slug === requested);
+const inFilter = (post: (typeof entries)[number]) => !active || (post.data.terms?.category ?? []).some(term => term.slug === active.slug);
+const shown = entries.filter(inFilter).length;
+const listed = entries.filter(post => (active ? inFilter(post) : post.id !== lead?.id)).length; // tarjetas visibles en la lista
+const inCategory = (slug: string) => entries.filter(post => (post.data.terms?.category ?? []).some(term => term.slug === slug)).length;
+const count = (n: number, label?: string) => `${n} ${n === 1 ? 'entrada' : 'entradas'}${label ? ` en ${label}` : ''}`;
+---
+<main class="blog-editorial" data-blog-index>
+  <section class="m4-hero m4-hero--photo" aria-labelledby="journal-title">
+    <figure class="m4-hero__bg"><img {...imgAttrs(photo.hero_foto, { priority: true })} /></figure>
+    <div class="m4-hero__inner">
+      <div class="m4-hero__copy">
+        <p class="eyebrow">{copy.t001}</p>
+        <h1 id="journal-title">{copy.t002}{" "}{copy.t003}</h1>
+        <div class="m4-hero__lede"><p>{copy.t004}</p></div>
+      </div>
+      {/* En «Todas», la entrada de portada (la destacada o la más reciente) a la derecha; con un filtro se oculta y su tarjeta pasa a la lista. */}
+      {lead && <article class="journal-hero-lead" aria-labelledby="journal-lead-title" data-blog-lead hidden={Boolean(active)}>
+        <div class="journal-hero-visual">
+          <BlogVisual image={lead.data.featured_image} imageAlt={lead.data.image_alt} priority={!active} />
+          <div class="journal-hero-mark" aria-hidden="true"><img src="/assets/m4/logo-white.svg" alt="" width="120" height="120" /></div>
+          <div class="m4-visor" aria-hidden="true"><i class="m4-frame-c m4-frame-c--tl"></i><i class="m4-frame-c m4-frame-c--tr"></i><span class="m4-visor__rec">REC</span></div>
+        </div>
+        <div class="journal-hero-text">
+          <p class="eyebrow">En portada</p>
+          <BlogTerms terms={lead.data.terms} />
+          <h2 id="journal-lead-title"><a href={blogPostHref(lead.id)}>{lead.data.title}</a></h2>
+          <BlogMeta post={lead.data} publishedAt={blogPublishedAt(lead)} />
+          <a class="journal-link" href={blogPostHref(lead.id)}>Leer entrada<span class="sr-only">: {lead.data.title}</span><svg class="icon arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a>
+        </div>
+      </article>}
+    </div>
+  </section>
+  {Boolean(entries.length) && <nav class="journal-sections journal-sections--bar pad" aria-label="Filtrar entradas por categoría" data-blog-filter>
+    <a href="/blog/" data-filter="" data-label="Todas" aria-current={!active ? 'true' : undefined}>Todas<span class="journal-sections__count" aria-hidden="true">{entries.length}</span></a>
+    {categories.map(term => <a href={blogFilterHref(term.slug)} data-filter={term.slug} data-label={term.label} aria-current={active?.slug === term.slug ? 'true' : undefined}>{term.label}<span class="journal-sections__count" aria-hidden="true">{inCategory(term.slug)}</span></a>)}
+  </nav>}
+  {Boolean(entries.length) && <p class="journal-count pad" role="status" aria-live="polite" data-blog-count>{count(shown, active?.label)}</p>}
+  {Boolean(entries.length) && <section class="journal-archive pad" aria-labelledby="journal-archive-title" data-blog-archive hidden={listed === 0}>
+    <h2 id="journal-archive-title">{active ? active.label : 'Más publicaciones'}</h2>
+    <BlogFeed entries={entries} filterable leadId={lead?.id} activeSlug={active?.slug} />
+  </section>}
+  {/* Estado vacío del filtro: lo muestra el script cuando ninguna tarjeta coincide. */}
+  {Boolean(entries.length) && <section class="journal-empty journal-empty--filter pad" aria-labelledby="journal-filter-empty-title" data-blog-filter-empty hidden={shown > 0}>
+    <div><h2 id="journal-filter-empty-title">Todavía no hay entradas en esta categoría.</h2><p>Prueba con otra categoría o vuelve a ver todas las entradas.</p><a class="journal-link" href="/blog/" data-filter="">Ver todas las entradas</a></div>
+  </section>}
+  <BlogTagIndex entries={entries} />
+  {!entries.length && <section class="journal-empty pad" aria-labelledby="journal-empty-title">
+    <img src="/assets/m4/logo-original.jpg" alt="Directo Producciones" width="160" height="160" />
+    <div><p class="eyebrow">El blog de Directo</p><h2 id="journal-empty-title">La próxima historia empieza aquí.</h2><p>Todavía no hay entradas publicadas. Este será el espacio para compartir historias de producción y comunicación.</p></div>
+  </section>}
+</main>

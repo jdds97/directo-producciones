@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import Portfolio from "../components/m4/Portfolio.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_portfolio");
+---
+<Base title={seo.title} description={seo.description}><Portfolio /></Base>

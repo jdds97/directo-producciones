@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import ErrorPage from "../components/m4/ErrorPage.astro";
+// URLs retiradas (config/url-map.json, acción «retirar»): middleware.ts reescribe aquí. Sin canonical y noindex, como el 404.
+Astro.response.status = 410;
+---
+<Base title="Contenido retirado" notFound><ErrorPage code={410} /></Base>

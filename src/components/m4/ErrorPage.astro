@@ -1,0 +1,28 @@
+---
+import { pageHref } from "../../lib/site-navigation";
+import { pageCopy } from "../../lib/site-content";
+
+interface Props { code?: 404 | 410 | 500 }
+const { code = 404 } = Astro.props;
+// 410 y 500: texto fijo en código. El 500 no puede leer el CMS (D1 puede ser la causa del fallo).
+const fixed = {
+  410: { t001: "Contenido retirado", t002: "410", t003: "Este contenido", t004: "ya no está disponible.", t005: "Lo hemos retirado de la web. Puedes volver a Inicio, leer el blog o contarnos lo que necesitas.", t006: "Volver a Inicio ", t007: "Ir a Contacto " },
+  500: { t001: "Se ha cortado la señal", t002: "500", t003: "Esta página", t004: "no ha podido cargarse.", t005: "Inténtalo de nuevo en unos minutos o vuelve a Inicio.", t006: "Volver a Inicio ", t007: "Ir a Contacto " },
+};
+const copy = code === 404 ? await pageCopy("404") : fixed[code];
+
+---
+<main>
+  <section class="error-page page-hero pad">
+    <div>
+      <p class="eyebrow">{copy["t001"]}</p>
+      <h1>{copy["t003"]}<br />{copy["t004"]}</h1>
+      <p>{copy["t005"]}</p>
+      <a class="button primary" href={pageHref("inicio")}>{copy["t006"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
+      <br />
+      {code === 410 && <><a class="text-link" href={pageHref("blog")}>Ir al blog <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a><br /></>}
+      <a class="text-link" href={pageHref("contacto")}>{copy["t007"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
+    </div>
+    <p class="error-number" aria-hidden="true">{copy["t002"]}</p>
+  </section>
+</main>

@@ -2,11 +2,11 @@
   "$schema": "https://emdashcms.com/seed.schema.json",
   "version": "1",
   "meta": {
-    "name": "Directo M2 local",
-    "description": "Modelo editorial exclusivo del blog; sin entradas, usuarios ni datos reales."
+    "name": "Directo · Blog local",
+    "description": "Modelo editorial del blog y vocabulario inicial de servicios; sin artículos, usuarios ni casos de cliente."
   },
   "settings": {
-    "title": "Blog local",
+    "title": "Directo Producciones · Blog",
     "tagline": ""
   },
   "collections": [
@@ -55,6 +55,11 @@
           "type": "image"
         },
         {
+          "slug": "featured",
+          "label": "Destacar (sale la primera en el blog)",
+          "type": "boolean"
+        },
+        {
           "slug": "image_alt",
           "label": "Texto alternativo de la imagen",
           "type": "string"
@@ -66,6 +71,6537 @@
         }
       ],
       "commentsEnabled": false
+    },
+    {
+      "slug": "page_home",
+      "label": "Inicio",
+      "labelSingular": "Página Inicio",
+      "icon": "house",
+      "sortOrder": 10,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_linea_1",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_linea_2",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_linea_3",
+          "label": "Portada · Titular, línea 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_cta_prod",
+          "label": "Portada · Enlace a Producción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "hero_cta_com",
+          "label": "Portada · Enlace a Comunicación",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "pres_eyebrow",
+          "label": "Presentación · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "pres_titulo",
+          "label": "Presentación · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "pres_entradilla",
+          "label": "Presentación · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "pres_perfiles",
+          "label": "Presentación · Texto sobre los perfiles",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "pres_enlace",
+          "label": "Presentación · Enlace",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "port_eyebrow",
+          "label": "Portfolio · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "port_titulo",
+          "label": "Portfolio · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "port_entradilla",
+          "label": "Portfolio · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "port_ver_todos",
+          "label": "Portfolio · Enlace a todos los proyectos",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "port_ver_servicios",
+          "label": "Portfolio · Enlace a servicios",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "serv_eyebrow",
+          "label": "Servicios · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "serv_titulo",
+          "label": "Servicios · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "serv_entradilla",
+          "label": "Servicios · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "serv_1_titulo",
+          "label": "Servicio 1 · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "serv_1_texto",
+          "label": "Servicio 1 · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 170
+          }
+        },
+        {
+          "slug": "serv_2_titulo",
+          "label": "Servicio 2 · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "serv_2_texto",
+          "label": "Servicio 2 · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 240
+          }
+        },
+        {
+          "slug": "serv_3_titulo",
+          "label": "Servicio 3 · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "serv_3_texto",
+          "label": "Servicio 3 · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 280
+          }
+        },
+        {
+          "slug": "serv_4_titulo",
+          "label": "Servicio 4 · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "serv_4_texto",
+          "label": "Servicio 4 · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 310
+          }
+        },
+        {
+          "slug": "cont_eyebrow",
+          "label": "Contacto · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cont_titulo",
+          "label": "Contacto · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "hero_video_ref",
+          "label": "Portada · Vídeo de portada (escritorio) · Vídeo del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "coberturas/hero-review-desktop",
+              "coberturas/hero-review-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_video",
+          "label": "Portada · Vídeo de portada (escritorio) · Vídeo MP4 de la biblioteca de medios (sustituye al del sitio)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "hero_video_movil_ref",
+          "label": "Portada · Vídeo de portada (móvil, opcional: vacío = el de escritorio) · Vídeo del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "coberturas/hero-review-desktop",
+              "coberturas/hero-review-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_video_movil",
+          "label": "Portada · Vídeo de portada (móvil, opcional: vacío = el de escritorio) · Vídeo MP4 de la biblioteca de medios (sustituye al del sitio)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster_ref",
+          "label": "Portada · Imagen de espera del vídeo de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster",
+          "label": "Portada · Imagen de espera del vídeo de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster_alt",
+          "label": "Portada · Imagen de espera del vídeo de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_poster_decor",
+          "label": "Portada · Imagen de espera del vídeo de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "serv_1_foto_ref",
+          "label": "Servicio 1 · Foto · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "serv_1_foto",
+          "label": "Servicio 1 · Foto · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "serv_1_foto_alt",
+          "label": "Servicio 1 · Foto · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "serv_1_foto_decor",
+          "label": "Servicio 1 · Foto · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "serv_2_foto_ref",
+          "label": "Servicio 2 · Foto · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "serv_2_foto",
+          "label": "Servicio 2 · Foto · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "serv_2_foto_alt",
+          "label": "Servicio 2 · Foto · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "serv_2_foto_decor",
+          "label": "Servicio 2 · Foto · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "serv_3_foto_ref",
+          "label": "Servicio 3 · Foto · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "serv_3_foto",
+          "label": "Servicio 3 · Foto · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "serv_3_foto_alt",
+          "label": "Servicio 3 · Foto · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "serv_3_foto_decor",
+          "label": "Servicio 3 · Foto · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "serv_4_foto_ref",
+          "label": "Servicio 4 · Foto · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "serv_4_foto",
+          "label": "Servicio 4 · Foto · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "serv_4_foto_alt",
+          "label": "Servicio 4 · Foto · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "serv_4_foto_decor",
+          "label": "Servicio 4 · Foto · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_quienes",
+      "label": "Quiénes somos",
+      "labelSingular": "Página Quiénes somos",
+      "icon": "users",
+      "sortOrder": 20,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo",
+          "label": "Portada · Titular",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "historia_titulo",
+          "label": "Historia · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "historia_parrafo_1",
+          "label": "Historia · Párrafo 1",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 340
+          }
+        },
+        {
+          "slug": "historia_parrafo_2",
+          "label": "Historia · Párrafo 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "colabora_eyebrow",
+          "label": "Cómo colaboramos · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "colabora_titulo",
+          "label": "Cómo colaboramos · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "colabora_entradilla",
+          "label": "Cómo colaboramos · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 320
+          }
+        },
+        {
+          "slug": "colabora_linea_produccion",
+          "label": "Cómo colaboramos · Etiqueta de producción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "colabora_linea_comunicacion",
+          "label": "Cómo colaboramos · Etiqueta de comunicación",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "equipo_eyebrow",
+          "label": "Equipo · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "equipo_titulo",
+          "label": "Equipo · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "equipo_entradilla",
+          "label": "Equipo · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 390
+          }
+        },
+        {
+          "slug": "foto_pie_accion",
+          "label": "Fotografías · Pie: el equipo en acción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "foto_titulo_terreno",
+          "label": "Fotografías · Título: trabajo sobre el terreno",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_com_titulo",
+          "label": "Bloques de texto · Comunicación, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_com_texto",
+          "label": "Bloques de texto · Comunicación, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 320
+          }
+        },
+        {
+          "slug": "bloque_prod_titulo",
+          "label": "Bloques de texto · Producción, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_prod_texto",
+          "label": "Bloques de texto · Producción, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 320
+          }
+        },
+        {
+          "slug": "bloque_antes_titulo",
+          "label": "Bloques de texto · Antes de empezar, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_antes_texto",
+          "label": "Bloques de texto · Antes de empezar, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 190
+          }
+        },
+        {
+          "slug": "bloque_durante_titulo",
+          "label": "Bloques de texto · Durante el proyecto, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_durante_texto",
+          "label": "Bloques de texto · Durante el proyecto, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 230
+          }
+        },
+        {
+          "slug": "hero_foto_ref",
+          "label": "Portada · Foto de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto",
+          "label": "Portada · Foto de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto_alt",
+          "label": "Portada · Foto de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_foto_decor",
+          "label": "Portada · Foto de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "escena_grupo_ref",
+          "label": "Equipo · Foto de grupo · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "escena_grupo",
+          "label": "Equipo · Foto de grupo · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "escena_grupo_alt",
+          "label": "Equipo · Foto de grupo · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "escena_grupo_decor",
+          "label": "Equipo · Foto de grupo · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "escena_control_ref",
+          "label": "Equipo · Foto de control · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "escena_control",
+          "label": "Equipo · Foto de control · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "escena_control_alt",
+          "label": "Equipo · Foto de control · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "escena_control_decor",
+          "label": "Equipo · Foto de control · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "escena_cobertura_ref",
+          "label": "Equipo · Foto de cobertura · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "escena_cobertura",
+          "label": "Equipo · Foto de cobertura · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "escena_cobertura_alt",
+          "label": "Equipo · Foto de cobertura · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "escena_cobertura_decor",
+          "label": "Equipo · Foto de cobertura · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "accion_1_ref",
+          "label": "Fotografías · Foto 1: operador con auriculares · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "accion_1",
+          "label": "Fotografías · Foto 1: operador con auriculares · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "foto_alt_operador",
+          "label": "Fotografías · Foto 1: operador con auriculares · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "accion_1_decor",
+          "label": "Fotografías · Foto 1: operador con auriculares · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "accion_2_ref",
+          "label": "Fotografías · Foto 2: cobertura · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "accion_2",
+          "label": "Fotografías · Foto 2: cobertura · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "foto_alt_cobertura",
+          "label": "Fotografías · Foto 2: cobertura · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "accion_2_decor",
+          "label": "Fotografías · Foto 2: cobertura · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "accion_3_ref",
+          "label": "Fotografías · Foto 3: control · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "accion_3",
+          "label": "Fotografías · Foto 3: control · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "foto_alt_control",
+          "label": "Fotografías · Foto 3: control · Texto alternativo",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "accion_3_decor",
+          "label": "Fotografías · Foto 3: control · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "colabora_foto_ref",
+          "label": "Cómo colaboramos · Foto · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "colabora_foto",
+          "label": "Cómo colaboramos · Foto · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "colabora_foto_alt",
+          "label": "Cómo colaboramos · Foto · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "colabora_foto_decor",
+          "label": "Cómo colaboramos · Foto · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_produccion",
+      "label": "Producción",
+      "labelSingular": "Página Producción",
+      "icon": "video",
+      "sortOrder": 30,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 250
+          }
+        },
+        {
+          "slug": "stream_titulo_a",
+          "label": "Streaming · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "stream_titulo_b",
+          "label": "Streaming · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "stream_descripcion",
+          "label": "Streaming · Descripción",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 230
+          }
+        },
+        {
+          "slug": "stream_cta",
+          "label": "Streaming · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "tv_chip",
+          "label": "TV online · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "tv_descripcion",
+          "label": "TV online · Descripción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 120
+          }
+        },
+        {
+          "slug": "tv_preguntas",
+          "label": "TV online · Preguntas guía",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 190
+          }
+        },
+        {
+          "slug": "cont_titulo",
+          "label": "Contenidos · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cont_prepro_titulo",
+          "label": "Contenidos · Preproducción, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cont_prepro_texto",
+          "label": "Contenidos · Preproducción, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "cont_prod_titulo",
+          "label": "Contenidos · Grabación, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "cont_prod_texto",
+          "label": "Contenidos · Grabación, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 290
+          }
+        },
+        {
+          "slug": "cont_f1",
+          "label": "Contenidos · Formato 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cont_f2",
+          "label": "Contenidos · Formato 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cont_f3",
+          "label": "Contenidos · Formato 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cont_f4",
+          "label": "Contenidos · Formato 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cont_f5",
+          "label": "Contenidos · Formato 5",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cont_f6",
+          "label": "Contenidos · Formato 6",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cont_f7",
+          "label": "Contenidos · Formato 7",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "directos_texto",
+          "label": "Cobertura y directos · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "directos_s1",
+          "label": "Cobertura y directos · Servicio 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "directos_s2",
+          "label": "Cobertura y directos · Servicio 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "directos_s3",
+          "label": "Cobertura y directos · Servicio 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "directos_s4",
+          "label": "Cobertura y directos · Servicio 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "directos_s5",
+          "label": "Cobertura y directos · Servicio 5",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 110
+          }
+        },
+        {
+          "slug": "directos_s6",
+          "label": "Cobertura y directos · Servicio 6",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "edicion_edicion_titulo",
+          "label": "Edición y recursos · Edición, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "edicion_edicion_texto",
+          "label": "Edición y recursos · Edición, texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "edicion_equipo_titulo",
+          "label": "Edición y recursos · Equipo, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "edicion_equipo_texto",
+          "label": "Edición y recursos · Equipo, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 260
+          }
+        },
+        {
+          "slug": "edicion_r1",
+          "label": "Edición y recursos · Recurso 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "edicion_r2",
+          "label": "Edición y recursos · Recurso 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "edicion_r3",
+          "label": "Edición y recursos · Recurso 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "edicion_r4",
+          "label": "Edición y recursos · Recurso 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "apl_texto",
+          "label": "Aplicaciones · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 150
+          }
+        },
+        {
+          "slug": "apl_c1",
+          "label": "Aplicaciones · Contexto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "apl_c2",
+          "label": "Aplicaciones · Contexto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "apl_c3",
+          "label": "Aplicaciones · Contexto 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "apl_c4",
+          "label": "Aplicaciones · Contexto 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "apl_tv_titulo",
+          "label": "Aplicaciones · Programas de TV, título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "apl_tv_texto",
+          "label": "Aplicaciones · Programas de TV, texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 290
+          }
+        },
+        {
+          "slug": "faq_p1",
+          "label": "Preguntas frecuentes · Pregunta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "faq_r1",
+          "label": "Preguntas frecuentes · Respuesta 1",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 300
+          }
+        },
+        {
+          "slug": "faq_p2",
+          "label": "Preguntas frecuentes · Pregunta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "faq_r2",
+          "label": "Preguntas frecuentes · Respuesta 2",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 240
+          }
+        },
+        {
+          "slug": "faq_p3",
+          "label": "Preguntas frecuentes · Pregunta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "faq_r3",
+          "label": "Preguntas frecuentes · Respuesta 3",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 230
+          }
+        },
+        {
+          "slug": "faq_p4",
+          "label": "Preguntas frecuentes · Pregunta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "faq_r4",
+          "label": "Preguntas frecuentes · Respuesta 4",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 270
+          }
+        },
+        {
+          "slug": "hero_foto_ref",
+          "label": "Portada · Foto de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto",
+          "label": "Portada · Foto de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto_alt",
+          "label": "Portada · Foto de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_foto_decor",
+          "label": "Portada · Foto de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "tv_foto_ref",
+          "label": "Contenidos · Foto de programas de televisión · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "tv_foto",
+          "label": "Contenidos · Foto de programas de televisión · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "tv_foto_alt",
+          "label": "Contenidos · Foto de programas de televisión · Texto alternativo",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "tv_foto_decor",
+          "label": "Contenidos · Foto de programas de televisión · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "directos_grafico_ref",
+          "label": "Cobertura y directos · Composición conceptual de directos · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "directos_grafico",
+          "label": "Cobertura y directos · Composición conceptual de directos · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "directos_grafico_alt",
+          "label": "Cobertura y directos · Composición conceptual de directos · Texto alternativo",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "directos_grafico_decor",
+          "label": "Cobertura y directos · Composición conceptual de directos · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "recursos_foto_ref",
+          "label": "Edición y recursos · Foto de equipo y recursos · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "recursos_foto",
+          "label": "Edición y recursos · Foto de equipo y recursos · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "recursos_foto_alt",
+          "label": "Edición y recursos · Foto de equipo y recursos · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "recursos_foto_decor",
+          "label": "Edición y recursos · Foto de equipo y recursos · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_comunicacion",
+      "label": "Comunicación y marketing",
+      "labelSingular": "Página Comunicación",
+      "icon": "megaphone",
+      "sortOrder": 40,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 260
+          }
+        },
+        {
+          "slug": "estr_etiqueta",
+          "label": "Estrategia · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "estr_titulo",
+          "label": "Estrategia · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "estr_texto",
+          "label": "Estrategia · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 130
+          }
+        },
+        {
+          "slug": "estr_punto_1",
+          "label": "Estrategia · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "estr_punto_2",
+          "label": "Estrategia · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "prensa_etiqueta",
+          "label": "Prensa · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "prensa_titulo",
+          "label": "Prensa · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "prensa_texto",
+          "label": "Prensa · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 210
+          }
+        },
+        {
+          "slug": "prensa_punto_1",
+          "label": "Prensa · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "prensa_punto_2",
+          "label": "Prensa · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "redes_etiqueta",
+          "label": "Redes · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "redes_titulo",
+          "label": "Redes · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "redes_texto",
+          "label": "Redes · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 170
+          }
+        },
+        {
+          "slug": "redes_punto_1",
+          "label": "Redes · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "redes_punto_2",
+          "label": "Redes · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "web_etiqueta",
+          "label": "Web · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "web_titulo",
+          "label": "Web · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "web_texto",
+          "label": "Web · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "web_punto_1",
+          "label": "Web · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "web_punto_2",
+          "label": "Web · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "buscadores_etiqueta",
+          "label": "Buscadores · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "buscadores_titulo",
+          "label": "Buscadores · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "buscadores_texto",
+          "label": "Buscadores · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "buscadores_punto_1",
+          "label": "Buscadores · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "buscadores_punto_2",
+          "label": "Buscadores · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "eventos_etiqueta",
+          "label": "Eventos · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "eventos_titulo",
+          "label": "Eventos · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "eventos_texto",
+          "label": "Eventos · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "eventos_punto_1",
+          "label": "Eventos · Punto 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "eventos_punto_2",
+          "label": "Eventos · Punto 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "cta_texto",
+          "label": "Cierre · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 360
+          }
+        },
+        {
+          "slug": "prod_titulo",
+          "label": "Producción audiovisual · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "prod_texto",
+          "label": "Producción audiovisual · Texto",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 370
+          }
+        },
+        {
+          "slug": "prod_enlace",
+          "label": "Producción audiovisual · Texto del enlace",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "faq_p1",
+          "label": "Preguntas frecuentes · Pregunta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "faq_r1",
+          "label": "Preguntas frecuentes · Respuesta 1",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 260
+          }
+        },
+        {
+          "slug": "faq_p2",
+          "label": "Preguntas frecuentes · Pregunta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "faq_r2",
+          "label": "Preguntas frecuentes · Respuesta 2",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 240
+          }
+        },
+        {
+          "slug": "faq_p3",
+          "label": "Preguntas frecuentes · Pregunta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "faq_r3",
+          "label": "Preguntas frecuentes · Respuesta 3",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 290
+          }
+        },
+        {
+          "slug": "faq_p4",
+          "label": "Preguntas frecuentes · Pregunta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "faq_r4",
+          "label": "Preguntas frecuentes · Respuesta 4",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 240
+          }
+        },
+        {
+          "slug": "hero_foto_ref",
+          "label": "Portada · Foto de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto",
+          "label": "Portada · Foto de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto_alt",
+          "label": "Portada · Foto de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_foto_decor",
+          "label": "Portada · Foto de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "eventos_foto_ref",
+          "label": "Eventos · Foto de eventos · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "eventos_foto",
+          "label": "Eventos · Foto de eventos · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "eventos_foto_alt",
+          "label": "Eventos · Foto de eventos · Texto alternativo",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "eventos_foto_decor",
+          "label": "Eventos · Foto de eventos · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_servicios",
+      "label": "Servicios",
+      "labelSingular": "Página Servicios",
+      "icon": "list",
+      "sortOrder": 50,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "hero_cta",
+          "label": "Portada · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "indice_aria",
+          "label": "Índice · Texto accesible del índice",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "indice_enlace_1",
+          "label": "Índice · Enlace 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "indice_enlace_2",
+          "label": "Índice · Enlace 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "indice_enlace_3",
+          "label": "Índice · Enlace 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "stream_eyebrow",
+          "label": "Streaming · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "stream_titulo_a",
+          "label": "Streaming · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "stream_titulo_b",
+          "label": "Streaming · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "stream_descripcion",
+          "label": "Streaming · Descripción",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 230
+          }
+        },
+        {
+          "slug": "stream_chip_1",
+          "label": "Streaming · Etiqueta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "stream_chip_2",
+          "label": "Streaming · Etiqueta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "stream_cta",
+          "label": "Streaming · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "senal_aria",
+          "label": "Recorrido de la señal · Texto accesible del gráfico",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "senal_eyebrow",
+          "label": "Recorrido de la señal · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "senal_titulo",
+          "label": "Recorrido de la señal · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "senal_num_1",
+          "label": "Recorrido de la señal · Número 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_paso_1",
+          "label": "Recorrido de la señal · Paso 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_desc_1",
+          "label": "Recorrido de la señal · Descripción 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_num_2",
+          "label": "Recorrido de la señal · Número 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_paso_2",
+          "label": "Recorrido de la señal · Paso 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_desc_2",
+          "label": "Recorrido de la señal · Descripción 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_num_3",
+          "label": "Recorrido de la señal · Número 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_paso_3",
+          "label": "Recorrido de la señal · Paso 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "senal_desc_3",
+          "label": "Recorrido de la señal · Descripción 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "tv_eyebrow",
+          "label": "TV online · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "tv_titulo_a",
+          "label": "TV online · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "tv_titulo_b",
+          "label": "TV online · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "tv_chip",
+          "label": "TV online · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "tv_descripcion",
+          "label": "TV online · Descripción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 120
+          }
+        },
+        {
+          "slug": "tv_preguntas",
+          "label": "TV online · Preguntas guía",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 190
+          }
+        },
+        {
+          "slug": "tv_cta",
+          "label": "TV online · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "comm_eyebrow",
+          "label": "Comunicación · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "comm_titulo_a",
+          "label": "Comunicación · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "comm_titulo_b",
+          "label": "Comunicación · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "comm_chip_1",
+          "label": "Comunicación · Etiqueta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "comm_descripcion",
+          "label": "Comunicación · Descripción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "comm_chip_2",
+          "label": "Comunicación · Etiqueta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "comm_chip_3",
+          "label": "Comunicación · Etiqueta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "comm_cta",
+          "label": "Comunicación · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "mkt_eyebrow",
+          "label": "Marketing digital · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "mkt_titulo_a",
+          "label": "Marketing digital · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "mkt_titulo_b",
+          "label": "Marketing digital · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "mkt_chip_1",
+          "label": "Marketing digital · Etiqueta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "mkt_descripcion",
+          "label": "Marketing digital · Descripción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "mkt_chip_2",
+          "label": "Marketing digital · Etiqueta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "mkt_chip_3",
+          "label": "Marketing digital · Etiqueta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "mkt_cta",
+          "label": "Marketing digital · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_clientes",
+      "label": "Clientes",
+      "labelSingular": "Página Clientes",
+      "icon": "building",
+      "sortOrder": 60,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 170
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_contacto",
+      "label": "Contacto",
+      "labelSingular": "Página Contacto",
+      "icon": "mail",
+      "sortOrder": 70,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 110
+          }
+        },
+        {
+          "slug": "vias_telefono_rotulo",
+          "label": "Vías de contacto · Rótulo del teléfono",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "vias_email_rotulo",
+          "label": "Vías de contacto · Rótulo del correo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "form_titulo",
+          "label": "Formulario · Título (página de contacto)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "form_titulo_home",
+          "label": "Formulario · Título (formulario de Inicio)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "form_nombre_rotulo",
+          "label": "Formulario · Rótulo del nombre",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "form_email_rotulo",
+          "label": "Formulario · Rótulo del correo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "form_servicio_rotulo",
+          "label": "Formulario · Rótulo del servicio",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "form_servicio_vacio",
+          "label": "Formulario · Opción vacía del servicio",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "form_mensaje_rotulo",
+          "label": "Formulario · Rótulo del mensaje",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_foto_ref",
+          "label": "Portada · Foto de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto",
+          "label": "Portada · Foto de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto_alt",
+          "label": "Portada · Foto de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_foto_decor",
+          "label": "Portada · Foto de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_portfolio",
+      "label": "Portfolio",
+      "labelSingular": "Página Portfolio",
+      "icon": "film",
+      "sortOrder": 80,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "hero_titulo",
+          "label": "Portada · Titular",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "vacio_texto",
+          "label": "Selección · Texto cuando no hay proyectos publicados",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "hero_poster_ref",
+          "label": "Portada · Imagen de espera del vídeo de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster",
+          "label": "Portada · Imagen de espera del vídeo de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster_alt",
+          "label": "Portada · Imagen de espera del vídeo de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_poster_decor",
+          "label": "Portada · Imagen de espera del vídeo de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "hero_poster_movil_ref",
+          "label": "Portada · Imagen de espera del vídeo (móvil) · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster_movil",
+          "label": "Portada · Imagen de espera del vídeo (móvil) · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_poster_movil_alt",
+          "label": "Portada · Imagen de espera del vídeo (móvil) · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_poster_movil_decor",
+          "label": "Portada · Imagen de espera del vídeo (móvil) · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_blog",
+      "label": "Portada del blog",
+      "labelSingular": "Portada del blog",
+      "icon": "newspaper",
+      "sortOrder": 90,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 150
+          }
+        },
+        {
+          "slug": "hero_foto_ref",
+          "label": "Portada · Foto de portada · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto",
+          "label": "Portada · Foto de portada · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "hero_foto_alt",
+          "label": "Portada · Foto de portada · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "hero_foto_decor",
+          "label": "Portada · Foto de portada · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "page_404",
+      "label": "Error 404",
+      "labelSingular": "Página 404",
+      "icon": "warning",
+      "sortOrder": 95,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "err_eyebrow",
+          "label": "Contenido · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "err_codigo",
+          "label": "Contenido · Código",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "err_titulo_a",
+          "label": "Contenido · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "err_titulo_b",
+          "label": "Contenido · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "err_texto",
+          "label": "Contenido · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "err_boton_inicio",
+          "label": "Contenido · Botón a Inicio",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "err_boton_contacto",
+          "label": "Contenido · Botón a Contacto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        }
+      ]
+    },
+    {
+      "slug": "site_blocks",
+      "label": "Bloques compartidos",
+      "labelSingular": "Bloques compartidos",
+      "icon": "layers",
+      "sortOrder": 100,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "cta_general_eyebrow",
+          "label": "Cierre general · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_general_titulo_a",
+          "label": "Cierre general · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_general_titulo_b",
+          "label": "Cierre general · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_general_texto",
+          "label": "Cierre general · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "cta_general_boton",
+          "label": "Cierre general · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_comm_eyebrow",
+          "label": "Cierre de Comunicación · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_comm_titulo_a",
+          "label": "Cierre de Comunicación · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_comm_titulo_b",
+          "label": "Cierre de Comunicación · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_comm_texto",
+          "label": "Cierre de Comunicación · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "cta_comm_boton",
+          "label": "Cierre de Comunicación · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_prod_eyebrow",
+          "label": "Cierre de Producción · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_prod_titulo_a",
+          "label": "Cierre de Producción · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_prod_titulo_b",
+          "label": "Cierre de Producción · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "cta_prod_texto",
+          "label": "Cierre de Producción · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 120
+          }
+        },
+        {
+          "slug": "cta_prod_boton",
+          "label": "Cierre de Producción · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cta_about_eyebrow",
+          "label": "Cierre de Quiénes somos · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_about_titulo_a",
+          "label": "Cierre de Quiénes somos · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_about_titulo_b",
+          "label": "Cierre de Quiénes somos · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cta_about_texto",
+          "label": "Cierre de Quiénes somos · Texto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "cta_about_boton",
+          "label": "Cierre de Quiénes somos · Botón",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "cifras_titulo_a",
+          "label": "Cifras · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cifras_titulo_b",
+          "label": "Cifras · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "cifras_entradilla",
+          "label": "Cifras · Entradilla",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "banda_video_ref",
+          "label": "Banda de clientes · Vídeo de fondo (escritorio) · Vídeo del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "coberturas/hero-review-desktop",
+              "coberturas/hero-review-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "banda_video",
+          "label": "Banda de clientes · Vídeo de fondo (escritorio) · Vídeo MP4 de la biblioteca de medios (sustituye al del sitio)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "banda_video_movil_ref",
+          "label": "Banda de clientes · Vídeo de fondo (móvil, opcional: vacío = el de escritorio) · Vídeo del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "coberturas/hero-review-desktop",
+              "coberturas/hero-review-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "banda_video_movil",
+          "label": "Banda de clientes · Vídeo de fondo (móvil, opcional: vacío = el de escritorio) · Vídeo MP4 de la biblioteca de medios (sustituye al del sitio)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "banda_poster_ref",
+          "label": "Banda de clientes · Imagen de espera del vídeo de fondo · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/curro",
+              "equipo/equipo--11",
+              "equipo/equipo-1",
+              "equipo/equipo-10-sin-botella",
+              "equipo/equipo-10",
+              "equipo/equipo-12",
+              "equipo/equipo-13",
+              "equipo/equipo-14",
+              "equipo/equipo-2",
+              "equipo/equipo-3",
+              "equipo/equipo-4",
+              "equipo/equipo-5",
+              "equipo/equipo-6",
+              "equipo/equipo-7",
+              "equipo/equipo-8",
+              "equipo/equipo-9",
+              "equipo/fran-vergara",
+              "equipo/juan-camara",
+              "equipo/sergio-maya",
+              "servicios/comunicacion-marketing-archivo",
+              "servicios/comunicacion-marketing-hero",
+              "servicios/directos-1",
+              "servicios/directos-10",
+              "servicios/directos-11",
+              "servicios/directos-4",
+              "servicios/directos-5",
+              "servicios/directos-7",
+              "servicios/directos-8",
+              "servicios/produccion-eng",
+              "servicios/programas-entrevista",
+              "servicios/streaming-realizacion",
+              "grafismos/directos-television-v2",
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "banda_poster",
+          "label": "Banda de clientes · Imagen de espera del vídeo de fondo · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "banda_poster_alt",
+          "label": "Banda de clientes · Imagen de espera del vídeo de fondo · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "banda_poster_decor",
+          "label": "Banda de clientes · Imagen de espera del vídeo de fondo · Decorativa (sin texto alternativo)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "media_rights_source",
+          "label": "Fotos y vídeos · Derechos de los archivos subidos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "site_chrome",
+      "label": "Cabecera y pie",
+      "labelSingular": "Cabecera y pie",
+      "icon": "layout",
+      "sortOrder": 110,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "cab_boton_contacto",
+          "label": "Cabecera · Botón «Hablemos»",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "pie_linea_1",
+          "label": "Pie · Línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "pie_linea_2",
+          "label": "Pie · Línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "pie_linea_3",
+          "label": "Pie · Línea 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "nav_inicio",
+          "label": "Menú · Inicio",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_quienes_somos",
+          "label": "Menú · Quiénes somos",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_portfolio",
+          "label": "Menú · Portfolio",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_comunicacion",
+          "label": "Menú · Comunicación",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_produccion",
+          "label": "Menú · Producción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_contacto",
+          "label": "Menú · Contacto",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "nav_blog",
+          "label": "Menú · Blog",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        }
+      ]
+    },
+    {
+      "slug": "legal_cookies",
+      "label": "Legal · Cookies",
+      "labelSingular": "Política de cookies",
+      "icon": "shield",
+      "sortOrder": 120,
+      "group": "Legal",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "bloque_001",
+          "label": "Bloque legal 001",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_002",
+          "label": "Bloque legal 002",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_003",
+          "label": "Bloque legal 003",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_004",
+          "label": "Bloque legal 004",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 140
+          }
+        },
+        {
+          "slug": "bloque_005",
+          "label": "Bloque legal 005",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_006",
+          "label": "Bloque legal 006",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_007",
+          "label": "Bloque legal 007",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_008",
+          "label": "Bloque legal 008",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_009",
+          "label": "Bloque legal 009",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 240
+          }
+        },
+        {
+          "slug": "bloque_010",
+          "label": "Bloque legal 010",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_011",
+          "label": "Bloque legal 011",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 600
+          }
+        },
+        {
+          "slug": "bloque_012",
+          "label": "Bloque legal 012",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_013",
+          "label": "Bloque legal 013",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 860
+          }
+        },
+        {
+          "slug": "bloque_014",
+          "label": "Bloque legal 014",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_015",
+          "label": "Bloque legal 015",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 620
+          }
+        },
+        {
+          "slug": "bloque_016",
+          "label": "Bloque legal 016",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_017",
+          "label": "Bloque legal 017",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_018",
+          "label": "Bloque legal 018",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_019",
+          "label": "Bloque legal 019",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_020",
+          "label": "Bloque legal 020",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 130
+          }
+        },
+        {
+          "slug": "bloque_021",
+          "label": "Bloque legal 021",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 110
+          }
+        },
+        {
+          "slug": "bloque_022",
+          "label": "Bloque legal 022",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_023",
+          "label": "Bloque legal 023",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_024",
+          "label": "Bloque legal 024",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_025",
+          "label": "Bloque legal 025",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_026",
+          "label": "Bloque legal 026",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_027",
+          "label": "Bloque legal 027",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_028",
+          "label": "Bloque legal 028",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_029",
+          "label": "Bloque legal 029",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        }
+      ]
+    },
+    {
+      "slug": "legal_privacidad",
+      "label": "Legal · Privacidad",
+      "labelSingular": "Política de privacidad",
+      "icon": "shield",
+      "sortOrder": 121,
+      "group": "Legal",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "bloque_001",
+          "label": "Bloque legal 001",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_002",
+          "label": "Bloque legal 002",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_003",
+          "label": "Bloque legal 003",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_004",
+          "label": "Bloque legal 004",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "bloque_005",
+          "label": "Bloque legal 005",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_006",
+          "label": "Bloque legal 006",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_007",
+          "label": "Bloque legal 007",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_008",
+          "label": "Bloque legal 008",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_009",
+          "label": "Bloque legal 009",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_010",
+          "label": "Bloque legal 010",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 310
+          }
+        },
+        {
+          "slug": "bloque_011",
+          "label": "Bloque legal 011",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_012",
+          "label": "Bloque legal 012",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 370
+          }
+        },
+        {
+          "slug": "bloque_013",
+          "label": "Bloque legal 013",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_014",
+          "label": "Bloque legal 014",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 910
+          }
+        },
+        {
+          "slug": "bloque_015",
+          "label": "Bloque legal 015",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_016",
+          "label": "Bloque legal 016",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 1250
+          }
+        },
+        {
+          "slug": "bloque_017",
+          "label": "Bloque legal 017",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_018",
+          "label": "Bloque legal 018",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 830
+          }
+        }
+      ]
+    },
+    {
+      "slug": "legal_aviso",
+      "label": "Legal · Aviso legal",
+      "labelSingular": "Aviso legal",
+      "icon": "shield",
+      "sortOrder": 122,
+      "group": "Legal",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "bloque_001",
+          "label": "Bloque legal 001",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_002",
+          "label": "Bloque legal 002",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_003",
+          "label": "Bloque legal 003",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_004",
+          "label": "Bloque legal 004",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 130
+          }
+        },
+        {
+          "slug": "bloque_005",
+          "label": "Bloque legal 005",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_006",
+          "label": "Bloque legal 006",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_007",
+          "label": "Bloque legal 007",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_008",
+          "label": "Bloque legal 008",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_009",
+          "label": "Bloque legal 009",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_010",
+          "label": "Bloque legal 010",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "bloque_011",
+          "label": "Bloque legal 011",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_012",
+          "label": "Bloque legal 012",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 350
+          }
+        },
+        {
+          "slug": "bloque_013",
+          "label": "Bloque legal 013",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_014",
+          "label": "Bloque legal 014",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 760
+          }
+        },
+        {
+          "slug": "bloque_015",
+          "label": "Bloque legal 015",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_016",
+          "label": "Bloque legal 016",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 890
+          }
+        },
+        {
+          "slug": "bloque_017",
+          "label": "Bloque legal 017",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_018",
+          "label": "Bloque legal 018",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 960
+          }
+        }
+      ]
+    },
+    {
+      "slug": "clients",
+      "label": "Clientes",
+      "labelSingular": "Cliente",
+      "icon": "building",
+      "sortOrder": 61,
+      "group": "Contenido",
+      "routable": false,
+      "titleField": "name",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "name",
+          "label": "Nombre",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "logo_ref",
+          "label": "Logotipo · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "logos/101-display",
+              "logos/101-white",
+              "logos/abc-display",
+              "logos/abc-white",
+              "logos/antena_3-display",
+              "logos/antena_3-white",
+              "logos/ayuntamiento_de_sevilla-display",
+              "logos/ayuntamiento_de_sevilla-white",
+              "logos/canal-sur-sm",
+              "logos/canal-sur",
+              "logos/canal_sur-display",
+              "logos/canal_sur-white",
+              "logos/catedral-display",
+              "logos/catedral-white",
+              "logos/ciencias-rugby-white",
+              "logos/consejo-display",
+              "logos/consejo_hermandades-display",
+              "logos/consejo_hermandades-white",
+              "logos/consejo_hermandades",
+              "logos/correo-display",
+              "logos/correo-white",
+              "logos/cuatro",
+              "logos/dos_hermanas-display",
+              "logos/dos_hermanas",
+              "logos/esperanza_de_triana-display",
+              "logos/esperanza_de_triana-white",
+              "logos/esquimo-voley-white",
+              "logos/federacion-display",
+              "logos/federacion-white",
+              "logos/gitanos-display",
+              "logos/gitanos-white",
+              "logos/gran_poder-display",
+              "logos/gran_poder-white",
+              "logos/hermandad_macarena-display",
+              "logos/hermandad_macarena-sm",
+              "logos/hermandad_macarena",
+              "logos/hermandad_matriz-display",
+              "logos/hermandad_matriz",
+              "logos/hospital_san_agustin-display",
+              "logos/hospital_san_agustin",
+              "logos/hotel_motilla",
+              "logos/junta-white",
+              "logos/junta_andalucia-display",
+              "logos/junta_andalucia-sm",
+              "logos/junta_andalucia",
+              "logos/la_sexta-display",
+              "logos/la_sexta-white",
+              "logos/logo_lances-display",
+              "logos/logo_lances-white",
+              "logos/logo_siete_andalucia-display",
+              "logos/logo_siete_andalucia-white",
+              "logos/macarena-display",
+              "logos/macarena-white",
+              "logos/matriz-display",
+              "logos/matriz-white",
+              "logos/negativ-display",
+              "logos/puebla_del_rio-display",
+              "logos/puebla_del_rio-sm",
+              "logos/puebla_del_rio",
+              "logos/real-betis",
+              "logos/remax-display",
+              "logos/remax",
+              "logos/rfaf-display",
+              "logos/rfaf",
+              "logos/rinconada-display",
+              "logos/rinconada",
+              "logos/seat-official-display",
+              "logos/seat-official",
+              "logos/sevilla-fc",
+              "logos/telecinco",
+              "logos/telemadrid-display",
+              "logos/telemadrid-white",
+              "logos/tixe-display",
+              "logos/tixe",
+              "logos/turismo_sevilla-display",
+              "logos/turismo_sevilla-sm",
+              "logos/turismo_sevilla",
+              "logos/tve-display",
+              "logos/tve-white",
+              "logos/voley_esquimo-display",
+              "logos/voley_esquimo"
+            ]
+          }
+        },
+        {
+          "slug": "logo",
+          "label": "Logotipo · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "logo_dark",
+          "label": "Logotipo claro sobre fondo oscuro",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "visible",
+          "label": "Mostrar en la web",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_ok",
+          "label": "Derechos de uso confirmados",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_source",
+          "label": "Evidencia de los derechos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "sort",
+          "label": "Orden (menor primero)",
+          "type": "integer",
+          "required": true,
+          "validation": {}
+        }
+      ]
+    },
+    {
+      "slug": "band_logos",
+      "label": "Banda de clientes (Inicio)",
+      "labelSingular": "Logotipo de la banda",
+      "icon": "building",
+      "sortOrder": 62,
+      "group": "Contenido",
+      "routable": false,
+      "titleField": "name",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "name",
+          "label": "Nombre (texto alternativo)",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "logo_ref",
+          "label": "Logotipo · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "logos/101-display",
+              "logos/101-white",
+              "logos/abc-display",
+              "logos/abc-white",
+              "logos/antena_3-display",
+              "logos/antena_3-white",
+              "logos/ayuntamiento_de_sevilla-display",
+              "logos/ayuntamiento_de_sevilla-white",
+              "logos/canal-sur-sm",
+              "logos/canal-sur",
+              "logos/canal_sur-display",
+              "logos/canal_sur-white",
+              "logos/catedral-display",
+              "logos/catedral-white",
+              "logos/ciencias-rugby-white",
+              "logos/consejo-display",
+              "logos/consejo_hermandades-display",
+              "logos/consejo_hermandades-white",
+              "logos/consejo_hermandades",
+              "logos/correo-display",
+              "logos/correo-white",
+              "logos/cuatro",
+              "logos/dos_hermanas-display",
+              "logos/dos_hermanas",
+              "logos/esperanza_de_triana-display",
+              "logos/esperanza_de_triana-white",
+              "logos/esquimo-voley-white",
+              "logos/federacion-display",
+              "logos/federacion-white",
+              "logos/gitanos-display",
+              "logos/gitanos-white",
+              "logos/gran_poder-display",
+              "logos/gran_poder-white",
+              "logos/hermandad_macarena-display",
+              "logos/hermandad_macarena-sm",
+              "logos/hermandad_macarena",
+              "logos/hermandad_matriz-display",
+              "logos/hermandad_matriz",
+              "logos/hospital_san_agustin-display",
+              "logos/hospital_san_agustin",
+              "logos/hotel_motilla",
+              "logos/junta-white",
+              "logos/junta_andalucia-display",
+              "logos/junta_andalucia-sm",
+              "logos/junta_andalucia",
+              "logos/la_sexta-display",
+              "logos/la_sexta-white",
+              "logos/logo_lances-display",
+              "logos/logo_lances-white",
+              "logos/logo_siete_andalucia-display",
+              "logos/logo_siete_andalucia-white",
+              "logos/macarena-display",
+              "logos/macarena-white",
+              "logos/matriz-display",
+              "logos/matriz-white",
+              "logos/negativ-display",
+              "logos/puebla_del_rio-display",
+              "logos/puebla_del_rio-sm",
+              "logos/puebla_del_rio",
+              "logos/real-betis",
+              "logos/remax-display",
+              "logos/remax",
+              "logos/rfaf-display",
+              "logos/rfaf",
+              "logos/rinconada-display",
+              "logos/rinconada",
+              "logos/seat-official-display",
+              "logos/seat-official",
+              "logos/sevilla-fc",
+              "logos/telecinco",
+              "logos/telemadrid-display",
+              "logos/telemadrid-white",
+              "logos/tixe-display",
+              "logos/tixe",
+              "logos/turismo_sevilla-display",
+              "logos/turismo_sevilla-sm",
+              "logos/turismo_sevilla",
+              "logos/tve-display",
+              "logos/tve-white",
+              "logos/voley_esquimo-display",
+              "logos/voley_esquimo"
+            ]
+          }
+        },
+        {
+          "slug": "logo",
+          "label": "Logotipo · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "variant",
+          "label": "Tratamiento del logotipo",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "normal",
+              "monocromo",
+              "escudo_monocromo",
+              "escudo_recorte",
+              "catedral",
+              "con_nombre"
+            ]
+          }
+        },
+        {
+          "slug": "visible",
+          "label": "Mostrar en la web",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_ok",
+          "label": "Derechos de uso confirmados",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_source",
+          "label": "Evidencia de los derechos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "sort",
+          "label": "Orden (menor primero)",
+          "type": "integer",
+          "required": true,
+          "validation": {}
+        }
+      ]
+    },
+    {
+      "slug": "projects",
+      "label": "Proyectos",
+      "labelSingular": "Proyecto",
+      "icon": "film",
+      "sortOrder": 81,
+      "group": "Contenido",
+      "routable": false,
+      "titleField": "name",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "name",
+          "label": "Título",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "context",
+          "label": "Contexto",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "description",
+          "label": "Descripción",
+          "type": "text",
+          "required": true,
+          "validation": {
+            "maxLength": 220
+          }
+        },
+        {
+          "slug": "client",
+          "label": "Cliente (nombre visible junto al logotipo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "category",
+          "label": "Categoría",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "directo",
+              "grabacion",
+              "deporte",
+              "comunicacion",
+              "otro"
+            ]
+          }
+        },
+        {
+          "slug": "year",
+          "label": "Año del trabajo (opcional)",
+          "type": "integer",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "link",
+          "label": "Enlace del título (ruta interna de la web, p. ej. /blog/; vacío = sin enlace)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 120,
+            "pattern": "^/[A-Za-z0-9/_-]*$"
+          }
+        },
+        {
+          "slug": "video_key",
+          "label": "Vídeo del sitio (pieza ya incorporada; se usa si no subes un MP4 propio)",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "rugby",
+              "abc-galisur",
+              "voley",
+              "lasexta",
+              "motocross"
+            ]
+          }
+        },
+        {
+          "slug": "video",
+          "label": "Vídeo MP4 de la biblioteca de medios (sustituye al del sitio)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "video_vertical",
+          "label": "Versión vertical del vídeo para móvil (opcional, MP4)",
+          "type": "file",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "video/mp4"
+            ]
+          }
+        },
+        {
+          "slug": "orientation",
+          "label": "Orientación del vídeo (vacío = la del vídeo del sitio o, con vídeo propio, vertical)",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "vertical",
+              "horizontal"
+            ]
+          }
+        },
+        {
+          "slug": "home_layout",
+          "label": "Tamaño en Inicio (vacío = según la orientación)",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "grande",
+              "pila"
+            ]
+          }
+        },
+        {
+          "slug": "poster_ref",
+          "label": "Imagen de espera del vídeo (obligatoria con vídeo propio) · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "coberturas/camara-broadcast",
+              "coberturas/blog-macarena",
+              "coberturas/evento-deportivo",
+              "coberturas/hero-eng",
+              "coberturas/hero-review-poster",
+              "coberturas/home-inline-01",
+              "coberturas/home-inline-02",
+              "coberturas/home-inline-03",
+              "coberturas/home-realizacion",
+              "coberturas/monitor-grabacion",
+              "coberturas/portfolio-reel-mobile",
+              "coberturas/portfolio-reel",
+              "coberturas/work-abc-galisur",
+              "coberturas/work-lasexta",
+              "coberturas/work-motocross",
+              "coberturas/work-rugby",
+              "coberturas/work-voley"
+            ]
+          }
+        },
+        {
+          "slug": "poster",
+          "label": "Imagen de espera del vídeo (obligatoria con vídeo propio) · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "show_home",
+          "label": "Mostrar en «Trabajos recientes» de Inicio (sin marcar nunca = se muestra)",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "home_sort",
+          "label": "Orden en Inicio (menor primero; vacío = el orden de Portfolio)",
+          "type": "integer",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "visible",
+          "label": "Mostrar en la web",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_ok",
+          "label": "Derechos de uso confirmados",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_source",
+          "label": "Evidencia de los derechos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "sort",
+          "label": "Orden (menor primero)",
+          "type": "integer",
+          "required": true,
+          "validation": {}
+        }
+      ]
+    },
+    {
+      "slug": "team",
+      "label": "Equipo",
+      "labelSingular": "Persona del equipo",
+      "icon": "users",
+      "sortOrder": 21,
+      "group": "Contenido",
+      "routable": false,
+      "titleField": "name",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "name",
+          "label": "Nombre (en Quiénes somos)",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "name_home",
+          "label": "Nombre en Inicio (solo si se escribe distinto)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "role",
+          "label": "Cargo",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bio",
+          "label": "Presentación breve (opcional; se muestra bajo el cargo)",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 400
+          }
+        },
+        {
+          "slug": "email",
+          "label": "Correo público bajo el perfil en Inicio (vacío = el correo aprobado de la ficha; otro valor lo aprueba un administrador)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[A-Za-z]{2,}$"
+          }
+        },
+        {
+          "slug": "photo_state",
+          "label": "Estado de la foto",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "con_foto",
+              "pendiente"
+            ]
+          }
+        },
+        {
+          "slug": "photo_ref",
+          "label": "Retrato · Foto del sitio",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "equipo/perfiles/antonio-de-los-reyes",
+              "equipo/perfiles/curro",
+              "equipo/perfiles/fran-vergara",
+              "equipo/perfiles/jesus-ruiz",
+              "equipo/perfiles/juan-camara",
+              "equipo/perfiles/lucia-sanchez-maquillaje",
+              "equipo/perfiles/sergio-maya"
+            ]
+          }
+        },
+        {
+          "slug": "photo",
+          "label": "Retrato · Foto de la biblioteca de medios (sustituye a la del sitio)",
+          "type": "image",
+          "required": false,
+          "validation": {
+            "allowedMimeTypes": [
+              "image/jpeg",
+              "image/png",
+              "image/webp",
+              "image/avif"
+            ]
+          }
+        },
+        {
+          "slug": "photo_alt",
+          "label": "Retrato · Texto alternativo",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "photo_alt_home",
+          "label": "Retrato · Texto alternativo en Inicio (si es distinto)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "show_home",
+          "label": "Mostrar en Inicio",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "home_sort",
+          "label": "Orden en Inicio (menor primero)",
+          "type": "integer",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "note",
+          "label": "Nota editorial interna (no se publica)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "visible",
+          "label": "Mostrar en la web",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_ok",
+          "label": "Derechos de uso confirmados",
+          "type": "boolean",
+          "required": false,
+          "validation": {}
+        },
+        {
+          "slug": "rights_source",
+          "label": "Evidencia de los derechos (quién autoriza y cuándo)",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 200
+          }
+        },
+        {
+          "slug": "sort",
+          "label": "Orden (menor primero)",
+          "type": "integer",
+          "required": true,
+          "validation": {}
+        }
+      ]
     }
   ],
   "taxonomies": [
@@ -77,7 +6613,51 @@
       "collections": [
         "posts"
       ],
-      "terms": []
+      "terms": [
+        {
+          "slug": "produccion-audiovisual",
+          "label": "Producción audiovisual"
+        },
+        {
+          "slug": "comunicacion-marketing",
+          "label": "Comunicación y marketing"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "label": "Etiquetas",
+      "labelSingular": "Etiqueta",
+      "hierarchical": false,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "streaming",
+          "label": "Streaming"
+        },
+        {
+          "slug": "realizacion",
+          "label": "Realización"
+        },
+        {
+          "slug": "television",
+          "label": "Televisión"
+        },
+        {
+          "slug": "grabacion-edicion",
+          "label": "Grabación y edición"
+        },
+        {
+          "slug": "comunicacion",
+          "label": "Comunicación"
+        },
+        {
+          "slug": "marketing-digital",
+          "label": "Marketing digital"
+        }
+      ]
     }
   ]
 }

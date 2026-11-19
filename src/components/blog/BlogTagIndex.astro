@@ -1,0 +1,19 @@
+---
+import type { ContentEntry } from 'emdash';
+import { blogTermHref, type BlogPost } from '../../lib/blog';
+// Índice de etiquetas con su número de entradas PUBLICADAS (se cuenta sobre las entradas recibidas, nunca sobre borradores).
+interface Props { entries: ContentEntry<BlogPost>[]; activeSlug?: string }
+const { entries, activeSlug } = Astro.props;
+const tags = new Map<string, { slug: string; label: string; n: number }>();
+for (const post of entries) for (const term of post.data.terms?.tag ?? []) {
+  const tag = tags.get(term.slug) ?? { slug: term.slug, label: term.label, n: 0 };
+  tag.n++; tags.set(term.slug, tag);
+}
+const sorted = [...tags.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label, 'es'));
+---
+{Boolean(sorted.length) && <section class="journal-tag-index pad" aria-labelledby="journal-tag-index-title">
+  <h2 id="journal-tag-index-title">Explorar por etiqueta</h2>
+  <ul>
+    {sorted.map(tag => <li><a href={blogTermHref('tag', tag.slug)} aria-current={tag.slug === activeSlug ? 'page' : undefined}><span aria-hidden="true">#</span>{tag.label}<span class="journal-tag-index__count"><span class="sr-only">: </span>{tag.n}<span class="sr-only"> {tag.n === 1 ? 'entrada' : 'entradas'}</span></span></a></li>)}
+  </ul>
+</section>}

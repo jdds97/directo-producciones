@@ -1,0 +1,12 @@
+---
+import { pageCopy, getClients } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
+import Metrics from "./Metrics.astro";
+import ProjectCTA from "./ProjectCTA.astro";
+import PageHero from "./PageHero.astro";
+
+const copy = await pageCopy("Clientes");
+const clients = await getClients();
+
+---
+<main><PageHero eyebrow={copy["t001"]} id="clients-title"><Fragment slot="title">{copy["t002"]}<br />{copy["t003"]}</Fragment><p>{copy["t004"]}</p></PageHero><section class="pad section client-logo-band" style="padding-top:32px"><div class="client-directory">{clients.map(client => (<figure class="directory-cell"><div class:list={["directory-logo", { "logo-dark": client.dark }]}><img {...imgAttrs(client.logo)} /></div><figcaption>{client.name}</figcaption></figure>))}</div></section><Metrics /><ProjectCTA /></main>

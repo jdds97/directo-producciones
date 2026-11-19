@@ -1,0 +1,13 @@
+---
+import { blogDate, blogIsoDate, type BlogPost } from '../../lib/blog';
+interface Props { post: BlogPost; publishedAt?: string | null; minutes?: number }
+const { post, publishedAt = post.publishedAt, minutes } = Astro.props as Props;
+const iso = blogIsoDate(publishedAt);
+const date = blogDate(iso);
+---
+<p class="journal-meta">
+  {post.synthetic && <span>Prueba sintética local</span>}
+  {date && <time datetime={iso}>{date}</time>}
+  {post.author && <span>{post.author}</span>}
+  {minutes && <span>{minutes} min de lectura</span>}
+</p>

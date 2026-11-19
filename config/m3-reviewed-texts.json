@@ -1,0 +1,20 @@
+{
+  "status": "local-review",
+  "publicationAuthorized": false,
+  "source": "Contrato M3 §6 del 2026-10-09; textos exactos revisados de §2 y §3",
+  "sha256": {
+    "home.eyebrow": "e19afe97106be9b911daf165c14bc7dd5319058155142baf81825efa18f23522",
+    "home.heading": "9362c14172d702841e21a7f8a9ffd6abdbfaad5d827c961658dfa7523749b67e",
+    "home.paragraph": "c9cc18b21871af2cbd650f06117d7cebae018470728757cebe00e22b608a4a9f",
+    "home.streamingCta": "09865951c1a855d4a74ef2ccbd2b0ec8214bdd12cea2485ea5efde987f3ccdb8",
+    "home.communicationCta": "6c73ce398dfab479e44b0e01dc4af3e062f9ebbde5240b1d444ad7c37a5cc2da",
+    "home.streamingHeading": "af280a108b6d171f1ed572ee9ee74e4b8394e6467401d35e6c37f63cf2b5c49a",
+    "home.streamingParagraph": "15161e37c65cc81bd528386ddaed6ec4b8381ad3c0415627315fd57bcf53c1a9",
+    "home.communicationHeading": "ca2161fb0de04a90bbba22c8608a43476f79e7a37cb8213d61dba379be8426c7",
+    "home.communicationParagraph": "32553d6d0ba123b70a10c0fa742d07a334e0e762ee8e6f5279562241339e4917",
+    "events.heading": "4c775c8ed328b589b069adc61d4b617bc6dfaed0a652e56ffa113d92cdfd1f62",
+    "events.paragraph1": "e62f7f6548bda21b9eb78e48de04c7bf636e5cb754ba2cf7d6371c174c9c6009",
+    "events.paragraph2": "74da98e2627c3a81fa520210eab428fb63becd2bdfb56ae438177d096eaf429d",
+    "events.cta": "e7b614c4ec4b24fb64c7ade67ad208cdf94ae321e8279deeb7a52fc6fd6d6503"
+  }
+}

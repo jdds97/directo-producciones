@@ -1,0 +1,23 @@
+---
+export const prerender = false;
+import { getTerm } from 'emdash';
+import Base from '../../../layouts/Base.astro';
+import TagLanding from '../../../components/blog/TagLanding.astro';
+import { getBlogLanding, getBlogPage, isInvalidBlogCursor, type BlogPage } from '../../../lib/blog-feed';
+const slug = Astro.params.slug ?? '';
+const term = await getTerm('category', slug, { includeCounts: false });
+if (!term) { Astro.response.status = 404; return Astro.rewrite('/404'); }
+const cursor = Astro.url.searchParams.get('cursor') ?? undefined;
+let page: BlogPage;
+try { page = await getBlogPage(cursor, 'category', slug); }
+catch (error) {
+  if (cursor && isInvalidBlogCursor(error)) {
+    const clean = new URL(Astro.url); clean.searchParams.delete('cursor');
+    return Astro.redirect(clean.pathname + clean.search, 302);
+  }
+  throw error;
+}
+const all = await getBlogLanding(); // índice de etiquetas con conteos de entradas publicadas
+---
+<Base title={`Categoría: ${term.label}`} description={`Entradas del blog de Directo Producciones en la categoría «${term.label}».`} index={false}
+  crumbs={[{ name: 'Inicio', path: '/' }, { name: 'Blog', path: '/blog/' }, { name: term.label, path: `/blog/categoria/${slug}/` }]}><TagLanding allEntries={all.entries} slug={slug} label={term.label} taxonomy="category" cursor={cursor} page={page} /></Base>

@@ -1,8 +1,9 @@
 ---
 export const prerender = false;
-import { getEmDashCollection } from 'emdash';
-import Base from '../../layouts/Base.astro';
-import type { BlogPost } from '../../lib/blog';
-const { entries } = await getEmDashCollection<'posts', BlogPost>('posts', { status: 'published', orderBy: { published_at: 'desc' }, limit: 50 });
+import Base from "../../layouts/Base.astro";
+import BlogListing from "../../components/blog/BlogLanding.astro";
+import { getBlogLanding } from '../../lib/blog-feed';
+// Todas las entradas en una sola página; ?cursor= de enlaces antiguos se ignora (canonical siempre /blog/).
+const data = await getBlogLanding();
 ---
-<Base title="Blog"><h1>Blog</h1>{entries.length ? <ul>{entries.map(post => <li><a href={`/blog/${encodeURIComponent(post.data.slug)}/`}>{post.data.title}</a></li>)}</ul> : <p>No hay entradas publicadas.</p>}</Base>
+<Base><BlogListing data={data} /></Base>

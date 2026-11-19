@@ -35,6 +35,9 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm audit --audit-level=high
+      - run: npm run secret-scan
       - run: npm run guard-content
+      - run: npm run urlmap:check
       - run: npm run check
+      - run: npm run test:cms
       - run: npm run build

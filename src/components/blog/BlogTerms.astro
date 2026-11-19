@@ -1,0 +1,10 @@
+---
+import { blogFilterHref, blogTermHref, type BlogPost } from '../../lib/blog';
+const { terms } = Astro.props as { terms: BlogPost['terms'] };
+// Categoría → filtro interno de /blog/; etiqueta → su archivo /blog/etiqueta/<slug>/.
+---
+{(['category', 'tag'] as const).map(taxonomy => Boolean(terms?.[taxonomy]?.length) &&
+  <ul class:list={['journal-terms', taxonomy === 'category' ? 'journal-terms--categories' : 'journal-terms--tags']} aria-label={taxonomy === 'tag' ? 'Etiquetas' : 'Categorías'}>
+    {terms![taxonomy].map(term => <li><a href={taxonomy === 'category' ? blogFilterHref(term.slug) : blogTermHref('tag', term.slug)}>{taxonomy === 'tag' && <span aria-hidden="true">#</span>}{term.label}</a></li>)}
+  </ul>
+)}

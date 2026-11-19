@@ -1,4 +1,15 @@
 {
+  // Perfil por defecto = LOCAL (gates locales intactos). Preview y producción son perfiles preparados, no activados:
+  // se seleccionan con CLOUDFLARE_ENV=<preview|production> al compilar/desplegar y exigen `npm run launch:readiness`.
+  // IDs reales (cuenta Directo Producciones, ledger privado): no son secretos. Medios de preview/producción en R2 (binding MEDIA, jurisdicción UE;
+  // decisión del propietario del 2026-11-05). MEDIA_KV se conserva mientras se verifica R2 y se retira en un PR posterior (retirar el binding no borra el namespace).
+  // D-25: D1 de CMS (DB) y D1 de solicitudes (CONTACT_DB) son bases separadas, cada una con su carpeta de migraciones y un único responsable (deploy.yml).
+  // Solicitudes: src/worker.ts y api/contacto.ts ya usan CONTACT_DB (sin respaldo a DB fuera de local); CONTACT_PERSISTENCE sigue off.
+  // Entornos remotos: vars.APP_ENV debe coincidir con la compilación (si no, el Worker responde 503) y `assets.run_worker_first` hace que
+  // la compuerta de src/cms/local-gate.ts cubra también HTML, medios y estáticos (en producción, tras el corte, salvo los estáticos del build).
+  // Preview: sin ACCESS_TEAM_DOMAIN/ACCESS_AUD válidos queda cerrada.
+  // Secretos de runtime (solo nombres; se fijan en Cloudflare, nunca aquí): los que defina el panel. El correo del formulario no usa clave:
+  // sale por el binding `send_email` CONTACT_EMAIL (Cloudflare Email Sending), restringido a un remitente y un destinatario.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "directo-producciones-m2-local",
   "main": "./src/worker.ts",
@@ -18,7 +29,136 @@
       "bucket_name": "directo-producciones-media-local"
     }
   ],
+  // KV de medios (adaptador src/cms/storage/kv.ts), vuelta atrás con DP_MEDIA_STORAGE=kv. Local: id ficticio, emulado por wrangler.
+  "kv_namespaces": [{ "binding": "MEDIA_KV", "id": "00000000000000000000000000000000" }],
+  "ratelimits": [
+    { "name": "CONTACT_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+  ],
+  // Local: `wrangler dev` simula el binding (no envía; guarda el correo en .wrangler/tmp/email). Solo se usa con CONTACT_TRANSPORT=binding.
+  // Nunca `remote: true` (enviaría de verdad desde local); los bindings no se heredan: cada entorno declara el suyo.
+  "send_email": [
+    {
+      "name": "CONTACT_EMAIL",
+      "allowed_sender_addresses": ["formulario@avisos.directoproducciones.com"],
+      "allowed_destination_addresses": ["info@directoproducciones.com"]
+    }
+  ],
   "triggers": {
     "crons": ["* * * * *"]
+  },
+  "env": {
+    "preview": {
+      "name": "directo-producciones-preview",
+      // workers.dev protegido por la app de Cloudflare Access «preview» (solo las direcciones de la política de Access) y por el JWT verificado en el Worker.
+      // preview_urls sigue apagado: las URLs de versión no están cubiertas por Access y el Worker las rechaza (403) por host.
+      "workers_dev": true,
+      "preview_urls": false,
+      "observability": {
+        // Logs y trazas con muestreo; sin consultas en URL (redact) y sin cuerpos: el código solo registra códigos, nunca PII.
+        "enabled": true,
+        "redact_query_string": true,
+        "logs": { "enabled": true, "head_sampling_rate": 0.25, "invocation_logs": true },
+        "traces": { "enabled": true, "head_sampling_rate": 0.05 }
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "directo-producciones-cms-preview",
+          "database_id": "fb8d2ff5-2204-486d-8fd6-7699d7279bb7",
+          "migrations_dir": "migrations-cms"
+        },
+        {
+          "binding": "CONTACT_DB",
+          "database_name": "directo-producciones-solicitudes-preview",
+          "database_id": "dadc84d9-85f9-4396-8cdf-79e8d01e5da4",
+          "migrations_dir": "migrations-solicitudes"
+        }
+      ],
+      // Medios: R2 (Standard, jurisdicción UE; no se hereda del nivel superior). La jurisdicción se fija al crear el bucket y no se cambia.
+      "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "directo-producciones-media-preview", "jurisdiction": "eu" }],
+      // KV anterior (namespace directo-producciones-media-preview): solo vuelta atrás (DP_MEDIA_STORAGE=kv) hasta verificar R2.
+      "kv_namespaces": [{ "binding": "MEDIA_KV", "id": "bce8b7dbdc3b45b495cc93b0349fb535" }],
+      "ratelimits": [
+        { "name": "CONTACT_LIMITER", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }
+      ],
+      "assets": { "run_worker_first": true },
+      "vars": {
+        "APP_ENV": "preview",
+        // Cloudflare Access (identificadores NO secretos, aplicación «preview» creada en la cuenta). Si se vaciaran, la preview
+        // responde 503 a todo. El Worker verifica la firma del JWT contra las claves del equipo; no basta una cabecera de identidad.
+        "ACCESS_TEAM_DOMAIN": "directo-producciones.cloudflareaccess.com",
+        "ACCESS_AUD": "94bf11be78fd3cb8a47867e12af177b54708cee3325fbb49fea157ac9b503279",
+        "CONTACT_FROM": "formulario@avisos.directoproducciones.com",
+        "CONTACT_PERSISTENCE": "off"
+      },
+      // Cron horario (como producción): la publicación programada está cancelada por la política editorial (content:beforeSchedule);
+      // queda limpieza de EmDash y, con CONTACT_PERSISTENCE=on, reintentos de consultas.
+      "triggers": { "crons": ["0 * * * *"] }
+    },
+    "production": {
+      "name": "directo-producciones",
+      // Sin `routes`: el dominio raíz se asocia como dominio personalizado en la fase cerrada previa al corte (todo en 503 salvo el panel)
+      // y www en el corte (RUNBOOK-LANZAMIENTO, OPERACION-EMDASH.md).
+      "workers_dev": false,
+      "preview_urls": false,
+      "observability": {
+        // Logs y trazas con muestreo; sin consultas en URL (redact) y sin cuerpos: el código solo registra códigos, nunca PII.
+        "enabled": true,
+        "redact_query_string": true,
+        "logs": { "enabled": true, "head_sampling_rate": 0.25, "invocation_logs": true },
+        "traces": { "enabled": true, "head_sampling_rate": 0.05 }
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "directo-producciones-cms",
+          "database_id": "ec5209db-53bb-4ceb-af08-6d5a09938246",
+          "migrations_dir": "migrations-cms"
+        },
+        {
+          "binding": "CONTACT_DB",
+          "database_name": "directo-producciones-solicitudes",
+          "database_id": "95d6006f-96cf-4c31-bc4b-a35a29a4b1ae",
+          "migrations_dir": "migrations-solicitudes"
+        }
+      ],
+      // Medios: R2 (Standard, jurisdicción UE), como en preview.
+      "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "directo-producciones-media", "jurisdiction": "eu" }],
+      // KV anterior (namespace directo-producciones-media): solo vuelta atrás (DP_MEDIA_STORAGE=kv) hasta verificar R2.
+      "kv_namespaces": [{ "binding": "MEDIA_KV", "id": "57471fb7b7f2428987a61f1274cd5bae" }],
+      "ratelimits": [
+        { "name": "CONTACT_LIMITER", "namespace_id": "1003", "simple": { "limit": 5, "period": 60 } }
+      ],
+      // Correo del formulario por Cloudflare Email Sending: solo desde el subdominio de avisos (dado de alta en Email Sending, con su
+      // DMARC en _dmarc.avisos, no en el dominio raíz) y solo hacia el destinatario aprobado (fact contact.form_recipient_email).
+      // Preview no lo declara: allí el correo es siempre simulado salvo la prueba real temporal (RUNBOOK §5b).
+      "send_email": [
+        {
+          "name": "CONTACT_EMAIL",
+          "allowed_sender_addresses": ["formulario@avisos.directoproducciones.com"],
+          "allowed_destination_addresses": ["info@directoproducciones.com"]
+        }
+      ],
+      // Hasta el corte, todo por la compuerta: 503 (config/launch.json) y /_astro y /assets solo con el JWT de Access (env-policy.ts).
+      // public/assets lleva medios sin versionar ni aprobar para publicación. PASO DEL CORTE (tras activar config/launch.json): cambiar a
+      // ["/*", "!/_astro/*", "!/assets/*", "!/page-transition.js"] para que Static Assets sirva esos estáticos sin invocar el Worker ni gastar
+      // CPU; launch:readiness solo acepta esa lista con el lanzamiento activado. Preview y local, siempre todo por el Worker.
+      "assets": { "run_worker_first": true },
+      // Versión del Worker para la clave de la caché de HTML (src/lib/html-cache.ts): tras desplegar no se sirve HTML con /_astro antiguos.
+      "version_metadata": { "binding": "CF_VERSION_METADATA" },
+      "vars": {
+        "APP_ENV": "production",
+        // Cloudflare Access del PANEL (/_emdash/*; identificadores NO secretos de la app de producción, aún sin crear). Vacíos = panel
+        // cerrado (503), también antes del corte. Con valores, el Worker exige su JWT en /_emdash/* salvo los medios públicos tras activar.
+        "ACCESS_TEAM_DOMAIN": "",
+        "ACCESS_AUD": "",
+        "CONTACT_FROM": "formulario@avisos.directoproducciones.com",
+        "CONTACT_PERSISTENCE": "off"
+      },
+      // Horario (antes */5): cada ejecución arranca EmDash (~90 ms de CPU medidos en preview, por encima de los 10 ms del plan Free) y hoy
+      // solo limpia (retos, tokens, subidas huérfanas): la publicación programada está cancelada por la política editorial y
+      // CONTACT_PERSISTENCE=off. Si se habilita programar, volver a */5 (retraso máximo = intervalo) o pasar a Workers Paid.
+      "triggers": { "crons": ["0 * * * *"] }
+    }
   }
 }

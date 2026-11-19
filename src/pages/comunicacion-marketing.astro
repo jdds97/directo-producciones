@@ -1,7 +1,8 @@
 ---
 export const prerender = false;
-import Base from '../layouts/Base.astro';
-import { visibleFact } from '../lib/facts';
-const services = ['service.communication', 'service.digital_marketing'].map(visibleFact).filter(Boolean);
+import Base from "../layouts/Base.astro";
+import CommunicationLine from "../components/m4/CommunicationLine.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_comunicacion");
 ---
-<Base title="Comunicación y marketing"><h1>Comunicación y marketing</h1>{services.map(service => service && <p data-fact-id={service.id}>{service.value}</p>)}</Base>
+<Base title={seo.title} description={seo.description}><CommunicationLine /></Base>

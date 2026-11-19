@@ -1,0 +1,422 @@
+---
+import { pageCopy, getProjects, pageImages } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
+import { PORTFOLIO_MAX } from "../../cms/contract";
+import ProjectCTA from './ProjectCTA.astro';
+import ReviewNote from './ReviewNote.astro';
+
+// Todos los proyectos publicados por orden del panel, sin huecos ni muestras repetidas. Puede ser una lista vacía.
+const m4PortfolioProjects = await getProjects();
+const copy = await pageCopy("Portfolio");
+const photo = await pageImages("page_portfolio");
+---
+<main class="portfolio-page" data-portfolio-experience>
+  <section class="portfolio-intro" data-portfolio-motion aria-labelledby="portfolio-title">
+    {/* Imagen de espera (LCP) en el HTML, elegida por el navegador según el ancho: el vídeo, sin póster, la tapa al reproducirse. */}
+    <picture class="portfolio-hero-poster">
+      <source media="(max-width: 767px)" srcset={photo.hero_poster_movil.src} width={photo.hero_poster_movil.width} height={photo.hero_poster_movil.height} />
+      <img {...imgAttrs(photo.hero_poster, { priority: true })} />
+    </picture>
+    <video
+      class="portfolio-hero-video"
+      data-portfolio-hero-video
+      data-home-video-src="/assets/m4/coberturas/portfolio-reel.mp4"
+      data-portfolio-mobile-src="/assets/m4/coberturas/portfolio-reel-mobile.mp4"
+      width="1280"
+      height="600"
+      preload="none"
+      muted
+      playsinline
+      loop
+      aria-hidden="true"
+    ></video>
+    <div class="portfolio-intro-content page-intro-shell page-intro-layout">
+      <div class="portfolio-intro-heading page-intro-heading" data-portfolio-reveal="heading">
+        <p class="eyebrow">{copy["t001"]}</p>
+        <h1 id="portfolio-title" class="page-intro-title">{copy["t002"]}</h1>
+      </div>
+      <div class="portfolio-intro-caption" data-portfolio-reveal="caption">
+        <p class="portfolio-intro-summary">{copy["t003"]}</p>
+      </div>
+    </div>
+    <button type="button" class="portfolio-hero-toggle" data-portfolio-hero-toggle aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path class="portfolio-hero-pause" d="M9 5v14M15 5v14"></path><path class="portfolio-hero-play" d="m8 5 11 7-11 7Z"></path></svg>
+      <span>Reproducir vídeo</span>
+    </button>
+  </section>
+
+  <section class="portfolio-selection" id="seleccion" aria-label="Selección de trabajos audiovisuales">
+    {m4PortfolioProjects.length > PORTFOLIO_MAX && (
+      <ReviewNote><p class="portfolio-provisional" role="note">
+        <strong>Aviso.</strong> Hay {m4PortfolioProjects.length} proyectos publicados y el diseño está pensado para {PORTFOLIO_MAX}: conviene ocultar los más antiguos.
+      </p></ReviewNote>
+    )}
+    {m4PortfolioProjects.length === 0 ? (
+      <p class="portfolio-empty">{copy.vacio_texto}</p>
+    ) : (
+    <div class="portfolio-projects" data-count={m4PortfolioProjects.length}>
+      {m4PortfolioProjects.map((project, index) => (
+        <article
+          class="portfolio-project"
+          id={`portfolio-slot-${index + 1}`}
+          data-portfolio-motion
+          data-portfolio-project
+          data-portfolio-category={project.portfolioCategories.join(" ")}
+          data-portfolio-slot={index + 1}
+          aria-labelledby={`portfolio-project-${index + 1}-title`}
+        >
+          <figure
+            class="portfolio-project-figure"
+          >
+            <div class="portfolio-project-media" data-portfolio-reveal="media">
+              <video
+                class="portfolio-project-video"
+                src={project.videoSrc}
+                data-poster={project.poster}
+                width={project.width}
+                height={project.height}
+                controls
+                preload="none"
+                playsinline
+                aria-labelledby={`portfolio-project-${index + 1}-title`}
+                aria-describedby={`portfolio-project-${index + 1}-description`}
+              >
+                {copy["t004"]}
+              </video>
+              <button
+                type="button"
+                class="portfolio-play-trigger"
+                data-portfolio-play
+                hidden
+                aria-pressed="false"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path class="portfolio-sample-play" d="m8 5 11 7-11 7Z"></path><path class="portfolio-sample-pause" d="M9 5v14M15 5v14"></path></svg>
+                <span data-portfolio-play-label>Reproducir</span>
+              </button>
+            </div>
+            <figcaption class="portfolio-project-caption" data-portfolio-reveal="caption">
+              <div class="portfolio-project-text">
+                <p class="portfolio-project-context"><span class="portfolio-project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{project.context}{project.year ? ` · ${project.year}` : ''}</p>
+                <h2 id={`portfolio-project-${index + 1}-title`}>{project.link ? <a class="portfolio-project-link" href={project.link}>{project.title}</a> : project.title}</h2>
+                <p class="portfolio-project-description sr-only" id={`portfolio-project-${index + 1}-description`}>
+                  {project.description}
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+        </article>
+      ))}
+    </div>
+    )}
+  </section>
+
+  <div class="portfolio-closing" data-portfolio-motion>
+    <div data-portfolio-reveal="caption">
+      <ProjectCTA />
+    </div>
+  </div>
+</main>
+<script>
+  const MEDIA_KEYS = new Set([' ', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']);
+  for (const video of document.querySelectorAll<HTMLVideoElement>('.portfolio-project-video')) {
+    video.addEventListener('keydown', (event) => {
+      if (MEDIA_KEYS.has(event.key)) event.stopPropagation();
+    });
+  }
+</script>
+
+<style>
+  .portfolio-page {
+    color: var(--text);
+    background: transparent;
+  }
+
+  .portfolio-intro {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: start;
+    min-height: var(--m4-hero-h);
+    width: 100%;
+    overflow: hidden;
+    color: var(--white);
+    background: var(--dark);
+  }
+
+  .portfolio-hero-video, .portfolio-hero-poster { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-hero-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-intro::before { position: absolute; inset: 0; z-index: -1; content: ""; background: linear-gradient(90deg, rgb(6 21 29 / 88%), rgb(6 21 29 / 62%) 34%, rgb(6 21 29 / 8%) 60%), linear-gradient(0deg, rgb(6 21 29 / 50%), transparent 55%); }
+
+  .portfolio-intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-block: var(--m4-hero-pad);
+  }
+
+  .portfolio-intro-heading { width: min(100%, 900px); }
+  .portfolio-intro-heading .page-intro-title { min-block-size: 0; }
+
+
+  .portfolio-intro .eyebrow,
+  .portfolio-project-context,
+  .portfolio-project-index {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .portfolio-intro .eyebrow {
+    color: var(--tint);
+  }
+
+  .portfolio-intro .page-intro-title {
+    color: var(--white);
+  }
+
+  .portfolio-intro-caption {
+    display: grid;
+    justify-items: start;
+    gap: 24px;
+  }
+
+  .portfolio-intro-summary {
+    max-width: 30ch;
+    color: var(--white);
+    font-size: 18px;
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+
+  .portfolio-selection {
+    padding-block: var(--s48) var(--s64);
+    scroll-margin-top: 112px;
+  }
+
+  .portfolio-provisional {
+    max-width: 72ch;
+    margin: 0 0 var(--s32);
+    padding: var(--s12) var(--s16);
+    margin-inline: var(--m4-page-gutter);
+    border-left: 3px solid var(--main);
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    background: rgb(0 0 0 / 4%);
+  }
+  .portfolio-provisional strong { color: var(--text); }
+
+  .portfolio-hero-toggle { position: absolute; right: var(--m4-page-gutter); bottom: 32px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid rgb(255 255 255 / 65%); border-radius: 4px; color: white; background: rgb(6 21 29 / 60%); font: inherit; font-size: 14px; cursor: pointer; transition: background 220ms cubic-bezier(.2,.8,.2,1); }
+  .portfolio-hero-toggle:hover { background: rgb(6 21 29 / 90%); }
+  .portfolio-hero-toggle:active { transform: translateY(1px); }
+  .portfolio-hero-toggle:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+  .portfolio-hero-toggle[aria-pressed="false"] .portfolio-hero-pause,
+  .portfolio-hero-toggle[aria-pressed="true"] .portfolio-hero-play { display: none; }
+
+
+  /* Mosaico sin huecos: recuadros 4:5 iguales, vídeo a sangre (cover) e información dentro de cada pieza. */
+  .portfolio-projects {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-inline: var(--m4-page-gutter);
+    background: var(--dark);
+  }
+  .portfolio-project {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  /* Menos de cuatro proyectos: el mosaico se ajusta a las piezas que hay (sin columnas vacías). */
+  .portfolio-projects[data-count="1"] { grid-template-columns: minmax(0, 1fr); max-width: 420px; }
+  @media (min-width: 560px) { .portfolio-projects[data-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 840px; } }
+  @media (min-width: 1200px) { .portfolio-projects[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .portfolio-empty { margin: 0 var(--m4-page-gutter); padding-block: var(--s48); color: var(--secondary); font-size: 18px; line-height: 1.5; }
+  .portfolio-project-link { color: inherit; text-decoration: none; }
+  .portfolio-project-link:hover { text-decoration: underline; }
+  .portfolio-project-link:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+
+  .portfolio-project[hidden] {
+    display: none;
+  }
+
+  .portfolio-project-figure {
+    display: grid;
+    margin: 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .portfolio-project-media,
+  .portfolio-project-caption { grid-area: 1 / 1; }
+
+  .portfolio-project-media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .portfolio-project-media::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.12);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+
+  .portfolio-project-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .portfolio-project-video:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: -5px;
+  }
+
+  .portfolio-play-trigger {
+    position: absolute;
+    z-index: 3;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 4px;
+    color: white;
+    background: rgb(6 21 29 / 78%);
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background 250ms cubic-bezier(.2,.8,.2,1);
+  }
+  .portfolio-play-trigger:hover { background: rgb(6 21 29 / 95%); }
+  .portfolio-play-trigger:active { transform: translateY(1px); }
+  .portfolio-play-trigger[aria-pressed="false"] .portfolio-sample-pause,
+  .portfolio-play-trigger[aria-pressed="true"] .portfolio-sample-play { display: none; }
+
+  .portfolio-play-trigger[hidden] {
+    display: none;
+  }
+
+  .portfolio-play-trigger:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 4px;
+  }
+
+  .portfolio-project.is-previewing .portfolio-project-media::after {
+    opacity: 1;
+  }
+
+  /* Texto sobre la imagen; no captan el puntero, así que nunca bloquean los controles. */
+  .portfolio-project-caption {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--s16);
+    min-width: 0;
+    padding: var(--s16);
+    color: var(--white);
+    background: linear-gradient(0deg, rgb(6 21 29 / 90%), rgb(6 21 29 / 45%) 34%, transparent 58%);
+    pointer-events: none;
+    transition: padding 220ms cubic-bezier(.2,.8,.2,1);
+  }
+  /* Con la barra nativa visible (sin JS o tras pulsar Reproducir), el texto sube por encima de ella. */
+  .portfolio-project-figure:has(.portfolio-project-video[controls]) .portfolio-project-caption { padding-bottom: 64px; }
+
+  .portfolio-project-text {
+    display: grid;
+    gap: var(--s4, 4px);
+    min-width: 0;
+  }
+
+  .portfolio-project-index {
+    margin-right: var(--s8);
+    color: var(--tint);
+    white-space: nowrap;
+  }
+
+  .portfolio-project-context {
+    margin: 0;
+    color: rgb(255 255 255 / 82%);
+    font-size: 12px;
+    text-wrap: pretty;
+  }
+
+  .portfolio-project h2 {
+    color: var(--white);
+    font-size: clamp(18px, 1.5vw, 22px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+
+  @media (max-width: 1199px) {
+    .portfolio-projects { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 899px) {
+    .portfolio-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 767px) {
+    .portfolio-intro-content { padding-block: 48px; }
+    .portfolio-intro::before { background: linear-gradient(0deg, rgb(6 21 29 / 92%), rgb(6 21 29 / 60%) 55%, rgb(6 21 29 / 10%)); }
+    .portfolio-selection {
+      padding-bottom: var(--s64);
+    }
+
+
+    .portfolio-intro-summary {
+      font-size: 16px;
+    }
+
+
+  }
+
+  @media (max-width: 559px) {
+    .portfolio-projects { grid-template-columns: minmax(0, 1fr); }
+    .portfolio-project h2 { font-size: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portfolio-hero-toggle { transition: none; }
+    .portfolio-project-media::after, .portfolio-play-trigger, .portfolio-project-caption {
+      transition: none;
+    }
+  }
+</style>

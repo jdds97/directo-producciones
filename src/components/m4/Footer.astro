@@ -1,0 +1,89 @@
+---
+import { pageHref, isCurrentPage } from "../../lib/site-navigation";
+import { pageCopy, getNavigation } from "../../lib/site-content";
+import SocialLinks from "./SocialLinks.astro";
+
+interface Props { homeExperience?: boolean }
+const { homeExperience = false } = Astro.props;
+const navigationItems = await getNavigation();
+const copy = await pageCopy("Footer");
+---
+
+<footer class:list={["footer", "pad", { "footer--home": homeExperience }]}>
+  {homeExperience ? (
+    <>
+      <div class="footer-home-main">
+        <a class="footer-home-brand" href={pageHref("inicio")} aria-label={copy["t001"]}>
+          <img src="/assets/m4/logo-white.svg" alt={copy["t003"]} width="200" height="200" />
+        </a>
+        <p class="footer-home-description">{copy["t004"]}<br />{copy["t005"]}<br />{copy["t006"]}</p>
+        <nav class="footer-home-nav" aria-label="Navegación de pie de página">
+          {navigationItems.map((link) => (
+            <a href={link.href} aria-current={isCurrentPage(Astro.url.pathname, link) ? "page" : undefined}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a href="#contenido" class="footer-home-top">
+          Volver arriba
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 19V5m-6 6 6-6 6 6"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-home-bottom">
+        <span>Directo Producciones</span>
+        <SocialLinks class="footer-socials" />
+        <nav aria-label="Información legal">
+          <a href="/aviso-legal/">Aviso legal</a>
+          <a href="/privacidad/">Privacidad</a>
+          <a href="/cookies/">Cookies</a>
+        </nav>
+      </div>
+    </>
+  ) : (
+    <>
+      <div class="footer-top">
+        <a class="brand" href={pageHref("inicio")} aria-label={copy["t001"]}>
+          <img
+            class="brand-logo brand-logo-blue"
+            src="/assets/m4/logo-original.jpg"
+            alt={copy["t002"]}
+            width="112"
+            height="112"
+          />
+          <img
+            class="brand-logo brand-logo-white"
+            src="/assets/m4/logo-white.svg"
+            alt={copy["t003"]}
+            width="112"
+            height="112"
+          />
+        </a>
+        <p>{copy["t004"]}<br />{copy["t005"]}<br />{copy["t006"]}</p>
+        <div class="footer-links">
+          {navigationItems.map((link) => (
+            <a href={link.href} aria-current={isCurrentPage(Astro.url.pathname, link) ? "page" : undefined}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <a href="#contenido" class="back-top">
+          {copy["t012"]}
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 19V5m-6 6 6-6 6 6"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <span>{copy["t013"]}</span>
+        <SocialLinks class="footer-socials" />
+        <div>
+          <a href="/aviso-legal/">{copy["t014"]}</a>
+          <a href="/privacidad/">{copy["t015"]}</a>
+          <a href="/cookies/">{copy["t016"]}</a>
+        </div>
+      </div>
+    </>
+  )}
+</footer>

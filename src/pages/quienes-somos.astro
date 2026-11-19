@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import QuienesSomos from "../components/m4/QuienesSomos.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_quienes");
+---
+<Base title={seo.title} description={seo.description}><QuienesSomos /></Base>

@@ -1,0 +1,10 @@
+---
+import { pageHref } from "../../lib/site-navigation";
+import { pageCopy } from "../../lib/site-content";
+
+interface Props { variant?: "default" | "about" | "communication" | "production" }
+const blocks = { default: "ProjectCTA", about: "AboutCTA", communication: "CommunicationCTA", production: "ProductionCTA" } as const;
+const copy = await pageCopy(blocks[Astro.props.variant ?? "default"]);
+
+---
+<section class="contact section pad" id="contacto"><div><p class="eyebrow">{copy["t001"]}</p><h2>{copy["t002"]}<br />{copy["t003"]}</h2></div><div class="contact-copy"><p>{copy["t004"]}</p><a class="button light" href={pageHref("contacto")}>{copy["t005"]}<svg class="icon arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div><svg class="contact-signal" aria-hidden="true" viewBox="0 0 340 340"><g fill="none" stroke="#FFFFFF"><circle cx="170" cy="170" r="165"></circle><circle cx="170" cy="170" r="133"></circle><circle cx="170" cy="170" r="101"></circle></g></svg></section>

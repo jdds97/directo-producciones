@@ -1,0 +1,65 @@
+---
+import { getBandLogos, pageImages, pageVideo } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
+
+const photo = await pageImages("site_blocks");
+// Vídeo de fondo editable (subido al panel o el del sitio) con su versión móvil opcional.
+const band = await pageVideo("site_blocks", "banda_video", "banda_video_movil");
+
+const clients = await getBandLogos();
+// Clase de tratamiento (solo CSS) de cada logotipo según la variante elegida en el panel.
+const variantClass: Record<string, string[]> = {
+  catedral: ["home-client-logo--catedral"], monocromo: ["home-client-logo--monochrome"],
+  escudo_monocromo: ["home-client-logo--monochrome", "home-client-logo--crest"], escudo_recorte: ["home-client-logo--crest", "home-client-logo--white-cutout"],
+};
+---
+
+<section class="home-clients" id="colaboraciones" aria-labelledby="home-clients-title">
+  <div class="home-client-media" id="home-client-media" data-home-client-media>
+    <video
+      id="home-clients-video"
+      data-home-video
+      data-home-video-src={band.src}
+      data-home-video-mobile-src={band.mobileSrc}
+      poster={photo.banda_poster.src}
+      muted
+      playsinline
+      loop
+      preload="none"
+      aria-hidden="true"
+    ></video>
+    <div class="home-clients-shade" aria-hidden="true"></div>
+  </div>
+
+  <div class="home-clients-content">
+    <header class="home-clients-heading">
+      <div>
+        <p class="home-eyebrow"><span aria-hidden="true">05 / </span>Colaboraciones</p>
+        <h2 id="home-clients-title" data-home-reveal>Clientes</h2>
+        <p>Medios, instituciones y marcas.</p>
+      </div>
+      <button
+        class="home-media-toggle home-clients-toggle"
+        type="button"
+        data-home-video-toggle
+        aria-controls="home-client-media"
+        aria-pressed="false"
+        aria-label="Pausar o reproducir el vídeo de fondo"
+        hidden
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M9 5v14m6-14v14"></path>
+        </svg>
+      </button>
+    </header>
+
+    <ul class="home-client-grid" aria-label="Clientes y colaboradores">
+      {clients.map((client) => (
+        <li data-service-reveal="stagger">
+          <img class:list={["home-client-logo", ...(variantClass[client.variant] ?? [])]} {...imgAttrs(client.logo)} />
+          {client.variant === 'con_nombre' && <span class="home-client-name">{client.name}</span>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+---
+import { APP_ENV } from "../../config/flags";
+// Avisos de revisión y maquetas (local y preview privada): en producción no se pinta nada. guard-content solo admite
+// «Revisión local», «provisional», «maqueta», «se simula»… dentro de este componente.
+---
+{APP_ENV !== "production" && <slot />}

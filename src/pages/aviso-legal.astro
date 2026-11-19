@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import AvisoLegal from "../components/m4/AvisoLegal.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("legal_aviso");
+---
+<Base title={seo.title} description={seo.description}><AvisoLegal /></Base>

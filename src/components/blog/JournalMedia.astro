@@ -1,0 +1,18 @@
+---
+// Bloques image/gallery del cuerpo. El Image/Gallery de EmDash pasan por el optimizador /_image, cerrado por la puerta
+// editorial (imageService passthrough): se pintan con BlogVisual desde la ruta de medios de EmDash.
+// Solo fotos de la biblioteca propia (uploadKey); una URL externa o no admitida no se pinta. Estilos en blog-editorial.css.
+import BlogVisual from './BlogVisual.astro';
+import { MEDIA_ROUTE, uploadKey } from '../../lib/media';
+type Img = { _key?: string; asset?: { url?: string; provider?: string; meta?: { storageKey?: unknown } }; alt?: string; caption?: string; width?: number; height?: number };
+const { node } = Astro.props as { node: Img & { _type: string; images?: Img[]; columns?: number } };
+const gallery = node._type === 'gallery';
+const items = (gallery ? node.images ?? [] : [node]).flatMap(i => {
+  const key = uploadKey({ provider: i.asset?.provider, src: i.asset?.url, meta: i.asset?.meta });
+  return key ? [{ image: { id: key, src: MEDIA_ROUTE + key, width: i.width, height: i.height }, alt: i.alt ?? '', caption: i.caption }] : [];
+});
+const columns = Math.min(Math.max(Number(node.columns) || 3, 1), 4);
+---
+{gallery
+  ? Boolean(items.length) && <div class="journal-gallery" style={`--columns: ${columns}`}>{items.map(i => <BlogVisual image={i.image} imageAlt={i.alt} caption={i.caption} />)}</div>
+  : items.map(i => <BlogVisual image={i.image} imageAlt={i.alt} caption={i.caption} />)}

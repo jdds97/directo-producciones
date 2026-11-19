@@ -1,0 +1,122 @@
+---
+import { approvedFact } from "../../lib/facts";
+import Icon from "./Icon.astro";
+
+interface Props {
+  variant?: "global" | "links";
+  // Solo el enlace de "links": en Contacto el título de la vía ya dice WhatsApp.
+  labeled?: boolean;
+  // Glifo de WhatsApp a la izquierda del enlace; Contacto ya lo pone en el título de la vía.
+  icon?: boolean;
+}
+const { variant = "global", labeled = true, icon = true } = Astro.props;
+const phones = [approvedFact("contact.whatsapp_secondary_phone")]
+  .filter((fact): fact is NonNullable<typeof fact> => Boolean(fact));
+const contacts = phones.map(({ id, value }) => {
+  const digits = value.replace(/\D/g, "");
+  return {
+    id,
+    display: `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`,
+    href: `https://wa.me/34${digits}`,
+  };
+});
+---
+{contacts.length === 1 && (variant !== "links" ? (
+  <a class="whatsapp-access" href={contacts[0].href} target="_blank" rel="noopener noreferrer" aria-label={`Contactar por WhatsApp al ${contacts[0].display}`} data-fact-id={contacts[0].id}>
+    <Icon name="whatsapp" />
+    <span>WhatsApp</span>
+  </a>
+) : (
+  <div class="whatsapp-access__inline" role="group" aria-label="Contacto por WhatsApp">
+    <a href={contacts[0].href} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp ${contacts[0].display}`} data-fact-id={contacts[0].id}>{icon && <Icon name="whatsapp" />}<span>{labeled ? "WhatsApp · " : ""}{contacts[0].display}</span></a>
+  </div>
+))}
+
+<style>
+  .whatsapp-access {
+    position: fixed;
+    left: max(24px, env(safe-area-inset-left));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 8;
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #d0dde2;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgb(16 59 75 / 18%);
+    color: #164e63;
+    font: 600 16px/1.4 Manrope, sans-serif;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease, transform 100ms ease;
+  }
+  .whatsapp-access:hover { background: #e5f0f4; color: #103b4b; }
+  .whatsapp-access:active { transform: translateY(1px); }
+  .whatsapp-access :global(.ui-icon) { width: 22px; height: 22px; }
+
+  .whatsapp-access__inline a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 10px;
+    /* Sin relleno a la izquierda: el glifo (o el texto) queda en el mismo borde que el título superior. */
+    padding: 8px 12px 8px 0;
+    border-radius: 4px;
+    color: #164e63;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .whatsapp-access__inline a :global(.ui-icon) { width: 24px; height: 24px; }
+  .whatsapp-access__inline a:hover { background: #e5f0f4; }
+
+  .whatsapp-access__inline {
+    display: grid;
+    justify-items: start;
+    gap: 4px;
+  }
+
+  .whatsapp-access:focus-visible,
+  .whatsapp-access a:focus-visible,
+  .whatsapp-access__inline a:focus-visible {
+    outline: 3px solid #164e63;
+    outline-offset: 3px;
+  }
+
+  :global(.theme-dark) .whatsapp-access {
+    border-color: #526e79;
+    background: #0b2028;
+    color: #f4f8fa;
+  }
+
+  :global(.theme-dark) .whatsapp-access__inline a { color: #b5deea; }
+
+  :global(.theme-dark) .whatsapp-access__inline a:hover { background: #123744; }
+
+  :global(.theme-dark) .whatsapp-access:focus-visible,
+  :global(.theme-dark) .whatsapp-access a:focus-visible,
+  :global(.theme-dark) .whatsapp-access__inline a:focus-visible {
+    outline-color: #b5deea;
+  }
+
+  @media (max-width: 1024px) {
+    .whatsapp-access__inline a { white-space: normal; overflow-wrap: anywhere; }
+  }
+
+  @media (max-width: 359px) {
+    .whatsapp-access { width: 48px; padding: 8px; }
+    .whatsapp-access span { display: none; }
+  }
+  /* En la apertura de Inicio en móvil, «Sigue bajando» ocupa el centro inferior: solo cabe el icono. */
+  @media (max-width: 480px) {
+    :global(body.has-home-experience:not([data-home-header-visible="true"])) .whatsapp-access { width: 48px; padding: 8px; }
+    :global(body.has-home-experience:not([data-home-header-visible="true"])) .whatsapp-access span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-access { transition: none; }
+  }
+</style>
+

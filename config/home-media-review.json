@@ -1,0 +1,56 @@
+{
+  "purpose": "Revisión local de Inicio réplica Shuttershot y trabajos reales",
+  "publicationAuthorized": false,
+  "hero": {
+    "src": "/assets/m4/coberturas/hero-review-desktop.mp4",
+    "poster": "/assets/m4/coberturas/hero-review-poster.webp",
+    "mobileSrc": "/assets/m4/coberturas/hero-review-mobile.mp4"
+  },
+  "inlineVideos": [
+    {
+      "src": "/assets/m4/coberturas/home-inline-01.mp4",
+      "poster": "/assets/m4/coberturas/home-inline-01.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/home-inline-02.mp4",
+      "poster": "/assets/m4/coberturas/home-inline-02.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/home-inline-03.mp4",
+      "poster": "/assets/m4/coberturas/home-inline-03.webp"
+    }
+  ],
+  "workVideos": [
+    {
+      "src": "/assets/m4/coberturas/work-rugby.mp4",
+      "poster": "/assets/m4/coberturas/work-rugby.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/work-abc-galisur.mp4",
+      "poster": "/assets/m4/coberturas/work-abc-galisur.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/work-voley.mp4",
+      "poster": "/assets/m4/coberturas/work-voley.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/work-lasexta.mp4",
+      "poster": "/assets/m4/coberturas/work-lasexta.webp"
+    },
+    {
+      "src": "/assets/m4/coberturas/work-motocross.mp4",
+      "poster": "/assets/m4/coberturas/work-motocross.webp"
+    }
+  ],
+  "clientsVideo": {
+    "src": "/assets/m4/coberturas/hero-review-desktop.mp4",
+    "poster": "/assets/m4/coberturas/hero-review-poster.webp",
+    "mobileSrc": "/assets/m4/coberturas/hero-review-mobile.mp4"
+  },
+  "portfolioHero": {
+    "src": "/assets/m4/coberturas/portfolio-reel.mp4",
+    "poster": "/assets/m4/coberturas/portfolio-reel.webp",
+    "mobileSrc": "/assets/m4/coberturas/portfolio-reel-mobile.mp4",
+    "mobilePoster": "/assets/m4/coberturas/portfolio-reel-mobile.webp"
+  }
+}

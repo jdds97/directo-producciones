@@ -1,0 +1,6 @@
+---
+import BlogLanding from './BlogLanding.astro';
+import type { BlogLandingData } from '../../lib/blog-feed';
+interface Props { data: BlogLandingData }
+---
+<BlogLanding {...Astro.props} />

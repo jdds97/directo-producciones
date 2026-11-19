@@ -1,0 +1,19 @@
+---
+// Portada interior común (Contacto, Blog, Servicios, Clientes): misma altura mínima, mismo borde y retícula 7/5.
+// variant: split = texto + foto a la derecha; photo = foto a sangre bajo el texto; frame = marco de visor «Encuadre».
+// La foto llega por el slot «media» (imagen con src literal, como exige el guard de assets).
+interface Props { eyebrow: string; id: string; variant?: 'split' | 'photo' | 'frame'; class?: string }
+const { eyebrow, id, variant = 'frame', class: className } = Astro.props;
+---
+<section class:list={['m4-hero', `m4-hero--${variant}`, className]} aria-labelledby={id}>
+  {variant === 'photo' && <figure class="m4-hero__bg"><slot name="media" /></figure>}
+  <div class="m4-hero__inner">
+    <div class="m4-hero__copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 id={id}><slot name="title" /></h1>
+      <div class="m4-hero__lede"><slot /></div>
+    </div>
+    {variant === 'split' && <figure class="m4-hero__media"><slot name="media" /></figure>}
+    {variant === 'frame' && <div class="m4-hero__frame" aria-hidden="true"><i class="m4-frame-c m4-frame-c--tl"></i><i class="m4-frame-c m4-frame-c--tr"></i><i class="m4-frame-c m4-frame-c--bl"></i><i class="m4-frame-c m4-frame-c--br"></i><span class="m4-frame-tally"></span></div>}
+  </div>
+</section>
