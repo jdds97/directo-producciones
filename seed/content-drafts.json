@@ -1,0 +1,1411 @@
+{
+  "version": "1",
+  "meta": {
+    "name": "Borradores iniciales de contenido corporativo",
+    "note": "Generado por scripts/cms-seed.ts; no publicar sin revisión editorial."
+  },
+  "content": {
+    "page_home": [
+      {
+        "id": "page_home:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Inicio",
+          "hero_eyebrow": "Streaming · Comunicación · Marketing",
+          "hero_linea_1": "Que se vea.",
+          "hero_linea_2": "Que se escuche.",
+          "hero_linea_3": "Que importe.",
+          "hero_entradilla": "Tu evento en directo. Tu marca en conversación. Streaming, comunicación y marketing para lo que quieres contar.",
+          "hero_cta_prod": "Explorar streaming",
+          "hero_cta_com": "Explorar comunicación y marketing",
+          "pres_eyebrow": "Presentación",
+          "pres_titulo": "Somos Directo Producciones.",
+          "pres_entradilla": "Unimos estrategia, creatividad y producción para conectar con tu público.",
+          "pres_perfiles": "Reunimos los perfiles que necesita cada proyecto.",
+          "pres_enlace": "Conoce Directo",
+          "port_eyebrow": "Portfolio",
+          "port_titulo": "Trabajos recientes",
+          "port_entradilla": "Una selección de nuestros proyectos audiovisuales.",
+          "port_ver_todos": "Ver todos los proyectos",
+          "port_ver_servicios": "Consultar servicios",
+          "serv_eyebrow": "Qué hacemos",
+          "serv_titulo": "Servicios",
+          "serv_entradilla": "Producción audiovisual, comunicación y marketing digital para lo que quieres contar.",
+          "serv_1_titulo": "Streaming de eventos",
+          "serv_1_texto": "Retransmisión de eventos en directo con realización televisiva y proyectos de televisión online.",
+          "serv_2_titulo": "Producción audiovisual",
+          "serv_2_texto": "Cobertura informativa con cámaras ENG, sesiones fotográficas y vídeos corporativos para empresas, instituciones y medios de comunicación.",
+          "serv_3_titulo": "Programas de televisión",
+          "serv_3_texto": "Producción y realización de programas de televisión, desarrollando proyectos audiovisuales desde la planificación y grabación hasta la edición y postproducción.",
+          "serv_4_titulo": "Comunicación integral",
+          "serv_4_texto": "Soluciones de comunicación adaptadas: diseño y desarrollo de páginas web, gestión de redes sociales, campañas publicitarias, organización de eventos y difusión de notas de prensa.",
+          "cont_eyebrow": "Contacto",
+          "cont_titulo": "Hablemos de tu proyecto",
+          "hero_video_ref": "coberturas/hero-review-desktop",
+          "hero_video_movil_ref": "coberturas/hero-review-mobile",
+          "hero_poster_ref": "coberturas/hero-review-poster",
+          "hero_poster_alt": "",
+          "hero_poster_decor": true,
+          "serv_1_foto_ref": "servicios/streaming-realizacion",
+          "serv_1_foto_alt": "Dos operadores trabajando en una mesa de realización de un evento",
+          "serv_1_foto_decor": false,
+          "serv_2_foto_ref": "servicios/directos-1",
+          "serv_2_foto_alt": "Dos cámaras de vídeo sobre trípodes frente a una pista deportiva cubierta",
+          "serv_2_foto_decor": false,
+          "serv_3_foto_ref": "servicios/programas-entrevista",
+          "serv_3_foto_alt": "Set de entrevista con dos participantes, micrófonos y dos cámaras",
+          "serv_3_foto_decor": false,
+          "serv_4_foto_ref": "servicios/directos-8",
+          "serv_4_foto_alt": "Grabación de una entrevista a un futbolista junto al campo, con cámara y micrófono",
+          "serv_4_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_quienes": [
+      {
+        "id": "page_quienes:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Quiénes somos",
+          "hero_eyebrow": "Quiénes somos",
+          "hero_titulo": "El equipo que hace Directo.",
+          "hero_entradilla": "En Directo Producciones unimos estrategia, creatividad y producción para dar forma a la comunicación de tu empresa.",
+          "historia_titulo": "Nuestra historia",
+          "historia_parrafo_1": "Directo Producciones inició su actividad en 2013. Desde entonces, nuestra trayectoria reúne retransmisiones en directo, vídeos corporativos y coberturas informativas, institucionales y empresariales.",
+          "historia_parrafo_2": "Con sede en Sevilla, desarrollamos proyectos en todo el territorio nacional.",
+          "colabora_eyebrow": "Cómo colaboramos",
+          "colabora_titulo": "De la idea a la entrega.",
+          "colabora_entradilla": "Te acompañamos en cada etapa del proceso, desde la planificación hasta la producción y la entrega. Unimos el enfoque de comunicación con los medios y perfiles que necesita el proyecto.",
+          "colabora_linea_produccion": "Producción audiovisual",
+          "colabora_linea_comunicacion": "Comunicación",
+          "equipo_eyebrow": "El equipo",
+          "equipo_titulo": "Directo Producciones",
+          "equipo_entradilla": "Realizadores, operadores de cámara, periodistas, técnicos de sonido, editores, montadores y especialistas en comunicación digital y redes sociales. Formamos el equipo de cada proyecto según sus necesidades, objetivos y dimensiones.",
+          "foto_pie_accion": "El equipo en acción",
+          "foto_titulo_terreno": "El trabajo sobre el terreno.",
+          "bloque_com_titulo": "Comunicación para tu empresa.",
+          "bloque_com_texto": "Diseño y desarrollo web, gestión de redes sociales, campañas publicitarias, organización de eventos y redacción y difusión de notas de prensa. Nos adaptamos a tus objetivos y necesidades.",
+          "bloque_prod_titulo": "De la grabación a la edición.",
+          "bloque_prod_texto": "Realizamos vídeos corporativos, retransmisiones en directo, programas de televisión y cobertura fotográfica. Planificamos, grabamos, editamos y coordinamos los medios de cada producción.",
+          "bloque_antes_titulo": "Antes de empezar",
+          "bloque_antes_texto": "Concretamos el objetivo, definimos el enfoque y organizamos los perfiles y medios que requiere el encargo.",
+          "bloque_durante_titulo": "Durante el proyecto",
+          "bloque_durante_texto": "Hablas directamente con los especialistas que participan en el encargo para resolver las necesidades de producción y comunicación.",
+          "hero_foto_ref": "equipo/equipo-10-sin-botella",
+          "hero_foto_alt": "Equipo de Directo Producciones con auriculares trabajando en un puesto de realización.",
+          "hero_foto_decor": false,
+          "escena_grupo_ref": "equipo/equipo-3",
+          "escena_grupo_alt": "Foto colectiva del equipo de Directo Producciones tras una cobertura.",
+          "escena_grupo_decor": false,
+          "escena_control_ref": "equipo/equipo-2",
+          "escena_control_alt": "Tres integrantes del equipo con auriculares en un puesto de realización.",
+          "escena_control_decor": false,
+          "escena_cobertura_ref": "equipo/equipo-8",
+          "escena_cobertura_alt": "Dos integrantes del equipo con una cámara fotográfica entre los asistentes a un acto.",
+          "escena_cobertura_decor": false,
+          "accion_1_ref": "equipo/equipo-12",
+          "foto_alt_operador": "Operador con auriculares junto a una cámara de vídeo en el interior de una iglesia.",
+          "accion_1_decor": false,
+          "accion_2_ref": "equipo/equipo-7",
+          "foto_alt_cobertura": "Operación de cámara durante una cobertura audiovisual.",
+          "accion_2_decor": false,
+          "accion_3_ref": "equipo/equipo-9",
+          "foto_alt_control": "Integrante del equipo con auriculares trabajando frente a una pantalla y una mesa de control.",
+          "accion_3_decor": false,
+          "colabora_foto_ref": "equipo/equipo-5",
+          "colabora_foto_alt": "Dos compañeros con auriculares siguiendo el desarrollo de una cobertura audiovisual.",
+          "colabora_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_produccion": [
+      {
+        "id": "page_produccion:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Producción",
+          "hero_eyebrow": "Producción",
+          "hero_titulo_a": "Producción audiovisual",
+          "hero_titulo_b": "desde 2013.",
+          "hero_entradilla": "Realización de eventos en directo, cobertura informativa, fotografía y vídeos corporativos para empresas, instituciones y medios de comunicación.",
+          "stream_titulo_a": "Del evento",
+          "stream_titulo_b": "a la pantalla.",
+          "stream_descripcion": "La retransmisión lleva lo que sucede en tu evento a una pantalla. La realización televisiva organiza cómo se presenta ese contenido.",
+          "stream_cta": "Cuéntanos tu evento ",
+          "tv_chip": "TV online",
+          "tv_descripcion": "TV online y realización televisiva para emitir contenido online.",
+          "tv_preguntas": "¿Qué quieres emitir? ¿Con qué programación? ¿En qué pantallas? Estas preguntas ayudan a definir tu canal.",
+          "cont_titulo": "De la idea al contenido.",
+          "cont_prepro_titulo": "Preproducción y guion",
+          "cont_prepro_texto": "Definimos el enfoque y ordenamos el guion antes de grabar para dar una estructura clara a cada pieza.",
+          "cont_prod_titulo": "Producción y grabación de contenidos",
+          "cont_prod_texto": "Producimos vídeos corporativos y contenidos para empresas, instituciones y medios de comunicación, desde la planificación y grabación hasta la edición y postproducción.",
+          "cont_f1": "Vídeos corporativos",
+          "cont_f2": "Vídeos de producto",
+          "cont_f3": "Vídeos testimoniales",
+          "cont_f4": "Contenidos formativos",
+          "cont_f5": "Anuncios",
+          "cont_f6": "Videoclips",
+          "cont_f7": "Vídeos para redes sociales",
+          "directos_texto": "Retransmitimos eventos en directo y realizamos coberturas informativas con cámaras ENG y sesiones fotográficas.",
+          "directos_s1": "Grabación de eventos y resúmenes",
+          "directos_s2": "Realización multicámara",
+          "directos_s3": "Streaming",
+          "directos_s4": "Unidad móvil",
+          "directos_s5": "Señal para pantallas LED y ampliación de imagen (IMAG)",
+          "directos_s6": "Eventos híbridos",
+          "edicion_edicion_titulo": "Edición y postproducción",
+          "edicion_edicion_texto": "Editamos y damos acabado al material audiovisual para preparar cada pieza.",
+          "edicion_equipo_titulo": "Fotografía y equipo",
+          "edicion_equipo_texto": "Disponemos de cámaras y medios técnicos profesionales para afrontar proyectos de distinta naturaleza y dimensión, con atención a la imagen y el sonido.",
+          "edicion_r1": "Fotografía",
+          "edicion_r2": "Operadores de cámara",
+          "edicion_r3": "Personal audiovisual",
+          "edicion_r4": "Alquiler con o sin operador",
+          "apl_texto": "Los formatos audiovisuales se adaptan al contexto y al desarrollo de cada evento.",
+          "apl_c1": "Actos institucionales y corporativos",
+          "apl_c2": "Eventos deportivos",
+          "apl_c3": "Cultura y espectáculos",
+          "apl_c4": "Actos religiosos y procesiones",
+          "apl_tv_titulo": "Producción de programas de televisión",
+          "apl_tv_texto": "Producimos y realizamos programas de televisión, desde la planificación y grabación hasta la edición y postproducción, adaptándonos a las necesidades de cada cliente.",
+          "faq_p1": "¿Qué tipo de piezas y directos producís?",
+          "faq_r1": "Vídeos corporativos y para redes sociales, programas de televisión, retransmisiones de eventos en directo y coberturas informativas con cámaras ENG y sesiones fotográficas.",
+          "faq_p2": "¿Incluye la grabación y la edición?",
+          "faq_r2": "Según las necesidades de cada proyecto, el trabajo puede ir desde la planificación y la grabación hasta la edición y la postproducción.",
+          "faq_p3": "¿Se puede combinar con la comunicación del evento?",
+          "faq_r3": "Sí. Unimos estrategia, creatividad y producción: la línea de comunicación y marketing cubre prensa, web, redes sociales y campañas.",
+          "faq_p4": "¿Qué conviene contar al pedir información?",
+          "faq_r4": "Como orientación: qué evento o pieza es, dónde y cuándo se celebra y en qué formato o pantallas quieres verlo. Si aún no está definido, cuéntanos la idea.",
+          "hero_foto_ref": "servicios/directos-4",
+          "hero_foto_alt": "Cámara de vídeo profesional en la cabina de un campo de fútbol durante un calentamiento.",
+          "hero_foto_decor": false,
+          "tv_foto_ref": "equipo/equipo-14",
+          "tv_foto_alt": "Operador con auriculares junto a una cámara de vídeo sobre trípode en el graderío de un auditorio.",
+          "tv_foto_decor": false,
+          "directos_grafico_ref": "grafismos/directos-television-v2",
+          "directos_grafico_alt": "Composición editorial con el cuerpo de una cámara de televisión y una mesa de realización con monitor, sobre fondo petróleo.",
+          "directos_grafico_decor": false,
+          "recursos_foto_ref": "equipo/equipo-8",
+          "recursos_foto_alt": "Un fotógrafo con teleobjetivo y un compañero del equipo entre el público de un acto.",
+          "recursos_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_comunicacion": [
+      {
+        "id": "page_comunicacion:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Comunicación y marketing",
+          "hero_eyebrow": "Comunicación y marketing",
+          "hero_titulo_a": "Comunicación",
+          "hero_titulo_b": "y marketing.",
+          "hero_entradilla": "Ponemos nuestra experiencia y capacidad creativa al servicio de tu empresa, con soluciones de comunicación adaptadas a tus objetivos y necesidades.",
+          "estr_etiqueta": "Estrategia",
+          "estr_titulo": "Estrategia y campañas",
+          "estr_texto": "Ordenamos los mensajes y planificamos cómo comunicar cada iniciativa.",
+          "estr_punto_1": "Definición de mensajes",
+          "estr_punto_2": "Planificación de campañas",
+          "prensa_etiqueta": "Prensa",
+          "prensa_titulo": "Gabinete de prensa y comunicación institucional",
+          "prensa_texto": "Redactamos y difundimos notas de prensa y preparamos la comunicación de la organización y su relación con los medios.",
+          "prensa_punto_1": "Redacción y difusión de notas de prensa",
+          "prensa_punto_2": "Relación con medios y comunicación institucional",
+          "redes_etiqueta": "Redes",
+          "redes_titulo": "Redes sociales y contenidos",
+          "redes_texto": "Trabajamos la presencia en redes mediante la gestión de perfiles y la creación de contenidos.",
+          "redes_punto_1": "Gestión de perfiles sociales",
+          "redes_punto_2": "Creación de contenidos",
+          "web_etiqueta": "Web",
+          "web_titulo": "Diseño web",
+          "web_texto": "Diseñamos y desarrollamos páginas web para presentar tu empresa y dar forma a su presencia digital.",
+          "web_punto_1": "Diseño de sitios web",
+          "web_punto_2": "Desarrollo de páginas web",
+          "buscadores_etiqueta": "Buscadores",
+          "buscadores_titulo": "SEO y SEM",
+          "buscadores_texto": "Trabajamos el posicionamiento orgánico y la planificación de campañas publicitarias en buscadores.",
+          "buscadores_punto_1": "Posicionamiento orgánico (SEO)",
+          "buscadores_punto_2": "Campañas en buscadores (SEM)",
+          "eventos_etiqueta": "Eventos",
+          "eventos_titulo": "Organización de eventos",
+          "eventos_texto": "Planificamos y organizamos eventos según los objetivos y necesidades de cada empresa.",
+          "eventos_punto_1": "Organización y planificación",
+          "eventos_punto_2": "Coordinación de comunicación y producción",
+          "cta_texto": "Te acompañamos en cada etapa: desde el diseño y desarrollo de páginas web y la gestión de redes sociales hasta las campañas publicitarias, la organización de eventos y la redacción y difusión de notas de prensa.",
+          "prod_titulo": "También, producción audiovisual.",
+          "prod_texto": "Realizamos vídeos corporativos, retransmisiones en directo y cobertura fotográfica de eventos. Unimos estrategia, creatividad y producción para dar visibilidad a tu marca, transmitir tus valores y conectar con tu público.",
+          "prod_enlace": "Ver producción audiovisual",
+          "faq_p1": "¿Qué áreas de comunicación podéis trabajar?",
+          "faq_r1": "Estrategia y campañas, gabinete de prensa, redes sociales y contenidos, diseño web, posicionamiento en buscadores (SEO y SEM) y organización de eventos.",
+          "faq_p2": "¿Redactáis y difundís notas de prensa?",
+          "faq_r2": "Sí. Redactamos y difundimos notas de prensa y preparamos la comunicación institucional de la organización y su relación con los medios.",
+          "faq_p3": "¿Cómo encaja con la producción audiovisual?",
+          "faq_r3": "Realizamos vídeos corporativos, retransmisiones en directo y cobertura fotográfica de eventos, y coordinamos comunicación y producción cuando el proyecto lo necesita.",
+          "faq_p4": "¿Qué ayuda en el primer contacto?",
+          "faq_r4": "Unas líneas sobre la empresa, lo que quieres comunicar y a quién va dirigido. No hace falta un documento cerrado para empezar a hablar.",
+          "hero_foto_ref": "servicios/comunicacion-marketing-hero",
+          "hero_foto_alt": "Rueda de prensa con una pantalla al fondo y periodistas con portátiles en primer término.",
+          "hero_foto_decor": false,
+          "eventos_foto_ref": "servicios/directos-11",
+          "eventos_foto_alt": "Declaración ante la prensa frente a un edificio histórico, con cámaras de televisión y micrófonos delante del portavoz.",
+          "eventos_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_servicios": [
+      {
+        "id": "page_servicios:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Servicios",
+          "hero_eyebrow": "Servicios",
+          "hero_titulo_a": "Lo que necesitas",
+          "hero_titulo_b": "contar.",
+          "hero_entradilla": "Streaming de eventos y realización televisiva. Comunicación y marketing digital para tu proyecto.",
+          "hero_cta": "Explora el streaming ",
+          "indice_aria": "Servicios en esta página",
+          "indice_enlace_1": "Streaming",
+          "indice_enlace_2": "Comunicación",
+          "indice_enlace_3": "Marketing digital",
+          "stream_eyebrow": "Streaming / El protagonista",
+          "stream_titulo_a": "Del evento",
+          "stream_titulo_b": "a la pantalla.",
+          "stream_descripcion": "La retransmisión lleva lo que sucede en tu evento a una pantalla. La realización televisiva organiza cómo se presenta ese contenido.",
+          "stream_chip_1": "Eventos en streaming",
+          "stream_chip_2": "TV online",
+          "stream_cta": "Cuéntanos tu evento ",
+          "senal_aria": "Recorrido de señal: evento, realización y emisión",
+          "senal_eyebrow": "El recorrido de la señal",
+          "senal_titulo": "Del evento a la audiencia.",
+          "senal_num_1": "01",
+          "senal_paso_1": "Evento",
+          "senal_desc_1": "Lo que sucede.",
+          "senal_num_2": "02",
+          "senal_paso_2": "Realización",
+          "senal_desc_2": "Cómo se cuenta.",
+          "senal_num_3": "03",
+          "senal_paso_3": "Emisión",
+          "senal_desc_3": "Lo que llega a la audiencia.",
+          "tv_eyebrow": "Streaming / TV online",
+          "tv_titulo_a": "Un canal",
+          "tv_titulo_b": "para tu contenido.",
+          "tv_chip": "TV online",
+          "tv_descripcion": "TV online y realización televisiva para emitir contenido online.",
+          "tv_preguntas": "¿Qué quieres emitir? ¿Con qué programación? ¿En qué pantallas? Estas preguntas ayudan a definir tu canal.",
+          "tv_cta": "Hablemos de tu TV online ",
+          "comm_eyebrow": "Comunicación",
+          "comm_titulo_a": "Dar forma",
+          "comm_titulo_b": "al mensaje.",
+          "comm_chip_1": "Comunicación corporativa",
+          "comm_descripcion": "Conversemos sobre el mensaje de tu organización y lo que necesitas comunicar.",
+          "comm_chip_2": "Comunicación institucional",
+          "comm_chip_3": "Gabinete de prensa",
+          "comm_cta": "Hablemos de comunicación ",
+          "mkt_eyebrow": "Marketing digital",
+          "mkt_titulo_a": "La conversación",
+          "mkt_titulo_b": "continúa.",
+          "mkt_chip_1": "Tu proyecto en digital",
+          "mkt_descripcion": "Exploremos la presencia digital de tu proyecto y los canales que necesitas trabajar.",
+          "mkt_chip_2": "SEO y SEM",
+          "mkt_chip_3": "Redes sociales",
+          "mkt_cta": "Cuéntanos qué necesitas "
+        }
+      }
+    ],
+    "page_clientes": [
+      {
+        "id": "page_clientes:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Clientes",
+          "hero_eyebrow": "Clientes",
+          "hero_titulo_a": "En buena",
+          "hero_titulo_b": "compañía.",
+          "hero_entradilla": "Instituciones, empresas y marcas que forman parte de la trayectoria de Directo Producciones."
+        }
+      }
+    ],
+    "page_contacto": [
+      {
+        "id": "page_contacto:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Contacto",
+          "hero_eyebrow": "Contacto",
+          "hero_titulo_a": "¿Qué tienes",
+          "hero_titulo_b": "en mente?",
+          "hero_entradilla": "Cuéntanos el evento o el proyecto que estás preparando.",
+          "vias_telefono_rotulo": "Teléfono",
+          "vias_email_rotulo": "Correo electrónico",
+          "form_titulo": "Escríbenos",
+          "form_titulo_home": "Cuéntanos tu proyecto",
+          "form_nombre_rotulo": "Nombre",
+          "form_email_rotulo": "Correo para responderte",
+          "form_servicio_rotulo": "¿Qué necesitas? (opcional)",
+          "form_servicio_vacio": "Elige un servicio",
+          "form_mensaje_rotulo": "Mensaje",
+          "hero_foto_ref": "equipo/juan-camara",
+          "hero_foto_alt": "Operador de cámara sonriente con una cámara de vídeo junto a un arco monumental.",
+          "hero_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_portfolio": [
+      {
+        "id": "page_portfolio:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Portfolio",
+          "hero_eyebrow": "Selección audiovisual",
+          "hero_titulo": "Proyectos.",
+          "hero_entradilla": "Fragmentos de directos, rodajes y conexiones de televisión, con su contexto.",
+          "vacio_texto": "Próximamente, nuevos trabajos.",
+          "hero_poster_ref": "coberturas/portfolio-reel",
+          "hero_poster_alt": "",
+          "hero_poster_decor": true,
+          "hero_poster_movil_ref": "coberturas/portfolio-reel-mobile",
+          "hero_poster_movil_alt": "",
+          "hero_poster_movil_decor": true,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_blog": [
+      {
+        "id": "page_blog:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Portada del blog",
+          "hero_eyebrow": "Blog",
+          "hero_titulo_a": "Lo que",
+          "hero_titulo_b": "contamos.",
+          "hero_entradilla": "Un espacio editorial para el streaming, la comunicación y el marketing digital.",
+          "hero_foto_ref": "servicios/produccion-eng",
+          "hero_foto_alt": "Un cámara graba desde la grada un partido de fútbol al atardecer.",
+          "hero_foto_decor": false,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "page_404": [
+      {
+        "id": "page_404:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Error 404",
+          "err_eyebrow": "Algo se ha quedado fuera de señal",
+          "err_codigo": "404",
+          "err_titulo_a": "Esta página",
+          "err_titulo_b": "no está aquí.",
+          "err_texto": "Puedes volver a Inicio o contarnos lo que necesitas.",
+          "err_boton_inicio": "Volver a Inicio ",
+          "err_boton_contacto": "Ir a Contacto "
+        }
+      }
+    ],
+    "site_blocks": [
+      {
+        "id": "site_blocks:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Bloques compartidos",
+          "cta_general_eyebrow": "De la idea a la emisión",
+          "cta_general_titulo_a": "¿Qué tienes",
+          "cta_general_titulo_b": "en mente?",
+          "cta_general_texto": "Cuéntanos el evento que estás preparando.",
+          "cta_general_boton": "Hablemos de tu proyecto ",
+          "cta_comm_eyebrow": "Comunicación y marketing",
+          "cta_comm_titulo_a": "¿Qué necesitas",
+          "cta_comm_titulo_b": "comunicar?",
+          "cta_comm_texto": "Cuéntanos tu proyecto: prensa, redes, web, campañas o el evento que estás organizando.",
+          "cta_comm_boton": "Hablemos de tu proyecto ",
+          "cta_prod_eyebrow": "Producción audiovisual",
+          "cta_prod_titulo_a": "¿Qué quieres",
+          "cta_prod_titulo_b": "grabar o emitir?",
+          "cta_prod_texto": "Cuéntanos el evento, el programa o el vídeo que estás preparando.",
+          "cta_prod_boton": "Hablemos de tu proyecto ",
+          "cta_about_eyebrow": "Contacto",
+          "cta_about_titulo_a": "Hablemos",
+          "cta_about_titulo_b": "de tu proyecto.",
+          "cta_about_texto": "Cuéntanos qué necesitas producir o comunicar.",
+          "cta_about_boton": "Hablemos de tu proyecto",
+          "cifras_titulo_a": "Nuestra",
+          "cifras_titulo_b": "trayectoria.",
+          "cifras_entradilla": "Streaming, empresas y marcas.",
+          "banda_video_ref": "coberturas/hero-review-desktop",
+          "banda_video_movil_ref": "coberturas/hero-review-mobile",
+          "banda_poster_ref": "coberturas/hero-review-poster",
+          "banda_poster_alt": "",
+          "banda_poster_decor": true,
+          "media_rights_source": ""
+        }
+      }
+    ],
+    "site_chrome": [
+      {
+        "id": "site_chrome:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Cabecera y pie",
+          "cab_boton_contacto": "Hablemos ",
+          "pie_linea_1": "Producción audiovisual.",
+          "pie_linea_2": "Comunicación.",
+          "pie_linea_3": "Marketing digital.",
+          "nav_inicio": "Inicio",
+          "nav_quienes_somos": "Quiénes somos",
+          "nav_portfolio": "Portfolio",
+          "nav_comunicacion": "Comunicación",
+          "nav_produccion": "Producción",
+          "nav_contacto": "Contacto",
+          "nav_blog": "Blog"
+        }
+      }
+    ],
+    "legal_cookies": [
+      {
+        "id": "legal_cookies:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Legal · Cookies",
+          "bloque_001": "Información legal",
+          "bloque_002": "Política",
+          "bloque_003": "de cookies.",
+          "bloque_004": "Qué cookies utiliza esta web, para qué sirven y cuánto tiempo se conservan.",
+          "bloque_005": "Contenido",
+          "bloque_006": "Información general",
+          "bloque_007": "Inventario de cookies",
+          "bloque_008": "Tus preferencias",
+          "bloque_009": "Esta web no utiliza cookies de analítica, de publicidad ni de redes sociales: solo cookies técnicas necesarias para su funcionamiento.",
+          "bloque_010": "Información general",
+          "bloque_011": "Una cookie es un pequeño archivo que una web guarda en tu navegador. Esta web no carga contenidos de terceros que instalen cookies: las fotografías, los vídeos y las tipografías se sirven desde el propio sitio, y los enlaces a redes sociales o a WhatsApp solo te llevan a esos servicios si los pulsas. Las cookies técnicas necesarias no requieren tu consentimiento.",
+          "bloque_012": "Inventario de cookies",
+          "bloque_013": "Quien visita las páginas públicas no recibe cookies propias de esta web. Las de la tabla solo se crean al iniciar sesión en el panel de edición, reservado a las personas que autoriza el titular; el panel también guarda algunas preferencias de su interfaz en el almacenamiento local del navegador. Además, Cloudflare, el proveedor que aloja y protege la web, puede instalar cookies técnicas de seguridad, como __cf_bm o cf_clearance, para distinguir el tráfico legítimo del automatizado; no se usan para seguir tu navegación.",
+          "bloque_014": "Tus preferencias",
+          "bloque_015": "Como esta web solo utiliza cookies técnicas necesarias, no hay preferencias que configurar. Puedes bloquear o borrar las cookies desde la configuración de tu navegador; las páginas públicas seguirán funcionando con normalidad. Si en el futuro se incorporan cookies opcionales, como las de analítica, se te pedirá el consentimiento antes de instalarlas y podrás rechazarlas.",
+          "bloque_016": "Nombre",
+          "bloque_017": "Finalidad",
+          "bloque_018": "Duración",
+          "bloque_019": "astro-session y CF_Authorization",
+          "bloque_020": "Sesión y acceso protegido del panel de edición (solo personas editoras)",
+          "bloque_021": "La sesión del navegador o la fijada en Cloudflare Access",
+          "bloque_022": "Preferencias de cookies",
+          "bloque_023": "Necesarias",
+          "bloque_024": "Siempre activas",
+          "bloque_025": "Obligatorias",
+          "bloque_026": "Categoría opcional",
+          "bloque_027": "Solo si existe y está aprobada",
+          "bloque_028": "Categoría opcional desactivada",
+          "bloque_029": "Guardar preferencias"
+        }
+      }
+    ],
+    "legal_privacidad": [
+      {
+        "id": "legal_privacidad:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Legal · Privacidad",
+          "bloque_001": "Información legal",
+          "bloque_002": "Política",
+          "bloque_003": "de privacidad.",
+          "bloque_004": "Qué datos personales tratamos en esta web, para qué los usamos y cuáles son tus derechos.",
+          "bloque_005": "Contenido",
+          "bloque_006": "Responsable",
+          "bloque_007": "Finalidades y base jurídica",
+          "bloque_008": "Conservación y destinatarios",
+          "bloque_009": "Tus derechos",
+          "bloque_010": "Los datos que envías por el formulario de contacto se usan solo para atender tu consulta y, si lo pides, prepararte una propuesta; esta web no los guarda en ninguna base de datos.",
+          "bloque_011": "Responsable",
+          "bloque_012": "Responsable del tratamiento: {{fact:entity.legal_name}}, con NIF {{fact:entity.tax_id}} y domicilio social en {{fact:entity.registered_address}}. Correo electrónico de contacto: {{fact:contact.form_recipient_email}}.",
+          "bloque_013": "Finalidades y base jurídica",
+          "bloque_014": "Al pulsar Enviar consulta, el formulario remite tu nombre, tu correo electrónico, el servicio que te interesa y tu mensaje por correo electrónico a {{fact:contact.form_recipient_email}}, con tu dirección como dirección de respuesta. Usamos esos datos únicamente para responder a tu consulta y, si lo pides, preparar una propuesta o un presupuesto. La base jurídica es tu consentimiento, que das al enviar el formulario, y la aplicación de medidas precontractuales a petición tuya. Facilitar los datos es voluntario, pero sin ellos no podemos responderte.",
+          "bloque_015": "Conservación y destinatarios",
+          "bloque_016": "Conservamos las consultas en el buzón de correo del titular el tiempo necesario para atenderlas y, después, durante los plazos legales en los que puedan derivarse responsabilidades. Para prestar el servicio intervienen, como encargados del tratamiento, Cloudflare, que aloja la web, entrega por correo electrónico los mensajes del formulario y trata datos técnicos de conexión, como la dirección IP, para servirla, protegerla y limitar los envíos abusivos del formulario, y el proveedor del buzón de correo. Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo con las garantías adecuadas que prevé el RGPD. No cedemos tus datos a terceros salvo obligación legal. El teléfono y WhatsApp son canales directos que no pasan por esta web.",
+          "bloque_017": "Tus derechos",
+          "bloque_018": "Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, y retirar tu consentimiento en cualquier momento, escribiendo a {{fact:contact.form_recipient_email}} o por correo postal a {{fact:entity.legal_name}}, {{fact:entity.registered_address}}, con indicación del derecho que ejerces. Si consideras que no hemos atendido correctamente tu solicitud, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es)."
+        }
+      }
+    ],
+    "legal_aviso": [
+      {
+        "id": "legal_aviso:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Legal · Aviso legal",
+          "bloque_001": "Información legal",
+          "bloque_002": "Aviso",
+          "bloque_003": "legal.",
+          "bloque_004": "Datos del titular de esta web y condiciones que se aplican a su uso.",
+          "bloque_005": "Contenido",
+          "bloque_006": "Identificación del titular",
+          "bloque_007": "Condiciones de uso",
+          "bloque_008": "Propiedad intelectual",
+          "bloque_009": "Responsabilidad y contacto",
+          "bloque_010": "El acceso a esta web y su uso implican la aceptación de este aviso legal en la versión publicada en cada momento.",
+          "bloque_011": "Identificación del titular",
+          "bloque_012": "Titular del sitio: {{fact:entity.legal_name}}, con NIF {{fact:entity.tax_id}} y domicilio social en {{fact:entity.registered_address}}. Correo electrónico de contacto: {{fact:contact.form_recipient_email}}.",
+          "bloque_013": "Condiciones de uso",
+          "bloque_014": "Esta web ofrece información sobre los servicios del titular y un formulario para contactar con él. Quien la visita se compromete a usarla de forma lícita y de buena fe, a no realizar acciones que puedan dañarla, sobrecargarla o impedir su funcionamiento normal, y a no enviar por el formulario contenidos ilícitos, ofensivos o publicidad no solicitada. El titular puede modificar en cualquier momento los contenidos, la presentación y las condiciones de la web.",
+          "bloque_015": "Propiedad intelectual",
+          "bloque_016": "Los textos, fotografías, vídeos, diseños, logotipos y demás contenidos de esta web son de {{fact:entity.legal_name}} o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial. Las marcas y logotipos de terceros que aparecen en la web pertenecen a sus respectivos titulares y se muestran solo con fines identificativos. No se permite reproducir, distribuir, comunicar públicamente ni transformar estos contenidos sin autorización previa y por escrito, salvo en los casos que permita la ley.",
+          "bloque_017": "Responsabilidad y contacto",
+          "bloque_018": "El titular procura que la información de esta web sea correcta y esté actualizada, pero no responde de los daños que puedan derivarse de interrupciones del servicio, errores técnicos o un uso indebido de la web. Los enlaces a sitios de terceros, como las redes sociales, se ofrecen solo a título informativo: el titular no controla su contenido y retirará cualquier enlace a contenidos ilícitos en cuanto tenga conocimiento de ellos. Para cualquier consulta sobre este aviso legal puedes escribir a {{fact:contact.form_recipient_email}}. Este aviso se rige por la legislación española."
+        }
+      }
+    ],
+    "clients": [
+      {
+        "id": "clients:1",
+        "slug": "cliente-1",
+        "status": "draft",
+        "data": {
+          "name": "Junta de Andalucía",
+          "logo_ref": "logos/junta_andalucia-sm",
+          "logo_dark": false,
+          "sort": 10,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:2",
+        "slug": "cliente-2",
+        "status": "draft",
+        "data": {
+          "name": "Ayuntamiento de la Puebla del Río",
+          "logo_ref": "logos/puebla_del_rio-sm",
+          "logo_dark": false,
+          "sort": 20,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:3",
+        "slug": "cliente-3",
+        "status": "draft",
+        "data": {
+          "name": "Turismo de Sevilla",
+          "logo_ref": "logos/turismo_sevilla-sm",
+          "logo_dark": false,
+          "sort": 30,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:4",
+        "slug": "cliente-4",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad Matriz del Rocío",
+          "logo_ref": "logos/hermandad_matriz",
+          "logo_dark": false,
+          "sort": 40,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:5",
+        "slug": "cliente-5",
+        "status": "draft",
+        "data": {
+          "name": "Remax",
+          "logo_ref": "logos/remax",
+          "logo_dark": false,
+          "sort": 50,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:6",
+        "slug": "cliente-6",
+        "status": "draft",
+        "data": {
+          "name": "Ayuntamiento Dos Hermanas",
+          "logo_ref": "logos/dos_hermanas",
+          "logo_dark": false,
+          "sort": 60,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:7",
+        "slug": "cliente-7",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad de la Macarena",
+          "logo_ref": "logos/hermandad_macarena-sm",
+          "logo_dark": false,
+          "sort": 70,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:8",
+        "slug": "cliente-8",
+        "status": "draft",
+        "data": {
+          "name": "SEAT",
+          "logo_ref": "logos/seat-official",
+          "logo_dark": false,
+          "sort": 80,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:9",
+        "slug": "cliente-9",
+        "status": "draft",
+        "data": {
+          "name": "Tixe",
+          "logo_ref": "logos/tixe",
+          "logo_dark": false,
+          "sort": 90,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:10",
+        "slug": "cliente-10",
+        "status": "draft",
+        "data": {
+          "name": "Cajasol Voley - Esquimo",
+          "logo_ref": "logos/voley_esquimo",
+          "logo_dark": false,
+          "sort": 100,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:11",
+        "slug": "cliente-11",
+        "status": "draft",
+        "data": {
+          "name": "Consejo de Hermandades de Sevilla",
+          "logo_ref": "logos/consejo_hermandades",
+          "logo_dark": false,
+          "sort": 110,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:12",
+        "slug": "cliente-12",
+        "status": "draft",
+        "data": {
+          "name": "Federación Andaluza de Fútbol",
+          "logo_ref": "logos/rfaf",
+          "logo_dark": false,
+          "sort": 120,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:13",
+        "slug": "cliente-13",
+        "status": "draft",
+        "data": {
+          "name": "Ayuntamiento de la Rinconada",
+          "logo_ref": "logos/rinconada",
+          "logo_dark": false,
+          "sort": 130,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:14",
+        "slug": "cliente-14",
+        "status": "draft",
+        "data": {
+          "name": "Hotel TRH La Motilla",
+          "logo_ref": "logos/hotel_motilla",
+          "logo_dark": true,
+          "sort": 140,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:15",
+        "slug": "cliente-15",
+        "status": "draft",
+        "data": {
+          "name": "Canal Sur",
+          "logo_ref": "logos/canal-sur-sm",
+          "logo_dark": false,
+          "sort": 150,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "clients:16",
+        "slug": "cliente-16",
+        "status": "draft",
+        "data": {
+          "name": "Hospital San Agustín",
+          "logo_ref": "logos/hospital_san_agustin",
+          "logo_dark": false,
+          "sort": 160,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      }
+    ],
+    "band_logos": [
+      {
+        "id": "band_logos:1",
+        "slug": "logo-1",
+        "status": "draft",
+        "data": {
+          "name": "RTVE",
+          "logo_ref": "logos/tve-white",
+          "variant": "normal",
+          "sort": 10,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:2",
+        "slug": "logo-2",
+        "status": "draft",
+        "data": {
+          "name": "Antena 3",
+          "logo_ref": "logos/antena_3-white",
+          "variant": "normal",
+          "sort": 20,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:3",
+        "slug": "logo-3",
+        "status": "draft",
+        "data": {
+          "name": "Cuatro",
+          "logo_ref": "logos/cuatro",
+          "variant": "monocromo",
+          "sort": 30,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:4",
+        "slug": "logo-4",
+        "status": "draft",
+        "data": {
+          "name": "Telecinco",
+          "logo_ref": "logos/telecinco",
+          "variant": "monocromo",
+          "sort": 40,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:5",
+        "slug": "logo-5",
+        "status": "draft",
+        "data": {
+          "name": "La Sexta",
+          "logo_ref": "logos/la_sexta-white",
+          "variant": "normal",
+          "sort": 50,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:6",
+        "slug": "logo-6",
+        "status": "draft",
+        "data": {
+          "name": "Telemadrid",
+          "logo_ref": "logos/telemadrid-white",
+          "variant": "normal",
+          "sort": 60,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:7",
+        "slug": "logo-7",
+        "status": "draft",
+        "data": {
+          "name": "Canal Sur",
+          "logo_ref": "logos/canal_sur-white",
+          "variant": "normal",
+          "sort": 70,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:8",
+        "slug": "logo-8",
+        "status": "draft",
+        "data": {
+          "name": "7 TV Andalucía",
+          "logo_ref": "logos/logo_siete_andalucia-white",
+          "variant": "normal",
+          "sort": 80,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:9",
+        "slug": "logo-9",
+        "status": "draft",
+        "data": {
+          "name": "101 TV",
+          "logo_ref": "logos/101-white",
+          "variant": "normal",
+          "sort": 90,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:10",
+        "slug": "logo-10",
+        "status": "draft",
+        "data": {
+          "name": "ABC",
+          "logo_ref": "logos/abc-white",
+          "variant": "normal",
+          "sort": 100,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:11",
+        "slug": "logo-11",
+        "status": "draft",
+        "data": {
+          "name": "El Correo de Andalucía",
+          "logo_ref": "logos/correo-white",
+          "variant": "normal",
+          "sort": 110,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:12",
+        "slug": "logo-12",
+        "status": "draft",
+        "data": {
+          "name": "Ayuntamiento de Sevilla",
+          "logo_ref": "logos/ayuntamiento_de_sevilla-white",
+          "variant": "normal",
+          "sort": 120,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:13",
+        "slug": "logo-13",
+        "status": "draft",
+        "data": {
+          "name": "Junta de Andalucía",
+          "logo_ref": "logos/junta-white",
+          "variant": "normal",
+          "sort": 130,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:14",
+        "slug": "logo-14",
+        "status": "draft",
+        "data": {
+          "name": "Catedral de Sevilla",
+          "logo_ref": "logos/catedral-white",
+          "variant": "catedral",
+          "sort": 140,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:15",
+        "slug": "logo-15",
+        "status": "draft",
+        "data": {
+          "name": "Consejo General de Hermandades y Cofradías",
+          "logo_ref": "logos/consejo_hermandades-white",
+          "variant": "normal",
+          "sort": 150,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:16",
+        "slug": "logo-16",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad del Gran Poder",
+          "logo_ref": "logos/gran_poder-white",
+          "variant": "con_nombre",
+          "sort": 160,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:17",
+        "slug": "logo-17",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad de la Macarena",
+          "logo_ref": "logos/macarena-white",
+          "variant": "con_nombre",
+          "sort": 170,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:18",
+        "slug": "logo-18",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad de la Esperanza de Triana",
+          "logo_ref": "logos/esperanza_de_triana-white",
+          "variant": "con_nombre",
+          "sort": 180,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:19",
+        "slug": "logo-19",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad de los Gitanos",
+          "logo_ref": "logos/gitanos-white",
+          "variant": "con_nombre",
+          "sort": 190,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:20",
+        "slug": "logo-20",
+        "status": "draft",
+        "data": {
+          "name": "Hermandad Matriz de Almonte",
+          "logo_ref": "logos/matriz-white",
+          "variant": "con_nombre",
+          "sort": 200,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:21",
+        "slug": "logo-21",
+        "status": "draft",
+        "data": {
+          "name": "Real Federación Andaluza de Fútbol",
+          "logo_ref": "logos/federacion-white",
+          "variant": "normal",
+          "sort": 210,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:22",
+        "slug": "logo-22",
+        "status": "draft",
+        "data": {
+          "name": "Sevilla FC",
+          "logo_ref": "logos/sevilla-fc",
+          "variant": "escudo_monocromo",
+          "sort": 220,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:23",
+        "slug": "logo-23",
+        "status": "draft",
+        "data": {
+          "name": "Real Betis",
+          "logo_ref": "logos/real-betis",
+          "variant": "escudo_monocromo",
+          "sort": 230,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:24",
+        "slug": "logo-24",
+        "status": "draft",
+        "data": {
+          "name": "Cajasol Voley - Esquimo",
+          "logo_ref": "logos/esquimo-voley-white",
+          "variant": "escudo_recorte",
+          "sort": 240,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "band_logos:25",
+        "slug": "logo-25",
+        "status": "draft",
+        "data": {
+          "name": "Lances de Futuro",
+          "logo_ref": "logos/logo_lances-white",
+          "variant": "normal",
+          "sort": 250,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      }
+    ],
+    "team": [
+      {
+        "id": "team:1",
+        "slug": "sergio-maya",
+        "status": "draft",
+        "data": {
+          "name": "Sergio Maya",
+          "role": "Director",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/sergio-maya",
+          "photo_alt": "Sergio Maya",
+          "photo_alt_home": "Sergio Maya, director de Directo Producciones",
+          "show_home": true,
+          "home_sort": 10,
+          "sort": 10,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:2",
+        "slug": "antonio-de-los-reyes",
+        "status": "draft",
+        "data": {
+          "name": "Antonio de los Reyes",
+          "role": "Editor y realizador",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/antonio-de-los-reyes",
+          "photo_alt": "Antonio de los Reyes",
+          "show_home": false,
+          "sort": 20,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:3",
+        "slug": "david-berdugo",
+        "status": "draft",
+        "data": {
+          "name": "David Berdugo",
+          "role": "Operador de cámara",
+          "photo_state": "pendiente",
+          "show_home": false,
+          "note": "Foto pendiente: no se inventa ni se sustituye.",
+          "sort": 30,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:4",
+        "slug": "lucia-sanchez",
+        "status": "draft",
+        "data": {
+          "name": "Lucía Sánchez",
+          "role": "Operadora de cámara",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/lucia-sanchez-maquillaje",
+          "photo_alt": "Lucía Sánchez",
+          "show_home": false,
+          "sort": 40,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:5",
+        "slug": "curro",
+        "status": "draft",
+        "data": {
+          "name": "Curro de Dios",
+          "role": "Jefe técnico",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/curro",
+          "photo_alt": "Curro de Dios",
+          "photo_alt_home": "Curro de Dios, jefe técnico de Directo Producciones",
+          "show_home": true,
+          "home_sort": 20,
+          "sort": 50,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:6",
+        "slug": "juan-gomez",
+        "status": "draft",
+        "data": {
+          "name": "Juan Gómez",
+          "role": "Operador de cámara",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/juan-camara",
+          "photo_alt": "Juan Gómez",
+          "show_home": false,
+          "sort": 60,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:7",
+        "slug": "jesus-ruiz",
+        "status": "draft",
+        "data": {
+          "name": "Jesús Ruiz",
+          "role": "Fotógrafo",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/jesus-ruiz",
+          "photo_alt": "Jesús Ruiz",
+          "show_home": false,
+          "sort": 70,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:8",
+        "slug": "gonzalo-sanchez",
+        "status": "draft",
+        "data": {
+          "name": "Gonzalo Sánchez",
+          "role": "Marketing",
+          "photo_state": "pendiente",
+          "show_home": false,
+          "note": "Foto pendiente: no se inventa ni se sustituye.",
+          "sort": 80,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "team:9",
+        "slug": "fran-vergara",
+        "status": "draft",
+        "data": {
+          "name": "Fran Vergara",
+          "role": "Jefe de proyectos",
+          "photo_state": "con_foto",
+          "photo_ref": "equipo/perfiles/fran-vergara",
+          "photo_alt": "Fran Vergara",
+          "show_home": true,
+          "home_sort": 30,
+          "sort": 90,
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      }
+    ],
+    "projects": [
+      {
+        "id": "projects:1",
+        "slug": "proyecto-rugby",
+        "status": "draft",
+        "data": {
+          "name": "Ciencias Rugby Sevilla",
+          "context": "Realización y emisión en directo",
+          "description": "Retransmisión multicámara y emisión en directo de partido y señal para Ciencias Rugby Sevilla.",
+          "video_key": "rugby",
+          "category": "directo",
+          "sort": 10,
+          "show_home": true,
+          "home_sort": 10,
+          "poster_ref": "coberturas/work-rugby",
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "projects:2",
+        "slug": "proyecto-abc-galisur",
+        "status": "draft",
+        "data": {
+          "name": "Sevilla en Futuro",
+          "context": "ABC de Sevilla · Galisur",
+          "description": "Grabación y realización del serial audiovisual «Sevilla en Futuro» de ABC de Sevilla en las instalaciones de Galisur.",
+          "video_key": "abc-galisur",
+          "category": "grabacion",
+          "sort": 20,
+          "show_home": true,
+          "home_sort": 20,
+          "poster_ref": "coberturas/work-abc-galisur",
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "projects:3",
+        "slug": "proyecto-voley",
+        "status": "draft",
+        "data": {
+          "name": "FP Pro Voley Cajasol",
+          "context": "Desengrasante El Milagrito",
+          "description": "Grabación y edición audiovisual para FP Pro Voley Cajasol durante la visita a su patrocinador Desengrasante El Milagrito.",
+          "video_key": "voley",
+          "category": "grabacion",
+          "sort": 40,
+          "show_home": true,
+          "home_sort": 30,
+          "poster_ref": "coberturas/work-voley",
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "projects:4",
+        "slug": "proyecto-lasexta",
+        "status": "draft",
+        "data": {
+          "name": "Más Vale Tarde",
+          "context": "La Sexta · Conexión en directo",
+          "description": "Despliegue de equipo ENG y enlace técnico para conexión en directo con el programa informativo Más Vale Tarde de La Sexta.",
+          "video_key": "lasexta",
+          "category": "directo",
+          "sort": 30,
+          "show_home": true,
+          "home_sort": 40,
+          "poster_ref": "coberturas/work-lasexta",
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      },
+      {
+        "id": "projects:5",
+        "slug": "proyecto-motocross",
+        "status": "draft",
+        "data": {
+          "name": "MX Sanlúcar",
+          "context": "Competición de motocross",
+          "description": "Prueba de motocross en Sanlúcar de Barrameda.",
+          "video_key": "motocross",
+          "category": "deporte",
+          "sort": 50,
+          "show_home": true,
+          "home_sort": 50,
+          "poster_ref": "coberturas/work-motocross",
+          "visible": true,
+          "rights_ok": false,
+          "rights_source": ""
+        }
+      }
+    ]
+  }
+}
