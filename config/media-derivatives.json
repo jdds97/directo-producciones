@@ -1,0 +1,23 @@
+{
+  "nota": "Derivados WebP responsive generados por scripts/media-derive.mjs. Los originales NO se tocan ni se borran. [origen relativo a public/assets/m4, [[sufijo, ancho máximo]], calidad]",
+  "jobs": [
+    ["servicios/programas-entrevista.jpeg", [["640", 640], ["1200", 1200]], 76],
+    ["servicios/directos-8.jpeg", [["640", 640], ["1200", 1200]], 76],
+    ["servicios/directos-10.webp", [["640", 640], ["1200", 1200]], 76],
+    ["servicios/directos-4.webp", [["640", 640], ["1200", 1200]], 76],
+    ["servicios/directos-5.webp", [["640", 640], ["1200", 1200]], 76],
+    ["equipo/equipo-3.jpeg", [["800", 800], ["1200", 1200]], 76],
+    ["equipo/equipo-2.jpeg", [["800", 800], ["1200", 1200]], 76],
+    ["equipo/equipo-14.jpeg", [["800", 800], ["1200", 1200]], 76],
+    ["servicios/comunicacion-marketing-hero.jpeg", [["800", 800], ["1200", 1200]], 76],
+    ["servicios/produccion-eng.jpeg", [["800", 800], ["1200", 1200], ["1920", 1920]], 76],
+    ["equipo/equipo-12.jpeg", [["800", 800], ["1200", 1200]], 76],
+    ["logos/turismo_sevilla.jpg", [["sm", 480]], 80],
+    ["logos/puebla_del_rio.png", [["sm", 480]], 80],
+    ["logos/junta_andalucia.png", [["sm", 480]], 80],
+    ["logos/canal-sur.jpg", [["sm", 480]], 80],
+    ["logos/hermandad_macarena.png", [["sm", 480]], 80],
+    ["servicios/directos-11.webp", [["800", 800]], 76],
+    ["equipo/juan-camara.jpeg", [["800", 800], ["900", 900]], 76]
+  ]
+}
