@@ -44,6 +44,7 @@
     "smoke": "node scripts/smoke.mjs",
     "preurlmap:check": "npm run prepare:registry",
     "urlmap:check": "tsx scripts/url-map.ts",
+    "redirects:check": "node scripts/redirects-check.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
     "lighthouse:runs": "node scripts/lighthouse-runs.mjs"
   },

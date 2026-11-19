@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { buildSeo, jsonLdScript, llmsTxt, normalizePath, organization, PAGES, robotsTxt, rssXml, sitemapXml, staticSitemapPaths } from '../src/lib/seo';
-import { resolveRedirect, robotsHeader, urlMapRows, type UrlMapRow } from '../src/lib/redirects';
+import { buildApproved, resolveRedirect, robotsHeader, urlMapRows, type UrlMapRow } from '../src/lib/redirects';
 import { blogUpdatedAt } from '../src/lib/blog';
 
 const local = 'http://localhost:4460';
@@ -131,6 +131,21 @@ test('fila aprobada: un solo salto al destino final, 410 para retiradas, tambié
   assert.deepEqual(resolveRedirect(new URL('https://www.directoproducciones.com/politica-de-cookies'), 'production', rows),
     { status: 301, location: 'https://directoproducciones.com/cookies/' });
   assert.deepEqual(resolveRedirect(new URL('https://directoproducciones.com/shop/'), 'production', rows), { status: 410 });
+});
+test('patrones: solo los aprobados redirigen (ruta exacta, con y sin barra); los propuestos no', () => {
+  const ap = { aprobado_por: 'prueba', aprobado_el: '2026-01-01' };
+  const rows = buildApproved([
+    { path: '/feed/', accion: 'redirigir', destino: '/rss.xml', codigo: 301, ...ap },
+    { path: '/sitemap_index.xml', accion: 'redirigir', destino: '/sitemap.xml', codigo: 301, ...ap },
+    { path: '/sin-aprobar/', accion: 'redirigir', destino: '/rss.xml', codigo: 301 },
+    { path: '/wp-content/uploads/', accion: 'pendiente' },
+  ] as UrlMapRow[]);
+  const go = (p: string) => resolveRedirect(new URL(`https://directoproducciones.com${p}`), 'production', rows);
+  assert.deepEqual(go('/feed/'), { status: 301, location: 'https://directoproducciones.com/rss.xml' });
+  assert.deepEqual(go('/feed'), { status: 301, location: 'https://directoproducciones.com/rss.xml' });
+  assert.deepEqual(go('/sitemap_index.xml'), { status: 301, location: 'https://directoproducciones.com/sitemap.xml' });
+  assert.equal(go('/sin-aprobar/'), null);
+  assert.equal(go('/wp-content/uploads/2019/07/a.jpg'), null);
 });
 test('X-Robots-Tag por entorno: producción solo protege admin/API/interno (los medios del blog quedan rastreables)', () => {
   assert.equal(robotsHeader('local', '/'), 'noindex, nofollow');

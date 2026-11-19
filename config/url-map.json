@@ -20,11 +20,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/directo-producciones-llevara-la-comunicacion-del-campeon-espanol-guillermo-flores-objetivotokio2020/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -39,9 +38,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/macarena-television-online-streaming/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-hermandades-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión de la Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -54,11 +53,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/gestion-de-marketing-en-redes-sociales-del-tenista-javier-barranco-cosano/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -71,11 +69,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/claves-para-hacer-marketing-en-el-sector-de-la-energia/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -90,9 +87,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/streaming-ventajas-y-desventajas/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Streaming en general (ventajas e inconvenientes): lo cubre la guía nueva de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -105,11 +102,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/por-que-es-conveniente-tener-un-seguro-para-el-ordenador/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -122,11 +118,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/por-que-las-comercializadoras-electricas-han-cambiado-de-nombre/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -139,11 +134,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/por-que-el-sector-de-la-energia-tiene-poca-cabida-en-la-television/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -156,11 +150,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/descubre-esta-guia-para-registrar-un-dominio-paso-a-paso/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -173,11 +166,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/internet-uso-de-madrid-y-valencia/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -190,11 +182,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/david-soria-marca-personal-gestion-redes-sociales/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -207,11 +198,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/como-tramitar-un-alta-de-gas-natural-de-manera-online/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -226,9 +216,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/nazareno-doshermanas-futbol-sala-en-directo-retransmision/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -241,11 +231,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/instagram-threads-como-funciona/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -258,11 +247,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/uso-de-internet-en-castilla-la-mancha-y-cataluna-porcentajes-y-diferencias/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -275,11 +263,10 @@
    "estado": "pendiente",
    "nota": "El destino depende de si la entrada se migra a /blog/{slug}/ (migración WXR pendiente, medios sujetos a permisos).",
    "propuesta": {
-    "accion": "redirigir",
-    "codigo": 301,
-    "destino": "/blog/pena-lopez-gestion-marketing-comunicacion/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "accion": "retirar",
+    "codigo": 410,
+    "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -294,9 +281,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/gran-poder-sevilla-streaming-television-online/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-hermandades-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión del Gran Poder: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -311,9 +298,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/fitur-2020-retransmision-streaming/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión en streaming de FITUR: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -328,9 +315,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/en-directo-concierto-de-las-cigarreras-en-la-basilica-del-cachorro/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Concierto retransmitido en directo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -345,9 +332,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/directo-producciones-emite-el-espectaculo-sonando-a-sevilla-desde-1980-organizado-por-virgen-de-los-reyes/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Espectáculo emitido en directo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -362,9 +349,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/scientiffic-nutrition-streaming-real-betis/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Streaming de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -379,9 +366,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/sentencia-via-crucis-retransmision-directo-producciones/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-hermandades-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión de un vía crucis: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -396,9 +383,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/esperanza-macarena-television-streaming-sevilla/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-hermandades-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Retransmisión de la Esperanza Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -413,9 +400,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/xerez-cd-modelo-streaming-television/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -430,9 +417,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/club-atletico-central-television-exito-streaming/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/streaming-eventos-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -447,9 +434,9 @@
    "propuesta": {
     "accion": "redirigir",
     "codigo": 301,
-    "destino": "/blog/directo-producciones-se-estrena-en-television-101tv-sevilla/",
-    "alternativa": "Si no se migra: 410 solo si no tiene enlaces ni tráfico; nunca a Inicio.",
-    "razon": "Si la entrada se migra al blog nuevo (WXR aprobado), 301 a su nueva URL; el slug es el previsto.",
+    "destino": "/blog/realizacion-multicamara-sevilla/",
+    "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
+    "razon": "Producción de televisión propia: lo más cercano es el artículo nuevo de producción para televisión y realización multicámara; equivalencia aproximada.",
     "estado": "propuesta, sin aprobar"
    }
   },
