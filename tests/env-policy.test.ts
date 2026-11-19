@@ -219,6 +219,7 @@ test('D-62 modo cerrado: closedDeploy × activated, Access del panel, leads/anal
     assert.equal(await status({ env: 'production', runtimeEnv: 'production', url: new URL(`https://directoproducciones.com${path}`), launch: state(true, false) }), 503, path);
   }
   assert.deepEqual(await closed({ launch: { activated: false, closedDeploy: true, checklist: { legalApproved: true } } }), [], 'checklist completa sin activar: sigue cerrada');
+  assert.equal(await status({ env: 'production', runtimeEnv: 'production', url: new URL('https://directoproducciones.com/'), launch: { activated: true, closedDeploy: true, checklist: { legalApproved: true } } }), 200, 'activado con la checklist completa: closedDeploy ya no cierra');
   // Access del panel vacío, placeholder o con la AUD de la preview: no se despliega.
   for (const vars of [{ ACCESS_TEAM_DOMAIN: '', ACCESS_AUD: '' }, { ACCESS_TEAM_DOMAIN: 'REEMPLAZAR.cloudflareaccess.com', ACCESS_AUD: 'REEMPLAZAR' }, {}]) {
     assert.ok((await closed({ prod: { ...prod, vars: { APP_ENV: 'production', ...vars } } })).some((b) => b.includes('ACCESS_TEAM_DOMAIN/ACCESS_AUD')), JSON.stringify(vars));

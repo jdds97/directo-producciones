@@ -13,14 +13,19 @@ const get = (path, init) => fetch(base + path, { redirect: 'manual', signal: Abo
 const accessLogin = /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com\//;
 // D-62 · modo cerrado (config/launch.json closedDeploy con activated=false): todo lo público responde 503 de la compuerta del Worker
 // (también estáticos y API) y el panel redirige en el borde al login de Cloudflare Access, nunca 200. Un fallo dispara el rollback.
+// El 503 debe ser el de la compuerta (denyResponse: no-store y «Sitio no disponible.»), no uno del borde; y el login, el del equipo de Access
+// de producción en wrangler.jsonc (no basta cualquier *.cloudflareaccess.com).
 if (closed) {
   for (const path of ['/', '/contacto/', '/blog/', '/robots.txt', '/sitemap.xml', '/api/contacto', '/assets/m4/logo-original.jpg']) {
     const r = await get(path);
-    check(r.status === 503, `cerrado: GET ${path} → 503 (${r.status})`);
+    const gate = r.status === 503 && (r.headers.get('cache-control') ?? '').includes('no-store') && (await r.text()).includes('Sitio no disponible.');
+    check(gate, `cerrado: GET ${path} → 503 de la compuerta (${r.status})`);
   }
+  const { unstable_readConfig } = await import('wrangler');
+  const team = String(unstable_readConfig({ config: 'wrangler.jsonc', env: 'production' }, { hideWarnings: true }).vars?.ACCESS_TEAM_DOMAIN ?? '');
   const panel = await get('/_emdash/admin/');
   const to = panel.headers.get('location') ?? '';
-  check([301, 302, 303, 307].includes(panel.status) && accessLogin.test(to), `cerrado: /_emdash/admin/ redirige al login de Cloudflare Access (${panel.status} ${to || 'sin redirección'})`);
+  check([301, 302, 303, 307].includes(panel.status) && accessLogin.test(to) && !!team && new URL(to).host === team, `cerrado: /_emdash/admin/ redirige al login de Access de ${team || '(ACCESS_TEAM_DOMAIN vacío)'} (${panel.status} ${to || 'sin redirección'})`);
   console.log(failed ? `\n${failed} comprobaciones fallidas` : '\nSmoke del despliegue cerrado correcto');
   process.exit(failed ? 1 : 0);
 }
