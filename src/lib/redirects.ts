@@ -1,5 +1,5 @@
 // Mecanismo ÚNICO de normalización de host y de redirecciones del Worker (no hay _redirects ni reglas de zona paralelas;
-// en el corte, la zona solo hace HTTPS). La tabla es config/url-map.json: solo se aplican las filas con `aprobado_por`.
+// en el corte, la zona solo hace HTTPS). La tabla es config/url-map.json: solo se aplican las filas y patrones con `aprobado_por`.
 // Una fila sin aprobar (propuesta o pendiente) NUNCA redirige. Nada se envía a Inicio por defecto.
 import urlMap from '../../config/url-map.json' with { type: 'json' };
 import { PRODUCTION_ORIGIN, normalizePath, type Env } from './seo';
@@ -11,8 +11,11 @@ export interface UrlMapRow {
   destino?: string; codigo?: 301 | 410; nota: string; aprobado_por?: string; aprobado_el?: string;
 }
 export const urlMapRows = (urlMap as { rows: UrlMapRow[] }).rows;
+export const urlMapPatterns = (urlMap as { patrones?: Partial<UrlMapRow>[] }).patrones ?? [];
 const WWW_HOST = `www.${new URL(PRODUCTION_ORIGIN).hostname}`;
-const approved = new Map(urlMapRows.filter(r => r.aprobado_por && (r.accion === 'redirigir' || r.accion === 'retirar')).map(r => [normalizePath(r.path), r]));
+// Los patrones aprobados son rutas EXACTAS (/feed/, /sitemap_index.xml); no hay prefijos (/wp-content/uploads/ queda en 404 natural).
+export const buildApproved = (all: Partial<UrlMapRow>[]) => new Map(all.filter(r => r.aprobado_por && r.aprobado_el && (r.accion === 'redirigir' || r.accion === 'retirar')).map(r => [normalizePath(r.path!), r as UrlMapRow]));
+const approved = buildApproved([...urlMapRows, ...urlMapPatterns]);
 
 export type RedirectResult = { status: 301; location: string } | { status: 410 } | null;
 /** Solo en producción. www→apex y, si la ruta antigua tiene fila aprobada, redirección directa al destino final (un solo salto). */

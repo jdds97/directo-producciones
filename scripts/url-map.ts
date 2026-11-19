@@ -84,7 +84,11 @@ const proposalError = (id: string, p: any) => {
   return ok ? '' : `${id}: propuesta 301 con destino inválido «${p.destino}».`;
 };
 for (const r of rows) if (r.propuesta) { if (r.aprobado_por || r.accion !== 'pendiente') errors.push(`${r.path}: la propuesta solo va en filas pendientes sin aprobar.`); else { const e = proposalError(r.path, r.propuesta); if (e) errors.push(e); } }
-for (const p of patrones) { if (p.aprobado_por) errors.push(`${p.path}: los patrones no se aprueban aquí (redirects.ts aún no los lee).`); if (p.accion === 'redirigir') { const e = proposalError(p.path, p); if (e) errors.push(e); } }
+for (const p of patrones) {
+  if (p.aprobado_por && !/^\d{4}-\d{2}-\d{2}$/.test(p.aprobado_el ?? '')) errors.push(`${p.path}: patrón aprobado sin fecha.`);
+  if (p.aprobado_por && p.accion !== 'redirigir') errors.push(`${p.path}: un patrón aprobado solo puede ser «redirigir» (ruta exacta, sin prefijos).`);
+  if (p.accion === 'redirigir') { const e = proposalError(p.path, p); if (e) errors.push(e); }
+}
 const count = (f: (r: any) => boolean) => rows.filter(f).length;
 const summary = {
   total: rows.length,
@@ -93,7 +97,7 @@ const summary = {
   redirigirPropuesta: count(r => r.accion === 'redirigir' && !r.aprobado_por),
   destinoPendiente: count(r => r.accion === 'pendiente'),
   conPropuesta: count(r => Boolean(r.propuesta)), patronesPropuestos: patrones.length,
-  aprobadasActivas: count(r => r.aprobado_por && (r.accion === 'redirigir' || r.accion === 'retirar')),
+  aprobadasActivas: count(r => r.aprobado_por && (r.accion === 'redirigir' || r.accion === 'retirar')) + patrones.filter(p => p.aprobado_por).length,
 };
 console.log(JSON.stringify(summary));
 if (process.argv.includes('--list')) for (const r of rows.filter(x => x.accion !== 'conservar-ruta')) console.log(`${r.accion.padEnd(9)} ${r.estado.padEnd(9)} ${r.path}${r.destino ? ' → ' + r.destino : ''}`);
