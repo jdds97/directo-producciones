@@ -2,52 +2,100 @@
 # Solo status: approved con aprobador, fecha y evidencia válidos es publicable.
 - id: entity.legal_name
   value: "Nueva Información Local S.L."
-  status: published_by_company
-  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17)"
-  evidence: null
-  approved_by: null
-  approved_at: null
+  status: approved
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17); Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "Ante la razón social Nueva Información Local S.L., el NIF B90293168 y el domicilio social C/ Malva Nº 2 F, 41089 Dos Hermanas, Sevilla presentados juntos, el propietario confirma «los datos legales bien». Confirma los datos del titular; no aprueba por sí sola el texto completo de las políticas ni identifica una oficina comercial."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
   required_for_launch: true
 - id: entity.tax_id
   value: "B90293168"
-  status: published_by_company
-  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17)"
-  evidence: null
-  approved_by: null
-  approved_at: null
+  status: approved
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04; última modificación visible 2023-08-17); Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "El propietario confirma «los datos legales bien» ante la lista que incluye expresamente B90293168. Acredita la vigencia del NIF para los datos del titular, no una revisión jurídica integral."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
   required_for_launch: true
 - id: entity.registered_address
   value: "C/ Malva Nº 2 F, 41089 Dos Hermanas, Sevilla"
-  status: published_by_company
-  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04); comprobar si es publicable como dirección comercial o solo domicilio social"
-  evidence: null
-  approved_by: null
-  approved_at: null
+  status: approved
+  source: "https://www.directoproducciones.com/aviso-legal/ (consultado 2026-10-04); comprobar si es publicable como dirección comercial o solo domicilio social; Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "El propietario confirma «los datos legales bien» ante la lista que incluye C/ Malva Nº 2 F, 41089 Dos Hermanas, Sevilla como domicilio social. Se confirma para los legales; no se atribuye oficina comercial ni atención presencial."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
   required_for_launch: true
+- id: entity.headquarters
+  value: "Sevilla (Los Bermejales)"
+  status: approved
+  source: "Reunión con el cliente del 2026-11-17, transmitida por el propietario en la conversación de BB ese mismo día; ficha de Google Business Profile de la empresa"
+  evidence: "El propietario confirma «al 100 %» que la sede está en Sevilla (Los Bermejales), tal como figura en la ficha de Google Business Profile. Es la sede de trabajo, distinta del domicilio social de los legales (entity.registered_address). Sin dirección postal completa: no se publica calle ni se atribuye atención presencial."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-17"
+  required_for_launch: false
 - id: contact.email
   value: "info@directoproducciones.com"
   status: decided
-  source: "Web actual y decisión del propietario, 2026-10-04"
-  evidence: null
+  source: "Web actual y decisión del propietario, 2026-10-04; reconfirmado en la conversación de BB, 2026-10-30"
+  evidence: "El propietario facilita Info@directoproducciones.com como correo de contacto junto al teléfono público y al móvil de WhatsApp. Se incorpora al borrador local sin modificar su estado editorial."
   approved_by: null
   approved_at: null
-  required_for_launch: true
+  required_for_launch: false
+- id: contact.form_recipient_email
+  value: "info@directoproducciones.com"
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez en la conversación de cierre de la web, 2026-10-25"
+  evidence: "Ante la pregunta «¿confirmas info@directoproducciones.com como destinatario del formulario?», Jesús responde «si confirmo». Confirma el destinatario, no la activación de Resend, el envío de pruebas ni la recogida de datos personales."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-25"
+  required_for_launch: false
 - id: contact.public_phone
   value: "679729727"
   status: decided
-  source: "Aviso legal público y decisión del propietario, 2026-10-04"
-  evidence: null
+  source: "Aviso legal público y decisión del propietario, 2026-10-04; reconfirmado en la conversación de BB, 2026-10-30"
+  evidence: "El propietario indica expresamente «Teléfono: 679729727» y distingue «Móvil para wassap: 651341384». Se conserva esta separación en el borrador local."
   approved_by: null
   approved_at: null
-  required_for_launch: true
+  required_for_launch: false
 - id: contact.whatsapp_phone
   value: "622181100"
-  status: decided
-  source: "CTA público de WhatsApp y decisión del propietario, 2026-10-04"
+  status: pending
+  source: "La selección anterior queda retirada por instrucción directa del propietario, 2026-10-29; se conserva el dato para trazabilidad."
   evidence: null
   approved_by: null
   approved_at: null
+  required_for_launch: false
+- id: contact.whatsapp_secondary_phone
+  value: "651341384"
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez en la conversación de cierre de la web, 2026-10-25"
+  evidence: "Ante la pregunta sobre qué WhatsApp utilizar entre 622 181 100 y 651 341 384, Jesús responde «Los dos». Autoriza ambos destinos de contacto; no asigna departamentos ni activa el formulario."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-25"
   required_for_launch: true
+- id: contact.social_instagram
+  value: "https://www.instagram.com/directoproducciones/"
+  status: approved
+  source: "Pie de la web oficial antigua https://www.directoproducciones.com/ (consulta de solo lectura, 2026-11-01); candidato sin verificar; Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "Ante el enlace https://www.instagram.com/directoproducciones/ presentado como perfil oficial, el propietario responde «las redes también». Confirma ese perfil para mostrarlo en la web."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
+  required_for_launch: false
+- id: contact.social_facebook
+  value: "https://www.facebook.com/directoproducciones/"
+  status: approved
+  source: "Pie de la web oficial antigua https://www.directoproducciones.com/ (consulta de solo lectura, 2026-11-01); candidato sin verificar; Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "Ante el enlace https://www.facebook.com/directoproducciones/ presentado como perfil oficial, el propietario responde «las redes también». Confirma ese perfil para mostrarlo en la web."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
+  required_for_launch: false
+- id: contact.social_x
+  value: "https://twitter.com/directoprodu"
+  status: approved
+  source: "Pie de la web oficial antigua https://www.directoproducciones.com/ (consulta de solo lectura, 2026-11-01); candidato sin verificar; Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "Ante el enlace https://twitter.com/directoprodu presentado como perfil oficial, el propietario responde «las redes también». Confirma ese perfil para mostrarlo en la web."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
+  required_for_launch: false
 - id: sla.budget_response
   value: "24 horas naturales, incluidos fines de semana y festivos"
   status: decided
@@ -65,20 +113,20 @@
   approved_at: null
   required_for_launch: true
 - id: service.communication
-  value: "La web actual ofrece comunicación corporativa y gabinete de prensa"
-  status: published_by_company
-  source: "https://www.directoproducciones.com/ (consultado 2026-10-04)"
-  evidence: "Alcance actual del servicio pendiente de confirmación"
-  approved_by: null
-  approved_at: null
+  value: "Comunicación corporativa: estrategia y campañas, gabinete de prensa y comunicación institucional."
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez en la revisión del catálogo, 2026-10-26"
+  evidence: "El propietario confirma como vigentes los cinco ámbitos propuestos: estrategia y campañas; gabinete de prensa e institucional; redes sociales y contenidos; diseño web; SEO y SEM. La confirmación acredita la oferta, no resultados, plazos, casos ni la redacción final de la página."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-26"
   required_for_launch: true
 - id: service.digital_marketing
-  value: "La web actual ofrece marketing digital, redes sociales, SEO/SEM y diseño web"
-  status: published_by_company
-  source: "https://www.directoproducciones.com/ (consultado 2026-10-04)"
-  evidence: "Alcance actual de cada servicio pendiente de confirmación"
-  approved_by: null
-  approved_at: null
+  value: "Marketing digital: redes sociales y contenidos, diseño web, SEO y SEM."
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez en la revisión del catálogo, 2026-10-26"
+  evidence: "El propietario confirma como vigentes los cinco ámbitos propuestos: estrategia y campañas; gabinete de prensa e institucional; redes sociales y contenidos; diseño web; SEO y SEM. La confirmación acredita la oferta, no resultados, plazos, casos ni la redacción final de la página."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-26"
   required_for_launch: true
 - id: social_proof.home_testimonials
   value: "Rafael González — Jefe de Comunicación del Ayto. de la Puebla del Río: «En La Puebla del Río hemos cambiado el concepto de comunicación gracias a las retransmisiones de Directo Producciones. La creación de nuestra televisión online es un paso hacia el futuro.» José Luis Contreras — Comunicación de la Hermandad de San Pablo (Sevilla): «Llevamos en la Hermandad de San Pablo confiando en ellos para retransmitir nuestra Estación de Penitencia y cada año mejor que el anterior.»"
@@ -111,4 +159,79 @@
   evidence: "D-42: Jesús valida los 16 clientes/logos enumerados y su reutilización en la nueva web; declaración del propietario, no permiso independiente emitido por cada entidad. Revisión final B5 antes del lanzamiento."
   approved_by: "Jesús De Dios Sánchez"
   approved_at: "2026-10-08"
+  required_for_launch: false
+- id: social_proof.home_media_sports
+  value: "Cuatro; Telecinco; Sevilla FC; Real Betis"
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez en esta conversación, 2026-10-28"
+  evidence: "Jesús pide añadir los logos de Cuatro, Telecinco, Sevilla FC y Betis a la banda de clientes de Inicio. Es una declaración del propietario para reutilizar esos logos en esta web local; no acredita permiso independiente de marca ni un encargo concreto. Cajasol Voley - Esquimo ya consta una sola vez en social_proof.home_clients y se representa con el logo del equipo CVQ/Esquimo."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-28"
+  required_for_launch: false
+- id: service.production_scope_review
+  value: "Preproducción y guion; vídeo corporativo, de producto, testimonial y formativo; spots, videoclips y contenido para redes; grabación de eventos y resúmenes; realización multicámara, streaming, unidad móvil, señal para pantallas LED/IMAG y eventos híbridos; edición y postproducción; fotografía sin dron, timelapse, operadores de cámara y personal audiovisual; alquiler de material con o sin operador. Excluidos cablecam/LINECAM y operadores profesionales de drones."
+  status: approved
+  source: "Confirmación directa de Jesús De Dios Sánchez sobre el alcance de producción, 2026-10-15; instrucción de incluir los servicios vigentes y tipos de eventos en la web, 2026-10-29"
+  evidence: "El propietario confirmó que se ofrecen las categorías enumeradas salvo cablecam/LINECAM y operadores profesionales de drones, y el 2026-10-29 pidió incluir todos los servicios de producción y tipos de eventos vigentes. Esta aprobación cubre el catálogo de oferta; no acredita trabajos individuales, clientes, resultados, parámetros técnicos, plazos ni garantías. No se trasladan marcas/modelos, resoluciones, redundancia, recintos, geografía o certificaciones del inventario de referencia."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-10-29"
+  required_for_launch: true
+- id: entity.company_relationship
+  value: "La web corporativa identifica Directo Producciones como una empresa perteneciente a Nueva Información Local S.L."
+  status: published_by_company
+  source: "https://www.directoproducciones.com/quienes-somos/"
+  evidence: "Declaración corporativa consultada para la revisión de biografía M4. No acredita fecha de fundación de la marca ni aprobación de esta nueva redacción."
+  approved_by: null
+  approved_at: null
+  required_for_launch: false
+- id: history.macarena_streaming
+  value: "La empresa documenta una experiencia piloto de retransmisión con la Hermandad de la Macarena en diciembre de 2017 y emisiones semanales de Esperanza Macarena TV desde febrero de 2018."
+  status: published_by_company
+  source: "https://www.directoproducciones.com/2019/07/24/macarena-television-online-streaming/"
+  evidence: "Publicación corporativa de 24 de julio de 2019. Las fechas se refieren al proyecto, no a la fundación de Directo; no se trasladan cifras de audiencia o eventos ni continuidad actual del servicio."
+  approved_by: null
+  approved_at: null
+  required_for_launch: false
+- id: history.communication_design_2019
+  value: "La empresa documenta en septiembre de 2019 infografías y cartelería para las redes del tenista Javier Barranco Cosano."
+  status: published_by_company
+  source: "https://www.directoproducciones.com/2019/09/04/gestion-de-marketing-en-redes-sociales-del-tenista-javier-barranco-cosano/"
+  evidence: "El artículo describe carteles con hora y ronda de los encuentros. No acredita gestión integral actual de la cuenta, resultados de marketing ni relación causal con resultados deportivos."
+  approved_by: null
+  approved_at: null
+  required_for_launch: false
+- id: history.television_program_2022
+  value: "La empresa documenta la producción y realización del programa Al Cielo, emitido en 101TV Sevilla en noviembre de 2022."
+  status: published_by_company
+  source: "https://www.directoproducciones.com/2022/11/24/directo-producciones-se-estrena-en-television-101tv-sevilla/"
+  evidence: "Publicación corporativa del 24 de noviembre de 2022 que identifica la emisión del día anterior y la aportación de producción y realización. No atribuye a Directo toda la programación de la cadena."
+  approved_by: null
+  approved_at: null
+  required_for_launch: false
+
+- id: contact.team_francisco_email
+  value: "fdedios@directoproducciones.com"
+  status: approved
+  source: "Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "El propietario facilita fdedios@directoproducciones.com y autoriza expresamente mostrar los tres correos bajo cada perfil de «Hablemos de tu proyecto». Corresponde a Francisco de Dios; se registra para un enlace de contacto, no acredita existencia del buzón ni entrega de mensajes ni crea una cuenta editorial real."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
+  required_for_launch: false
+
+- id: contact.team_sergio_email
+  value: "smaya@directoproducciones.com"
+  status: approved
+  source: "Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "El propietario facilita smaya@directoproducciones.com y autoriza expresamente mostrar los tres correos bajo cada perfil de «Hablemos de tu proyecto». Corresponde a Sergio Maya; se registra para un enlace de contacto, no acredita existencia del buzón ni entrega de mensajes ni crea una cuenta editorial real."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
+  required_for_launch: false
+
+- id: contact.team_fran_email
+  value: "fvergara@directoproducciones.com"
+  status: approved
+  source: "Confirmación directa del propietario en esta conversación de BB, 2026-11-01"
+  evidence: "El propietario facilita fvergara@directoproducciones.com y autoriza expresamente mostrar los tres correos bajo cada perfil de «Hablemos de tu proyecto». Corresponde a Fran Vergara; se registra para un enlace de contacto, no acredita existencia del buzón ni entrega de mensajes ni crea una cuenta editorial real."
+  approved_by: "Jesús De Dios Sánchez"
+  approved_at: "2026-11-01"
   required_for_launch: false
