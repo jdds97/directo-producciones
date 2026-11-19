@@ -23,7 +23,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -40,7 +40,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-hermandades-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión de la Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
+    "razon": "Retransmisión de la Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -56,7 +56,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -72,7 +72,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -89,7 +89,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Streaming en general (ventajas e inconvenientes): lo cubre la guía nueva de streaming de eventos.",
+    "razon": "Streaming en general (ventajas e inconvenientes): lo cubre la guía nueva de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -105,7 +105,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -121,7 +121,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -137,7 +137,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -153,7 +153,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -169,7 +169,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -185,7 +185,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -201,7 +201,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -218,7 +218,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Retransmisión de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -234,7 +234,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -250,7 +250,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -266,7 +266,7 @@
     "accion": "retirar",
     "codigo": 410,
     "alternativa": "Si se decide conservar el contenido, 301 a la entrada migrada; nunca a Inicio.",
-    "nota": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
+    "razon": "Sin entrada equivalente en el blog nuevo (tema ajeno a los servicios actuales) y la entrada original está en la papelera.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -283,7 +283,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-hermandades-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión del Gran Poder: mismo tema que el artículo nuevo sobre streaming para hermandades.",
+    "razon": "Retransmisión del Gran Poder: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -300,7 +300,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión en streaming de FITUR: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Retransmisión en streaming de FITUR: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -317,7 +317,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Concierto retransmitido en directo: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Concierto retransmitido en directo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -334,7 +334,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Espectáculo emitido en directo: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Espectáculo emitido en directo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -351,7 +351,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Streaming de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Streaming de un evento deportivo: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -368,7 +368,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-hermandades-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión de un vía crucis: mismo tema que el artículo nuevo sobre streaming para hermandades.",
+    "razon": "Retransmisión de un vía crucis: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -385,7 +385,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-hermandades-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Retransmisión de la Esperanza Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
+    "razon": "Retransmisión de la Esperanza Macarena: mismo tema que el artículo nuevo sobre streaming para hermandades.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -402,7 +402,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -419,7 +419,7 @@
     "codigo": 301,
     "destino": "/blog/streaming-eventos-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
+    "razon": "Streaming de partidos de un club: tema cubierto por la guía de streaming de eventos.",
     "estado": "propuesta, sin aprobar"
    }
   },
@@ -436,7 +436,7 @@
     "codigo": 301,
     "destino": "/blog/realizacion-multicamara-sevilla/",
     "alternativa": "Si no se aprueba: 410; nunca a Inicio.",
-    "nota": "Producción de televisión propia: lo más cercano es el artículo nuevo de producción para televisión y realización multicámara; equivalencia aproximada.",
+    "razon": "Producción de televisión propia: lo más cercano es el artículo nuevo de producción para televisión y realización multicámara; equivalencia aproximada.",
     "estado": "propuesta, sin aprobar"
    }
   },

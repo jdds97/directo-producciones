@@ -4,7 +4,7 @@
 //   npm run urlmap:check -- --init  crea config/url-map.json desde el inventario SOLO si no existe (nunca sobrescribe decisiones)
 // Reglas: se parte de las decisiones YA tomadas (D-45: conservar/adaptar contenido; excluir abonos/tienda). No se inventa
 // ningún destino por parecido; lo que no tiene destino decidido queda «pendiente». Solo las filas con `aprobado_por` redirigen.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { PAGES } from '../src/lib/seo';
 
 function parseCsv(text: string): string[][] {
@@ -77,10 +77,12 @@ for (const r of rows) {
 }
 // Propuestas (sin aprobar) de las filas pendientes y de los patrones que no están en el inventario (/feed/, sitemap_index, /wp-content/uploads/).
 const extraRoutes = new Set(['/rss.xml', '/sitemap.xml']);
+// Entradas nuevas del blog (content/blog/<slug>.md): un 301 a /blog/<slug>/ solo vale si el .md existe (un typo daría 301 a 404).
+const blogPosts = new Set(readdirSync('content/blog').filter(f => f.endsWith('.md')).map(f => `/blog/${f.slice(0, -3)}/`));
 const proposalError = (id: string, p: any) => {
   if (!['redirigir', 'retirar'].includes(p.accion)) return `${id}: propuesta con acción «${p.accion}».`;
   if (p.accion === 'retirar') return p.codigo === 410 && !p.destino ? '' : `${id}: propuesta de retirada = 410 sin destino.`;
-  const ok = p.codigo === 301 && (routes.has(p.destino) || extraRoutes.has(p.destino) || /^\/blog\/[a-z0-9-]+\/$/.test(p.destino ?? ''));
+  const ok = p.codigo === 301 && (routes.has(p.destino) || extraRoutes.has(p.destino) || blogPosts.has(p.destino));
   return ok ? '' : `${id}: propuesta 301 con destino inválido «${p.destino}».`;
 };
 for (const r of rows) if (r.propuesta) { if (r.aprobado_por || r.accion !== 'pendiente') errors.push(`${r.path}: la propuesta solo va en filas pendientes sin aprobar.`); else { const e = proposalError(r.path, r.propuesta); if (e) errors.push(e); } }
