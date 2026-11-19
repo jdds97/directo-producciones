@@ -26,3 +26,26 @@ emdash-env.d.ts
 /preview-html/
 /*.zip
 /design/
+
+# Estado local, registros y credenciales: el repositorio y los logs de CI son públicos. Se ignora sin borrar nada.
+.playwright-mcp/
+*.log
+.mcp.json
+/.claude/
+.dev.vars*
+client_secret*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.apk
+*.sqlite
+*.sqlite3
+*.wxr
+/*.pdf
+/logos-nuevos/
+# Originales de trabajo sueltos en la raíz (los medios publicados viven en public/ con manifiesto).
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.png
