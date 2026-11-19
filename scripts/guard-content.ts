@@ -115,7 +115,6 @@ const routesRequiringLocalGate = new Set([
 const localImages: Record<string, string> = {
   ...(reviewEnv ? m4Assets : {}),
   '/assets/logo.jpg': '05a81cfb1c107d94c3e888888e49fcb65d27d4f13643c75b65680ebd161a38c7',
-  '/assets/portada-facebook.jpg': '83f283cc053e555a5ac961a09c58a68f1c6fa589512f5b083b53a620cb90f794',
 };
 // Medios autorizados exclusivamente para revisión local de Inicio y Portfolio
 const homeMediaReviewPath = 'config/home-media-review.json';
