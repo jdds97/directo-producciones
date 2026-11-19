@@ -180,7 +180,7 @@ export const collections: CollectionDef[] = [
       ...ext('Selección', [['vacio_texto', 'Texto cuando no hay proyectos publicados', 'Próximamente, nuevos trabajos.']]),
     ] },
   { slug: 'page_blog', label: 'Portada del blog', labelSingular: 'Portada del blog', block: 'Blog', kind: 'page', icon: 'newspaper', sortOrder: 90, routes: ['/blog/'], images: [
-      sl('Portada', 'hero_foto', 'Foto de portada', 'servicios/produccion-eng', 'Un cámara graba desde la grada un partido de fútbol al atardecer.'),
+      sl('Portada', 'hero_foto', 'Foto de portada', 'servicios/directos-10', 'Entrevista grabada en plató, con dos cámaras de vídeo en primer plano.', PHOTO, { focus: '50% 45%' }),
     ],
     fields: sec('Portada', 'hero', heroRows()) },
   { slug: 'page_404', label: 'Error 404', labelSingular: 'Página 404', block: '404', kind: 'page', icon: 'warning', sortOrder: 95, routes: ['/404'],

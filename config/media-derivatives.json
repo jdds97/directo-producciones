@@ -3,7 +3,7 @@
   "jobs": [
     ["servicios/programas-entrevista.jpeg", [["640", 640], ["1200", 1200]], 76],
     ["servicios/directos-8.jpeg", [["640", 640], ["1200", 1200]], 76],
-    ["servicios/directos-10.webp", [["640", 640], ["1200", 1200]], 76],
+    ["servicios/directos-10.webp", [["640", 640], ["1200", 1200], ["1800", 1800]], 76],
     ["servicios/directos-4.webp", [["640", 640], ["1200", 1200]], 76],
     ["servicios/directos-5.webp", [["640", 640], ["1200", 1200]], 76],
     ["equipo/equipo-3.jpeg", [["800", 800], ["1200", 1200]], 76],
