@@ -1,0 +1,6 @@
+# Cabeceras de los estáticos (el adaptador añade /_astro/* inmutable). Los de /assets no llevan hash en el nombre:
+# una semana de caché del navegador + revalidación por ETag; al cambiar un archivo se publica con otro nombre.
+/assets/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/page-transition.js
+  Cache-Control: public, max-age=3600, must-revalidate

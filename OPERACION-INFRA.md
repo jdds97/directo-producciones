@@ -1,0 +1,73 @@
+# Operación · correo, infraestructura y despliegue
+
+Estado: **preparado y probado en local; nada activado**. Existen D1 y KV reales (IDs en `wrangler.jsonc`) y la preview desplegada en `workers.dev` tras su aplicación de Access, pero no hay Worker de producción desplegado, dominio dado de alta en Cloudflare Email Sending, DNS migrado ni corte. Los medios subidos pasan de Workers KV a R2 con jurisdicción UE (decisión del propietario del 2026-11-05): `wrangler.jsonc` declara el binding `MEDIA` con los buckets `directo-producciones-media-preview` y `directo-producciones-media`, que se crean antes de desplegar con ellos; `MEDIA_KV` se conserva como vuelta atrás (`DP_MEDIA_STORAGE=kv`) hasta verificar R2 en la preview y se retira después (retirar el binding no borra el namespace). Los pasos exactos con datos de cuenta y DNS están en documentación privada fuera del repositorio.
+
+## Formulario de contacto
+
+`POST /api/contacto` (`src/pages/api/contacto.ts`) valida en servidor (mismo origen, cuerpo ≤ 8 KB, campos y servicio acotados, honeypot), aplica un límite de frecuencia (binding `CONTACT_LIMITER`, 5 por minuto y cliente) y entrega con `src/lib/contact-delivery.ts`:
+
+- **Cloudflare Email Sending desde el Worker**, por el binding `send_email` `CONTACT_EMAIL` (sin llamadas HTTP a terceros). Destinatario fijo: el hecho aprobado `contact.form_recipient_email`; el cliente no puede elegirlo, y el propio binding solo admite ese destinatario (`allowed_destination_addresses`) y ese remitente (`allowed_sender_addresses`). `Reply-To` = correo del visitante. Asunto fijo (sin datos del visitante). Timeout de 8 s. Cabecera `X-Contact-Id` con el id de la consulta (con persistencia, el mismo en cada reintento).
+- **Remitente propuesto:** `formulario@avisos.directoproducciones.com`. Se da de alta en Email Sending el subdominio `avisos`, no el apex: el alta crea registros en `cf-bounce.<dominio>` y un `_dmarc.<dominio>` con `p=reject`, que en el apex afectaría al correo de `info@` en Zoho. Variable `CONTACT_FROM`, sin secreto; debe coincidir con `allowed_sender_addresses` (`launch:readiness` lo comprueba).
+- **Sin secreto de correo.** El binding autoriza el envío; no hay clave de API en el Worker. El guard exige que cada `send_email` sea `CONTACT_EMAIL`, con un único remitente de `avisos.directoproducciones.com` y un destinatario fijo, y rechaza `"remote": true`.
+- **Local nunca envía.** Con `APP_ENV=local` el transporte es simulado; con `CONTACT_TRANSPORT=binding` usa el binding, que `wrangler dev` simula (escribe el mensaje en `.wrangler/tmp/email/` y aplica las mismas restricciones de remitente y destinatario). El binding local nunca lleva `remote: true`.
+- **Sin JavaScript:** el formulario hace POST nativo y recibe 303 a `/contacto/?consulta=<código>`; la URL solo lleva un código, nunca datos.
+- **Códigos:** `enviada`, `simulada`, `simulada-guardada`, `recibida` (guardada, aviso pendiente), `invalida`, `origen`, `tipo`, `grande`, `limite`, `tope`, `sin-proveedor`, `fallo`, `tiempo`. «Aceptada por el proveedor» no significa «en la bandeja»: no hay seguimiento de entrega (haría falta un webhook verificado e idempotente, no implementado).
+- **Antiabuso implementado:** honeypot, origen, tamaño, límite de frecuencia por IP y tope diario global de 80 intentos de envío (`DAILY_CAP`, contador en `contact_daily` de CONTACT_DB, día UTC; Workers Paid incluye 3.000 correos al mes y las cuentas nuevas empiezan con una cuota diaria prudente). Cuenta intentos con transporte real, no envíos: también los rechazados por el tope y los que no llegan a enviarse; lo simulado no cuenta. Con 5 por minuto por IP, una sola IP agota el cupo en unos 16 minutos y cierra el formulario a todos hasta el día UTC siguiente: antes de activar el envío en producción, valorar un límite diario por IP o Turnstile. Pasado el tope responde `tope` (429) sin llamar al proveedor; con `CONTACT_PERSISTENCE=on` la consulta se guarda y el cron la envía al día siguiente (`recibida`). Si la tabla falta, no bloquea. **No implementado:** Turnstile (requiere sitio y clave en la cuenta de Cloudflare, aún inexistente).
+
+### Persistencia y reintentos (opcionales)
+
+Con `CONTACT_PERSISTENCE=on` la consulta se guarda en D1 (`contact_submissions`, migración `0002`) **antes** del primer envío. El id de la fila viaja en la cabecera `X-Contact-Id` y se reutiliza en cada reintento. Email Sending no ofrece clave de idempotencia: si un envío agota el timeout pero llegó a entregarse, el reintento puede duplicar el aviso, y la cabecera permite reconocerlo. Estados: `received → sent | failed | dead`.
+
+- Reenviar el mismo contenido en 10 minutos reutiliza la consulta (no duplica).
+- El cron (cada hora en preview/producción; local, cada minuto) reintenta `failed` con espera creciente (1, 2, 4… hasta 60 min) y un máximo de 5 intentos; en remoto, como mucho un intento por hora.
+- Pasadas 23 h desde el primer intento **no se reintenta** (una consulta retenida por el tope empieza a contar al día siguiente, cuando se intenta): la fila queda `dead` con `ventana-reintento` para revisión manual.
+- Sin datos personales en logs: solo códigos (los `E_*` de Email Sending, `E_TIMEOUT`, `E_PETICION`, `E_DESCONOCIDO`).
+
+**Contrato de privacidad (propuesta, pendiente de aprobación legal):** datos guardados = nombre, correo, servicio, mensaje, estado y metadatos técnicos; finalidad = atender la consulta y garantizar su entrega; retención máxima 90 días (purga automática en el cron); acceso solo administrador de la cuenta de Cloudflare; sin cesiones adicionales salvo el proveedor de envío. **Hoy la web declara que no guarda estos datos** y por eso `CONTACT_PERSISTENCE` está en `off` en preview y producción y solo se ha ejercitado en local con datos sintéticos. Activarla exige aprobar el texto de privacidad/formulario y marcar `privacyContractApproved` en `config/launch.json`.
+
+## Perfiles de entorno
+
+`wrangler.jsonc`: el perfil por defecto es **local** (gates intactos); `env.preview` y `env.production` están preparados con nombres, D1, bucket R2 de medios (y el KV anterior como vuelta atrás: la vuelta a KV solo es limpia antes de subir nada a R2; después, primero hay que copiar a KV los objetos nuevos (`cms-backup export`) o se pierden), límite de frecuencia, cron y variables propias. Los IDs de D1 y KV son reales (no secretos). Se compila con `CLOUDFLARE_ENV=<preview|production>` y `APP_ENV` del mismo valor; `vars.APP_ENV` debe coincidir o el Worker responde 503. La compuerta de entorno (`src/config/env-policy.ts`, usada en `src/worker.ts` y `src/cms/local-gate.ts`) cubre HTML, medios y estáticos (`assets.run_worker_first: true`; en producción, como paso del corte y solo con `config/launch.json` activado, se cambia a la lista que deja `/_astro/*`, `/assets/*` y `/page-transition.js` a Static Assets sin invocar el Worker, y `launch:readiness` rechaza esa lista antes): local = solo loopback; preview = host exacto + JWT de Cloudflare Access verificado (503 si faltan `ACCESS_TEAM_DOMAIN`/`ACCESS_AUD`); producción = solo apex y www, y 503 hasta completar `config/launch.json` (el panel `/_emdash/*` exige además, antes y después del corte, el JWT de la aplicación de Access de producción). En producción, el HTML de GET anónimos (sin consulta ni más cookies que las propias de Cloudflare —`__cf_bm`, `cf_clearance`, `_cfuvid`, `__cflb`, `__cfruid`—, que no saltan la caché; fuera de `/_emdash` y `/api`) se guarda 5 min en la Cache API (`src/lib/html-cache.ts`): una publicación tarda como mucho unos 5 min y medio en verse sin sesión (los 5 min de la Cache API más los 30 s de la caché en memoria de `src/lib/site-content.ts`). La clave lleva la versión del Worker: no hay purga al publicar, pero un redespliegue la cambia y sirve de purga urgente. La compuerta y la caché deciden sobre la misma ruta canónica (`canonicalPath` de `src/config/env-policy.ts`, la que enruta Astro); las variantes que un navegador no envía (codificación inválida, `%5C`, `..` doblemente codificado) responden 400 «Ruta no válida.». Detalle y pruebas en `.private/cloudflare-hoy-2026-11-01/PREVIEW-RUNTIME.md`.
+
+| | local | preview | producción |
+|---|---|---|---|
+| Worker | `directo-producciones-m2-local` | `directo-producciones-preview` | `directo-producciones` |
+| D1 | `…-cms-local` | `…-cms-preview` | `…-cms` |
+| Medios subidos | R2 local emulado (`…-media-local`) | R2 `directo-producciones-media-preview` (UE; KV anterior como vuelta atrás) | R2 `directo-producciones-media` (UE; KV anterior como vuelta atrás) |
+| Correo | simulado (o binding simulado por `wrangler dev`) | simulado siempre (no declara el binding) | Cloudflare Email Sending, binding `CONTACT_EMAIL` (sin activar) |
+| Dominio | `localhost` | `*.workers.dev`, noindex | apex `directoproducciones.com` (decisión D-07), asociado en la fase cerrada previa (todo en 503 salvo el panel); www se asocia en el corte, también al Worker, que lo redirige al apex (`src/lib/redirects.ts`, sin reglas de zona; la zona solo fuerza HTTPS) |
+
+Fuera de alcance deliberado: Queues, Durable Objects, Images, Workers AI. Se reevaluarán con evidencia.
+
+## Migraciones: un único responsable
+
+Local: EmDash migra al arrancar. Preview/producción: `astro.config.mjs` fija `migrations.runtime = 'check'` (el Worker falla si hay pendientes pero **no migra**) y el job de despliegue es el único migrador: `wrangler d1 migrations apply` (tablas propias, `migrations/`) y `scripts/emdash-migrate-ci.mjs` (núcleo de EmDash). Cambios siempre compatibles con la versión anterior del código (expandir → desplegar → contraer en despliegues distintos): D1 no se revierte al volver a la versión previa del Worker. Antes de migrar se registra el punto de restauración de D1 (`d1 time-travel info`).
+
+## CI/CD
+
+- `ci.yml` (PR a `main`): escáner de secretos, auditoría, guard, mapa de URLs (`urlmap:check`), check, pruebas y build. Sin secretos.
+- `deploy.yml` (push a `main`): mismos checks (incluido `urlmap:check`); en un lanzamiento manual hay que indicar `base_ref`, el SHA de main del último despliegue correcto; sin él, el guard de producción falla antes de migrar o desplegar → job `deploy` **solo si** el propietario fija la variable de repositorio `LAUNCH_ACTIVATED=true`. Ese job exige `npm run launch:readiness` (lista concreta de bloqueos), compila el perfil de producción, migra, despliega, ejecuta el smoke y, si falla, hace `wrangler rollback`. Rollback manual: «Run workflow → rollback». Concurrencia única, sin cancelar despliegues en curso.
+- Tras la activación inicial no hay aprobación humana por push: el entorno `production` de GitHub se limita a la rama `main` y no lleva revisores obligatorios.
+- Secretos del entorno `production` de GitHub: `CLOUDFLARE_API_TOKEN` (permisos mínimos de esa cuenta, sin «todas las cuentas»: Workers Scripts Edit, D1 Edit, Workers R2 Storage Edit y, mientras exista el binding `MEDIA_KV`, Workers KV Storage Edit) y `CLOUDFLARE_ACCOUNT_ID`. Variable: `PRODUCTION_URL`. El correo no usa secretos: lo autoriza el binding `CONTACT_EMAIL`. Sin `pull_request_target`; el código de forks nunca recibe secretos. No se conecta Cloudflare Workers Builds (un único publicador).
+- **Primer lanzamiento:** `npm run launch:readiness` falla hoy con los bloqueos pendientes (Access del panel sin configurar, hechos legales sin aprobar, mapa de URLs, lista de verificación de `config/launch.json`). La activación es un PR que completa `config/launch.json`; la compuerta de `env-policy.ts` no se retira. El despliegue cerrado previo que necesita el arranque del panel no tiene vía versionada: `deploy.yml` y el guard de `npm run build` en producción exigen el lanzamiento activado (decisión pendiente).
+
+## Repositorio
+
+- `.gitignore` excluye estado local, registros, credenciales, bases de datos, WXR y originales sueltos sin borrar nada. `npm run secret-scan` revisa lo que `git add .` incluiría (nombres y patrones; nunca imprime el valor) y corre en CI.
+- No hay `git add .`: los commits se preparan con selección explícita de archivos por unidades revisables (protección de privados → contenido/medios → CMS → correo → entornos/CI → SEO/rendimiento).
+- Documentación privada (`docs/`, `.private/`) está ignorada: se respalda fuera de Git.
+
+## Comandos locales
+
+```sh
+EMDASH_SITE_URL=http://localhost:4450 npm run build
+npm run test:cms            # unitarias (política CMS, WordPress, entrega de correo, escáner)
+npm run contact:e2e         # Worker local real + binding send_email simulado por wrangler dev (~2 min)
+npm run secret-scan
+npm run launch:readiness    # esperado: falla hasta el lanzamiento
+node scripts/smoke.mjs http://localhost:4450 --local
+```
+
+## Pendiente (externo o del propietario)
+
+Zona activa (los NS cambian antes de la fase cerrada, porque en ella se asocia el apex al Worker; www, en el corte); medir y vigilar la CPU de la preview (el p90 ya supera los 10 ms de Workers Free); crear los buckets R2 (Standard, jurisdicción UE), copiar los medios de KV con la misma clave y su Content-Type, pasar en la preview el smoke de subir, servir y borrar (solo entonces `storageReady`) y retirar `MEDIA_KV` en un PR posterior; dar de alta el subdominio `avisos` en Cloudflare Email Sending (no el apex) y comprobar sus registros DNS; prueba real a un destinatario autorizado (recepción y cabeceras SPF/DKIM/DMARC): la vía propuesta, un envío directo a la API REST de Email Sending (`scripts/contact-real-test.mjs`) porque la web no puede hacerla antes del corte, está pendiente de autorización del propietario; texto de privacidad definitivo; buzón para informes DMARC; proveedor final del buzón de `info@`; token de despliegue; entorno `production` en GitHub; migración de DNS y corte de dominio.

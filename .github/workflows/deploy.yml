@@ -1,0 +1,133 @@
+name: Deploy
+# Único mecanismo de despliegue (no hay Cloudflare Workers Builds). PREPARADO, NO ACTIVADO: el job `deploy` solo corre
+# cuando el propietario fija la variable de repositorio LAUNCH_ACTIVATED=true tras aprobar el primer lanzamiento.
+# A partir de ahí cada integración en main se despliega sola, sin aprobación humana por push.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: deploy = redesplegar main · rollback = volver a la versión anterior del Worker
+        type: choice
+        options: [deploy, rollback]
+        default: deploy
+      base_ref:
+        description: Commit base para comparar aprobaciones (obligatorio para deploy; sin él guard-content de producción falla)
+        type: string
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: ${{ inputs.action != 'rollback' }}
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: local
+      LEADS_ENABLED: 'false'
+      ANALYTICS_ENABLED: 'false'
+      GUARD_BASE_REF: ${{ github.event.before || inputs.base_ref }}
+      ASTRO_TELEMETRY_DISABLED: '1'
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm audit --audit-level=high
+      - run: npm run secret-scan
+      - run: npm run guard-content
+      - run: npm run urlmap:check
+      - run: npm run check
+      - run: npm run test:cms
+      - run: npm run build
+
+  deploy:
+    needs: verify
+    # `needs` omitido por el salto de verify en rollback: se admite que verify haya sido «skipped».
+    if: ${{ always() && vars.LAUNCH_ACTIVATED == 'true' && (needs.verify.result == 'success' || (inputs.action == 'rollback' && needs.verify.result == 'skipped')) }}
+    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    # Entorno de GitHub «production»: ramas de despliegue = solo main y SIN revisores obligatorios (despliegue automático).
+    environment: production
+    env:
+      APP_ENV: production
+      CLOUDFLARE_ENV: production
+      EMDASH_SITE_URL: https://directoproducciones.com
+      # guard-content exige base en producción: en workflow_dispatch `before` llega vacío y se usa el input base_ref.
+      # Sin base (o con un ref inexistente) el build falla antes de migrar o desplegar.
+      GUARD_BASE_REF: ${{ github.event.before || inputs.base_ref }}
+      LEADS_ENABLED: 'false'
+      ANALYTICS_ENABLED: 'false'
+      ASTRO_TELEMETRY_DISABLED: '1'
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+
+      - name: Rollback del Worker (solo manual)
+        if: ${{ inputs.action == 'rollback' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler rollback --env production --message "Rollback manual ${GITHUB_SHA}" --yes
+          node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}"
+
+      - name: Preparado para lanzar (falla con la lista de bloqueos si no)
+        if: ${{ inputs.action != 'rollback' }}
+        run: npm run launch:readiness
+
+      - name: Compilar (perfil producción)
+        if: ${{ inputs.action != 'rollback' }}
+        run: npm run build
+
+      # Migraciones: un solo responsable (este job; el Worker solo comprueba) y siempre COMPATIBLES con la versión
+      # anterior del código (expandir → desplegar → contraer en despliegues distintos): D1 no se revierte con el Worker.
+      - name: Punto de restauración D1 + migraciones
+        if: ${{ inputs.action != 'rollback' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # D-25: dos bases separadas, cada una con su carpeta de migraciones (migrations-cms · migrations-solicitudes).
+          npx wrangler d1 time-travel info DB --env production
+          npx wrangler d1 time-travel info CONTACT_DB --env production
+          npx wrangler d1 migrations apply DB --env production --remote
+          npx wrangler d1 migrations apply CONTACT_DB --env production --remote
+          node scripts/emdash-migrate-ci.mjs production
+
+      - name: Desplegar
+        id: deploy
+        if: ${{ inputs.action != 'rollback' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy --env production
+
+      - name: Smoke
+        if: ${{ inputs.action != 'rollback' }}
+        run: node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}"
+
+      - name: Rollback automático si el smoke falla
+        if: ${{ failure() && steps.deploy.outcome == 'success' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler rollback --env production --message "Smoke fallido ${GITHUB_SHA}" --yes

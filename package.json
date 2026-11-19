@@ -19,14 +19,33 @@
     "check": "astro check",
     "preview": "astro preview --host localhost",
     "prepare:local": "node scripts/local-env.mjs",
-    "predev": "npm run prepare:local && npm run prepare:registry",
+    "predev": "npm run prepare:local && npm run prepare:registry && npm run migrate:dev",
     "migrate:local": "wrangler d1 migrations apply DB --local --persist-to .wrangler/m4-astro-review",
+    "migrate:dev": "wrangler d1 migrations apply DB --local",
     "prelocal:worker": "npm run build && npm run migrate:local",
     "precheck": "npm run prepare:local && npm run prepare:registry",
     "prebuild": "npm run prepare:local",
     "preeditorial:digest": "npm run prepare:registry",
     "editorial:digest": "tsx scripts/editorial-digest.ts",
-    "export:presentation": "node scripts/export-presentation.mjs"
+    "export:presentation": "node scripts/export-presentation.mjs",
+    "test:cms": "APP_ENV=local tsx --test tests/*.test.ts",
+    "cms:seed": "tsx scripts/cms-seed.ts",
+    "cms:seed:check": "tsx scripts/cms-seed.ts --check",
+    "cms:seed-remote": "tsx scripts/cms-seed-remote.ts",
+    "cms:blog-remote": "tsx scripts/cms-blog-remote.ts",
+    "cms:migrate": "tsx scripts/cms-migrate.ts",
+    "cms:e2e": "node scripts/cms-e2e.mjs",
+    "cms:backup": "node scripts/cms-backup.mjs",
+    "cms:cache-cost": "node scripts/cms-cache-cost.mjs",
+    "contact:e2e": "node scripts/contact-e2e.mjs",
+    "secret-scan": "node scripts/secret-scan.mjs",
+    "prelaunch:readiness": "npm run prepare:registry",
+    "launch:readiness": "tsx scripts/launch-readiness.ts",
+    "smoke": "node scripts/smoke.mjs",
+    "preurlmap:check": "npm run prepare:registry",
+    "urlmap:check": "tsx scripts/url-map.ts",
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "lighthouse:runs": "node scripts/lighthouse-runs.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.3.4",
@@ -40,12 +59,16 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@cloudflare/workers-types": "5.20261006.1",
+    "@cloudflare/workers-types": "5.20261101.1",
     "@types/node": "22.19.15",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "tsx": "4.23.15",
     "typescript": "5.9.3",
-    "wrangler": "4.149.0"
+    "wrangler": "4.156.1"
+  },
+  "overrides": {
+    "dompurify": "3.4.17",
+    "zod": "4.6.7"
   }
 }
