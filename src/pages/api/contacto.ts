@@ -7,8 +7,9 @@ import { approvedFact } from '../../lib/facts';
 import { MAX_BODY_BYTES, parseContact } from '../../lib/contact-mail';
 import { resolveContact, submitContact, type ContactEnv } from '../../lib/contact-delivery';
 import { contactDb } from '../../lib/contact-db';
+import { turnstileEnabled, verifyTurnstile, type TurnstileEnv } from '../../lib/turnstile';
 
-const STATUS: Record<string, number> = { simulada: 200, 'simulada-guardada': 200, enviada: 200, recibida: 202, invalida: 400, origen: 403, grande: 413, tipo: 415, limite: 429, tope: 429, 'sin-proveedor': 503, fallo: 502, tiempo: 504 };
+const STATUS: Record<string, number> = { simulada: 200, 'simulada-guardada': 200, enviada: 200, recibida: 202, invalida: 400, origen: 403, verificacion: 403, grande: 413, tipo: 415, limite: 429, tope: 429, 'sin-proveedor': 503, fallo: 502, tiempo: 504 };
 const ACCEPTED = new Set(['simulada', 'simulada-guardada', 'enviada', 'recibida']);
 
 // Límite por cliente: binding de Workers Rate Limiting si existe; si no, contador en memoria del isolate.
@@ -75,8 +76,11 @@ export const POST: APIRoute = async ({ request }) => {
   if (declared > MAX_BODY_BYTES) return respond('grande');
   const raw = await readBody(request);
   if (raw === 'grande' || raw === 'invalida') return respond(raw);
-  const input = parseContact(new URLSearchParams(raw));
+  const fields = new URLSearchParams(raw);
+  const input = parseContact(fields);
   if (!input) return respond('invalida');
+  const bot = env as TurnstileEnv;
+  if (turnstileEnabled(bot) && !(await verifyTurnstile(bot, fields.get('cf-turnstile-response'), request.headers.get('cf-connecting-ip')))) return respond('verificacion');
 
   // El destinatario sale solo del fact aprobado; el cliente no puede elegirlo.
   const to = approvedFact('contact.form_recipient_email')?.value;

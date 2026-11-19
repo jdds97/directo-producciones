@@ -89,7 +89,10 @@
         "ACCESS_TEAM_DOMAIN": "directo-producciones.cloudflareaccess.com",
         "ACCESS_AUD": "94bf11be78fd3cb8a47867e12af177b54708cee3325fbb49fea157ac9b503279",
         "CONTACT_FROM": "formulario@avisos.directoproducciones.com",
-        "CONTACT_PERSISTENCE": "off"
+        "CONTACT_PERSISTENCE": "off",
+        // Cloudflare Turnstile del formulario (sitekey pública; el secreto TURNSTILE_SECRET es un secreto del Worker). Sin sitekey no se exige.
+        "TURNSTILE_SITEKEY": "0x4AAAAAAGItEjut5rL2qH-k",
+        "TURNSTILE_HOSTNAMES": "directo-producciones-preview.directo-producciones.workers.dev"
       },
       // Cron horario (como producción): la publicación programada está cancelada por la política editorial (content:beforeSchedule);
       // queda limpieza de EmDash y, con CONTACT_PERSISTENCE=on, reintentos de consultas.
@@ -153,7 +156,10 @@
         "ACCESS_TEAM_DOMAIN": "",
         "ACCESS_AUD": "",
         "CONTACT_FROM": "formulario@avisos.directoproducciones.com",
-        "CONTACT_PERSISTENCE": "off"
+        "CONTACT_PERSISTENCE": "off",
+        // Turnstile: mismo widget que la preview; TURNSTILE_SECRET se pone como secreto al crear el Worker (sin él, el formulario rechaza todo).
+        "TURNSTILE_SITEKEY": "0x4AAAAAAGItEjut5rL2qH-k",
+        "TURNSTILE_HOSTNAMES": "directoproducciones.com"
       },
       // Horario (antes */5): cada ejecución arranca EmDash (~90 ms de CPU medidos en preview, por encima de los 10 ms del plan Free) y hoy
       // solo limpia (retos, tokens, subidas huérfanas): la publicación programada está cancelada por la política editorial y

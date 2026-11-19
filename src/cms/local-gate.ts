@@ -78,6 +78,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
   response.headers.set('Referrer-Policy', 'no-referrer');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   // CSP del sitio también en el blog; el panel y los medios llevan la suya (EmDash).
-  if (!panel) response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'${developmentConnections ? ` ${developmentConnections}` : ''}; frame-src 'none'; form-action ${formPages.has(url.pathname) ? "'self'" : "'none'"}; base-uri 'none'; object-src 'none'`);
+  // Turnstile (api.js y su iframe) solo en las páginas con formulario.
+  const turnstile = formPages.has(url.pathname) ? 'https://challenges.cloudflare.com' : '';
+  if (!panel) response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self'${turnstile ? ` ${turnstile}` : ''}; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'${developmentConnections ? ` ${developmentConnections}` : ''}; frame-src ${turnstile || "'none'"}; form-action ${formPages.has(url.pathname) ? "'self'" : "'none'"}; base-uri 'none'; object-src 'none'`);
   return response;
 });

@@ -1,5 +1,7 @@
 ---
+import { env } from "cloudflare:workers";
 import { approvedFact } from "../../lib/facts";
+import { TURNSTILE_ACTION, type TurnstileEnv } from "../../lib/turnstile";
 import { pageCopy } from "../../lib/site-content";
 import { RESULT_MESSAGES, SERVICES } from "../../lib/contact-mail";
 import { APP_ENV } from "../../config/flags";
@@ -13,6 +15,8 @@ const code = Astro.url.searchParams.get("consulta") ?? "";
 // Producción nunca simula el envío: un ?consulta=simulada escrito a mano no pinta el aviso de revisión.
 const result = APP_ENV === "production" && code.startsWith("simulada") ? "" : RESULT_MESSAGES[code] ?? "";
 const resultOk = ["simulada", "simulada-guardada", "enviada", "recibida"].includes(code);
+// Turnstile: la sitekey es pública; sin ella (local por defecto) el formulario no pinta el widget ni el servidor lo exige.
+const sitekey = ((env as TurnstileEnv).TURNSTILE_SITEKEY ?? "").trim();
 ---
 
 <form
@@ -54,8 +58,13 @@ const resultOk = ["simulada", "simulada-guardada", "enviada", "recibida"].includ
   </div>
 
   <p id="contact-form-privacy" class="contact-form-privacy">
-    Al enviar, esta web transmite tu nombre, tu correo, el servicio y el mensaje a su servidor para dirigir la consulta a <strong>{recipient?.value}</strong>; tu correo se usa como dirección de respuesta. La web no guarda estos datos ni abre WhatsApp. Consulta la <a href="/privacidad/">política de privacidad</a>.
+    Al enviar, esta web transmite tu nombre, tu correo, el servicio y el mensaje a su servidor para dirigir la consulta a <strong>{recipient?.value}</strong>; tu correo se usa como dirección de respuesta.{sitekey && " Cloudflare Turnstile comprueba que el envío no es automático."} La web no guarda estos datos ni abre WhatsApp. Consulta la <a href="/privacidad/">política de privacidad</a>.
   </p>
+  {sitekey && (
+    <div class="contact-form-turnstile" data-turnstile-sitekey={sitekey} data-turnstile-action={TURNSTILE_ACTION}>
+      <noscript><p class="contact-form-privacy">La verificación antiabuso del formulario necesita JavaScript. Si no puedes activarlo, escríbenos por WhatsApp.</p></noscript>
+    </div>
+  )}
   <ReviewNote><p class="contact-form-local-note">{APP_ENV === "local" ? "Revisión local" : "Vista previa privada"}: en este entorno el envío se simula y no se entrega ningún correo real, salvo durante una prueba de entrega autorizada por el propietario (solo llega al buzón de la empresa).</p></ReviewNote>
   <button class="button primary contact-form-submit" type="submit">
     Enviar consulta

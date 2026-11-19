@@ -1,9 +1,39 @@
 import { RESULT_MESSAGES as MESSAGES } from "../lib/contact-mail";
 
+// Turnstile (si el formulario trae sitekey): api.js se carga solo cuando el formulario se acerca a la pantalla o recibe el foco,
+// para no penalizar la carga de Inicio. Render explícito: la página sigue viva tras enviar y el token es de un solo uso (reset).
+type Turnstile = { render(el: HTMLElement, options: Record<string, unknown>): string; reset(id: string): void; getResponse(id: string): string | undefined };
+const tsWindow = window as Window & { turnstile?: Turnstile; dpTurnstileReady?: () => void };
+let turnstileLoad: Promise<Turnstile> | undefined;
+const loadTurnstile = () => (turnstileLoad ??= new Promise<Turnstile>((resolve, reject) => {
+  tsWindow.dpTurnstileReady = () => resolve(tsWindow.turnstile!);
+  const script = document.createElement("script");
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=dpTurnstileReady";
+  script.async = true;
+  script.onerror = () => { turnstileLoad = undefined; script.remove(); reject(new Error("turnstile")); };
+  document.head.append(script);
+}));
+
 const forms = document.querySelectorAll<HTMLFormElement>("form[data-contact-form]");
 for (const form of forms) {
   const status = form.querySelector<HTMLElement>("[role='status']")!;
   const submit = form.querySelector<HTMLButtonElement>("button[type='submit']")!;
+  const box = form.querySelector<HTMLElement>("[data-turnstile-sitekey]");
+  let widgetId: string | undefined;
+  if (box) {
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      observer.disconnect();
+      loadTurnstile()
+        .then((turnstile) => { widgetId = turnstile.render(box, { sitekey: box.dataset.turnstileSitekey, action: box.dataset.turnstileAction, theme: "light", size: "flexible" }); })
+        .catch(() => { started = false; }); // se reintenta en el siguiente foco
+    };
+    const observer = new IntersectionObserver((entries) => { if (entries.some((entry) => entry.isIntersecting)) start(); }, { rootMargin: "600px 0px" });
+    observer.observe(form);
+    form.addEventListener("focusin", start);
+  }
   const show = (text: string, state: "ok" | "error") => {
     status.textContent = text;
     status.dataset.state = state;
@@ -27,6 +57,10 @@ for (const form of forms) {
     if (!form.reportValidity()) {
       show("Completa tu nombre, un correo válido y el mensaje sobre tu proyecto.", "error");
       (form.querySelector(":invalid") as HTMLElement | null)?.focus();
+      return;
+    }
+    if (box && !(widgetId !== undefined && tsWindow.turnstile?.getResponse(widgetId))) {
+      show("Espera a que termine la verificación antiabuso, encima del botón, y vuelve a enviar.", "error");
       return;
     }
 
@@ -53,6 +87,7 @@ for (const form of forms) {
       // Sin reintento automático: no hay confirmación y reenviar podría duplicar la consulta.
       show(MESSAGES.tiempo, "error");
     } finally {
+      if (widgetId !== undefined) tsWindow.turnstile?.reset(widgetId); // el token ya se ha gastado, haya ido bien o mal
       submit.removeAttribute("aria-disabled");
       form.removeAttribute("aria-busy");
     }
