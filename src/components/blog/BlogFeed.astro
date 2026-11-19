@@ -1,0 +1,23 @@
+---
+import type { ContentEntry } from 'emdash';
+import { blogPostHref, blogPublishedAt, type BlogPost } from '../../lib/blog';
+import BlogMeta from './BlogMeta.astro';
+import BlogTerms from './BlogTerms.astro';
+import BlogVisual from './BlogVisual.astro';
+const { entries, filterable = false, activeSlug, leadId } = Astro.props as { entries: ContentEntry<BlogPost>[]; filterable?: boolean; activeSlug?: string; leadId?: string };
+// Visible en el HTML del servidor: con un filtro, solo su categoría; en «Todas», todo salvo la entrada de portada, que ya se ve arriba.
+const visible = (post: ContentEntry<BlogPost>) => activeSlug ? (post.data.terms?.category ?? []).some(term => term.slug === activeSlug) : post.id !== leadId;
+---
+<div class="journal-feed">
+  {entries.map(post => <article class:list={['journal-row', { 'journal-row--image': Boolean(post.data.featured_image) }]}
+    {...(filterable ? { 'data-blog-card': '', 'data-categories': (post.data.terms?.category ?? []).map(term => term.slug).join(' '), 'data-blog-lead-card': post.id === leadId ? '' : undefined, hidden: !visible(post) } : {})}>
+    <BlogMeta post={post.data} publishedAt={blogPublishedAt(post)} />
+    <div class="journal-row__copy">
+      <BlogTerms terms={post.data.terms} />
+      <h3><a href={blogPostHref(post.id)}>{post.data.title}</a></h3>
+      {post.data.excerpt && <p>{post.data.excerpt}</p>}
+      <a class="journal-link" href={blogPostHref(post.id)}>Leer entrada<span class="sr-only">: {post.data.title}</span><svg class="icon arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></a>
+    </div>
+    {post.data.featured_image && <a class="journal-row__image" href={blogPostHref(post.id)} aria-label={`Leer ${post.data.title}`}><BlogVisual image={post.data.featured_image} imageAlt={post.data.image_alt} /></a>}
+  </article>)}
+</div>

@@ -2,5 +2,8 @@
 export const prerender = false;
 import Base from "../layouts/Base.astro";
 import Home from "../components/m4/Home.astro";
+import { pageSeo, homeVideoMeta } from "../lib/site-content";
+const seo = await pageSeo("page_home");
+const videos = await homeVideoMeta();
 ---
-<Base title="Inicio"><Home /></Base>
+<Base title={seo.title} description={seo.description} transparentHeader homeExperience videos={videos}><Home /></Base>

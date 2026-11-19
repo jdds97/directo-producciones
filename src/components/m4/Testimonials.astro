@@ -1,7 +1,92 @@
 ---
-import { draftCopy } from "../../lib/m4-draft";
-
-const copy = draftCopy("Testimonials");
-
 ---
-<section class="testimonials section pad" id="testimonios"><p class="eyebrow">{copy["t001"]}</p><h2>{copy["t002"]}<br />{copy["t003"]}</h2><div class="testimonials-grid"><figure class="testimonial"><blockquote>{copy["t004"]}</blockquote><figcaption><span class="testimonial-avatar avatar-rafael"><img src="/assets/m4/portraits/rafael_gonzalez.jpg" alt={copy["t005"]} /></span><div><p class="person-name">{copy["t006"]}</p><p class="person-role">{copy["t007"]}</p></div></figcaption></figure><figure class="testimonial"><blockquote>{copy["t008"]}</blockquote><figcaption><span class="testimonial-avatar avatar-jose"><img src="/assets/m4/portraits/jose_luis_contreras.jpg" alt={copy["t009"]} /></span><div><p class="person-name">{copy["t010"]}</p><p class="person-role">{copy["t011"]}</p></div></figcaption></figure></div></section>
+
+<section
+  class="home-testimonials"
+  id="testimonios"
+  data-home-testimonials
+  aria-labelledby="home-testimonials-title"
+>
+  <header class="home-testimonials-heading">
+    <div>
+      <p class="home-eyebrow"><span aria-hidden="true">04 / </span>EN SUS PALABRAS</p>
+      <h2 id="home-testimonials-title" data-home-reveal>TESTIMONIOS</h2>
+    </div>
+    <div class="home-testimonials-aside">
+      <span>Lo que dicen quienes confían en nosotros</span>
+      <svg class="home-testimonials-arrow" aria-hidden="true" viewBox="0 0 24 40">
+        <path d="M12 2v32m-8-8 8 8 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </header>
+
+  <div class="home-quote-stage">
+    <svg class="home-quote-symbol" aria-hidden="true" viewBox="0 0 96 72">
+      <path d="M4 38c0-17 10-29 30-34l5 10c-10 4-16 9-18 17h18v34H4V38zm44 0c0-17 10-29 30-34l5 10c-10 4-16 9-18 17h18v34H48V38z" fill="currentColor" />
+    </svg>
+    <div class="home-quote-list">
+    <figure class="home-quote" id="home-quote-rafael" data-home-quote>
+      <blockquote>
+        «En La Puebla del Río hemos cambiado el concepto de comunicación gracias a las retransmisiones de Directo
+        Producciones. La creación de nuestra televisión online es un paso hacia el futuro.»
+      </blockquote>
+      <figcaption>
+        <img src="/assets/m4/portraits/rafael_gonzalez.jpg" alt="Rafael González" width="80" height="96" loading="lazy" />
+        <span>
+          <strong>Rafael González</strong>
+          <span>Jefe de Comunicación del Ayto. de la Puebla del Río</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="home-quote" id="home-quote-jose" data-home-quote>
+      <blockquote>
+        «Llevamos en la Hermandad de San Pablo confiando en ellos para retransmitir nuestra Estación de Penitencia y cada
+        año mejor que el anterior.»
+      </blockquote>
+      <figcaption>
+        <img
+          src="/assets/m4/portraits/jose_luis_contreras.jpg"
+          alt="José Luis Contreras"
+          width="80"
+          height="96"
+          loading="lazy"
+        />
+        <span>
+          <strong>José Luis Contreras</strong>
+          <span>Comunicación de la Hermandad de San Pablo (Sevilla)</span>
+        </span>
+      </figcaption>
+    </figure>
+    </div>
+  </div>
+
+  <nav class="home-quote-controls" aria-label="Elegir testimonio" hidden>
+    <button
+      type="button"
+      data-home-quote-control
+      aria-controls="home-quote-rafael"
+      aria-label="Mostrar testimonio de Rafael González"
+      aria-pressed="false"
+    >
+      <img src="/assets/m4/portraits/rafael_gonzalez.jpg" alt="" width="80" height="96" loading="lazy" />
+      <span class="home-quote-control-copy">
+        <strong>Rafael González</strong>
+        <span>Jefe de Comunicación del Ayto. de la Puebla del Río</span>
+      </span>
+    </button>
+    <button
+      type="button"
+      data-home-quote-control
+      aria-controls="home-quote-jose"
+      aria-label="Mostrar testimonio de José Luis Contreras"
+      aria-pressed="false"
+    >
+      <img src="/assets/m4/portraits/jose_luis_contreras.jpg" alt="" width="80" height="96" loading="lazy" />
+      <span class="home-quote-control-copy">
+        <strong>José Luis Contreras</strong>
+        <span>Comunicación de la Hermandad de San Pablo (Sevilla)</span>
+      </span>
+    </button>
+  </nav>
+</section>

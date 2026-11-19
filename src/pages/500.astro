@@ -1,0 +1,24 @@
+---
+export const prerender = false;
+// Misma plantilla que el 404, pero sin Base: la cabecera, el menú y el pie leen el CMS (D1), que puede ser la causa del fallo.
+// Solo código y estilos; ni contenido editable ni hechos.
+import ErrorPage from "../components/m4/ErrorPage.astro";
+import "../styles/m4-base.css";
+import "../styles/m4-suite.css";
+import "../styles/m4-refinements.css";
+import "../styles/site.css";
+Astro.response.status = 500;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Error del servidor · Directo Producciones</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body><div id="contenido"><ErrorPage code={500} /></div></body>
+</html>

@@ -1,7 +1,65 @@
 ---
-import { draftCopy } from "../../lib/m4-draft";
+import { getBandLogos, pageImages, pageVideo } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
 
-const copy = draftCopy("ClientBand");
+const photo = await pageImages("site_blocks");
+// Vídeo de fondo editable (subido al panel o el del sitio) con su versión móvil opcional.
+const band = await pageVideo("site_blocks", "banda_video", "banda_video_movil");
 
+const clients = await getBandLogos();
+// Clase de tratamiento (solo CSS) de cada logotipo según la variante elegida en el panel.
+const variantClass: Record<string, string[]> = {
+  catedral: ["home-client-logo--catedral"], monocromo: ["home-client-logo--monochrome"],
+  escudo_monocromo: ["home-client-logo--monochrome", "home-client-logo--crest"], escudo_recorte: ["home-client-logo--crest", "home-client-logo--white-cutout"],
+};
 ---
-<section class="trust pad" id="colaboraciones"><div class="trust-caption"><h2>{copy["t001"]}</h2><p>{copy["t002"]}</p></div><div class="logo-grid"><div class="logo-cell"><img src="/assets/m4/logos/junta_andalucia.png" alt={copy["t003"]} style="width:120px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/puebla_del_rio.png" alt={copy["t004"]} style="width:64px;height:72px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/turismo_sevilla.jpg" alt={copy["t005"]} style="width:152px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/hermandad_matriz.png" alt={copy["t006"]} style="width:128px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/remax.png" alt={copy["t007"]} style="width:64px;height:80px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/dos_hermanas.png" alt={copy["t008"]} style="width:120px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/hermandad_macarena.png" alt={copy["t009"]} style="width:128px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/seat-official.jpg" alt={copy["t010"]} style="width:112px;height:72px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/tixe.png" alt={copy["t011"]} style="width:112px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/voley_esquimo.jpg" alt={copy["t012"]} style="width:112px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/consejo_hermandades.jpg" alt={copy["t013"]} style="width:112px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/rfaf.png" alt={copy["t014"]} style="width:112px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/rinconada.jpg" alt={copy["t015"]} style="width:112px;height:64px" loading="eager" /></div><div class="logo-cell logo-dark"><img src="/assets/m4/logos/hotel_motilla.svg" alt={copy["t016"]} style="width:128px;height:64px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/canal-sur.jpg" alt={copy["t017"]} style="width:128px;height:72px" loading="eager" /></div><div class="logo-cell"><img src="/assets/m4/logos/hospital_san_agustin.png" alt={copy["t018"]} style="width:136px;height:64px" loading="eager" /></div></div></section>
+
+<section class="home-clients" id="colaboraciones" aria-labelledby="home-clients-title">
+  <div class="home-client-media" id="home-client-media" data-home-client-media>
+    <video
+      id="home-clients-video"
+      data-home-video
+      data-home-video-src={band.src}
+      data-home-video-mobile-src={band.mobileSrc}
+      poster={photo.banda_poster.src}
+      muted
+      playsinline
+      loop
+      preload="none"
+      aria-hidden="true"
+    ></video>
+    <div class="home-clients-shade" aria-hidden="true"></div>
+  </div>
+
+  <div class="home-clients-content">
+    <header class="home-clients-heading">
+      <div>
+        <p class="home-eyebrow"><span aria-hidden="true">05 / </span>Colaboraciones</p>
+        <h2 id="home-clients-title" data-home-reveal>Clientes</h2>
+        <p>Medios, instituciones y marcas.</p>
+      </div>
+      <button
+        class="home-media-toggle home-clients-toggle"
+        type="button"
+        data-home-video-toggle
+        aria-controls="home-client-media"
+        aria-pressed="false"
+        aria-label="Pausar o reproducir el vídeo de fondo"
+        hidden
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M9 5v14m6-14v14"></path>
+        </svg>
+      </button>
+    </header>
+
+    <ul class="home-client-grid" aria-label="Clientes y colaboradores">
+      {clients.map((client) => (
+        <li data-service-reveal="stagger">
+          <img class:list={["home-client-logo", ...(variantClass[client.variant] ?? [])]} {...imgAttrs(client.logo)} />
+          {client.variant === 'con_nombre' && <span class="home-client-name">{client.name}</span>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -2,5 +2,7 @@
 export const prerender = false;
 import Base from "../../../layouts/Base.astro";
 import BlogListing from "../../../components/blog/BlogListing.astro";
+import { getBlogLanding } from '../../../lib/blog-feed';
+const data = await getBlogLanding();
 ---
-<Base title="Blog"><BlogListing /></Base>
+<Base title="Blog"><BlogListing data={data} /></Base>

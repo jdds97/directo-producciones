@@ -1,6 +1,9 @@
 ---
 export const prerender = false;
 import Base from "../../layouts/Base.astro";
-import BlogListing from "../../components/blog/BlogListing.astro";
+import BlogListing from "../../components/blog/BlogLanding.astro";
+import { getBlogLanding } from '../../lib/blog-feed';
+// Todas las entradas en una sola página; ?cursor= de enlaces antiguos se ignora (canonical siempre /blog/).
+const data = await getBlogLanding();
 ---
-<Base title="Blog"><BlogListing /></Base>
+<Base><BlogListing data={data} /></Base>

@@ -1,20 +1,29 @@
-export type SitePage = 'inicio' | 'quienes-somos' | 'portfolio' | 'comunicacion' | 'produccion' | 'contacto' | 'blog';
+export type SitePage = 'inicio' | 'quienes-somos' | 'portfolio' | 'servicios' | 'comunicacion' | 'produccion' | 'contacto' | 'blog';
 export interface SiteLink { key: SitePage; label: string; href: string; relatedPaths?: string[] }
 
-// Contrato M3: destinos provisionales de preview. No fija slugs ni redirects de producción.
+// La navegación normal usa las rutas públicas que ya sirven las páginas M4.
+// Las rutas /interno/m3/ se conservan para revisión, fuera del menú del sitio.
 export const siteLinks: SiteLink[] = [
-  { key: 'inicio', label: 'Inicio', href: '/interno/m3/inicio/', relatedPaths: ['/'] },
-  { key: 'quienes-somos', label: 'Quiénes somos', href: '/interno/m3/quienes-somos/', relatedPaths: ['/quienes-somos/'] },
-  { key: 'portfolio', label: 'Portfolio', href: '/interno/m3/portfolio/' },
-  { key: 'comunicacion', label: 'Comunicación', href: '/interno/m3/comunicacion/', relatedPaths: ['/comunicacion-marketing/'] },
-  { key: 'produccion', label: 'Producción', href: '/interno/m3/produccion/', relatedPaths: ['/streaming/'] },
-  { key: 'contacto', label: 'Contacto', href: '/interno/m3/contacto/', relatedPaths: ['/contacto/'] },
-  { key: 'blog', label: 'Blog', href: '/interno/m3/blog/', relatedPaths: ['/blog/'] },
+  { key: 'inicio', label: 'Inicio', href: '/', relatedPaths: ['/interno/m3/inicio/'] },
+  { key: 'quienes-somos', label: 'Quiénes somos', href: '/quienes-somos/', relatedPaths: ['/interno/m3/quienes-somos/'] },
+  { key: 'portfolio', label: 'Portfolio', href: '/portfolio/', relatedPaths: ['/interno/m3/portfolio/'] },
+  { key: 'servicios', label: 'Servicios', href: '/servicios/' },
+  { key: 'comunicacion', label: 'Comunicación', href: '/comunicacion-marketing/', relatedPaths: ['/interno/m3/comunicacion/'] },
+  { key: 'produccion', label: 'Producción', href: '/streaming/', relatedPaths: ['/interno/m3/produccion/'] },
+  { key: 'contacto', label: 'Contacto', href: '/contacto/', relatedPaths: ['/interno/m3/contacto/'] },
+  { key: 'blog', label: 'Blog', href: '/blog/', relatedPaths: ['/interno/m3/blog/'] },
 ];
+
+const link = (key: SitePage) => siteLinks.find(item => item.key === key)!;
+export const navigationItems = siteLinks.filter(item => item.key !== 'servicios');
+
 export function pageHref(key: SitePage): string {
-  return siteLinks.find(link => link.key === key)!.href;
+  return link(key).href;
 }
-export function isCurrentPage(pathname: string, link: SiteLink) {
-  return pathname === link.href || pathname.startsWith(link.href) ||
-    Boolean(link.relatedPaths?.some(path => pathname === path || (path !== '/' && pathname.startsWith(path))));
+
+export function isCurrentPage(pathname: string, item: SiteLink) {
+  const matches = (path: string) => path === '/'
+    ? pathname === '/'
+    : pathname === path || pathname.startsWith(path);
+  return matches(item.href) || Boolean(item.relatedPaths?.some(matches));
 }

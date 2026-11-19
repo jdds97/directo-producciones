@@ -1,0 +1,6 @@
+---
+import { blogHeadingId } from '../../lib/blog';
+const { node, index: _index, isInline: _isInline, ...attrs } = Astro.props as { node: { style: 'h2' | 'h3' }; index?: number; isInline?: boolean };
+const Tag = node.style;
+---
+<Tag id={blogHeadingId(node) || undefined} {...attrs}><slot /></Tag>

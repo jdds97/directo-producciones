@@ -2,5 +2,7 @@
 export const prerender = false;
 import Base from "../layouts/Base.astro";
 import Cookies from "../components/m4/Cookies.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("legal_cookies");
 ---
-<Base title="Cookies · borrador legal"><Cookies /></Base>
+<Base title={seo.title} description={seo.description}><Cookies /></Base>

@@ -2,5 +2,7 @@
 export const prerender = false;
 import Base from "../layouts/Base.astro";
 import CommunicationLine from "../components/m4/CommunicationLine.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_comunicacion");
 ---
-<Base title="Comunicación y marketing"><CommunicationLine /></Base>
+<Base title={seo.title} description={seo.description}><CommunicationLine /></Base>

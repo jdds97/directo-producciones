@@ -2,5 +2,7 @@
 export const prerender = false;
 import Base from "../layouts/Base.astro";
 import StreamingLine from "../components/m4/StreamingLine.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_produccion");
 ---
-<Base title="Streaming"><StreamingLine /></Base>
+<Base title={seo.title} description={seo.description}><StreamingLine /></Base>

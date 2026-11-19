@@ -1,0 +1,126 @@
+---
+import { pageHref } from "../../lib/site-navigation";
+
+interface Props { context?: "portfolio" | "about" | "services" }
+const { context = "portfolio" } = Astro.props;
+const sectionLabel = context === "about" ? "Comunicación y marketing" : "Muestras de formato";
+const title = context === "about" ? "También damos forma a lo que cuentas." : "Comunicación en distintos formatos.";
+---
+
+<section class:list={["communication-showcase", `communication-showcase--${context}`]} aria-labelledby={`communication-showcase-title-${context}`}>
+  <div class="communication-showcase__intro">
+    <p class="eyebrow">{sectionLabel}</p>
+    <h2 id={`communication-showcase-title-${context}`}>{title}</h2>
+    <p>Una idea puede tomar forma en prensa, redes, contenidos digitales y campañas. Estas composiciones muestran distintos formatos, sin atribuirlas a un cliente o encargo concreto.</p>
+    <a class="text-link" href={pageHref("comunicacion")}>
+      Ver comunicación y marketing
+      <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+    </a>
+  </div>
+
+  <div class="communication-showcase__grid">
+    <article class="communication-sample communication-sample--press" data-fact-id="service.communication">
+      <div class="communication-sample__art" role="img" aria-label="Muestra gráfica de comunicación institucional">
+        <span class="communication-sample__eyebrow">INFORMACIÓN / CONTEXTO</span>
+        <strong>Una voz<br />clara.</strong>
+        <span class="communication-sample__rule"></span>
+        <span class="communication-sample__footer">PRENSA E INSTITUCIONAL</span>
+      </div>
+      <h3>Comunicación institucional</h3>
+      <p>Mensajes y materiales para presentar una iniciativa con claridad.</p>
+    </article>
+
+    <article class="communication-sample communication-sample--social" data-fact-id="service.digital_marketing">
+      <div class="communication-sample__art" role="img" aria-label="Muestra gráfica de contenido para redes sociales">
+        <span class="communication-sample__eyebrow">CONTENIDO / CANALES</span>
+        <strong>La idea<br />en movimiento.</strong>
+        <div class="communication-sample__frames"><i></i><i></i><i></i></div>
+        <span class="communication-sample__footer">REDES Y CONTENIDOS</span>
+      </div>
+      <h3>Redes y contenidos</h3>
+      <p>Piezas editoriales adaptadas a los canales digitales de cada proyecto.</p>
+    </article>
+
+    <article class="communication-sample communication-sample--digital" data-fact-id="service.digital_marketing">
+      <div class="communication-sample__art" role="img" aria-label="Muestra gráfica de presencia digital">
+        <span class="communication-sample__eyebrow">WEB / SEO / SEM</span>
+        <strong>Más cerca<br />de tu público.</strong>
+        <span class="communication-sample__orbit communication-sample__orbit--one"></span>
+        <span class="communication-sample__orbit communication-sample__orbit--two"></span>
+        <span class="communication-sample__footer">PRESENCIA DIGITAL</span>
+      </div>
+      <h3>Presencia digital</h3>
+      <p>Diseño web, posicionamiento orgánico y campañas en buscadores.</p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .communication-showcase {
+    display: grid;
+    grid-template-columns: minmax(230px, .65fr) minmax(0, 1.35fr);
+    gap: clamp(32px, 6vw, 80px);
+    padding: clamp(64px, 8vw, 112px) clamp(24px, 5vw, 64px);
+    color: var(--text);
+    background: var(--white);
+  }
+  .communication-showcase__intro { position: sticky; top: 40px; align-self: start; }
+  .communication-showcase__intro .eyebrow { margin-bottom: 20px; color: var(--main); }
+  .communication-showcase__intro h2 { max-width: 13ch; font-size: var(--m4-section-title-size); text-wrap: balance; }
+  .communication-showcase__intro > p:not(.eyebrow) { max-width: 38ch; margin-top: 20px; color: var(--secondary); font-size: 17px; }
+  .communication-showcase__intro .text-link { margin-top: 18px; }
+  .communication-showcase__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .communication-sample { min-width: 0; }
+  .communication-sample:nth-child(3) { grid-column: 1 / -1; }
+  .communication-sample__art {
+    position: relative;
+    display: flex;
+    min-height: clamp(250px, 28vw, 360px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    padding: clamp(20px, 3vw, 32px);
+    overflow: hidden;
+    color: #fff;
+    background: #164e63;
+    isolation: isolate;
+  }
+  .communication-sample__art::before,
+  .communication-sample__art::after { position: absolute; z-index: -1; border: 1px solid currentColor; content: ""; opacity: .22; }
+  .communication-sample__art::before { inset: 14px; }
+  .communication-sample__art::after { width: 150px; height: 150px; right: -45px; bottom: -55px; border-width: 20px; border-radius: 50%; }
+  .communication-sample__eyebrow,
+  .communication-sample__footer { font-size: 10px; font-weight: 800; letter-spacing: .13em; line-height: 1.4; }
+  .communication-sample__art strong { max-width: 10ch; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -.06em; line-height: .98; text-transform: uppercase; }
+  .communication-sample__rule { width: 56px; height: 4px; background: #ff936d; }
+  .communication-sample__footer { align-self: flex-end; text-align: right; }
+  .communication-sample--social .communication-sample__art { color: #172b34; background: #d8edf2; }
+  .communication-sample--social .communication-sample__art::after { border-color: #ed6e43; }
+  .communication-sample__frames { display: flex; width: 100%; gap: 8px; }
+  .communication-sample__frames i { flex: 1; height: 24px; border: 1px solid #164e63; background: linear-gradient(135deg, transparent 45%, #164e63 46% 54%, transparent 55%); }
+  .communication-sample__frames i:nth-child(2) { flex: 1.5; background: linear-gradient(45deg, transparent 45%, #ed6e43 46% 54%, transparent 55%); }
+  .communication-sample--digital .communication-sample__art { background: #ed6e43; }
+  .communication-sample--digital .communication-sample__art::after { display: none; }
+  .communication-sample__orbit { position: absolute; z-index: -1; right: 8%; border: 1px solid #fff; border-radius: 50%; opacity: .45; }
+  .communication-sample__orbit--one { top: 16%; width: 220px; height: 220px; }
+  .communication-sample__orbit--two { top: 30%; right: 18%; width: 120px; height: 120px; }
+  .communication-sample h3 { margin-top: 14px; font-size: 22px; letter-spacing: -.025em; }
+  .communication-sample p { margin-top: 6px; color: var(--secondary); font-size: 15px; line-height: 1.5; }
+  .communication-showcase--about { background: #f4f8fa; }
+  .communication-showcase--services { padding-top: 32px; }
+  @media (max-width: 900px) {
+    .communication-showcase { grid-template-columns: 1fr; }
+    .communication-showcase__intro { position: static; }
+    .communication-showcase__intro h2 { max-width: 18ch; }
+    .communication-showcase__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .communication-sample:nth-child(3) { grid-column: auto; }
+    .communication-sample__art { min-height: 270px; }
+  }
+  @media (max-width: 700px) {
+    .communication-showcase { gap: 28px; padding: 64px 24px; }
+    .communication-showcase__grid { grid-template-columns: 1fr; gap: 24px; }
+    .communication-sample__art { min-height: 300px; }
+    .communication-sample__art strong { font-size: clamp(36px, 10vw, 52px); }
+  }
+</style>

@@ -1,0 +1,70 @@
+/* Movimiento entre páginas y entre secciones. Todo vive bajo prefers-reduced-motion: no-preference; sin soporte
+   (Firefox, Safari anteriores) o con movimiento reducido la navegación es la convencional y el contenido está completo. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Navegación multipágina nativa (Chromium 126+). Sin router: los enlaces, Atrás/Adelante, anclas, foco y formularios
+     funcionan igual; solo cambia cómo se pinta el cambio de documento. */
+  @view-transition { navigation: auto; }
+
+  /* Cabecera y acceso de WhatsApp permanecen: el navegador solo funde sus dos estados. */
+  .header { view-transition-name: m4-header; }
+  .whatsapp-access { view-transition-name: m4-whatsapp; }
+  ::view-transition-group(m4-header), ::view-transition-group(m4-whatsapp) { animation-duration: 240ms; }
+
+  /* «Encuadre»: la página saliente se apaga rápido; la entrante se abre como un visor (recorte → pantalla completa). */
+  ::view-transition-old(root) { animation: m4-page-out 180ms cubic-bezier(.4, 0, 1, 1) both; }
+  ::view-transition-new(root) { animation: m4-page-in 440ms cubic-bezier(.2, .8, .2, 1) 60ms both; }
+  :root:active-view-transition-type(back)::view-transition-new(root) { animation-name: m4-page-in-back; }
+  :root:active-view-transition-type(back)::view-transition-old(root) { animation-name: m4-page-out-back; }
+}
+@keyframes m4-page-out { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes m4-page-out-back { to { opacity: 0; transform: translateY(8px); } }
+@keyframes m4-page-in { from { opacity: 0; transform: translateY(14px); clip-path: inset(16px 16px 0 16px); } }
+@keyframes m4-page-in-back { from { opacity: 0; transform: translateY(-14px); clip-path: inset(0 16px 16px 16px); } }
+
+/* --- Entre secciones: estados ligados a --sp / --hp, escritos por section-motion.ts --- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Bloques: cada pieza sube según el avance real de su sección; con --i se escalona. Solo los medios se desvanecen:
+     el texto entra con su contraste completo (con opacidad parcial bajaría del 4,5:1 mientras entra). */
+  html[data-m-ready] [data-m-item] {
+    --q: clamp(0, calc((var(--sp, 1) - var(--i, 0) * .08) * 2.2), 1);
+    translate: 0 calc((1 - var(--q)) * 28px);
+  }
+  html[data-m-ready] [data-m-item]:is(figure, picture, img, video):not(:has(figcaption)) { opacity: var(--q); }
+  /* Portada → contenido: el texto de la portada se despega al bajar (reversible); la foto y el fondo no se mueven. */
+  html[data-m-ready] [data-m="hero"] [data-m-hero] {
+    translate: 0 calc(var(--sp, 0) * -28px);
+    opacity: calc(1 - var(--sp, 0) * .4);
+  }
+  /* Contenido → cierre: el panel oscuro se abre como un encuadre hasta ocupar todo el ancho. */
+  html[data-m-ready] [data-m="cta"] {
+    --f: calc(1 - var(--sp, 1));
+    clip-path: inset(calc(var(--f) * 56px) calc(var(--f) * 28px) 0 calc(var(--f) * 28px));
+  }
+}
+
+/* --- Uniones de diseño (independientes del movimiento) --- */
+/* Contacto: el formulario y las vías de contacto ya no nacen pegadas al borde inferior de la portada. */
+main .contact-layout { padding-top: 72px; }
+@media (max-width: 767px) { main .contact-layout { padding-top: 48px; } }
+
+/* Revelado de ida y vuelta (services-experience.ts sobre [data-services-experience] e Inicio): los grupos entran al
+   aparecer y se rearman al salir, en ambos sentidos del recorrido.
+   Las transiciones se invierten desde su punto actual; el foco dentro de un grupo lo deja visible. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-services-ready] :is([data-service-reveal=""], [data-service-reveal="stagger"] > *, [data-service-reveal="photo"] > img) {
+    transition: opacity 560ms ease-out var(--svc-delay, 0ms), transform 760ms cubic-bezier(.2, .8, .2, 1) var(--svc-delay, 0ms), clip-path 900ms cubic-bezier(.2, .8, .2, 1) var(--svc-delay, 0ms);
+  }
+  [data-services-ready] [data-service-reveal="stagger"] > :nth-child(2) { --svc-delay: 90ms; }
+  [data-services-ready] [data-service-reveal="stagger"] > :nth-child(3) { --svc-delay: 180ms; }
+  [data-services-ready] [data-service-reveal="stagger"] > :nth-child(4) { --svc-delay: 270ms; }
+  [data-services-ready] [data-service-reveal="stagger"] > :nth-child(n + 5) { --svc-delay: 360ms; }
+  [data-services-ready] [data-service-from="above"] { --svc-from: -28px; }
+  [data-services-ready] [data-service-reveal=""]:not(.is-in, :focus-within),
+  [data-services-ready] [data-service-reveal="stagger"]:not(.is-in, :focus-within) > * { opacity: 0; transform: translateY(var(--svc-from, 28px)); }
+  /* Fotografías: se exponen como un fotograma, sin desplazar la retícula. */
+  /* El recorte va en la imagen: recortar el elemento observado anularía su intersección. */
+  [data-services-ready] [data-service-reveal="photo"] > img { clip-path: inset(0 0 0 0); }
+  [data-services-ready] [data-service-reveal="photo"]:not(.is-in) > img { clip-path: inset(0 100% 0 0); }
+  [data-services-ready] [data-service-from="above"][data-service-reveal="photo"]:not(.is-in) > img { clip-path: inset(0 0 0 100%); }
+}

@@ -2,5 +2,7 @@
 export const prerender = false;
 import Base from "../layouts/Base.astro";
 import Privacidad from "../components/m4/Privacidad.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("legal_privacidad");
 ---
-<Base title="Privacidad · borrador legal"><Privacidad /></Base>
+<Base title={seo.title} description={seo.description}><Privacidad /></Base>

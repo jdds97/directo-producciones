@@ -1,0 +1,5 @@
+---
+import TagLanding from './TagLanding.astro';
+interface Props { slug: string; label: string; taxonomy?: 'tag' | 'category'; cursor?: string }
+---
+<TagLanding {...Astro.props} />

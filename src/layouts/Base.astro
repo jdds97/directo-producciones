@@ -1,42 +1,93 @@
 ---
-import { siteLinks } from "../lib/site-navigation";
+import { getNavigation, pageImages } from "../lib/site-content";
 import Header from '../components/m4/Header.astro';
 import Footer from '../components/m4/Footer.astro';
+import WhatsAppAccess from '../components/m4/WhatsAppAccess.astro';
 import Menu from '../components/m4/Menu.astro';
-import { APP_ENV } from '../config/flags';
+import { ANALYTICS_ENABLED, APP_ENV, GA4_MEASUREMENT_ID } from '../config/flags';
+import { renderBlockers } from '../config/env-policy';
+import launch from '../../config/launch.json';
+import { buildSeo, jsonLdScript, type SeoInput } from '../lib/seo';
 import '../styles/m4-base.css';
 import '../styles/m4-suite.css';
 import '../styles/m4-refinements.css';
 import '../styles/site.css';
-interface Props { title: string; description?: string }
-const { title, description = 'Revisión local del diseño Directo Producciones. Textos revisados y borradores pendientes de publicación.' } = Astro.props;
-if (APP_ENV !== 'local') throw new Error('M4 se revisa exclusivamente en local.');
+import '../styles/m4-heroes.css';
+import '../styles/m4-transitions.css';
+interface Props {
+  title?: string;
+  description?: string;
+  transparentHeader?: boolean;
+  homeExperience?: boolean;
+  image?: SeoInput['image'];
+  type?: SeoInput['type'];
+  article?: SeoInput['article'];
+  crumbs?: SeoInput['crumbs'];
+  index?: boolean;
+  notFound?: boolean;
+  videos?: SeoInput['videos'];
+}
+const {
+  title,
+  description,
+  transparentHeader = false,
+  homeExperience = false,
+  image, type, article, crumbs, notFound = false, videos,
+} = Astro.props;
+const navigationItems = await getNavigation();
+// Defensa en profundidad tras local-gate: local siempre; preview solo con Access verificado; producción solo con el hito de lanzamiento completo.
+const blocked = renderBlockers(APP_ENV as 'local' | 'preview' | 'production', { accessVerified: Astro.locals.dpAccessVerified === true, launch });
+if (blocked.length) throw new Error(`Render cerrado en ${APP_ENV}: ${blocked.join('; ')}`);
 const dark = Astro.url.searchParams.get('theme') === 'dark';
+// Único emisor del <head>: título, descripción, robots, canonical, Open Graph/Twitter y JSON-LD salen de lib/seo.ts.
+const seo = buildSeo({
+  env: APP_ENV, requestOrigin: Astro.url.origin, path: Astro.url.pathname, search: Astro.url.search, title, description,
+  image, type, article, crumbs, notFound, videos, index: Astro.props.index ?? !Astro.url.pathname.startsWith('/interno/'),
+});
+const isAboutPage = ['/quienes-somos/', '/interno/m3/quienes-somos/'].includes(Astro.url.pathname);
+// Precarga de la imagen LCP que el navegador no descubre con prioridad alta: la foto de portada de Quiénes somos y el
+// póster del vídeo de Inicio, la que esté publicada (biblioteca de medios o foto del sitio).
+const lcpImage = isAboutPage ? (await pageImages('page_quienes')).hero_foto : homeExperience ? (await pageImages('page_home')).hero_poster : undefined;
 ---
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} · Directo Producciones · Borrador</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <meta name="robots" content={seo.robots} />
+    {ANALYTICS_ENABLED && GA4_MEASUREMENT_ID && <meta name="dp-ga4" content={GA4_MEASUREMENT_ID} />}
+    {seo.canonical && <link rel="canonical" href={seo.canonical} />}
+    {Object.entries(seo.og).map(([property, content]) => <meta property={property} content={content} />)}
+    {Object.entries(seo.twitter).map(([name, content]) => <meta name={name} content={content} />)}
+    {seo.jsonLd.map(data => <script type="application/ld+json" set:html={jsonLdScript(data)} />)}
     <meta name="color-scheme" content={dark ? 'dark' : 'light'} />
-    <link rel="icon" type="image/jpeg" href="/assets/m4/logo-original.jpg" />
-    <link rel="preload" href="/assets/m4/manrope.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    {APP_ENV !== 'preview' && <link rel="alternate" type="application/rss+xml" title="Blog de Directo Producciones" href="/rss.xml" />}
+    {lcpImage && <link rel="preload" as="image" href={lcpImage.src} fetchpriority="high" />}
+    <script is:inline src="/page-transition.js"></script>
+    <link rel="preload" href="/assets/m4/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   </head>
-  <body class:list={{'theme-dark': dark}}>
-    <div class="review-note">REVISIÓN LOCAL · Contenido pendiente de publicación. Envíos y analítica desactivados.</div>
+  <body class:list={{'theme-dark': dark, 'has-transparent-header': transparentHeader, 'has-home-experience': homeExperience}}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <div class:list={['artboard', {'theme-dark': dark}]}>
       <div id="design-root">
-        <Header />
-        <noscript><nav class="no-js-nav" aria-label="Navegación sin JavaScript">{siteLinks.map(link => <a href={link.href}>{link.label}</a>)}</nav></noscript>
-        <div id="contenido" tabindex="-1"><slot /></div>
-        <Footer />
+        <Header transparent={transparentHeader} />
+        <noscript><nav class="no-js-nav" aria-label="Navegación sin JavaScript">{navigationItems.map(link => <a href={link.href}>{link.label}</a>)}</nav></noscript>
+        <div id="scroll-container">
+          <div id="contenido" tabindex="-1"><slot /></div>
+          <Footer homeExperience={homeExperience} />
+        </div>
       </div>
     </div>
+    <WhatsAppAccess />
     <Menu />
     <script src="../scripts/site.ts"></script>
+    <script src="../scripts/contact-form.ts"></script>
   </body>
 </html>

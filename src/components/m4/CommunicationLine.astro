@@ -1,8 +1,82 @@
 ---
 import { pageHref } from "../../lib/site-navigation";
-import { draftCopy } from "../../lib/m4-draft";
+import { pageCopy, pageImages } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
 import ProjectCTA from "./ProjectCTA.astro";
-const copy = draftCopy("CommunicationLine");
-
+import CommunicationArt from "./CommunicationArt.astro";
+import "../../styles/services-editorial.css";
+const copy = await pageCopy("CommunicationLine");
+const photo = await pageImages("page_comunicacion");
+// Seis servicios, seis composiciones: cada panel tiene su propio formato gráfico.
+const services = [
+  { id: 'estrategia-campanas', fact: 'service.communication', art: 'campanas', tone: 'dark', label: copy['t009'], title: copy['t010'], body: copy['t011'], items: [copy['t012'], copy['t013']] },
+  { id: 'gabinete-prensa', fact: 'service.communication', art: 'prensa', tone: 'paper', label: copy['t014'], title: copy['t015'], body: copy['t016'], items: [copy['t017'], copy['t018']] },
+  { id: 'redes-contenidos', fact: 'service.digital_marketing', art: 'redes', tone: 'tint', label: copy['t019'], title: copy['t020'], body: copy['t021'], items: [copy['t022'], copy['t023']] },
+  { id: 'diseno-web', fact: 'service.digital_marketing', art: 'web', tone: 'paper', label: copy['t024'], title: copy['t025'], body: copy['t026'], items: [copy['t027'], copy['t028']] },
+  { id: 'seo-sem', fact: 'service.digital_marketing', art: 'buscadores', tone: 'tint', label: copy['t029'], title: copy['t030'], body: copy['t031'], items: [copy['t032'], copy['t033']] },
+] as const;
+const events = { id: 'organizacion-eventos', label: copy['t035'], title: copy['t036'], body: copy['t037'], items: [copy['t038'], copy['t039']] };
+// FAQ breve en borrador: solo reformula la oferta y los textos aportados por el cliente.
+const faq = [{ q: 't043', a: 't044' }, { q: 't045', a: 't046' }, { q: 't047', a: 't048' }, { q: 't049', a: 't050' }];
+const arrow = '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg>';
 ---
-<main><section class="page-hero pad"><div><p class="eyebrow">{copy["t001"]}</p><h1>{copy["t002"]}<br />{copy["t003"]}</h1></div><div class="page-intro"><p>{copy["t004"]}</p></div></section><section class="service-secondary section pad info-split" id="servicios-comunicacion"><div><p class="eyebrow">{copy["t005"]}</p><h2>{copy["t006"]}<br />{copy["t007"]}</h2></div><div><h3>{copy["t008"]}</h3><p>{copy["t009"]}</p><div class="service-questions"><p>{copy["t010"]}</p><p>{copy["t011"]}</p></div><a class="text-link" href={pageHref("contacto")}>{copy["t012"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section><section class="service-secondary section pad info-split" id="servicios-marketing"><div><p class="eyebrow">{copy["t013"]}</p><h2>{copy["t014"]}<br />{copy["t015"]}</h2></div><div><h3>{copy["t016"]}</h3><p>{copy["t017"]}</p><div class="service-questions"><p>{copy["t018"]}</p><p>{copy["t019"]}</p></div><a class="text-link" href={pageHref("contacto")}>{copy["t020"]}<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></section><ProjectCTA /></main>
+<main class="services-page communication-page" data-services-experience>
+  <section class="services-hero production-hero communication-hero" aria-labelledby="communication-title">
+    <div class="services-hero-copy">
+      <p class="eyebrow">{copy['t001']}</p>
+      <h1 id="communication-title">{copy['t002']}<br />{copy['t003']}</h1>
+      <p class="services-lead">{copy['t004']}</p>
+      <a class="button light" href="#servicios-comunicacion">Qué podemos hacer<Fragment set:html={arrow} /></a>
+    </div>
+    <figure class="m4-hero__bg production-hero__bg"><img {...imgAttrs(photo.hero_foto, { priority: true })} /></figure>
+  </section>
+
+  <section class="services-block communication-services" id="servicios-comunicacion" aria-labelledby="communication-services-title">
+    <header class="services-section-head" data-service-reveal="stagger">
+      <div><p class="eyebrow"><span aria-hidden="true">01 /</span> Servicios</p><h2 id="communication-services-title">Prensa, web,<br />redes y campañas.</h2></div>
+      <p>{copy['t008']}</p>
+    </header>
+    <div class="comm-board">
+      {services.map((service, index) => (
+        <article class={`comm-panel comm-panel--${service.art} comm-tone-${service.tone}`} id={service.id} data-fact-id={service.fact}>
+          <CommunicationArt kind={service.art} />
+          <div class="comm-copy" data-service-reveal="stagger">
+            <p class="comm-label"><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{service.label}</p>
+            <h3>{service.title}</h3>
+            <p>{service.body}</p>
+            <ul>{service.items.map(item => <li>{item}</li>)}</ul>
+          </div>
+        </article>
+      ))}
+      <article class="comm-panel comm-panel--eventos comm-tone-paper" id={events.id}>
+        <figure class="services-photo comm-photo" data-service-reveal="photo">
+          <img {...imgAttrs(photo.eventos_foto)} />
+        </figure>
+        <div class="comm-copy" data-service-reveal="stagger">
+          <p class="comm-label"><span aria-hidden="true">06</span>{events.label}</p>
+          <h3>{events.title}</h3>
+          <p>{events.body}</p>
+          <ul>{events.items.map(item => <li>{item}</li>)}</ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="services-block communication-bridge" aria-labelledby="communication-bridge-title">
+    <div class="communication-bridge-copy" data-service-reveal="stagger">
+      <p class="eyebrow"><span aria-hidden="true">02 /</span> Producción audiovisual</p>
+      <h2 id="communication-bridge-title">{copy['t040']}</h2>
+    </div>
+    <div class="communication-bridge-body" data-service-reveal="stagger">
+      <p>{copy['t041']}</p>
+      <a class="text-link" href={pageHref('produccion')}>{copy['t042']}<Fragment set:html={arrow} /></a>
+    </div>
+  </section>
+  <section class="services-block services-faq" id="preguntas-comunicacion" aria-labelledby="communication-faq-title">
+    <header class="services-section-head" data-service-reveal="stagger">
+      <div><p class="eyebrow"><span aria-hidden="true">03 /</span> Preguntas frecuentes</p><h2 id="communication-faq-title">Antes de<br />escribirnos.</h2></div>
+    </header>
+    <div class="services-faq-list" data-service-reveal="stagger">{faq.map(item => <details><summary>{copy[item.q]}</summary><p>{copy[item.a]}</p></details>)}</div>
+  </section>
+  <ProjectCTA variant="communication" />
+</main>

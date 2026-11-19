@@ -1,0 +1,85 @@
+---
+// Grafismos conceptuales de cada servicio de Comunicación; ninguno representa un caso o cliente.
+interface Props { kind: "campanas" | "prensa" | "redes" | "web" | "buscadores" }
+const { kind } = Astro.props;
+---
+<figure class={`service-art comm-art comm-art--${kind}`} data-service-graphic aria-hidden="true">
+  {kind === "campanas" && (
+    <svg viewBox="0 0 520 290" focusable="false">
+      <text class="sa-label sa-label-light" x="0" y="18">MENSAJES</text><text class="sa-label sa-label-light" x="232" y="18">PLANIFICACIÓN</text>
+      <g class="sa-routes"><path pathLength="1" d="M150 68H232M150 150H232M150 232H232" /></g>
+      {[0, 1, 2].map(r => (
+        <g class="sa-in" style={`--d:${r}`}>
+          <rect class="sa-paper" x="0" y={40 + r * 82} width="150" height="56" />
+          <rect class="sa-ink" x="12" y={54 + r * 82} width={[96, 72, 110][r]} height="8" /><path class="sa-mute-line" d={`M12 ${74 + r * 82}H${[132, 118, 100][r]}M12 ${82 + r * 82}H${[110, 96, 124][r]}`} />
+        </g>
+      ))}
+      <g class="sa-cells sa-cells-dark">
+        {[[1,1,1,0],[0,1,1,1],[1,0,0,1]].map((row, r) => row.map((on, c) => (
+          <rect class:list={[on ? "on" : "off", "sa-cell"]} style={`--d:${r + c + 2}`} x={232 + c * 72} y={40 + r * 82} width="64" height="56" />
+        )))}
+      </g>
+    </svg>
+  )}
+  {kind === "prensa" && (
+    <svg viewBox="0 0 400 300" focusable="false">
+      <g class="sa-in" style="--d:0">
+        <rect class="sa-paper sa-edge" x="0.5" y="0.5" width="239" height="299" />
+        <rect class="sa-ink" x="16" y="16" width="148" height="22" /><text class="sa-label sa-label-light" x="26" y="31">NOTA DE PRENSA</text>
+        <rect class="sa-bar sa-ink" style="--d:1" x="16" y="56" width="188" height="12" /><rect class="sa-bar sa-ink" style="--d:2" x="16" y="76" width="132" height="12" />
+        <rect class="sa-tint" x="16" y="104" width="208" height="72" /><path class="sa-mark" d="m30 164 26-26 18 18 16-16 36 28" />
+        <path class="sa-bar sa-mute-line" style="--d:3" d="M16 196H224M16 210H224M16 224H200M16 238H216M16 252H150" />
+        <path class="sa-rule" d="M16 270H224" />
+      </g>
+      <text class="sa-label" x="290" y="24">MEDIOS</text>
+      <g class="sa-routes"><path pathLength="1" d="M240 150H262V62H290M262 150H290M262 150V238H290" /></g>
+      {[0, 1, 2].map(i => (
+        <g class="sa-in" style={`--d:${i + 3}`}>
+          <rect class="sa-tint sa-edge" x="290" y={36 + i * 88} width="110" height="52" />
+          <rect class="sa-ink" x="300" y={46 + i * 88} width="46" height="7" /><path class="sa-mute-line" d={`M300 ${64 + i * 88}H388M300 ${73 + i * 88}H368`} />
+        </g>
+      ))}
+    </svg>
+  )}
+  {kind === "redes" && (
+    <svg viewBox="0 0 400 300" focusable="false">
+      <text class="sa-label" x="4" y="22">FORMATOS DE CONTENIDO</text>
+      <g class="sa-grow" style="--d:0"><rect class="sa-tint sa-edge" x="4" y="84" width="92" height="164" /><circle class="sa-ink" cx="24" cy="106" r="8" /><path class="sa-mute-line" d="M38 103H80M38 111H66" /><rect class="sa-soft" x="14" y="126" width="72" height="84" /><path class="sa-play" d="m42 156 18 12-18 12Z" /><path class="sa-mute-line" d="M14 226H70" /></g>
+      <g class="sa-grow" style="--d:1"><rect class="sa-paper sa-edge" x="116" y="128" width="120" height="120" /><circle class="sa-ink" cx="136" cy="148" r="8" /><path class="sa-mute-line" d="M150 145H216M150 153H196" /><rect class="sa-soft" x="128" y="166" width="96" height="62" /><path class="sa-mark" d="m138 220 22-22 16 16 14-14 24 20" /></g>
+      <g class="sa-grow" style="--d:2"><rect class="sa-ink" x="256" y="168" width="140" height="80" /><rect class="sa-soft-dark" x="266" y="178" width="120" height="48" /><path class="sa-play sa-play-light" d="m316 188 20 12-20 12Z" /><path class="sa-bar sa-light" d="M266 238H340" /></g>
+      <g class="sa-labels"><text x="4" y="274">VERTICAL</text><text x="116" y="274">CUADRADO</text><text x="256" y="274">HORIZONTAL</text></g>
+    </svg>
+  )}
+  {kind === "web" && (
+    <svg viewBox="0 0 520 300" focusable="false">
+      <g class="sa-in" style="--d:0">
+        <rect class="sa-paper sa-edge" x="0.5" y="0.5" width="359" height="259" /><rect class="sa-ink" x="0" y="0" width="360" height="28" />
+        <circle class="sa-dot" cx="14" cy="14" r="3" /><circle class="sa-dot" cx="25" cy="14" r="3" /><circle class="sa-dot" cx="36" cy="14" r="3" /><rect class="sa-soft-dark" x="56" y="8" width="180" height="12" rx="6" />
+      </g>
+      <g class="sa-in" style="--d:1"><rect class="sa-tint" x="16" y="44" width="328" height="84" /><rect class="sa-ink" x="32" y="62" width="172" height="12" /><rect class="sa-ink" x="32" y="82" width="120" height="12" /><rect class="sa-ink" x="32" y="104" width="64" height="12" /></g>
+      {[0, 1, 2].map(i => (
+        <g class="sa-in" style={`--d:${i + 2}`}><rect class="sa-edge" fill="none" x={16 + i * 112} y="144" width="104" height="82" /><rect class="sa-soft" x={24 + i * 112} y="152" width="88" height="34" /><path class="sa-mute-line" d={`M${24 + i * 112} 200H${96 + i * 112}M${24 + i * 112} 210H${80 + i * 112}`} /></g>
+      ))}
+      <g class="sa-in" style="--d:5">
+        <rect class="sa-paper sa-edge-ink" x="396" y="12" width="104" height="240" rx="10" />
+        <rect class="sa-tint" x="406" y="30" width="84" height="60" /><rect class="sa-ink" x="414" y="42" width="52" height="8" /><rect class="sa-ink" x="414" y="58" width="36" height="8" />
+        <rect class="sa-edge" fill="none" x="406" y="100" width="84" height="46" /><rect class="sa-edge" fill="none" x="406" y="156" width="84" height="46" /><rect class="sa-ink" x="406" y="214" width="84" height="22" />
+      </g>
+      <g class="sa-labels"><text x="0" y="288">ESCRITORIO</text><text x="396" y="288">MÓVIL</text></g>
+    </svg>
+  )}
+  {kind === "buscadores" && (
+    <svg viewBox="0 0 480 300" focusable="false">
+      <g class="sa-in" style="--d:0"><rect class="sa-paper sa-edge-ink" x="0.5" y="0.5" width="379" height="35" rx="17" /><circle class="sa-edge-ink" cx="22" cy="18" r="6" fill="none" /><path class="sa-edge-ink" d="m27 23 6 6" /><path class="sa-mute-line" d="M48 18H220" /></g>
+      {[0, 1].map(i => (
+        <g class="sa-in" style={`--d:${i + 1}`}><rect class="sa-ink" x="0" y={56 + i * 50} width="64" height="14" /><text class="sa-label sa-label-light sa-label-xs" x="6" y={67 + i * 50}>ANUNCIO</text><rect class="sa-ink" x="70" y={57 + i * 50} width={[200, 164][i]} height="10" /><path class="sa-mute-line" d={`M0 ${82 + i * 50}H${[330, 300][i]}`} /></g>
+      ))}
+      <path class="sa-rule" d="M0 160H380" />
+      {[0, 1, 2].map(i => (
+        <g class="sa-in" style={`--d:${i + 3}`}><rect class="sa-bar sa-ink-fill" x="0" y={176 + i * 40} width={[220, 180, 240][i]} height="10" /><path class="sa-mute-line" d={`M0 ${200 + i * 40}H${[340, 300, 320][i]}`} /></g>
+      ))}
+      <g class="sa-routes"><path pathLength="1" d="M396 56V114M396 176V288" /></g>
+      <g class="sa-in" style="--d:5"><text class="sa-label" x="410" y="80">SEM</text><text class="sa-note" x="410" y="98">Campañas</text><text class="sa-label" x="410" y="220">SEO</text><text class="sa-note" x="410" y="238">Orgánico</text></g>
+    </svg>
+  )}
+</figure>

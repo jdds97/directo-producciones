@@ -1,0 +1,20 @@
+---
+import type { ContentEntry } from 'emdash';
+import { getBlogPage, type BlogPage } from '../../lib/blog-feed';
+import type { BlogPost } from '../../lib/blog';
+import BlogFeed from './BlogFeed.astro';
+import BlogTagIndex from './BlogTagIndex.astro';
+import '../../styles/blog-editorial.css';
+// allEntries (todas las publicadas) alimenta el índice de etiquetas; se carga en el frontmatter de la ruta.
+interface Props { slug: string; label: string; taxonomy?: 'tag' | 'category'; cursor?: string; page?: BlogPage; allEntries?: ContentEntry<BlogPost>[] }
+const { slug, label, cursor, taxonomy = 'tag', allEntries = [] } = Astro.props;
+const { entries, nextCursor } = Astro.props.page ?? await getBlogPage(cursor, taxonomy, slug);
+const base = `/blog/${taxonomy === 'tag' ? 'etiqueta' : 'categoria'}/${encodeURIComponent(slug)}/`;
+const total = allEntries.filter(post => (post.data.terms?.[taxonomy] ?? []).some(term => term.slug === slug)).length || entries.length;
+---
+<main class="blog-editorial">
+  <header class="journal-masthead pad"><a class="journal-link" href="/blog/">← Volver al blog</a><p class="eyebrow">Blog / {taxonomy === 'tag' ? 'Etiqueta' : 'Categoría'}</p><div class="journal-title"><h1>{taxonomy === 'tag' && <span class="journal-title__hash" aria-hidden="true">#</span>}{label}</h1><p>{taxonomy === 'tag' ? `Entradas del blog etiquetadas con «${label}».` : `Entradas del blog en la categoría «${label}».`}{Boolean(entries.length) && <span class="journal-title__count">{total} {total === 1 ? 'entrada' : 'entradas'}</span>}</p></div></header>
+  {entries.length ? <section class="journal-archive pad" aria-labelledby="journal-archive-title"><h2 id="journal-archive-title">Publicaciones</h2><BlogFeed entries={entries} /></section> : <section class="journal-empty pad" aria-labelledby="journal-archive-empty-title"><img src="/assets/m4/logo-original.jpg" alt="" width="160" height="160" /><div><p class="eyebrow">Sin entradas todavía</p><h2 id="journal-archive-empty-title">{taxonomy === 'tag' ? 'Aún no hay entradas con esta etiqueta.' : 'Aún no hay entradas en esta categoría.'}</h2><p>Cuando se publique una, aparecerá aquí. Mientras tanto, puedes leer el resto del blog.</p><a class="journal-link" href="/blog/">Ver todas las entradas <span aria-hidden="true">→</span></a></div></section>}
+  {nextCursor && <nav class="journal-pagination pad" aria-label="Paginación del archivo"><a class="journal-link" href={`${base}?cursor=${encodeURIComponent(nextCursor)}`}>Publicaciones anteriores <span aria-hidden="true">→</span></a></nav>}
+  <BlogTagIndex entries={allEntries} activeSlug={taxonomy === 'tag' ? slug : undefined} />
+</main>

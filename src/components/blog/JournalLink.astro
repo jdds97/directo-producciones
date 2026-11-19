@@ -1,0 +1,8 @@
+---
+// Compact link mark: EmDash's default markup leaves whitespace inside the anchor, which underlines a trailing gap.
+const { node } = Astro.props as { node: { markDef: { href?: string; blank?: boolean } } };
+const raw = node?.markDef?.href ?? '';
+const href = /^(\/(?!\/)|#|https?:\/\/|mailto:)/i.test(raw) ? raw : '#';
+const external = /^https?:\/\//i.test(href);
+---
+<a href={href} target={external && node.markDef.blank ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}><slot /></a>

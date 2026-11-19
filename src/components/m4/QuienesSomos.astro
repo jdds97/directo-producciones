@@ -1,9 +1,154 @@
 ---
 import { pageHref } from "../../lib/site-navigation";
-import { draftCopy } from "../../lib/m4-draft";
+import { getTeam, pageCopy, pageImages } from "../../lib/site-content";
+import { imgAttrs } from "../../lib/media";
 import ProjectCTA from "./ProjectCTA.astro";
 
-const copy = draftCopy("QuienesSomos");
-
+const copy = await pageCopy("QuienesSomos");
+const photo = await pageImages("page_quienes");
+const team = await getTeam("about");
 ---
-<main><section class="page-hero pad"><div><p class="eyebrow">{copy["t001"]}</p><h1>{copy["t002"]}<br />{copy["t003"]}</h1></div><div class="page-intro"><p>{copy["t004"]}</p></div></section><section class="about-editorial section pad"><div class="about-company-heading"><div><p class="eyebrow">{copy["t005"]}</p><h2>{copy["t006"]}<br />{copy["t007"]}<br />{copy["t008"]}</h2></div><div class="about-company-copy"><p class="about-lead">{copy["t009"]}</p><p>{copy["t010"]}</p><p>{copy["t011"]}</p></div></div><div class="about-practices"><div class="about-practices-intro"><h3>{copy["t012"]}<br />{copy["t013"]}</h3><p>{copy["t014"]}</p><a class="text-link" href={pageHref("produccion")}>Producción<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a><a class="text-link" href={pageHref("comunicacion")}>Comunicación<svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></svg></a></div><div class="practice-lines"><div class="practice-line"><span>{copy["t016"]}</span><div><h3>{copy["t017"]}</h3><p>{copy["t018"]}</p></div></div><div class="practice-line"><span>{copy["t019"]}</span><div><h3>{copy["t020"]}</h3><p>{copy["t021"]}</p></div></div><div class="practice-line"><span>{copy["t022"]}</span><div><h3>{copy["t023"]}</h3><p>{copy["t024"]}</p></div></div></div></div><p class="team-pending">{copy["t025"]}</p></section><ProjectCTA variant="about" /></main>
+<main class="about-page" data-about-experience>
+  <section class="about-page-hero" data-about-hero aria-labelledby="about-page-title">
+    <div class="about-page-hero-content page-intro-shell">
+      <div class="about-page-hero-copy page-intro-layout">
+        <div class="about-page-hero-heading page-intro-heading">
+          <p class="eyebrow">{copy["t001"]}</p>
+          <h1 id="about-page-title" class="page-intro-title" data-about-reveal="title">{copy["t002"]}</h1>
+        </div>
+        <p class="about-page-hero-summary" data-about-reveal="intro">{copy["t004"]}</p>
+      </div>
+    </div>
+    <figure class="about-page-hero-work">
+      <img {...imgAttrs(photo.hero_foto, { priority: true, loading: "eager" })} />
+    </figure>
+  </section>
+
+  <section class="about-page-story" id="about-page-relato" aria-labelledby="about-page-story-title">
+    <div class="about-page-section-wrap about-page-story-grid">
+      <h2 id="about-page-story-title" data-about-reveal="title">{copy["t005"]}</h2>
+      <div class="about-page-story-copy" data-about-reveal="intro">
+        <p class="about-page-story-lead">{copy["t007"]}</p>
+        <p>{copy["t008"]}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-page-crew" id="about-page-equipo" aria-labelledby="about-page-crew-title">
+    <div class="about-page-section-wrap">
+      <header class="about-page-crew-header">
+        <div>
+          <p class="eyebrow">{copy["t018"]}</p>
+          <h2 id="about-page-crew-title" data-about-reveal="title">{copy["t019"]}</h2>
+        </div>
+        <p class="about-page-crew-intro" data-about-reveal="intro">{copy["t021"]}</p>
+      </header>
+
+      <div class="about-page-crew-stage">
+        <div class="about-page-crew-scenes">
+          <figure class="about-page-crew-scene about-page-crew-scene--group" data-about-reveal="photo-left">
+            <img {...imgAttrs(photo.escena_grupo, { sizes: "(max-width: 767px) 92vw, 33vw" })} />
+          </figure>
+          <figure class="about-page-crew-scene about-page-crew-scene--control" data-about-reveal="photo-right">
+            <img {...imgAttrs(photo.escena_control, { sizes: "(max-width: 767px) 92vw, 33vw" })} />
+          </figure>
+          <figure class="about-page-crew-scene about-page-crew-scene--coverage" data-about-reveal="photo-right">
+            <img {...imgAttrs(photo.escena_cobertura)} />
+          </figure>
+        </div>
+
+      <ul class="about-page-crew-grid" aria-labelledby="about-page-crew-title">
+        {team.map((person) => (
+          <li class="about-page-crew-person">
+            {person.photo && (
+              <figure class="about-page-crew-photo" data-about-reveal="photo">
+                <img {...imgAttrs(person.photo, { sizes: "(max-width: 767px) 42vw, (max-width: 1100px) 28vw, 18vw" })} />
+              </figure>
+            )}
+            <div class="about-page-crew-details" data-about-reveal="person">
+              <h3 class="about-page-crew-name">{person.name}</h3>
+              <p class="about-page-crew-role">{person.role}</p>
+              {person.bio && <p class="about-page-crew-bio">{person.bio}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+      </div>
+
+    </div>
+  </section>
+  <section class="about-page-crew-action" aria-labelledby="about-page-crew-action-title">
+    <div class="about-page-section-wrap">
+      <header class="about-page-crew-action-header">
+        <p class="eyebrow">{copy["t043"]}</p>
+        <h2 id="about-page-crew-action-title">{copy["t044"]}</h2>
+      </header>
+      <div class="about-page-crew-action-grid">
+        <figure class="about-page-crew-action-photo" data-about-reveal="photo-left">
+          <div class="about-page-crew-action-image">
+            <img {...imgAttrs(photo.accion_1, { sizes: "(max-width: 767px) 92vw, 33vw" })} />
+          </div>
+        </figure>
+        <figure class="about-page-crew-action-photo about-page-crew-action-photo--coverage" data-about-reveal="photo-right">
+          <div class="about-page-crew-action-image">
+            <img {...imgAttrs(photo.accion_2)} />
+          </div>
+        </figure>
+        <figure class="about-page-crew-action-photo about-page-crew-action-photo--realization" data-about-reveal="photo-right">
+          <div class="about-page-crew-action-image">
+            <img {...imgAttrs(photo.accion_3)} />
+          </div>
+        </figure>
+      </div>
+      <div class="about-page-crew-action-notes">
+        <article class="about-page-crew-action-note about-page-crew-action-note--work" data-about-reveal="intro">
+          <h3>{copy["t054"]}</h3>
+          <p>{copy["t055"]}</p>
+        </article>
+        <article class="about-page-crew-action-note about-page-crew-action-note--roles" data-about-reveal="intro">
+          <h3>{copy["t052"]}</h3>
+          <p>{copy["t053"]}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-page-collaboration" id="about-page-capacidades" aria-labelledby="about-page-collaboration-title">
+    <div class="about-page-section-wrap about-page-collaboration-grid">
+      <div class="about-page-collaboration-copy" data-about-reveal="collaboration">
+        <p class="eyebrow">{copy["t010"]}</p>
+        <h2 id="about-page-collaboration-title">{copy["t011"]}</h2>
+        <p class="about-page-collaboration-lead">{copy["t012"]}</p>
+        <div class="about-page-collaboration-editorial">
+          <article>
+            <h3>{copy["t056"]}</h3>
+            <p>{copy["t057"]}</p>
+          </article>
+          <article>
+            <h3>{copy["t058"]}</h3>
+            <p>{copy["t059"]}</p>
+          </article>
+        </div>
+        <div class="about-page-collaboration-links">
+          <a href={pageHref("produccion")}>
+            {copy["t013"]}
+            <svg class="icon about-page-collaboration-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+          <a href={pageHref("comunicacion")}>
+            {copy["t014"]}
+            <svg class="icon about-page-collaboration-arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="about-page-collaboration-photos">
+        <figure class="about-page-collaboration-photo" data-about-reveal="photo-left">
+          <img {...imgAttrs(photo.colabora_foto)} />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div data-about-reveal="cta">
+    <ProjectCTA variant="about" />
+  </div>
+</main>

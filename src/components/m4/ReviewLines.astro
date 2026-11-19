@@ -1,0 +1,95 @@
+---
+import review from '../../content/m3-review.json';
+import { pageHref } from '../../lib/site-navigation';
+
+const copy = review.home;
+---
+<section class="review-lines pad section" id="lineas" aria-label="Líneas de actividad">
+  <div class="review-lines-grid">
+    <article class="line-card streaming-card" data-enter="240">
+      <div class="line-card-glow" aria-hidden="true"></div>
+      <div class="card-diagram" aria-hidden="true">
+        <div class="diagram-monitor">
+          <div class="monitor-topbar">
+            <div class="monitor-status">
+              <span class="live-dot"></span>
+            </div>
+            <div class="monitor-meters">
+              <span class="meter-bar m1"></span>
+              <span class="meter-bar m2"></span>
+              <span class="meter-bar m3"></span>
+              <span class="meter-bar m4"></span>
+            </div>
+          </div>
+          <div class="monitor-screen-box">
+            <img class="card-real-photo" src="/assets/m4/coberturas/monitor-grabacion.jpg" alt="" loading="lazy" />
+            <div class="monitor-waveform">
+              <svg class="signal-wave-svg" viewBox="0 0 320 48" fill="none" preserveAspectRatio="none">
+                <path class="wave-bg" d="M0 24h35l8-12 12 24 10-16 6 8 10-4h45l10-16 12 28 8-14h40l8-10 10 20 8-10h78" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3" />
+                <path class="wave-active" d="M0 24h35l8-12 12 24 10-16 6 8 10-4h45l10-16 12 28 8-14h40l8-10 10 20 8-10h78" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <h2>{copy.streamingHeading}</h2>
+        <p>{copy.streamingParagraph}</p>
+      </div>
+
+      <div class="card-action">
+        <a class="button primary line-button" href={pageHref('produccion') + '#eventos'}>
+          <span>{copy.streamingCta}</span>
+          <svg class="icon arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></svg>
+        </a>
+      </div>
+    </article>
+
+    <article class="line-card communication-card" data-enter="320">
+      <div class="line-card-glow" aria-hidden="true"></div>
+      <div class="card-diagram" aria-hidden="true">
+        <div class="diagram-monitor comms-monitor">
+          <div class="monitor-topbar">
+            <div class="monitor-status">
+              <span class="comms-dot"></span>
+            </div>
+            <div class="radar-ping"></div>
+          </div>
+          <div class="monitor-screen-box">
+            <img class="card-real-photo" src="/assets/m4/coberturas/evento-deportivo.jpg" alt="" loading="lazy" />
+            <div class="comms-matrix-overlay">
+              <div class="matrix-node">
+                <div class="node-icon"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="m22 6-10 7L2 6" /></svg></div>
+              </div>
+              <div class="matrix-connector">
+                <svg viewBox="0 0 32 10" class="connector-svg" fill="none"><path d="M0 5h32" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" /></svg>
+              </div>
+              <div class="matrix-node">
+                <div class="node-icon"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg></div>
+              </div>
+              <div class="matrix-connector">
+                <svg viewBox="0 0 32 10" class="connector-svg" fill="none"><path d="M0 5h32" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" /></svg>
+              </div>
+              <div class="matrix-node">
+                <div class="node-icon"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <h2>{copy.communicationHeading}</h2>
+        <p>{copy.communicationParagraph}</p>
+      </div>
+
+      <div class="card-action">
+        <a class="button primary line-button" href={pageHref('comunicacion')}>
+          <span>{copy.communicationCta}</span>
+          <svg class="icon arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></svg>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>

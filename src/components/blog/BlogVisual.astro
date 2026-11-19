@@ -1,0 +1,11 @@
+---
+import type { ImageValue } from 'emdash';
+interface Props { image?: ImageValue | string; imageAlt?: string; priority?: boolean; caption?: string }
+const { image, imageAlt = '', priority = false, caption } = Astro.props;
+// The editorial gate blocks Astro's /_image optimizer (imageService is passthrough),
+// so media is served directly from EmDash's local media route.
+const src = typeof image === 'string' ? image : image?.src || (image?.meta?.storageKey ? `/_emdash/api/media/file/${image.meta.storageKey}` : '');
+// EmDash devuelve null (no undefined) en un campo de imagen vacío; typeof null === 'object'.
+const size = image && typeof image === 'object' ? { width: image.width, height: image.height } : {};
+---
+{src && <figure class="journal-image"><img src={src} alt={imageAlt} {...size} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />{caption && <figcaption>{caption}</figcaption>}</figure>}
