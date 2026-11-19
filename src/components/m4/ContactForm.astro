@@ -1,0 +1,110 @@
+---
+import { approvedFact } from "../../lib/facts";
+import { pageCopy } from "../../lib/site-content";
+import { RESULT_MESSAGES, SERVICES } from "../../lib/contact-mail";
+import { APP_ENV } from "../../config/flags";
+import ReviewNote from "./ReviewNote.astro";
+
+interface Props { variant?: "home" | "page" }
+const { variant = "page" } = Astro.props;
+const copy = await pageCopy("Contacto");
+const recipient = approvedFact("contact.form_recipient_email");
+const code = Astro.url.searchParams.get("consulta") ?? "";
+// Producción nunca simula el envío: un ?consulta=simulada escrito a mano no pinta el aviso de revisión.
+const result = APP_ENV === "production" && code.startsWith("simulada") ? "" : RESULT_MESSAGES[code] ?? "";
+const resultOk = ["simulada", "simulada-guardada", "enviada", "recibida"].includes(code);
+---
+
+<form
+  class:list={["contact-form", "contact-form--mail", { "home-contact-form": variant === "home" }]}
+  id={variant === "page" ? "consulta" : undefined}
+  method="post"
+  action="/api/contacto"
+  data-contact-form
+  data-fact-id={recipient?.id}
+  aria-describedby="contact-form-privacy contact-form-status"
+>
+  <h2>{variant === "home" ? copy.form_titulo_home : copy.form_titulo}</h2>
+
+  <div class="field">
+    <label for={`contact-${variant}-name`}>{copy.form_nombre_rotulo}</label>
+    <input id={`contact-${variant}-name`} name="name" type="text" autocomplete="name" required maxlength="100" />
+  </div>
+
+  <div class="field">
+    <label for={`contact-${variant}-email`}>{copy.form_email_rotulo}</label>
+    <input id={`contact-${variant}-email`} name="email" type="email" autocomplete="email" required maxlength="254" />
+  </div>
+
+  <div class="field">
+    <label for={`contact-${variant}-service`}>{copy.form_servicio_rotulo}</label>
+    <select id={`contact-${variant}-service`} name="service">
+      <option value="">{copy.form_servicio_vacio}</option>
+      {SERVICES.map((service) => <option value={service}>{service}</option>)}
+    </select>
+  </div>
+
+  <div class="field">
+    <label for={`contact-${variant}-message`}>{copy.form_mensaje_rotulo}</label>
+    <textarea id={`contact-${variant}-message`} name="message" rows={variant === "home" ? 5 : 7} required maxlength="2000"></textarea>
+  </div>
+
+  <div class="contact-form-trap" aria-hidden="true">
+    <label>No rellenar<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <p id="contact-form-privacy" class="contact-form-privacy">
+    Al enviar, esta web transmite tu nombre, tu correo, el servicio y el mensaje a su servidor para dirigir la consulta a <strong>{recipient?.value}</strong>; tu correo se usa como dirección de respuesta. La web no guarda estos datos ni abre WhatsApp. Consulta la <a href="/privacidad/">política de privacidad</a>.
+  </p>
+  <ReviewNote><p class="contact-form-local-note">{APP_ENV === "local" ? "Revisión local" : "Vista previa privada"}: en este entorno el envío se simula y no se entrega ningún correo real, salvo durante una prueba de entrega autorizada por el propietario (solo llega al buzón de la empresa).</p></ReviewNote>
+  <button class="button primary contact-form-submit" type="submit">
+    Enviar consulta
+    <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+  </button>
+  <p id="contact-form-status" class="contact-form-status" data-state={result ? (resultOk ? "ok" : "error") : undefined} role="status" aria-live="polite" tabindex="-1">{result}</p>
+</form>
+
+<style>
+  .contact-form--mail {
+    display: grid;
+    min-width: 0;
+    gap: 18px;
+    padding: clamp(24px, 4vw, 40px);
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+  .contact-form--mail h2 { margin-bottom: 4px; font-size: clamp(28px, 4vw, 40px); }
+  .contact-form--mail .field { display: grid; gap: 8px; }
+  .contact-form--mail label { font-size: 14px; font-weight: 700; }
+  .contact-form--mail :is(input, select, textarea) {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+  }
+  .contact-form--mail textarea { min-height: 128px; resize: vertical; }
+  .contact-form--mail :is(input, select, textarea):focus-visible {
+    outline: 3px solid var(--main);
+    outline-offset: 2px;
+  }
+  .contact-form-privacy,
+  .contact-form-status { font-size: 14px; line-height: 1.5; }
+  .contact-form-privacy a { color: var(--main); text-decoration: underline; text-underline-offset: 3px; }
+  .contact-form-submit { justify-self: start; }
+  .contact-form-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .contact-form-local-note { margin: 0; padding: 8px 12px; border-left: 3px solid var(--main); background: var(--soft, #f4f8fa); font-size: 14px; line-height: 1.5; }
+  .contact-form-status:empty { display: none; }
+  .contact-form-status { margin: 0; font-weight: 600; }
+  .contact-form-status[data-state="error"] { color: #8a1c1c; }
+  .contact-form-status:focus-visible { outline: 3px solid var(--main); outline-offset: 4px; }
+  .contact-form-submit[aria-disabled="true"] { opacity: .6; cursor: progress; }
+  .contact-method-note { max-width: 38ch; margin-top: 20px; color: var(--secondary); font-size: 16px; }
+  @media (max-width: 767px) {
+    .contact-form--mail { padding: 24px; }
+    .contact-form-submit { width: 100%; }
+  }
+</style>
