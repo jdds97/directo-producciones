@@ -1,7 +1,7 @@
 // Carga versionada e idempotente de las entradas del blog (content/blog/*.md) y su foto destacada en la D1 y el R2 (binding MEDIA).
 //   npx tsx scripts/cms-blog-remote.ts --env production --confirm-d1 <database_id de DB en env.production de wrangler.jsonc> [--retirar-antiguas] [--dry-run]
-//   npx tsx scripts/cms-blog-remote.ts --env preview --confirm-d1 <id> [--publish [--review]] [--retirar-antiguas] [--dry-run]
-//   npx tsx scripts/cms-blog-remote.ts --env local --confirm-d1 <id local> --persist-to .wrangler/<copia> [--publish [--review]] [--retirar-antiguas] [--dir <carpeta>]
+//   npx tsx scripts/cms-blog-remote.ts --env preview --confirm-d1 <id> [--publish [--review]] [--retirar-antiguas] [--actualizar-fotos] [--dry-run]
+//   npx tsx scripts/cms-blog-remote.ts --env local --confirm-d1 <id local> --persist-to .wrangler/<copia> [--publish [--review]] [--retirar-antiguas] [--actualizar-fotos] [--dir <carpeta>]
 // Fuente: content/blog/<slug>.md (--dir <carpeta> solo para ensayos). Frontmatter YAML: title, slug, seo_title (≤60), excerpt (≤155; también es la
 // meta description), category, tags, featured_image (clave de src/lib/media-registry.ts) e image_alt; cuerpo en Markdown → HTML (marked) → Portable Text.
 // Reglas:
@@ -15,7 +15,9 @@
 //  - --retirar-antiguas: papelera (borrado suave del panel: handleContentDelete) de las entradas de WordPress listadas en config/url-map.json
 //    (filas tipo «entrada», slug = último tramo de la ruta). Idempotente, nunca toca otras entradas ni medios; se restauran desde el panel.
 //    Es de UNA vez: repetirlo vuelve a mandar a la papelera las que se hayan restaurado (para cargar más entradas, sin esta opción).
-//  - Segunda pasada: 0 entradas, 0 medios, 0 fichas SEO y 0 a la papelera.
+//  - --actualizar-fotos (solo local o preview): en las entradas vivas que ya existen, si la foto destacada o su alt no son las del .md, sube la
+//    del .md y la cambia como el panel (handleContentUpdate). En producción la foto se cambia desde el panel.
+//  - Segunda pasada: 0 entradas, 0 medios, 0 fichas SEO, 0 fotos actualizadas y 0 a la papelera.
 // --dry-run no se conecta a nada (qué existe ya solo se sabe al ejecutar de verdad). Solo lee IDs de wrangler.jsonc (no secretos); la
 // autenticación remota es la de wrangler, que este script nunca lee ni imprime. Nadie debe escribir en el panel mientras corre.
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -27,7 +29,7 @@ import sharp from 'sharp';
 import { marked } from 'marked';
 import { parse as parseYaml } from 'yaml';
 import { applySeed } from 'emdash/seed';
-import { MediaRepository, computeContentHash, generatePlaceholder, handleContentDelete, ulid } from 'emdash';
+import { MediaRepository, computeContentHash, generatePlaceholder, handleContentDelete, handleContentUpdate, ulid } from 'emdash';
 import { htmlToPortableText } from '@emdash-cms/gutenberg-to-portable-text';
 import { evaluatePublish, emptyRequiredFields, clientConfirmsReason, internalLinks, knownRoutes, MEDIA_LIMITS, POST_SLUG, ROLE } from '../src/lib/editorial-policy.ts';
 import { mediaRegistry } from '../src/lib/media-registry.ts';
@@ -40,7 +42,9 @@ const dryRun = process.argv.includes('--dry-run');
 const publish = process.argv.includes('--publish');
 const review = process.argv.includes('--review');
 const retire = process.argv.includes('--retirar-antiguas');
+const updatePhotos = process.argv.includes('--actualizar-fotos');
 const persist = arg('--persist-to');
+if (updatePhotos && env === 'production') fail('--actualizar-fotos no se admite en producción: allí la foto se cambia desde el panel.');
 if (!['local', 'preview', 'production'].includes(env)) fail('Uso: --env preview|production|local --confirm-d1 <database_id> [--dir <carpeta>] [--publish [--review]] [--retirar-antiguas] [--dry-run] [--persist-to .wrangler/<copia> (solo local)]');
 if (publish && env === 'production') fail('--publish no se admite en producción: allí solo se publica desde el panel (content:beforePublish).');
 if (review && !publish) fail('--review solo se admite con --publish.');
@@ -226,6 +230,24 @@ try {
     console.log(`hecho: ${JSON.stringify({ content: result.content, taxonomies: result.taxonomies })}`);
     if (publish) console.log(`publicación (${go} publicadas, ${pending.length - go} en borrador):\n${held.join('\n')}`);
   } else console.log(`medios: ${JSON.stringify(n)}`);
+
+  // --actualizar-fotos: entradas vivas cuya foto destacada (por hash) o alt no coinciden con el .md.
+  if (updatePhotos) {
+    const changed: string[] = [];
+    for (const p of posts) {
+      const row = (await sql<{ id: string; fi: string | null; alt: string | null }>`select id, featured_image as fi, image_alt as alt from ec_posts
+        where slug = ${p.slug} and deleted_at is null`.execute(db)).rows[0];
+      if (!row) continue;
+      const currentId = row.fi ? (JSON.parse(row.fi) as { id?: string }).id : undefined;
+      const current = currentId ? await repo.findById(currentId) : null;
+      if (current?.contentHash === await computeContentHash(new Uint8Array(readFileSync(p.imagePath))) && row.alt === p.alt) continue;
+      const data = buildEntry(p, await upload(p)).data;
+      const res = await handleContentUpdate(db, 'posts', row.id, { data: { featured_image: data.featured_image, image_alt: p.alt } });
+      if (!res.success) throw new Error(`No se pudo actualizar la foto de ${p.slug}: ${res.error.code}`);
+      changed.push(p.slug);
+    }
+    console.log(`fotos destacadas actualizadas: ${changed.length}${changed.length ? ` (${changed.join(', ')}) · medios: ${JSON.stringify(n)}` : ''}`);
+  }
 
   // Ficha SEO (título y descripción) en _emdash_seo, como SeoRepository.upsert, solo si la entrada viva aún no la tiene (no pisa el panel).
   // Recorre todo el origen, no solo lo creado ahora: así una pasada cortada entre la creación y este paso se completa al repetirla.

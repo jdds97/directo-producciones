@@ -5,8 +5,8 @@ seo_title: "Vídeo corporativo en Sevilla: para qué sirve y proceso"
 excerpt: "Descubre para qué sirve un vídeo corporativo en Sevilla y cómo se produce, del guion a la edición. Cuéntanos tu idea y vemos cómo plantearla."
 category: produccion-audiovisual
 tags: [grabacion-edicion, realizacion]
-featured_image: servicios/programas-entrevista
-image_alt: "Entrevista grabada en una sala con dos personas sentadas y dos cámaras sobre trípode"
+featured_image: equipo/equipo-14
+image_alt: "Operador de cámara con auriculares junto a una cámara de vídeo sobre trípode en el graderío de un auditorio"
 ---
 Un vídeo corporativo cuenta quién eres, qué haces y por qué importa, en el formato que más se consume. Una empresa o institución de Sevilla que lo planifica bien dispone de una pieza útil durante mucho tiempo: en la web, en reuniones comerciales, en ferias o en redes sociales.
 
