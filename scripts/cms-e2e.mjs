@@ -107,7 +107,7 @@ await step('singleton · no se borra la entrada de página', async () => {
 });
 
 // ── 3. Publicación: clase A / B ────────────────────────────────────────────────────────
-const slugs = ['page_home', 'page_quienes', 'page_produccion', 'page_comunicacion', 'page_servicios', 'page_clientes', 'page_contacto', 'page_portfolio', 'page_blog', 'page_404', 'site_blocks', 'site_chrome'];
+const slugs = ['page_home', 'page_quienes', 'page_produccion', 'page_comunicacion', 'page_servicios', 'page_clientes', 'page_contacto', 'page_portfolio', 'page_faq', 'page_blog', 'page_404', 'site_blocks', 'site_chrome'];
 await step('publicar · el editor publica las páginas sin afirmaciones y se le bloquean las que llevan claims', async () => {
   const log = [];
   for (const col of slugs) {

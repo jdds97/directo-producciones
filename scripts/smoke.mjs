@@ -16,8 +16,8 @@ const reviewMarkerText = (() => {
   return new RegExp(m[1], m[2]);
 })();
 
-// Las 12 rutas que leen contenido del CMS (src/cms/scope.ts) y el blog: un contenido ausente da 500 y debe revertir el despliegue.
-for (const path of ['/', '/quienes-somos/', '/portfolio/', '/servicios/', '/comunicacion-marketing/', '/streaming/', '/clientes/', '/contacto/', '/cookies/', '/privacidad/', '/aviso-legal/', '/blog/']) {
+// Las 13 rutas que leen contenido del CMS (src/cms/scope.ts) y el blog: un contenido ausente da 500 y debe revertir el despliegue.
+for (const path of ['/', '/quienes-somos/', '/portfolio/', '/servicios/', '/comunicacion-marketing/', '/streaming/', '/clientes/', '/preguntas-frecuentes/', '/contacto/', '/cookies/', '/privacidad/', '/aviso-legal/', '/blog/']) {
   const r = await get(path);
   check(r.status === 200, `GET ${path} → 200 (${r.status})`);
   // Fuera de local, los textos legales publicados no llevan avisos de revisión (en local <ReviewNote> los muestra a propósito).

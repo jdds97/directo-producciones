@@ -10,7 +10,7 @@ export function isPanelPath(path: string): boolean {
 // contexto de petición; setup, auth, redirecciones y medios de EmDash siguen limitados a isCmsPath.
 const contentRoutes = new Set([
   '/', '/quienes-somos', '/portfolio', '/servicios', '/comunicacion-marketing', '/streaming', '/clientes',
-  '/contacto', '/404', '/cookies', '/privacidad', '/aviso-legal',
+  '/contacto', '/404', '/cookies', '/privacidad', '/aviso-legal', '/preguntas-frecuentes',
 ]);
 export function isContentPath(path: string): boolean {
   if (path.startsWith('/interno/')) return true; // páginas de revisión local: mismo Base, misma lectura

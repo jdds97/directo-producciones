@@ -31,8 +31,4 @@ export function initServicesExperience(root: HTMLElement): void {
     }
   }, { threshold: [0, .01] });
   for (const element of root.querySelectorAll<HTMLElement>('[data-service-reveal], [data-service-graphic]')) observer.observe(element);
-  // El scroll virtual de escritorio consume Espacio: el FAQ (details/summary) debe abrirse con él.
-  root.addEventListener('keydown', event => {
-    if ((event.key === ' ' || event.key === 'Enter') && event.target instanceof Element && event.target.closest('summary')) event.stopPropagation();
-  });
 }

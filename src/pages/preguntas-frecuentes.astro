@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import PreguntasFrecuentes from "../components/m4/PreguntasFrecuentes.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("page_faq");
+---
+<Base title={seo.title} description={seo.description}><PreguntasFrecuentes /></Base>

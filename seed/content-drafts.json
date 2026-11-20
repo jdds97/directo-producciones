@@ -384,6 +384,44 @@
         }
       }
     ],
+    "page_faq": [
+      {
+        "id": "page_faq:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Preguntas frecuentes",
+          "hero_eyebrow": "Preguntas frecuentes",
+          "hero_titulo_a": "Antes de",
+          "hero_titulo_b": "contactar.",
+          "hero_entradilla": "Respuestas breves sobre lo que hacemos y sobre cómo contactar con nosotros. El detalle de cada servicio está en su página.",
+          "g1_titulo": "Streaming y producción audiovisual",
+          "g1_p1": "¿Qué tipo de eventos retransmitís en directo?",
+          "g1_r1": "Realizamos grabación de eventos y resúmenes, y realización multicámara, streaming, unidad móvil y eventos híbridos.",
+          "g1_p2": "¿Qué incluye el servicio de streaming y puedo llevar la imagen a pantallas o combinar presencial y online?",
+          "g1_r2": "Según el proyecto: realización multicámara, unidad móvil, señal para pantallas LED y ampliación de imagen, y eventos híbridos.",
+          "g1_p3": "¿Qué tipo de piezas producís?",
+          "g1_r3": "Vídeos corporativos, de producto, testimoniales y formativos; spots, videoclips y contenido para redes; grabación de eventos y resúmenes; fotografía.",
+          "g1_p4": "¿Alquiláis material?",
+          "g1_r4": "Sí, con o sin operador. También ofrecemos fotografía, operadores de cámara y personal audiovisual.",
+          "g1_enlace": "Ver producción audiovisual",
+          "g2_titulo": "Comunicación y marketing",
+          "g2_p1": "¿Qué trabajáis en comunicación y marketing digital?",
+          "g2_r1": "Comunicación corporativa: estrategia y campañas, gabinete de prensa y comunicación institucional. Marketing digital: redes sociales y contenidos, diseño web, SEO y SEM.",
+          "g2_enlace": "Ver comunicación y marketing",
+          "g3_titulo": "Contratación y contacto",
+          "g3_p1": "¿Dónde está Directo Producciones?",
+          "g3_r1": "Tenemos sede en {{fact:entity.headquarters}}.",
+          "g3_p2": "¿Cómo pido información?",
+          "g3_r2": "En la página de contacto tienes los canales disponibles. Cuéntanos el evento o el proyecto; no hace falta un documento cerrado.",
+          "g3_p3": "¿Quién forma el equipo?",
+          "g3_r3": "Formamos el equipo de cada proyecto según sus necesidades, objetivos y dimensiones.",
+          "g3_p4": "¿Puedo escribiros por WhatsApp?",
+          "g3_r4": "Sí, desde el botón de WhatsApp de la web.",
+          "g3_enlace": "Conocer al equipo"
+        }
+      }
+    ],
     "page_blog": [
       {
         "id": "page_blog:main",

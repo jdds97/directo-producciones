@@ -18,6 +18,11 @@ if (!isCms) {
 
 // Header scroll state is synchronized with the active scroll engine below.
 const header = document.querySelector<HTMLElement>('.header');
+// El scroll virtual de escritorio (smooth-scrollbar escucha keydown en #scroll-container) consume Espacio: las preguntas
+// (details/summary) de cualquier página deben abrirse con él. #contenido está dentro del contenedor: se corta ahí la propagación.
+document.getElementById('contenido')?.addEventListener('keydown', event => {
+  if ((event.key === ' ' || event.key === 'Enter') && event.target instanceof Element && event.target.closest('summary')) event.stopPropagation();
+});
 
 
 document.querySelectorAll<HTMLButtonElement>('[data-client-toggle]').forEach(control => {

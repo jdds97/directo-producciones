@@ -179,13 +179,23 @@ export const collections: CollectionDef[] = [
       ...sec('Portada', 'hero', ['t001 eyebrow Etiqueta', 't002 titulo Titular', 't003 entradilla Entradilla']),
       ...ext('Selección', [['vacio_texto', 'Texto cuando no hay proyectos publicados', 'Próximamente, nuevos trabajos.']]),
     ] },
+  // Preguntas frecuentes: diseño fijo (grupos y orden en código); añadir o quitar una pregunta es un cambio de contrato.
+  { slug: 'page_faq', label: 'Preguntas frecuentes', labelSingular: 'Página Preguntas frecuentes', block: 'PreguntasFrecuentes', kind: 'page', icon: 'list', sortOrder: 85, routes: ['/preguntas-frecuentes/'],
+    fields: [
+      ...sec('Portada', 'hero', heroRows()),
+      ...sec('Streaming y producción', 'g1', ['t005 titulo Título', 't006 p1 Pregunta 1', 't007 r1 Respuesta 1', 't008 p2 Pregunta 2', 't009 r2 Respuesta 2',
+        't010 p3 Pregunta 3', 't011 r3 Respuesta 3', 't012 p4 Pregunta 4', 't013 r4 Respuesta 4', 't014 enlace Texto del enlace a Producción']),
+      ...sec('Comunicación y marketing', 'g2', ['t015 titulo Título', 't016 p1 Pregunta 1', 't017 r1 Respuesta 1', 't018 enlace Texto del enlace a Comunicación']),
+      ...sec('Contratación y contacto', 'g3', ['t019 titulo Título', 't020 p1 Pregunta 1', 't021 r1 Respuesta 1', 't022 p2 Pregunta 2', 't023 r2 Respuesta 2',
+        't024 p3 Pregunta 3', 't025 r3 Respuesta 3', 't026 p4 Pregunta 4', 't027 r4 Respuesta 4', 't028 enlace Texto del enlace a Quiénes somos']),
+    ] },
   { slug: 'page_blog', label: 'Portada del blog', labelSingular: 'Portada del blog', block: 'Blog', kind: 'page', icon: 'newspaper', sortOrder: 90, routes: ['/blog/'], images: [
       sl('Portada', 'hero_foto', 'Foto de portada', 'servicios/produccion-eng', 'Un cámara graba desde la grada un partido de fútbol al atardecer.'),
     ],
     fields: sec('Portada', 'hero', heroRows()) },
   { slug: 'page_404', label: 'Error 404', labelSingular: 'Página 404', block: '404', kind: 'page', icon: 'warning', sortOrder: 95, routes: ['/404'],
     fields: sec('Contenido', 'err', ['t001 eyebrow Etiqueta', 't002 codigo Código', 't003 titulo_a Titular, línea 1', 't004 titulo_b Titular, línea 2', 't005 texto Texto', 't006 boton_inicio Botón a Inicio', 't007 boton_contacto Botón a Contacto']) },
-  { slug: 'site_blocks', label: 'Bloques compartidos', labelSingular: 'Bloques compartidos', block: '*', kind: 'shared', icon: 'layers', sortOrder: 100, routes: ['/', '/servicios/', '/clientes/', '/streaming/', '/comunicacion-marketing/', '/quienes-somos/'], images: [
+  { slug: 'site_blocks', label: 'Bloques compartidos', labelSingular: 'Bloques compartidos', block: '*', kind: 'shared', icon: 'layers', sortOrder: 100, routes: ['/', '/servicios/', '/clientes/', '/streaming/', '/comunicacion-marketing/', '/quienes-somos/', '/preguntas-frecuentes/'], images: [
       sl('Banda de clientes', 'banda_poster', 'Imagen de espera del vídeo de fondo', 'coberturas/hero-review-poster', '', PHOTO, { decor: true }),
     ],
     videos: [
@@ -264,7 +274,7 @@ export const fixedKeys: FixedDef[] = [
   { block: 'Portfolio', keys: ['t004'], reason: 'mensaje de accesibilidad del reproductor' },
   { block: 'Testimonials', keys: Array.from({ length: 11 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`), reason: 'testimonios retirados por decisión del propietario' },
   { block: 'Header', keys: Array.from({ length: 13 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`).filter(k => k !== 't010'), reason: 'accesibilidad e interfaz: se mantienen en código (la etiqueta del botón «Hablemos» sí es editable)' },
-  { block: 'Footer', keys: Array.from({ length: 16 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`).filter(k => !['t004', 't005', 't006'].includes(k)), reason: 'navegación, aria y legales: derivan de site-navigation y del código' },
+  { block: 'Footer', keys: Array.from({ length: 17 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`).filter(k => !['t004', 't005', 't006'].includes(k)), reason: 'navegación, aria y legales: derivan de site-navigation y del código' },
   { block: 'SignalFlow', keys: Array.from({ length: 12 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`), reason: 'duplicado de los textos de recorrido de señal de Producción/Servicios; se edita allí' },
   { block: 'ClientBand', keys: Array.from({ length: 27 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`).filter(k => !['t001', 't002'].includes(k)), reason: 'nombres de logos de la banda: pasan a la lista «band_logos» (logo, nombre, variante, orden y visibilidad)' },
   { block: 'Clientes', keys: Array.from({ length: 32 }, (_, i) => `t${String(i + 5).padStart(3, '0')}`), reason: 'directorio de clientes: pasa a la colección «clients»' },

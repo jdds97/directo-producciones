@@ -102,6 +102,13 @@ test('campos obligatorios: la semilla completa pasa; vaciar un texto de «Cabece
   assert.equal(emptyRequiredFields('page_clientes', { ...seedMain('page_clientes'), hero_eyebrow: undefined }).length, 1);
   assert.deepEqual(emptyRequiredFields('team', {}), [], 'las listas tienen su propia validación');
 });
+test('preguntas frecuentes: la semilla la publica un editor (clase A, sin motivos), también fuera de local', () => {
+  for (const local of [true, false]) {
+    const d = evaluatePublish(base({ collection: 'page_faq', data: seedMain('page_faq'), local }));
+    assert.deepEqual(d.reasons, []); assert.equal(d.klass, 'A'); assert.deepEqual(d.claims, []);
+  }
+  assert.deepEqual(emptyRequiredFields('page_faq', seedMain('page_faq')), []);
+});
 test('slugs: páginas y fichas fijos; entradas con formato válido y fijas una vez publicadas', () => {
   assert.match(slugChangeDenied('page_404', { slug: 'main', published: true }, 'error') ?? '', /fijo/);
   assert.equal(slugChangeDenied('page_404', { slug: 'main', published: true }, 'main'), null);

@@ -1,0 +1,27 @@
+---
+import { pageCopy } from "../../lib/site-content";
+import { pageHref } from "../../lib/site-navigation";
+import PageHero from "./PageHero.astro";
+import ProjectCTA from "./ProjectCTA.astro";
+import "../../styles/services-editorial.css";
+const copy = await pageCopy("PreguntasFrecuentes");
+// Diseño fijo (D-49): grupos, orden y destinos en código; el texto, en el CMS. Claves literales: el guard busca cada tNNN aquí.
+const groups = [
+  { id: "streaming-produccion", title: "t005", qa: [["t006", "t007"], ["t008", "t009"], ["t010", "t011"], ["t012", "t013"]], link: { href: pageHref("produccion"), label: "t014" } },
+  { id: "comunicacion-marketing", title: "t015", qa: [["t016", "t017"]], link: { href: pageHref("comunicacion"), label: "t018" } },
+  { id: "contratacion-contacto", title: "t019", qa: [["t020", "t021"], ["t022", "t023"], ["t024", "t025"], ["t026", "t027"]], link: { href: pageHref("quienes-somos"), label: "t028" } },
+];
+---
+<main class="services-page">
+  <PageHero eyebrow={copy["t001"]} id="faq-title"><Fragment slot="title">{copy["t002"]}<br />{copy["t003"]}</Fragment><p>{copy["t004"]}</p></PageHero>
+  {groups.map((group, index) => (
+    <section class="services-block services-faq" id={group.id} aria-labelledby={`${group.id}-title`}>
+      <header class="services-section-head">
+        <div><p class="eyebrow"><span aria-hidden="true">{String(index + 1).padStart(2, "0")} /</span></p><h2 id={`${group.id}-title`}>{copy[group.title]}</h2></div>
+        <a class="text-link" href={group.link.href}>{copy[group.link.label]}<svg class="icon arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
+      </header>
+      <div class="services-faq-list">{group.qa.map(([q, a]) => <details><summary>{copy[q]}</summary><p>{copy[a]}</p></details>)}</div>
+    </section>
+  ))}
+  <ProjectCTA />
+</main>

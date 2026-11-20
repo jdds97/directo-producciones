@@ -7,6 +7,7 @@ interface Props { homeExperience?: boolean }
 const { homeExperience = false } = Astro.props;
 const navigationItems = await getNavigation();
 const copy = await pageCopy("Footer");
+const faqCurrent = Astro.url.pathname === "/preguntas-frecuentes/";
 ---
 
 <footer class:list={["footer", "pad", { "footer--home": homeExperience }]}>
@@ -23,6 +24,7 @@ const copy = await pageCopy("Footer");
               {link.label}
             </a>
           ))}
+          <a href="/preguntas-frecuentes/" aria-current={faqCurrent ? "page" : undefined}>{copy["t017"]}</a>
         </nav>
         <a href="#contenido" class="footer-home-top">
           Volver arriba
@@ -67,6 +69,7 @@ const copy = await pageCopy("Footer");
               {link.label}
             </a>
           ))}
+          <a href="/preguntas-frecuentes/" aria-current={faqCurrent ? "page" : undefined}>{copy["t017"]}</a>
         </div>
         <a href="#contenido" class="back-top">
           {copy["t012"]}

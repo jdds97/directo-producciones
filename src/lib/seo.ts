@@ -29,6 +29,8 @@ export const PAGES: Record<string, PageMeta> = {
     description: 'Fragmentos de directos, rodajes y conexiones de televisión de Directo Producciones, con su contexto.' },
   '/clientes/': { title: 'Clientes', crumb: 'Clientes', sitemap: true,
     description: 'Instituciones, empresas y marcas que forman parte de la trayectoria de Directo Producciones.' },
+  '/preguntas-frecuentes/': { title: 'Preguntas frecuentes', crumb: 'Preguntas frecuentes', sitemap: true,
+    description: 'Dudas habituales sobre streaming y directos, producción audiovisual, comunicación y marketing, y cómo contactar con Directo Producciones.' },
   '/contacto/': { title: 'Contacto', crumb: 'Contacto', sitemap: true,
     description: 'Cuéntanos el evento o el proyecto que estás preparando: formulario, teléfono, WhatsApp y correo de Directo Producciones.' },
   '/blog/': { title: 'Blog', crumb: 'Blog', sitemap: true,
