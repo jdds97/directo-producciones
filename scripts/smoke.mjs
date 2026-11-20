@@ -1,13 +1,34 @@
 // Smoke HTTP de solo lectura/rechazo: no envía ningún correo ni crea contenido. Sirve para el Worker local y para el
 // despliegue en CI (misma URL base como argumento). Sale con 1 al primer fallo para disparar el rollback.
 //   node scripts/smoke.mjs http://localhost:4450 [--local]    (--local: acepta noindex/no-store de los gates locales)
+//   node scripts/smoke.mjs <urlProducción> --closed          (D-62, despliegue cerrado: público en 503 y panel tras el login de Access)
 import { readFileSync } from 'node:fs';
 const base = (process.argv[2] ?? '').replace(/\/$/, '');
 const local = process.argv.includes('--local');
-if (!/^https?:\/\//.test(base)) { console.error('Uso: node scripts/smoke.mjs <urlBase> [--local]'); process.exit(2); }
+const closed = process.argv.includes('--closed');
+if (!/^https?:\/\//.test(base) || (local && closed)) { console.error('Uso: node scripts/smoke.mjs <urlBase> [--local | --closed]'); process.exit(2); }
 let failed = 0;
 const check = (cond, name) => { if (!cond) failed++; console.log(`${cond ? 'ok  ' : 'FAIL'} ${name}`); };
 const get = (path, init) => fetch(base + path, { redirect: 'manual', signal: AbortSignal.timeout(15000), ...init });
+const accessLogin = /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com\//;
+// D-62 · modo cerrado (config/launch.json closedDeploy con activated=false): todo lo público responde 503 de la compuerta del Worker
+// (también estáticos y API) y el panel redirige en el borde al login de Cloudflare Access, nunca 200. Un fallo dispara el rollback.
+// El 503 debe ser el de la compuerta (denyResponse: no-store y «Sitio no disponible.»), no uno del borde; y el login, el del equipo de Access
+// de producción en wrangler.jsonc (no basta cualquier *.cloudflareaccess.com).
+if (closed) {
+  for (const path of ['/', '/contacto/', '/blog/', '/robots.txt', '/sitemap.xml', '/api/contacto', '/assets/m4/logo-original.jpg']) {
+    const r = await get(path);
+    const gate = r.status === 503 && (r.headers.get('cache-control') ?? '').includes('no-store') && (await r.text()).includes('Sitio no disponible.');
+    check(gate, `cerrado: GET ${path} → 503 de la compuerta (${r.status})`);
+  }
+  const { unstable_readConfig } = await import('wrangler');
+  const team = String(unstable_readConfig({ config: 'wrangler.jsonc', env: 'production' }, { hideWarnings: true }).vars?.ACCESS_TEAM_DOMAIN ?? '');
+  const panel = await get('/_emdash/admin/');
+  const to = panel.headers.get('location') ?? '';
+  check([301, 302, 303, 307].includes(panel.status) && accessLogin.test(to) && !!team && new URL(to).host === team, `cerrado: /_emdash/admin/ redirige al login de Access de ${team || '(ACCESS_TEAM_DOMAIN vacío)'} (${panel.status} ${to || 'sin redirección'})`);
+  console.log(failed ? `\n${failed} comprobaciones fallidas` : '\nSmoke del despliegue cerrado correcto');
+  process.exit(failed ? 1 : 0);
+}
 // Avisos de revisión: el patrón se lee de su única fuente (src/lib/content-policy.ts) sin importar el módulo, que carga facts.ts y el
 // registro generado en .emdash/ (no existe en el rollback manual de deploy.yml, que no compila).
 const reviewMarkerText = (() => {
@@ -85,7 +106,7 @@ const toSetup = /\/_emdash\/admin\/setup/.test(adminTo);
 if (local && toSetup) console.log(`--   /_emdash/admin/ redirige al alta inicial (${adminTo}): completa el asistente local`);
 else check(!toSetup, `/_emdash/admin/ no redirige al alta inicial (${adminTo || 'sin redirección'})`);
 // Producción: el panel solo detrás de Cloudflare Access (redirección a su login en el borde, o 403/503 de la compuerta del Worker).
-if (!local) check([403, 503].includes(admin.status) || /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com\//.test(adminTo), `/_emdash/admin/ cerrado sin Cloudflare Access (${admin.status} ${adminTo})`);
+if (!local) check([403, 503].includes(admin.status) || accessLogin.test(adminTo), `/_emdash/admin/ cerrado sin Cloudflare Access (${admin.status} ${adminTo})`);
 const api = await get('/_emdash/api/content/page_home');
 check([301, 302, 303, 307, 401, 403, 503].includes(api.status), `API de contenido exige sesión (${api.status})`);
 const robotsHeader = home.headers.get('x-robots-tag') ?? '';

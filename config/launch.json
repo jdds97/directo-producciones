@@ -1,7 +1,9 @@
 {
   "_notaPreview": "previewChecklist: condiciones de la preview protegida (no exige el corte público). storageReady = medios en R2 con jurisdicción UE (decisión del propietario del 2026-11-05); pasa a true solo cuando haya pasado en la preview el smoke de subir, servir y borrar.",
-  "_nota": "Hito de primer lanzamiento. Solo el propietario lo cambia, en un PR revisado. Mientras activated sea false, deploy.yml no despliega. Tras activarlo, cada integración en main se despliega sola.",
+  "_nota": "Hito de primer lanzamiento. Solo el propietario lo cambia, en un PR revisado. Mientras activated sea false, deploy.yml no despliega (salvo el despliegue cerrado de closedDeploy). Tras activarlo, cada integración en main se despliega sola.",
+  "_notaCerrado": "D-62 · closedDeploy: solo el propietario lo pone a true, en un PR revisado. Con activated=false, deploy.yml despliega producción cerrada (público en 503, panel tras Access) con launch:readiness --closed y el smoke --closed. Con activated=true no tiene efecto.",
   "activated": false,
+  "closedDeploy": false,
   "previewChecklist": {
     "storageReady": false
   },

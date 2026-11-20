@@ -2,6 +2,8 @@ name: Deploy
 # Único mecanismo de despliegue (no hay Cloudflare Workers Builds). PREPARADO, NO ACTIVADO: el job `deploy` solo corre
 # cuando el propietario fija la variable de repositorio LAUNCH_ACTIVATED=true tras aprobar el primer lanzamiento.
 # A partir de ahí cada integración en main se despliega sola, sin aprobación humana por push.
+# D-62 · modo cerrado: también corre si config/launch.json tiene closedDeploy=true con activated=false (lo cambia el propietario por PR).
+# Despliega producción cerrada (público en 503, panel tras Access) con los mismos pasos: readiness y smoke en su variante --closed.
 on:
   push:
     branches: [main]
@@ -22,6 +24,23 @@ concurrency:
   group: deploy-production
   cancel-in-progress: false
 jobs:
+  # D-62: modo cerrado leído de config/launch.json del commit con isClosedDeploy (scripts/deploy-mode.ts). Corre también en el rollback
+  # manual, para que el rollback de un despliegue cerrado use su smoke. Sin variable de GitHub nueva.
+  mode:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    outputs:
+      closed_deploy: ${{ steps.mode.outputs.closed_deploy }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+      - id: mode
+        run: node scripts/deploy-mode.ts >> "$GITHUB_OUTPUT"
+
   verify:
     if: ${{ inputs.action != 'rollback' }}
     timeout-minutes: 15
@@ -52,9 +71,10 @@ jobs:
       - run: npm run build
 
   deploy:
-    needs: verify
-    # `needs` omitido por el salto de verify en rollback: se admite que verify haya sido «skipped».
-    if: ${{ always() && vars.LAUNCH_ACTIVATED == 'true' && (needs.verify.result == 'success' || (inputs.action == 'rollback' && needs.verify.result == 'skipped')) }}
+    needs: [mode, verify]
+    # `needs` omitido por el salto de verify en rollback: se admite que verify haya sido «skipped». Solo desde main (además de la política
+    # de ramas del entorno, que es remota) y solo con LAUNCH_ACTIVATED=true o con config/launch.json en modo cerrado (D-62).
+    if: ${{ always() && github.ref == 'refs/heads/main' && needs.mode.result == 'success' && (vars.LAUNCH_ACTIVATED == 'true' || needs.mode.outputs.closed_deploy == 'true') && (needs.verify.result == 'success' || (inputs.action == 'rollback' && needs.verify.result == 'skipped')) }}
     timeout-minutes: 25
     runs-on: ubuntu-latest
     # Entorno de GitHub «production»: ramas de despliegue = solo main y SIN revisores obligatorios (despliegue automático).
@@ -88,11 +108,12 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           npx wrangler rollback --env production --message "Rollback manual ${GITHUB_SHA}" --yes
-          node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}"
+          node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}" ${{ needs.mode.outputs.closed_deploy == 'true' && '--closed' || '' }}
 
+      # En modo cerrado exige solo la fase cerrada (Access del panel, leads/analítica apagados, público en 503) y lista el resto como información.
       - name: Preparado para lanzar (falla con la lista de bloqueos si no)
         if: ${{ inputs.action != 'rollback' }}
-        run: npm run launch:readiness
+        run: npm run launch:readiness ${{ needs.mode.outputs.closed_deploy == 'true' && '-- --closed' || '' }}
 
       - name: Compilar (perfil producción)
         if: ${{ inputs.action != 'rollback' }}
@@ -121,9 +142,10 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler deploy --env production
 
+      # En modo cerrado: público en 503 y /_emdash/admin/ redirigido al login de Access.
       - name: Smoke
         if: ${{ inputs.action != 'rollback' }}
-        run: node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}"
+        run: node scripts/smoke.mjs "${{ vars.PRODUCTION_URL }}" ${{ needs.mode.outputs.closed_deploy == 'true' && '--closed' || '' }}
 
       - name: Rollback automático si el smoke falla
         if: ${{ failure() && steps.deploy.outcome == 'success' }}
