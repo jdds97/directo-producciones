@@ -4479,7 +4479,7 @@
           "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 90
+            "maxLength": 60
           }
         },
         {
@@ -4488,16 +4488,16 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 200
+            "maxLength": 180
           }
         },
         {
           "slug": "g1_p2",
           "label": "Streaming y producción · Pregunta 2",
-          "type": "text",
+          "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 190
+            "maxLength": 120
           }
         },
         {
@@ -4506,7 +4506,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 220
+            "maxLength": 190
           }
         },
         {
@@ -4515,7 +4515,7 @@
           "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 70
+            "maxLength": 80
           }
         },
         {
@@ -4524,7 +4524,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 260
+            "maxLength": 180
           }
         },
         {
@@ -4569,16 +4569,16 @@
           "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 100
+            "maxLength": 110
           }
         },
         {
           "slug": "g2_r1",
           "label": "Comunicación y marketing · Respuesta 1",
-          "type": "text",
+          "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 290
+            "maxLength": 160
           }
         },
         {
@@ -4632,7 +4632,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 220
+            "maxLength": 170
           }
         },
         {
@@ -6260,10 +6260,10 @@
         {
           "slug": "bloque_012",
           "label": "Bloque legal 012",
-          "type": "text",
+          "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 180
+            "maxLength": 160
           }
         },
         {
@@ -6281,7 +6281,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 720
+            "maxLength": 300
           }
         },
         {
@@ -6299,7 +6299,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 450
+            "maxLength": 220
           }
         },
         {
@@ -6317,7 +6317,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 360
+            "maxLength": 190
           }
         },
         {
@@ -6335,7 +6335,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 480
+            "maxLength": 400
           }
         },
         {
@@ -6353,7 +6353,7 @@
           "type": "text",
           "required": false,
           "validation": {
-            "maxLength": 520
+            "maxLength": 280
           }
         },
         {

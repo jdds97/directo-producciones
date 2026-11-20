@@ -114,6 +114,7 @@ await step('publicar · el editor publica las páginas sin afirmaciones y se le 
     const e = await entry(col);
     if (e.status === 'published') { log.push(`${col}=ya`); continue; }
     const r = await publishStatus('editor', col, e.id);
+    if (col === 'page_faq') ok(r.status === 200, `page_faq debe ser clase A: ${r.status} ${reason(r)}`);
     log.push(`${col}=${r.status === 200 ? 'A' : 'B(' + r.status + ')'}`);
   }
   return log.join(' ');
