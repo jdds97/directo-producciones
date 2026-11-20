@@ -254,6 +254,8 @@ rect.sa-ink-fill { fill: var(--a-ink); }
 }
 @media (prefers-reduced-motion: reduce) {
   .services-page *, .services-page *::before, .services-page *::after { animation: none !important; transition: none !important; }
+  /* site.css anula todo transform con movimiento reducido; sin este giro estático el «+» de cerrado se vería como «−». */
+  .services-faq-list details:not([open]) summary::after { transform: rotate(90deg) !important; }
 }
 
 /* Comunicación · portada fija: tipografía petróleo sobre fondo claro y una fotografía real de cobertura, vertical y contenida. Sin movimiento propio. */
