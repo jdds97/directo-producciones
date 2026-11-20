@@ -31,7 +31,8 @@ if (APP_ENV === 'production') errors.push(...(closedDeploy ? closedErrors : laun
 if (APP_ENV === 'preview') errors.push(...previewBlockers(launchState));
 // Revisión privada: local, preview con protección real en wrangler (Access + compuerta delante de TODO) o producción en modo cerrado seguro
 // (público en 503; /_astro y /assets solo con el JWT de Access). Aplica los mismos controles de medios D-36/M2 (manifiesto, hash, procedencia,
-// alt) que local; NO es una aprobación de derechos ni de publicación pública. Producción con el lanzamiento activado no entra.
+// alt) que local; NO es una aprobación de derechos ni de publicación pública (en producción cerrada, confirmado por el propietario el
+// 19-11-2026, D-64). Producción con el lanzamiento activado no entra.
 let reviewEnv = APP_ENV === 'local' || (closedDeploy && closedErrors.length === 0);
 if (APP_ENV === 'preview') {
   const protection = previewProtectionBlockers(workerCfg('preview'));
