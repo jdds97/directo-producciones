@@ -124,7 +124,7 @@ export const collections: CollectionDef[] = [
       ...sec('TV online', 'tv', ['t027 chip Etiqueta', 't028 descripcion Descripción', 't029 preguntas Preguntas guía', ]),
       ...sec('Contenidos', 'cont', ['t032 titulo Título', 't033 prepro_titulo Preproducción, título', 't034 prepro_texto Preproducción, texto', 't035 prod_titulo Grabación, título', 't036 prod_texto Grabación, texto', 't037 f1 Formato 1', 't038 f2 Formato 2', 't039 f3 Formato 3', 't040 f4 Formato 4', 't041 f5 Formato 5', 't042 f6 Formato 6', 't043 f7 Formato 7']),
       ...sec('Cobertura y directos', 'directos', ['t045 texto Texto', 't046 s1 Servicio 1', 't047 s2 Servicio 2', 't048 s3 Servicio 3', 't049 s4 Servicio 4', 't050 s5 Servicio 5', 't051 s6 Servicio 6']),
-      ...sec('Edición y recursos', 'edicion', ['t054 edicion_titulo Edición, título', 't055 edicion_texto Edición, texto', 't056 equipo_titulo Equipo, título', 't057 equipo_texto Equipo, texto', 't058 r1 Recurso 1', 't060 r2 Recurso 2', 't061 r3 Recurso 3', 't062 r4 Recurso 4']),
+      ...sec('Edición y recursos', 'edicion', ['t054 edicion_titulo Edición, título', 't055 edicion_texto Edición, texto', 't056 equipo_titulo Equipo, título', 't057 equipo_texto Equipo, texto', 't058 r1 Recurso 1', 't060 r2 Recurso 2', 't061 r3 Recurso 3']),
       ...sec('Aplicaciones', 'apl', ['t065 texto Texto', 't066 c1 Contexto 1', 't067 c2 Contexto 2', 't068 c3 Contexto 3', 't069 c4 Contexto 4', 't070 tv_titulo Programas de TV, título', 't071 tv_texto Programas de TV, texto']),
       ...sec('Preguntas frecuentes', 'faq', ['t072 p1 Pregunta 1', 't073 r1 Respuesta 1', 't074 p2 Pregunta 2', 't075 r2 Respuesta 2', 't076 p3 Pregunta 3', 't077 r3 Respuesta 3', 't078 p4 Pregunta 4', 't079 r4 Respuesta 4']),
     ] },
@@ -279,7 +279,7 @@ export const fixedKeys: FixedDef[] = [
   { block: 'SignalFlow', keys: Array.from({ length: 12 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`), reason: 'duplicado de los textos de recorrido de señal de Producción/Servicios; se edita allí' },
   { block: 'ClientBand', keys: Array.from({ length: 27 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`).filter(k => !['t001', 't002'].includes(k)), reason: 'nombres de logos de la banda: pasan a la lista «band_logos» (logo, nombre, variante, orden y visibilidad)' },
   { block: 'Clientes', keys: Array.from({ length: 32 }, (_, i) => `t${String(i + 5).padStart(3, '0')}`), reason: 'directorio de clientes: pasa a la colección «clients»' },
-  { block: 'StreamingLine', keys: ['t059'], reason: 'timelapse retirado de la presentación pública por decisión del cliente' },
+  { block: 'StreamingLine', keys: ['t059', 't062'], reason: 'timelapse y alquiler de material retirados de la presentación pública por decisión del cliente' },
   { block: 'Guia', keys: Array.from({ length: 170 }, (_, i) => `t${String(i + 1).padStart(3, '0')}`), reason: 'guía interna de estilos' },
   { block: 'GuiaDark', keys: ['background', 'surface', 'tint', 'text', 'muted', 'action', 'actionText', 'line', 'controlLine', 'focus', 'error', 'errorSurface'], reason: 'tokens de la guía interna' },
   ];

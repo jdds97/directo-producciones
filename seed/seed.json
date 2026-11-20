@@ -2212,15 +2212,6 @@
           }
         },
         {
-          "slug": "edicion_r4",
-          "label": "Edición y recursos · Recurso 4",
-          "type": "string",
-          "required": false,
-          "validation": {
-            "maxLength": 60
-          }
-        },
-        {
           "slug": "apl_texto",
           "label": "Aplicaciones · Texto",
           "type": "string",
@@ -4533,16 +4524,16 @@
           "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 50
+            "maxLength": 60
           }
         },
         {
           "slug": "g1_r4",
           "label": "Streaming y producción · Respuesta 4",
-          "type": "text",
+          "type": "string",
           "required": false,
           "validation": {
-            "maxLength": 180
+            "maxLength": 130
           }
         },
         {
