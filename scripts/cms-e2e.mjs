@@ -107,13 +107,14 @@ await step('singleton · no se borra la entrada de página', async () => {
 });
 
 // ── 3. Publicación: clase A / B ────────────────────────────────────────────────────────
-const slugs = ['page_home', 'page_quienes', 'page_produccion', 'page_comunicacion', 'page_servicios', 'page_clientes', 'page_contacto', 'page_portfolio', 'page_blog', 'page_404', 'site_blocks', 'site_chrome'];
+const slugs = ['page_home', 'page_quienes', 'page_produccion', 'page_comunicacion', 'page_servicios', 'page_clientes', 'page_contacto', 'page_portfolio', 'page_faq', 'page_blog', 'page_404', 'site_blocks', 'site_chrome'];
 await step('publicar · el editor publica las páginas sin afirmaciones y se le bloquean las que llevan claims', async () => {
   const log = [];
   for (const col of slugs) {
     const e = await entry(col);
     if (e.status === 'published') { log.push(`${col}=ya`); continue; }
     const r = await publishStatus('editor', col, e.id);
+    if (col === 'page_faq') ok(r.status === 200, `page_faq debe ser clase A: ${r.status} ${reason(r)}`);
     log.push(`${col}=${r.status === 200 ? 'A' : 'B(' + r.status + ')'}`);
   }
   return log.join(' ');
@@ -139,6 +140,13 @@ await step('publicar · textos legales: el editor no; con un aviso de revisión 
   await api('admin', 'PUT', `/_emdash/api/content/legal_privacidad/${legal.id}`, { data: { bloque_014: legal.data.bloque_014 } });
   ok(e.status >= 400 && a.status >= 400 && /aviso de revisión/.test(reason(a)), `editor ${e.status}, admin ${a.status}: ${reason(a)}`);
   return `editor ${e.status}; admin ${a.status}: ${reason(a)}`;
+});
+await step('publicar · condiciones del servicio: con la semilla limpia, el editor no y el admin registrado sí', async () => {
+  const cond = await entry('legal_condiciones');
+  const e = await publishStatus('editor', 'legal_condiciones', cond.id);
+  const a = await publishStatus('admin', 'legal_condiciones', cond.id);
+  ok(e.status >= 400 && e.status < 500 && a.status === 200, `editor ${e.status}, admin ${a.status}: ${reason(a)}`);
+  return `editor ${e.status} («${reason(e)}»); admin registrado ${a.status}`;
 });
 
 // ── 4. Listas ──────────────────────────────────────────────────────────────────────────

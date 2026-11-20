@@ -1,0 +1,8 @@
+---
+export const prerender = false;
+import Base from "../layouts/Base.astro";
+import Condiciones from "../components/m4/Condiciones.astro";
+import { pageSeo } from "../lib/site-content";
+const seo = await pageSeo("legal_condiciones");
+---
+<Base title={seo.title} description={seo.description}><Condiciones /></Base>

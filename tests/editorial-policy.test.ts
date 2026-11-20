@@ -102,6 +102,13 @@ test('campos obligatorios: la semilla completa pasa; vaciar un texto de «Cabece
   assert.equal(emptyRequiredFields('page_clientes', { ...seedMain('page_clientes'), hero_eyebrow: undefined }).length, 1);
   assert.deepEqual(emptyRequiredFields('team', {}), [], 'las listas tienen su propia validación');
 });
+test('preguntas frecuentes: la semilla la publica un editor (clase A, sin motivos), también fuera de local', () => {
+  for (const local of [true, false]) {
+    const d = evaluatePublish(base({ collection: 'page_faq', data: seedMain('page_faq'), local }));
+    assert.deepEqual(d.reasons, []); assert.equal(d.klass, 'A'); assert.deepEqual(d.claims, []);
+  }
+  assert.deepEqual(emptyRequiredFields('page_faq', seedMain('page_faq')), []);
+});
 test('slugs: páginas y fichas fijos; entradas con formato válido y fijas una vez publicadas', () => {
   assert.match(slugChangeDenied('page_404', { slug: 'main', published: true }, 'error') ?? '', /fijo/);
   assert.equal(slugChangeDenied('page_404', { slug: 'main', published: true }, 'main'), null);
@@ -193,8 +200,9 @@ test('legales: un aviso de revisión bloquea la publicación aunque apruebe un a
   }
   assert.equal(evaluatePublish(base({ collection: 'legal_aviso', data: { ...seedMain('legal_aviso'), bloque_014: 'Las condiciones deben redactarse antes de su publicación.' }, actor: admin })).allow, false);
   assert.equal(legal('legal_cookies', 'Las cookies no afectan a la maquetación de la página.').allow, true, '«maquetación» no es un aviso');
-  // Los borradores semilla de los tres textos legales son publicables por un admin registrado (sin avisos, corchetes ni datos tecleados).
-  for (const col of ['legal_cookies', 'legal_privacidad', 'legal_aviso']) {
+  // Los borradores semilla de los cuatro textos legales están limpios para un admin registrado (sin avisos, corchetes ni datos tecleados):
+  // es la condición técnica para la revisión en preview sin 500, no una aprobación del texto.
+  for (const col of ['legal_cookies', 'legal_privacidad', 'legal_aviso', 'legal_condiciones']) {
     const d = evaluatePublish(base({ collection: col, data: seedMain(col), actor: admin, local: false }));
     assert.deepEqual(d.reasons, [], col); assert.equal(d.klass, 'B', col);
   }

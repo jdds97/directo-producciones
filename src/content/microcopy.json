@@ -259,7 +259,9 @@
   "t013": "Directo Producciones",
   "t014": "Aviso legal",
   "t015": "Privacidad",
-  "t016": "Cookies"
+  "t016": "Cookies",
+  "t017": "Preguntas frecuentes",
+  "t018": "Condiciones"
  },
  "StreamingLine": {
   "t005": "Streaming / El protagonista",
@@ -286,6 +288,7 @@
   "t052": "Edición y recursos audiovisuales",
   "t053": "Del montaje a la imagen.",
   "t059": "Timelapse",
+  "t062": "Alquiler con o sin operador",
   "t063": "Aplicaciones",
   "t064": "Producción para distintos contextos."
  },

@@ -31,7 +31,7 @@ function isSafePath(path) {
   return true;
 }
 
-const pagePaths = new Set(['/cookies/', '/privacidad/', '/aviso-legal/']);
+const pagePaths = new Set(['/preguntas-frecuentes/', '/cookies/', '/privacidad/', '/aviso-legal/', '/condiciones/']);
 function addPagePath(path) {
   if (!isSafePath(path)) throw new Error(`Ruta de navegación insegura: ${path}`);
   pagePaths.add(path);

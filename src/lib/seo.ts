@@ -29,6 +29,8 @@ export const PAGES: Record<string, PageMeta> = {
     description: 'Fragmentos de directos, rodajes y conexiones de televisión de Directo Producciones, con su contexto.' },
   '/clientes/': { title: 'Clientes', crumb: 'Clientes', sitemap: true,
     description: 'Instituciones, empresas y marcas que forman parte de la trayectoria de Directo Producciones.' },
+  '/preguntas-frecuentes/': { title: 'Preguntas frecuentes', crumb: 'Preguntas frecuentes', sitemap: true,
+    description: 'Dudas habituales sobre streaming y directos, producción audiovisual, comunicación y marketing, y cómo contactar con Directo Producciones.' },
   '/contacto/': { title: 'Contacto', crumb: 'Contacto', sitemap: true,
     description: 'Cuéntanos el evento o el proyecto que estás preparando: formulario, teléfono, WhatsApp y correo de Directo Producciones.' },
   '/blog/': { title: 'Blog', crumb: 'Blog', sitemap: true,
@@ -39,6 +41,8 @@ export const PAGES: Record<string, PageMeta> = {
     description: 'Información legal de la web de Directo Producciones.' },
   '/cookies/': { title: 'Política de cookies', crumb: 'Cookies', sitemap: true,
     description: 'Qué almacenamiento y cookies usa la web de Directo Producciones y cómo gestionarlos.' },
+  '/condiciones/': { title: 'Condiciones del servicio', crumb: 'Condiciones', sitemap: true,
+    description: 'Condiciones que se aplican a la información, los presupuestos y los encargos de servicios de Directo Producciones.' },
 };
 
 export interface VideoMeta { name: string; description: string; contentUrl: string; thumbnailUrl: string; uploadDate?: string }
@@ -192,7 +196,7 @@ export function rssXml(env: Env, requestOrigin: string, items: FeedItem[]): stri
 /** Índice Markdown curado (D-44): solo páginas públicas con URL canónica. No garantiza citas ni regula el entrenamiento. */
 export function llmsTxt(env: Env, requestOrigin: string): string {
   const origin = originFor(env, requestOrigin);
-  const lines = Object.entries(PAGES).filter(([p, m]) => m.sitemap && p !== '/' && !/\/(privacidad|aviso-legal|cookies)\/$/.test(p))
+  const lines = Object.entries(PAGES).filter(([p, m]) => m.sitemap && p !== '/' && !/\/(privacidad|aviso-legal|cookies|condiciones)\/$/.test(p))
     .map(([p, m]) => `- [${m.crumb}](${origin}${p}): ${m.description}`);
   return `# ${SITE_NAME}\n\n> ${SITE_DESCRIPTION}\n\n## Páginas\n\n${lines.join('\n')}\n`;
 }

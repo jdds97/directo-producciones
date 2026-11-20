@@ -166,7 +166,6 @@
           "edicion_r1": "Fotografía",
           "edicion_r2": "Operadores de cámara",
           "edicion_r3": "Personal audiovisual",
-          "edicion_r4": "Alquiler con o sin operador",
           "apl_texto": "Los formatos audiovisuales se adaptan al contexto y al desarrollo de cada evento.",
           "apl_c1": "Actos institucionales y corporativos",
           "apl_c2": "Eventos deportivos",
@@ -384,6 +383,44 @@
         }
       }
     ],
+    "page_faq": [
+      {
+        "id": "page_faq:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Preguntas frecuentes",
+          "hero_eyebrow": "Preguntas frecuentes",
+          "hero_titulo_a": "Antes de",
+          "hero_titulo_b": "contactar.",
+          "hero_entradilla": "Respuestas breves sobre lo que hacemos y sobre cómo contactar con nosotros. El detalle de cada servicio está en su página.",
+          "g1_titulo": "Streaming y producción audiovisual",
+          "g1_p1": "¿Qué hacéis en un evento?",
+          "g1_r1": "Lo grabamos y preparamos resúmenes, o lo retransmitimos en streaming con realización multicámara.",
+          "g1_p2": "¿Podéis llevar la señal a pantallas o hacer un evento híbrido?",
+          "g1_r2": "Sí, según el proyecto: unidad móvil, señal para pantallas LED y ampliación de imagen, y eventos híbridos.",
+          "g1_p3": "¿Hacéis también vídeo, no solo directos?",
+          "g1_r3": "Sí: vídeo corporativo, de producto, testimonial y formativo, spots, videoclips y contenido para redes.",
+          "g1_p4": "¿Hacéis también fotografía?",
+          "g1_r4": "Sí. También ofrecemos operadores de cámara y personal audiovisual.",
+          "g1_enlace": "Ver producción audiovisual",
+          "g2_titulo": "Comunicación y marketing",
+          "g2_p1": "¿Os ocupáis de la comunicación y el marketing digital?",
+          "g2_r1": "Sí: comunicación corporativa y marketing digital. Encontrarás el detalle en su página.",
+          "g2_enlace": "Ver comunicación y marketing",
+          "g3_titulo": "Contratación y contacto",
+          "g3_p1": "¿Dónde está Directo Producciones?",
+          "g3_r1": "Tenemos sede en {{fact:entity.headquarters}}.",
+          "g3_p2": "¿Cómo pido información?",
+          "g3_r2": "En la página de contacto tienes los canales disponibles. Cuéntanos el evento o el proyecto.",
+          "g3_p3": "¿Quién forma el equipo?",
+          "g3_r3": "Formamos el equipo de cada proyecto según sus necesidades, objetivos y dimensiones.",
+          "g3_p4": "¿Puedo escribiros por WhatsApp?",
+          "g3_r4": "Sí, desde el botón de WhatsApp de la web.",
+          "g3_enlace": "Conocer al equipo"
+        }
+      }
+    ],
     "page_blog": [
       {
         "id": "page_blog:main",
@@ -571,6 +608,40 @@
           "bloque_016": "Los textos, fotografías, vídeos, diseños, logotipos y demás contenidos de esta web son de {{fact:entity.legal_name}} o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial. Las marcas y logotipos de terceros que aparecen en la web pertenecen a sus respectivos titulares y se muestran solo con fines identificativos. No se permite reproducir, distribuir, comunicar públicamente ni transformar estos contenidos sin autorización previa y por escrito, salvo en los casos que permita la ley.",
           "bloque_017": "Responsabilidad y contacto",
           "bloque_018": "El titular procura que la información de esta web sea correcta y esté actualizada, pero no responde de los daños que puedan derivarse de interrupciones del servicio, errores técnicos o un uso indebido de la web. Los enlaces a sitios de terceros, como las redes sociales, se ofrecen solo a título informativo: el titular no controla su contenido y retirará cualquier enlace a contenidos ilícitos en cuanto tenga conocimiento de ellos. Para cualquier consulta sobre este aviso legal puedes escribir a {{fact:contact.form_recipient_email}}. Este aviso se rige por la legislación española."
+        }
+      }
+    ],
+    "legal_condiciones": [
+      {
+        "id": "legal_condiciones:main",
+        "slug": "main",
+        "status": "draft",
+        "data": {
+          "title": "Legal · Condiciones",
+          "bloque_001": "Información legal",
+          "bloque_002": "Condiciones",
+          "bloque_003": "del servicio.",
+          "bloque_004": "Qué se aplica a las solicitudes de información, a los presupuestos y a los encargos de servicios.",
+          "bloque_005": "Contenido",
+          "bloque_006": "Objeto y ámbito",
+          "bloque_007": "Información y presupuesto",
+          "bloque_008": "Aceptación del encargo",
+          "bloque_009": "Pagos, cambios y cancelaciones",
+          "bloque_010": "Material y derechos de uso",
+          "bloque_011": "Desplazamientos, responsabilidad y ley aplicable",
+          "bloque_012": "Esta web no vende ni cobra servicios: informa sobre ellos y permite pedir información.",
+          "bloque_013": "Objeto y ámbito",
+          "bloque_014": "Estas condiciones se refieren a los servicios que presta {{fact:entity.legal_name}}, con NIF {{fact:entity.tax_id}} y domicilio social en {{fact:entity.registered_address}}.",
+          "bloque_015": "Información y presupuesto",
+          "bloque_016": "Puedes pedir información por los canales de la página de contacto. Pedir información o un presupuesto no obliga a contratar.",
+          "bloque_017": "Aceptación del encargo",
+          "bloque_018": "La forma de aceptar el encargo y, si procede, de reservar la fecha se acuerda con el cliente en cada caso.",
+          "bloque_019": "Pagos, cambios y cancelaciones",
+          "bloque_020": "El precio, los pagos, los gastos aparte y lo que ocurre si se cambia, se aplaza o se cancela el encargo se acuerdan con el cliente en cada caso. Si el cliente es consumidor, conserva los derechos que le reconoce la normativa de consumo.",
+          "bloque_021": "Material y derechos de uso",
+          "bloque_022": "Qué material se entrega y para qué usos se acuerda con el cliente en cada encargo. El tratamiento de los datos personales se explica en la política de privacidad.",
+          "bloque_023": "Desplazamientos, responsabilidad y ley aplicable",
+          "bloque_024": "Los gastos de desplazamiento, si los hay, se acuerdan con el cliente en cada encargo. Cada parte responde del cumplimiento de sus obligaciones según lo pactado y la ley; si el cliente es consumidor, estas condiciones no limitan los derechos que le reconoce la normativa de consumo. Estas condiciones se rigen por la legislación española. Para cualquier consulta sobre ellas puedes usar los canales de la página de contacto."
         }
       }
     ],

@@ -2212,15 +2212,6 @@
           }
         },
         {
-          "slug": "edicion_r4",
-          "label": "Edición y recursos · Recurso 4",
-          "type": "string",
-          "required": false,
-          "validation": {
-            "maxLength": 60
-          }
-        },
-        {
           "slug": "apl_texto",
           "label": "Aplicaciones · Texto",
           "type": "string",
@@ -4402,6 +4393,287 @@
       ]
     },
     {
+      "slug": "page_faq",
+      "label": "Preguntas frecuentes",
+      "labelSingular": "Página Preguntas frecuentes",
+      "icon": "list",
+      "sortOrder": 85,
+      "group": "Páginas",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "hero_eyebrow",
+          "label": "Portada · Etiqueta",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "hero_titulo_a",
+          "label": "Portada · Titular, línea 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_titulo_b",
+          "label": "Portada · Titular, línea 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "hero_entradilla",
+          "label": "Portada · Entradilla",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 220
+          }
+        },
+        {
+          "slug": "g1_titulo",
+          "label": "Streaming y producción · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "g1_p1",
+          "label": "Streaming y producción · Pregunta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g1_r1",
+          "label": "Streaming y producción · Respuesta 1",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "g1_p2",
+          "label": "Streaming y producción · Pregunta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 120
+          }
+        },
+        {
+          "slug": "g1_r2",
+          "label": "Streaming y producción · Respuesta 2",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 190
+          }
+        },
+        {
+          "slug": "g1_p3",
+          "label": "Streaming y producción · Pregunta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "g1_r3",
+          "label": "Streaming y producción · Respuesta 3",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "g1_p4",
+          "label": "Streaming y producción · Pregunta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g1_r4",
+          "label": "Streaming y producción · Respuesta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 130
+          }
+        },
+        {
+          "slug": "g1_enlace",
+          "label": "Streaming y producción · Texto del enlace a Producción",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g2_titulo",
+          "label": "Comunicación y marketing · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g2_p1",
+          "label": "Comunicación y marketing · Pregunta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 110
+          }
+        },
+        {
+          "slug": "g2_r1",
+          "label": "Comunicación y marketing · Respuesta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "g2_enlace",
+          "label": "Comunicación y marketing · Texto del enlace a Comunicación",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "g3_titulo",
+          "label": "Contratación y contacto · Título",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g3_p1",
+          "label": "Contratación y contacto · Pregunta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "g3_r1",
+          "label": "Contratación y contacto · Respuesta 1",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "g3_p2",
+          "label": "Contratación y contacto · Pregunta 2",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g3_r2",
+          "label": "Contratación y contacto · Respuesta 2",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 170
+          }
+        },
+        {
+          "slug": "g3_p3",
+          "label": "Contratación y contacto · Pregunta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "g3_r3",
+          "label": "Contratación y contacto · Respuesta 3",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 150
+          }
+        },
+        {
+          "slug": "g3_p4",
+          "label": "Contratación y contacto · Pregunta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "g3_r4",
+          "label": "Contratación y contacto · Respuesta 4",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 90
+          }
+        },
+        {
+          "slug": "g3_enlace",
+          "label": "Contratación y contacto · Texto del enlace a Quiénes somos",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        }
+      ]
+    },
+    {
       "slug": "page_blog",
       "label": "Portada del blog",
       "labelSingular": "Portada del blog",
@@ -5846,6 +6118,251 @@
           "required": false,
           "validation": {
             "maxLength": 960
+          }
+        }
+      ]
+    },
+    {
+      "slug": "legal_condiciones",
+      "label": "Legal · Condiciones",
+      "labelSingular": "Condiciones del servicio",
+      "icon": "shield",
+      "sortOrder": 123,
+      "group": "Legal",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "bloque_001",
+          "label": "Bloque legal 001",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_002",
+          "label": "Bloque legal 002",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_003",
+          "label": "Bloque legal 003",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_004",
+          "label": "Bloque legal 004",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "bloque_005",
+          "label": "Bloque legal 005",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_006",
+          "label": "Bloque legal 006",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_007",
+          "label": "Bloque legal 007",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_008",
+          "label": "Bloque legal 008",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_009",
+          "label": "Bloque legal 009",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_010",
+          "label": "Bloque legal 010",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_011",
+          "label": "Bloque legal 011",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "bloque_012",
+          "label": "Bloque legal 012",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 160
+          }
+        },
+        {
+          "slug": "bloque_013",
+          "label": "Bloque legal 013",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_014",
+          "label": "Bloque legal 014",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 300
+          }
+        },
+        {
+          "slug": "bloque_015",
+          "label": "Bloque legal 015",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_016",
+          "label": "Bloque legal 016",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 220
+          }
+        },
+        {
+          "slug": "bloque_017",
+          "label": "Bloque legal 017",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_018",
+          "label": "Bloque legal 018",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 190
+          }
+        },
+        {
+          "slug": "bloque_019",
+          "label": "Bloque legal 019",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_020",
+          "label": "Bloque legal 020",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 400
+          }
+        },
+        {
+          "slug": "bloque_021",
+          "label": "Bloque legal 021",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_022",
+          "label": "Bloque legal 022",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 280
+          }
+        },
+        {
+          "slug": "bloque_023",
+          "label": "Bloque legal 023",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "bloque_024",
+          "label": "Bloque legal 024",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 700
           }
         }
       ]
