@@ -69,7 +69,7 @@ Para estructurar entradas: usa `h2` para las secciones (aparecen en el índice l
 - **Bloqueos duros para todos:** `lorem`, `example.com`, teléfonos de relleno, `TODO`/`PENDING` en mayúsculas, frases prohibidas, claves de hechos sin aprobar, logotipo sin confirmación de derechos y evidencia.
 - Los textos legales se publican como clase B y, mientras tengan marcadores sin sustituir, ni siquiera el administrador puede.
 - **Estructura (nadie, ni el administrador; auditoría del 3-11-2026):**
-  - Las 16 páginas (incluidas «Cabecera y pie», «Bloques comunes» y las legales) no se retiran, no se envían a la papelera, no se duplican y no se crea una segunda entrada; su identificador es siempre `main`. Para cambiar una página se edita y se publica.
+  - Las 17 páginas (incluidas «Cabecera y pie», «Bloques comunes» y las legales) no se retiran, no se envían a la papelera, no se duplican y no se crea una segunda entrada; su identificador es siempre `main`. Para cambiar una página se edita y se publica.
   - No se publica una página con un campo de texto vacío (fuera de local la ruta respondería 500).
   - Equipo, clientes, banda y proyectos: el identificador de cada ficha es fijo (el correo aprobado depende de él) y no se puede retirar, enviar a la papelera ni ocultar la última ficha visible publicada de una lista (Portfolio, Clientes y la banda nunca quedan vacíos).
   - Blog: el slug de una entrada solo admite minúsculas sin tildes, cifras y guiones (`a-z0-9-`) y no se cambia una vez publicada. Los enlaces internos del cuerpo (`/ruta/`, `/blog/slug/`, `/blog/categoria/…/`, `/blog/etiqueta/…/` o el dominio propio) deben apuntar a una página del sitio o a una entrada/término publicado; si no, la publicación se deniega con «Enlace interno roto».
@@ -89,7 +89,7 @@ Para estructurar entradas: usa `h2` para las secciones (aparecen en el índice l
 EmDash 1.1.0 no permite un tema propio. Se usan la marca nativa (`admin.logo`, `siteName`, favicon) y una portada propia mediante la API de plugins: página «Inicio del equipo» y widget «Estado del contenido» (Block Kit, solo lectura). No se ha bifurcado el núcleo. La portada es visible para editor/administrador y devuelve 401 sin sesión.
 
 ### Sin fallback silencioso
-La capa `src/lib/site-content.ts` lee contenido publicado. Si falta una entrada, en `APP_ENV=local` usa el borrador semilla y avisa en el log; en cualquier otro entorno lanza un error (no se sirve el JSON de borrador). **Antes de activar producción hay que sembrar las 71 entradas en borrador (`scripts/cms-seed-remote.ts`, abajo) y publicarlas desde el panel.**
+La capa `src/lib/site-content.ts` lee contenido publicado. Si falta una entrada, en `APP_ENV=local` usa el borrador semilla y avisa en el log; en cualquier otro entorno lanza un error (no se sirve el JSON de borrador). **Antes de activar producción hay que sembrar las 72 entradas en borrador (`scripts/cms-seed-remote.ts`, abajo) y publicarlas desde el panel.**
 
 ### Migración, caché, copia y WordPress
 - `npm run cms:migrate -- --persist-to .wrangler/<fase-*>` crea los borradores a partir de la semilla y es idempotente (segunda ejecución: 0 creados). `scripts/cms-provision.sh fase-<x> <puerto>` monta una persistencia nueva con usuarios sintéticos.
@@ -167,7 +167,7 @@ El resto de la web no debe importarse como si fueran entradas del blog. Inicio, 
   3. Con **solo el propietario** en la política de Access (quien pase Access mientras el asistente esté sin completar puede crear el administrador): `/_emdash/admin/` → asistente → administrador con passkey registrada en el dominio de producción (las de la preview no sirven: la passkey va ligada al host) y una segunda passkey de respaldo en otro dispositivo.
   4. Segundo administrador. Después se añaden a la política de Access los demás correos y se invita con enlace: cada persona necesita estar en la política **y** registrar su passkey.
   5. Aprobadores reales en `config/editorial-review.json` (`publishers`) mediante PR y redespliegue: sin ellos nadie publica clase B (legales, textos con afirmaciones y todas las entradas reales del blog), ni siquiera el administrador.
-  6. Publicar desde el panel las 71 entradas (páginas, listas y legales con su texto aprobado) y el blog, una vez cargado (hoy no hay vía: ver «Pendientes»). Las páginas no se ven en producción hasta activar: las comprueba el smoke del despliegue de activación, y una página sin contenido publicado da 500 y provoca el rollback del Worker (la D1 no se revierte).
+  6. Publicar desde el panel las 72 entradas (páginas, listas y legales con su texto aprobado) y el blog, una vez cargado (hoy no hay vía: ver «Pendientes»). Las páginas no se ven en producción hasta activar: las comprueba el smoke del despliegue de activación, y una página sin contenido publicado da 500 y provoca el rollback del Worker (la D1 no se revierte).
   7. Primera copia con `cms:backup -- export --env production` (sin tráfico, la indisponibilidad de la exportación no afecta a nadie) y anotar el punto de Time Travel de las dos D1.
   8. Activar el lanzamiento (`config/launch.json`).
 - **Recuperación de acceso:** sin correo integrado, la recuperación depende de tener dos administradores con dos passkeys cada uno. El procedimiento de emergencia sobre D1 está sin definir ni ensayar.
@@ -175,7 +175,7 @@ El resto de la web no debe importarse como si fueran entradas del blog. Inicio, 
 
 ## Legales y privacidad
 
-Las tres páginas legales son borradores, no textos vigentes (en la preview pueden estar publicadas con `--review` para que el cliente las revise, sin aprobación jurídica). El aviso legal y las condiciones de uso no pueden cerrarse hasta validar titular, NIF, domicilio, canal y condiciones reales. Denominación social, NIF y domicilio social están aprobados (1-11-2026) y se leen de `content/facts.yaml` por token; el resto de menciones, condiciones, política de privacidad, retención y cookies siguen pendientes de revisión jurídica.
+Las cuatro páginas legales son borradores, no textos vigentes (en la preview pueden estar publicadas con `--review` para que el cliente las revise, sin aprobación jurídica). Condiciones del servicio (`legal_condiciones`, `/condiciones/`, enlazada en la fila legal del pie) lleva un texto neutro de seis apartados que remite al presupuesto de cada encargo y no fija plazos, pagos, cancelaciones ni derechos: el texto definitivo depende de las respuestas del propietario y de una revisión jurídica, y sustituye al borrador en los mismos campos. El aviso legal y las condiciones de uso no pueden cerrarse hasta validar titular, NIF, domicilio, canal y condiciones reales. Denominación social, NIF y domicilio social están aprobados (1-11-2026) y se leen de `content/facts.yaml` por token; el resto de menciones, condiciones, política de privacidad, retención y cookies siguen pendientes de revisión jurídica.
 
 La política de privacidad describe el formulario implementado: la web envía nombre, correo, servicio y mensaje con un POST propio al destinatario aprobado (`contact.form_recipient_email`); no abre WhatsApp. Los plazos de conservación del buzón y del proveedor de correo, la base jurídica, el canal para ejercer derechos y el resto de la política siguen pendientes de validación antes de publicar.
 
@@ -192,4 +192,4 @@ La página de cookies indica que la web solo usa cookies técnicas necesarias (s
 - Revisar en el panel roles, passkeys, recuperación de acceso, migraciones y carga/lectura de medios en R2.
 - Probar listado, portada, taxonomías, imágenes, búsquedas/enlaces y publicación con contenido aprobado.
 
-EmDash está configurado en local como CMS del blog y de los textos de la web (fase 03). Las cuentas de producción, la migración de WordPress, la publicación de las 71 entradas en un entorno real y el backend productivo (D1 y R2) todavía no están activados.
+EmDash está configurado en local como CMS del blog y de los textos de la web (fase 03). Las cuentas de producción, la migración de WordPress, la publicación de las 72 entradas en un entorno real y el backend productivo (D1 y R2) todavía no están activados.

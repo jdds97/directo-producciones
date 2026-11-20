@@ -6132,6 +6132,251 @@
       ]
     },
     {
+      "slug": "legal_condiciones",
+      "label": "Legal · Condiciones",
+      "labelSingular": "Condiciones del servicio",
+      "icon": "shield",
+      "sortOrder": 123,
+      "group": "Legal",
+      "routable": false,
+      "hidden": false,
+      "titleField": "title",
+      "editLocking": true,
+      "supports": [
+        "drafts",
+        "revisions",
+        "seo"
+      ],
+      "commentsEnabled": false,
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Nombre interno de la página",
+          "type": "string",
+          "required": true,
+          "validation": {
+            "maxLength": 80
+          }
+        },
+        {
+          "slug": "bloque_001",
+          "label": "Bloque legal 001",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 50
+          }
+        },
+        {
+          "slug": "bloque_002",
+          "label": "Bloque legal 002",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_003",
+          "label": "Bloque legal 003",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_004",
+          "label": "Bloque legal 004",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "bloque_005",
+          "label": "Bloque legal 005",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_006",
+          "label": "Bloque legal 006",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_007",
+          "label": "Bloque legal 007",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_008",
+          "label": "Bloque legal 008",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_009",
+          "label": "Bloque legal 009",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_010",
+          "label": "Bloque legal 010",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_011",
+          "label": "Bloque legal 011",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "bloque_012",
+          "label": "Bloque legal 012",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 180
+          }
+        },
+        {
+          "slug": "bloque_013",
+          "label": "Bloque legal 013",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 40
+          }
+        },
+        {
+          "slug": "bloque_014",
+          "label": "Bloque legal 014",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 720
+          }
+        },
+        {
+          "slug": "bloque_015",
+          "label": "Bloque legal 015",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_016",
+          "label": "Bloque legal 016",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 450
+          }
+        },
+        {
+          "slug": "bloque_017",
+          "label": "Bloque legal 017",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_018",
+          "label": "Bloque legal 018",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 360
+          }
+        },
+        {
+          "slug": "bloque_019",
+          "label": "Bloque legal 019",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 70
+          }
+        },
+        {
+          "slug": "bloque_020",
+          "label": "Bloque legal 020",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 480
+          }
+        },
+        {
+          "slug": "bloque_021",
+          "label": "Bloque legal 021",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 60
+          }
+        },
+        {
+          "slug": "bloque_022",
+          "label": "Bloque legal 022",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 520
+          }
+        },
+        {
+          "slug": "bloque_023",
+          "label": "Bloque legal 023",
+          "type": "string",
+          "required": false,
+          "validation": {
+            "maxLength": 100
+          }
+        },
+        {
+          "slug": "bloque_024",
+          "label": "Bloque legal 024",
+          "type": "text",
+          "required": false,
+          "validation": {
+            "maxLength": 700
+          }
+        }
+      ]
+    },
+    {
       "slug": "clients",
       "label": "Clientes",
       "labelSingular": "Cliente",

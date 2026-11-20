@@ -140,6 +140,13 @@ await step('publicar · textos legales: el editor no; con un aviso de revisión 
   ok(e.status >= 400 && a.status >= 400 && /aviso de revisión/.test(reason(a)), `editor ${e.status}, admin ${a.status}: ${reason(a)}`);
   return `editor ${e.status}; admin ${a.status}: ${reason(a)}`;
 });
+await step('publicar · condiciones del servicio: con la semilla limpia, el editor no y el admin registrado sí', async () => {
+  const cond = await entry('legal_condiciones');
+  const e = await publishStatus('editor', 'legal_condiciones', cond.id);
+  const a = await publishStatus('admin', 'legal_condiciones', cond.id);
+  ok(e.status >= 400 && e.status < 500 && a.status === 200, `editor ${e.status}, admin ${a.status}: ${reason(a)}`);
+  return `editor ${e.status} («${reason(e)}»); admin registrado ${a.status}`;
+});
 
 // ── 4. Listas ──────────────────────────────────────────────────────────────────────────
 await step('listas · logotipo sin derechos no se publica', async () => {

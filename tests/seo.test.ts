@@ -108,7 +108,7 @@ test('llms.txt solo enlaza páginas públicas canónicas (sin legales)', () => {
   assert.match(text, /^# Directo Producciones\n\n> /);
   assert.match(text, /\(https:\/\/directoproducciones\.com\/streaming\/\)/);
   assert.match(text, /\(https:\/\/directoproducciones\.com\/preguntas-frecuentes\/\)/);
-  assert.doesNotMatch(text, /privacidad|aviso-legal|cookies|localhost|_emdash/);
+  assert.doesNotMatch(text, /privacidad|aviso-legal|cookies|condiciones|localhost|_emdash/);
 });
 test('normalizePath', () => {
   assert.equal(normalizePath('/servicios'), '/servicios/');
